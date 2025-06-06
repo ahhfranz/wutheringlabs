@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wuthering Labs</title>
+
+
+  <!--- Favicon -->
+  <link rel="icon" href="../icons/favicon.png" type="image/x-icon">
+
+  <!--- Link al CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!--- Links de fonts de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!--- Links de Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+
+  <div class="sidebar-overlay"></div>
+
+  <nav id="sidebar">
+
+    <div class="sidebar-header">
+      <a href="../index.html">
+        <img src="../images/logo.png" class="logo-wuwalabs" alt="Logo de WuWa Labs" width="120" height="36">
+        <img src="../images/logo2.png" class="logo-wuwalabsmini" alt="Logo de WuWa Labs pequeño" width="40" height="40">
+      </a>
+      <div class="sidebar-logo-divider"></div>
+      <button onclick=toggleSidebar() id="toggle-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+          <path
+            d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z" />
+        </svg>
+      </button>
+    </div>
+
+    <ul>
+
+      <li class="divider"></li>
+
+      <li class="home-btn">
+        <a href="../index.html" id="home-link">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
+          </svg>
+          <span>Inicio</span>
+        </a>
+      </li>
+
+      <li class="divider"></li>
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path d="M160-160v-320h160v320H160Zm240 0v-640h160v640H400Zm240 0v-440h160v440H640Z" />
+          </svg>
+          <span>Tier List</span>
+        </a>
+      </li>
+
+      <li class="divider"></li>
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M560-564v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-600q-38 0-73 9.5T560-564Zm0 220v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-380q-38 0-73 9t-67 27Zm0-110v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-490q-38 0-73 9.5T560-454ZM260-320q47 0 91.5 10.5T440-278v-394q-41-24-87-36t-93-12q-36 0-71.5 7T120-692v396q35-12 69.5-18t70.5-6Zm260 42q44-21 88.5-31.5T700-320q36 0 70.5 6t69.5 18v-396q-33-14-68.5-21t-71.5-7q-47 0-93 12t-87 36v394Zm-40 118q-48-38-104-59t-116-21q-42 0-82.5 11T100-198q-21 11-40.5-1T40-234v-482q0-11 5.5-21T62-752q46-24 96-36t102-12q58 0 113.5 15T480-740q51-30 106.5-45T700-800q52 0 102 12t96 36q11 5 16.5 15t5.5 21v482q0 23-19.5 35t-40.5 1q-37-20-77.5-31T700-240q-60 0-116 21t-104 59ZM280-494Z" />
+          </svg>
+          <span>Guías</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M480-120q-151 0-255.5-46.5T120-280v-400q0-66 105.5-113T480-840q149 0 254.5 47T840-680v400q0 67-104.5 113.5T480-120Zm0-479q89 0 179-25.5T760-679q-11-29-100.5-55T480-760q-91 0-178.5 25.5T200-679q14 30 101.5 55T480-599Zm0 199q42 0 81-4t74.5-11.5q35.5-7.5 67-18.5t57.5-25v-120q-26 14-57.5 25t-67 18.5Q600-528 561-524t-81 4q-42 0-82-4t-75.5-11.5Q287-543 256-554t-56-25v120q25 14 56 25t66.5 18.5Q358-408 398-404t82 4Zm0 200q46 0 93.5-7t87.5-18.5q40-11.5 67-26t32-29.5v-98q-26 14-57.5 25t-67 18.5Q600-328 561-324t-81 4q-42 0-82-4t-75.5-11.5Q287-343 256-354t-56-25v99q5 15 31.5 29t66.5 25.5q40 11.5 88 18.5t94 7Z" />
+          </svg>
+          <span>Base de datos</span>
+        </a>
+      </li>
+
+      <li class="divider"></li>
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M352-120H200q-33 0-56.5-23.5T120-200v-152q48 0 84-30.5t36-77.5q0-47-36-77.5T120-568v-152q0-33 23.5-56.5T200-800h160q0-42 29-71t71-29q42 0 71 29t29 71h160q33 0 56.5 23.5T800-720v160q42 0 71 29t29 71q0 42-29 71t-71 29v160q0 33-23.5 56.5T720-120H568q0-50-31.5-85T460-240q-45 0-76.5 35T352-120Zm-152-80h85q24-66 77-93t98-27q45 0 98 27t77 93h85v-240h80q8 0 14-6t6-14q0-8-6-14t-14-6h-80v-240H480v-80q0-8-6-14t-14-6q-8 0-14 6t-6 14v80H200v88q54 20 87 67t33 105q0 57-33 104t-87 68v88Zm260-260Z" />
+          </svg>
+          <span>Mods</span>
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+
+
+
+  <main>
+
+
+    <!-- Encabezado de la guía -->
+
+    <div class="guide-header">
+      <div class="guide-breadcrumbs">
+        <a href="../index.html">Wuthering Labs</a> / <a href="#">Guías</a> / <span>Guía para iniciantes</span>
+      </div>
+      <div class="guide-header-main">
+        <div class="intro-anim">
+          <div class="guide-img-wrapper">
+            <img src="../images/categorias/diaryclosed.png" alt="Introducción a Wuthering Waves"
+              class="guide-img default">
+            <img src="../images/categorias/diaryopen.png" alt="Introducción a Wuthering Waves" class="guide-img hover">
+          </div>
+        </div>
+        <div class="guide-header-info">
+          <h1 class="guide-header-title">Guía para iniciantes</h1>
+          <div class="guide-header-desc">Una guía para principiantes de Wuthering Waves que te ayudará a jugar de forma
+            eficiente desde el inicio.</div>
+          <div class="guide-header-date">última actualización: <b>06/06/2025</b></div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+    <!-- GUÍAS -->
+
+    <div class="guides-section">
+      <h2 class="guides-title"> <ion-icon name="map-outline"></ion-icon> EXPLORACIÓN</h2>
+
+      <section class="about-section">
+        <h2 class="about-title">
+        </h2>
+        <p>
+          Recorrer el mundo abierto no solo es emocionante, sino también clave para avanzar más rápido en el juego. Al
+          explorar los distintos territorios del mapa, podrás encontrar cofres ocultos, enemigos desafiantes, acertijos
+          ambientales y otros secretos que enriquecen tu aventura.</p>
+        <p>
+          Explorar a fondo te permitirá obtener recompensas valiosas como experiencia para subir tu <b>nivel de
+            Unión</b>,
+          <b>Astritas</b> (la moneda premium del juego), y diversos objetos útiles. Completar misiones secundarias,
+          descubrir
+          nuevos jefes y abrir cofres por primera vez acelera considerablemente tu progreso.
+        </p>
+        <p>
+          Durante la exploración, controlarás a uno de los tres resonadores de tu equipo, a quien puedes cambiar en
+          cualquier momento según la situación. Este personaje será tu avatar en pantalla, el que se mueve, combate y
+          resuelve los retos del entorno.
+        </p>
+        <p>
+          Fuera de las zonas seguras o ciudades, te encontrarás con enemigos patrullando libremente. Si te acercas
+          demasiado, entrarán en estado de alerta y te perseguirán, lo que añade un componente dinámico y estratégico a
+          cada travesía.
+        </p>
+
+        <div class="custom-img-container">
+          <img src="../images/capturas/1.png" alt="Exploración en Wuthering Waves" class="custom-img" />
+        </div>
+
+      </section>
+
+      <h2 class="guides-title"> <ion-icon name="shield-outline"></ion-icon> COMBATE</h2>
+      <section class="about-section">
+        <h2 class="about-title">
+        </h2>
+        <p>
+          El combate en Wuthering Waves es intensamente dinámico y estratégico. Aunque conformas un equipo con <b>3
+            Resonadores</b> (personajes), solo uno está activo en el campo de batalla en un momento dado. Sin embargo,
+          <b>puedes
+            cambiar entre ellos instantáneamente</b>, lo que añade una capa de fluidez y táctica a cada enfrentamiento.
+        <p>
+          Esta mecánica de cambio está profundamente integrada en las habilidades de los personajes: cada uno cuenta con
+          una habilidad de <b>Introducción (Intro)</b>, que se activa al entrar en combate y una habilidad de <b>Salida
+            (Outro)</b>, que se ejecuta
+          al salir, generando combos y sinergias únicas según el momento del intercambio.
+        </p>
+        <p>
+          El sistema fomenta que adaptes tu estilo según las situaciones, alternando entre Resonadores que pueden
+          especializarse en <b>control</b>, <b>daño explosivo</b> de un solo objetivo o múltiples, e incluso <b>apoyo
+            mediante curaciones y escudos</b>, haciendo que cada combate sea una experiencia
+          fresca y estratégica.
+        </p>
+        <p>
+          Adéntrate en el combate del juego y su lógica con el siguiente video:
+        </p>
+
+        <div class="youtube-video-container">
+          <iframe width="100%" height="400" src="https://www.youtube.com/embed/ep_9Qo8VqSI" title="YouTube video player"
+            frameborder="0" allowfullscreen></iframe>
+        </div>
+
+      </section>
+
+      <h2 class="guides-title"> <ion-icon name="man-outline"></ion-icon> RESONADORES</h2>
+      <section class="about-section">
+        <h2 class="about-title">
+        </h2>
+        <p>
+          Los Resonadores son los personajes jugables en Wuthering Waves. Cada uno cuenta con habilidades, estilos de
+          combate y roles únicos dentro del equipo, como daño principal, apoyo o control de masas. Son el núcleo del
+          sistema de combate y progresión del juego.
+        <p>
+          La forma principal de obtener nuevos Resonadores es a través de los banners que funcionan como un
+          sistema de gacha, es decir, un sistema de invocaciones aleatorias en el que puedes gastar una moneda del juego
+          (obtenida jugando o comprando) para intentar desbloquear nuevos personajes. Existen diferentes tipos de
+          banners, algunos permanentes y otros por tiempo limitado (promocionales), que suelen presentar Resonadores
+          exclusivos con una tasa de obtención mejorada.
+        </p>
+        <p>
+          Varios Resonadores también pueden conseguirse de forma gratuita
+          cumpliendo ciertos requisitos dentro del juego, como completar misiones principales, participar en eventos
+          especiales o alcanzar ciertos logros. Esto permite a todos los jugadores —incluso quienes no invierten dinero
+          real— acceder a personajes valiosos y competitivos si se esfuerzan en las actividades del juego.
+        </p>
+
+        <div class="personajes-grid">
+          <div class="personaje-card fondo-5">
+            <img src="../images/personajes/icon_carlotta.png" alt="Carlotta">
+            <div class="personaje-nombre">Carlotta</div>
+          </div>
+          <div class="personaje-card fondo-5">
+            <img src="../images/personajes/icon_cantarella.png" alt="Cantarella">
+            <div class="personaje-nombre">Cantarella</div>
+          </div>
+          <div class="personaje-card fondo-5">
+            <img src="../images/personajes/icon_camellya.png" alt="Camellya">
+            <div class="personaje-nombre">Camellya</div>
+          </div>
+          <div class="personaje-card fondo-5">
+            <img src="../images/personajes/icon_changli.png" alt="Changli">
+            <div class="personaje-nombre">Changli</div>
+          </div>
+          <div class="personaje-card fondo-4">
+            <img src="../images/personajes/icon_sanhua.png" alt="Sanhua">
+            <div class="personaje-nombre">Sanhua</div>
+          </div>
+          <div class="personaje-card fondo-4">
+            <img src="../images/personajes/icon_yangyang.png" alt="Yangyang">
+            <div class="personaje-nombre">Yangyang</div>
+          </div>
+        </div>
+
+      </section>
+
+      <h2 class="guides-title"> <ion-icon name="stats-chart-outline"></ion-icon> ESTADÍSTICAS</h2>
+      <section class="about-section">
+        <h2 class="about-title">
+        </h2>
+
+        <p>
+          Las estadísticas de los personajes son <b>valores numéricos</b> que determinan el
+          <b>rendimiento de cada Resonador en combate</b>. Estas estadísticas influyen directamente en aspectos clave
+          como el
+          <b>daño</b> que infligen, la <b>vida máxima</b> que tienen, la <b>velocidad</b> con la que recuperan sus
+          habilidades y mucho más.
+        <p>
+        <p>
+          Las estadísticas pueden ser:
+        <p>
+
+        <div class="stats-list">
+
+          <div class="stat-item">
+            <span class="stat-title">PS</span>
+            <span class="nowrap">
+              - Determina la vida adicional del resonador, y cuánto daño puede recibir antes de morir. La fórmula que se
+              utiliza para calcular los PS máximos es:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Vida Máxima = PS base<sub>Resonador</sub> &times; (1 + % Bonificación de PS) +
+                Bonificación de PS plana
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">ATQ</span>
+            <span class="nowrap">
+              - Determina cuánto daño inflige un Resonador. La fórmula que se utiliza para calcular el ATQ es:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                ATQ = (ATQ base<sub>Resonador</sub> + ATQ base<sub>Arma</sub>) &times; (1 + % Bonificación de ATQ) +
+                Bonificación de ATQ plana
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">DEF</span>
+            <span class="nowrap">
+              - Reduce el daño que recibe un Resonador. La fórmula que se utiliza para calcular la DEF es:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                DEF= DEF base<sub>Resonador</sub> &times; (1 + % Bonificación de DEF) +
+                Bonificación de DEF plana
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">Resistencia máx.</span>
+            <span class="nowrap">
+              - Determina cuánta resistencia continua puedes usar antes de agotarte, al realizar acciones como correr,
+              esquivar, escalar, nadar, planear y realizar ataques cargados.
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Después de no realizar ninguna de estas acciones durante 1,5 segundos, la energía se regenerará de forma
+                natural a una velocidad de 25 puntos de energía por segundo. El medidor de energía se muestra como una
+                barra amarilla a la derecha del personaje en el centro de la pantalla cuando se está agotando o
+                recargando, y se ocultará automáticamente cuando esté completamente cargada. Visualmente, el medidor
+                está dividido en secciones, cada una representando 100 puntos de energía.
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">Prob. CRIT</span>
+            <span class="nowrap">
+              - Probabilidad de que el Resonador haga un golpe crítico. Todos los personajes comienzan con un 5% de
+              probabilidad y se calcula:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Prob. CRIT= Prob. CRIT base<sub>Resonador</sub> + Prob. CRIT<sub>Arma</sub> + Prob.
+                CRIT<sub>Ecos</sub> + Prob. CRIT de bonificaciones<sub>Sets y habilidades</sub>
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">Daño CRIT</span>
+            <span class="nowrap">
+              - Multiplicador de daño al hacer un golpe crítico. Se calcula:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Daño Promedio= Daño &times; % de Daño CRIT &times; % de Prob. CRIT + Daño &times; (1 - % Prob. CRIT)
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">Regen. de energía</span>
+            <span class="nowrap">
+              - Velocidad de recarga de energía para la Liberación de Resonancia (Ultimate). Se calcula:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Energía ganada= Regen. de energía base<sub>Resonador</sub> &times; % de Regen. de energía
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">Bonif. de Habilidad de resonancia</span>
+            <span class="nowrap">
+              - Aumenta el daño de la Habilidad de Resonancia. Se calcula:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de Habilidad de Resonancia) &times; Otros
+                modificadores
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">Bonif. de Liberación de resonancia</span>
+            <span class="nowrap">
+              - Aumenta el daño de la Liberación de Resonancia (Ultimate). Se calcula:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de Liberación de resonancia) &times; Otros
+                modificadores
+              </span>
+            </div>
+          </div>
+
+
+          <div class="stat-item">
+            <span class="stat-title">Bonif. de ATQ básico</span>
+            <span class="nowrap">
+              - Aumenta el daño de los ataques básicos. Se calcula:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de ATQ básico) &times; Otros
+                modificadores
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">Bonif. de ATQ cargado</span>
+            <span class="nowrap">
+              - Aumenta el daño de los ataques cargados. Se calcula:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de ATQ cargado) &times; Otros
+                modificadores
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">Bonif. de Daño Elemental</span>
+            <span class="nowrap">
+              - Aumenta todo el daño elemental (hay seis elementos, cada uno con su propio bonus). Se calcula:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonificación de Daño Elemental) &times; Otros
+                modificadores
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">RES Elemental</span>
+            <span class="nowrap">
+              - Reduce el daño elemental recibido de un elemento específico. Se calcula:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Daño Recibido = Daño Base<sub>Resonador</sub> &times; (1 - RES Elemental)
+              </span>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-title">Bonif. de curación</span>
+            <span class="nowrap">
+              - Aumenta la cantidad de curación que proporciona un Resonador. Se calcula:
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Cantidad de Curación = Curación Base<sub>Resonador</sub> &times; (1 + Bonif. de
+                curación<sub>Resonador</sub>) + Bonif. de curación<sub>Objetivo</sub>
+              </span>
+            </div>
+          </div>
+
+          <h2 class="guides-title"> <ion-icon name="color-filter-outline"></ion-icon> ELEMENTOS</h2>
+          <section class="about-section">
+            <h2 class="about-title">
+            </h2>
+            <p>
+              En <b>Wuthering Waves</b>, cada Resonador está vinculado a un <b>Elemento elemental</b>, el cual define el tipo de daño
+              que inflige con sus <b>habilidades</b>, <b>ataques básicos</b> y <b>definitivas</b>.
+            <p>
+              El Elemento no solo determina la afinidad del personaje, sino que también interactúa con enemigos, efectos
+              de estado y mecánicas de resistencia y bonificación de daño.
+              Comprender la afinidad elemental de un Resonador es clave para optimizar <b>sinergias en equipo</b>,
+              contrarrestar enemigos resistentes y <b>potenciar el daño infligido</b>.
+            </p>
+            <p>
+              <b>Wuthering Waves</b> cuenta actualmente con <b>6 elementos</b> jugables:
+            </p>
+
+
+            <div class="stat-item">
+              <span class="gelio-title">
+                <img src="../images/elementos/icon_gelio.png" alt="Gelio" class="gelio-icon">
+                Gelio
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Test - Próximamente
+                </span>
+              </div>
+            </div>
+
+            <div class="stat-item">
+              <span class="fusion-title">
+                <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="fusion-icon">
+                Fusión
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Test - Próximamente
+                </span>
+              </div>
+            </div>
+
+
+            <div class="stat-item">
+              <span class="aero-title">
+                <img src="../images/elementos/icon_aero.png" alt="Aero" class="aero-icon">
+                Aero
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Test - Próximamente
+                </span>
+              </div>
+            </div>
+
+
+            <div class="stat-item">
+              <span class="electro-title">
+                <img src="../images/elementos/icon_electro.png" alt="Electro" class="electro-icon">
+                Electro
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Test - Próximamente
+                </span>
+              </div>
+            </div>
+
+            
+            <div class="stat-item">
+              <span class="espectro-title">
+                <img src="../images/elementos/icon_espectro.png" alt="Espectro" class="espectro-icon">
+                Espectro
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Test - Próximamente
+                </span>
+              </div>
+            </div>
+
+            
+            <div class="stat-item">
+              <span class="havoc-title">
+                <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="havoc-icon">
+                Destrucción
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Test - Próximamente
+                </span>
+              </div>
+            </div>
+
+
+          </section>
+
+
+
+
+
+
+
+
+  </main>
+
+  <!--- FOOTER -->
+
+  <footer>
+
+    <div class="footer-nav">
+
+      <div class="footercontainer">
+
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Navegación</h2>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="../index.html" class="footer-nav-link">Inicio</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="../index.html" class="footer-nav-link">Sobre nosotros</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Políticas de privacidad</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Descarga nuestra App</h2>
+          </li>
+
+          <a href="#"><img src="../images/play-store.png" alt="Google Play"></a>
+          <a href="#"><img src="../images/app-store.png" alt="App Store"></a>
+
+        </ul>
+
+        <ul class="footer-nav-list">
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Contacto</h2>
+          </li>
+
+          <li class="footer-nav-item flex">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <a href="mailto:wutheringlabs@gmail.com" target="_blank" class="footer-nav-link">wutheringlabs@gmail.com</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="footercontainer">
+
+      <div class="footer-bottom"></div>
+
+      <p class="copyright">
+        Copyright &copy; 2025 - Wuthering Labs by <a href="#">franz</a> - Todos los derechos reservados.
+      </p>
+
+    </div>
+
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!--- Ionicon links -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!--- Custom JS links -->
+  <script type="text/javascript" src="../js/app.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wuthering Labs</title>
+
+
+  <!--- Favicon -->
+  <link rel="icon" href="../icons/favicon.png" type="image/x-icon">
+
+  <!--- Link al CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!--- Links de fonts de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!--- Links de Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+
+  <div class="sidebar-overlay"></div>
+
+  <nav id="sidebar">
+
+    <div class="sidebar-header">
+      <a href="../index.html">
+        <img src="../images/logo.png" class="logo-wuwalabs" alt="Logo de WuWa Labs" width="120" height="36">
+        <img src="../images/logo2.png" class="logo-wuwalabsmini" alt="Logo de WuWa Labs pequeño" width="40" height="40">
+      </a>
+      <div class="sidebar-logo-divider"></div>
+      <button onclick=toggleSidebar() id="toggle-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+          <path
+            d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z" />
+        </svg>
+      </button>
+    </div>
+
+    <ul>
+
+      <li class="divider"></li>
+
+      <li class="home-btn">
+        <a href="../index.html" id="home-link">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
+          </svg>
+          <span>Inicio</span>
+        </a>
+      </li>
+
+      <li class="divider"></li>
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path d="M160-160v-320h160v320H160Zm240 0v-640h160v640H400Zm240 0v-440h160v440H640Z" />
+          </svg>
+          <span>Tier List</span>
+        </a>
+      </li>
+
+      <li class="divider"></li>
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M560-564v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-600q-38 0-73 9.5T560-564Zm0 220v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-380q-38 0-73 9t-67 27Zm0-110v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-490q-38 0-73 9.5T560-454ZM260-320q47 0 91.5 10.5T440-278v-394q-41-24-87-36t-93-12q-36 0-71.5 7T120-692v396q35-12 69.5-18t70.5-6Zm260 42q44-21 88.5-31.5T700-320q36 0 70.5 6t69.5 18v-396q-33-14-68.5-21t-71.5-7q-47 0-93 12t-87 36v394Zm-40 118q-48-38-104-59t-116-21q-42 0-82.5 11T100-198q-21 11-40.5-1T40-234v-482q0-11 5.5-21T62-752q46-24 96-36t102-12q58 0 113.5 15T480-740q51-30 106.5-45T700-800q52 0 102 12t96 36q11 5 16.5 15t5.5 21v482q0 23-19.5 35t-40.5 1q-37-20-77.5-31T700-240q-60 0-116 21t-104 59ZM280-494Z" />
+          </svg>
+          <span>Guías</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M480-120q-151 0-255.5-46.5T120-280v-400q0-66 105.5-113T480-840q149 0 254.5 47T840-680v400q0 67-104.5 113.5T480-120Zm0-479q89 0 179-25.5T760-679q-11-29-100.5-55T480-760q-91 0-178.5 25.5T200-679q14 30 101.5 55T480-599Zm0 199q42 0 81-4t74.5-11.5q35.5-7.5 67-18.5t57.5-25v-120q-26 14-57.5 25t-67 18.5Q600-528 561-524t-81 4q-42 0-82-4t-75.5-11.5Q287-543 256-554t-56-25v120q25 14 56 25t66.5 18.5Q358-408 398-404t82 4Zm0 200q46 0 93.5-7t87.5-18.5q40-11.5 67-26t32-29.5v-98q-26 14-57.5 25t-67 18.5Q600-328 561-324t-81 4q-42 0-82-4t-75.5-11.5Q287-343 256-354t-56-25v99q5 15 31.5 29t66.5 25.5q40 11.5 88 18.5t94 7Z" />
+          </svg>
+          <span>Base de datos</span>
+        </a>
+      </li>
+
+      <li class="divider"></li>
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M352-120H200q-33 0-56.5-23.5T120-200v-152q48 0 84-30.5t36-77.5q0-47-36-77.5T120-568v-152q0-33 23.5-56.5T200-800h160q0-42 29-71t71-29q42 0 71 29t29 71h160q33 0 56.5 23.5T800-720v160q42 0 71 29t29 71q0 42-29 71t-71 29v160q0 33-23.5 56.5T720-120H568q0-50-31.5-85T460-240q-45 0-76.5 35T352-120Zm-152-80h85q24-66 77-93t98-27q45 0 98 27t77 93h85v-240h80q8 0 14-6t6-14q0-8-6-14t-14-6h-80v-240H480v-80q0-8-6-14t-14-6q-8 0-14 6t-6 14v80H200v88q54 20 87 67t33 105q0 57-33 104t-87 68v88Zm260-260Z" />
+          </svg>
+          <span>Mods</span>
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+
+
+
+  <main>
+
+
+    <!-- Encabezado de la guía -->
+
+    <div class="guide-header">
+      <div class="guide-breadcrumbs">
+        <a href="../index.html">Wuthering Labs</a> / <a href="#">Guías</a> / <span>Introducción al juego</span>
+      </div>
+      <div class="guide-header-main">
+        <div class="intro-anim">
+          <div class="guide-img-wrapper">
+            <img src="../images/categorias/compass.png" alt="Introducción a Wuthering Waves" class="guide-img default">
+            <img src="../images/categorias/compass2.png" alt="Introducción a Wuthering Waves" class="guide-img hover">
+          </div>
+        </div>
+        <div class="guide-header-info">
+          <h1 class="guide-header-title">Introducción al juego</h1>
+          <div class="guide-header-desc">Introducción para iniciantes.</div>
+          <div class="guide-header-date">última actualización: <b>06/06/2025</b></div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+    <!-- GUÍAS -->
+
+    <div class="guides-section">
+      <h2 class="guides-title"> <ion-icon name="book-outline"></ion-icon> ACERCA DEL JUEGO</h2>
+
+      <section class="about-section">
+        <h2 class="about-title">
+        </h2>
+        <p>
+          <b>Wuthering Waves</b> es un videojuego que apuesta por la exploración en un mundo abierto, combinado con
+          una
+          narrativa profunda y variada, y un sistema de combate dinámico y flexible. Los jugadores toman el rol de los
+          Rovers, quienes despiertan tras un largo letargo y se embarcan en un viaje a través de un vasto mundo
+          marcado
+          por una nueva era, entornos desconocidos y tecnología avanzada.
+        </p>
+        <p>
+          Desarrollado por <b>Kuro Games</b>, el estudio responsable de Punishing: Gray Raven, este título traslada su
+          aclamado
+          sistema de combate de acción RPG al formato de mundo abierto, con una experiencia que recuerda al estilo de
+          Genshin Impact, pero con su propia identidad, mecánicas y enfoque más centrado en la acción.
+        </p>
+        <p>Obtén más información sobre el juego en nuestra:</p>
+
+        <div class="guides-grid"></div>
+
+        <a href="../pages/iniciantes.html" class="guide-link">
+          <div class="guide-card">
+            <div class="guide-img-wrapper">
+              <img src="../images/categorias/diaryclosed.png" alt="Introducción a Wuthering Waves"
+                class="guide-img default">
+              <img src="../images/categorias/diaryopen.png" alt="Introducción a Wuthering Waves"
+                class="guide-img hover">
+            </div>
+            <div class="guide-content">
+              <div class="guide-title">Guía para iniciantes</div>
+              <span class="guide-arrow">&#8594;</span>
+            </div>
+          </div>
+        </a>
+
+      </section>
+
+      <h2 class="guides-title"> <ion-icon name="desktop-outline"></ion-icon> REQUISITOS DEL SISTEMA</h2>
+      <section class="about-section">
+        <h2 class="about-title">
+        </h2>
+        <p>
+          <b>Wuthering Waves</b> está actualmente disponible en <b>PC</b>, <b>PS5</b> y dispositivos móbiles
+          <b>Android</b> / <b>iOS</b>.
+        </p>
+      </section>
+
+      <div class="system-reqs-grid">
+        <div class="system-reqs-box">
+          <h3>PC - REQUISITOS MÍNIMOS</h3>
+          <ul>
+            <li>
+              <span class="label">Versión de sistema operativo</span><br>
+              Windows 10 de 64 bits o Windows 11 de 64 bits
+            </li>
+            <li>
+              <span class="label">Procesador</span><br>
+              Intel i5 (9.ª generación), Ryzen 2700
+            </li>
+            <li>
+              <span class="label">Memoria</span><br>
+              16 GB
+            </li>
+            <li>
+              <span class="label">GPU</span><br>
+              GTX 1060 / RX 570 / intel ARC A380
+            </li>
+            <li>
+              <span class="label">Almacenamiento</span><br>
+              30 GB
+            </li>
+          </ul>
+        </div>
+        <div class="system-reqs-box">
+          <h3>PC - REQUISITOS RECOMENDADOS</h3>
+          <ul>
+            <li>
+              <span class="label">Versión de sistema operativo</span><br>
+              Windows 10 de 64 bits o Windows 11 de 64 bits
+            </li>
+            <li>
+              <span class="label">Procesador</span><br>
+              Intel i7 (9.ª generación), Ryzen 3700
+            </li>
+            <li>
+              <span class="label">Memoria</span><br>
+              16 GB o más
+            </li>
+            <li>
+              <span class="label">GPU</span><br>
+              GTX 2060 / RX 5700XT / intel ARC A750 and Above
+            </li>
+            <li>
+              <span class="label">Almacenamiento</span><br>
+              30 GB o más
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="guides-title"> <ion-icon name="game-controller-outline"></ion-icon> GAMEPLAY</h2>
+      <section class="about-section">
+        <h2 class="about-title">
+        </h2>
+
+        <div class="youtube-video-container">
+          <iframe width="100%" height="400" src="https://www.youtube.com/embed/qUqxxqrIRMw" title="YouTube video player"
+            frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="guides-section">
+          <h2 class="guides-title"> <ion-icon name="link-outline"></ion-icon> LINKS OFICIALES</h2>
+          <div class="guides-grid">
+
+            <a href="https://wutheringwaves.kurogames.com/es/" target="_blank" class="guide-link">
+              <div class="guide-card">
+                <div class="guide-img-wrapper">
+                  <img src="../images/categorias/wuwalogo.png" alt="" class="guide-img default">
+                  <img src="../images/categorias/wuwalogo.png" alt="" class="guide-img hover">
+                </div>
+                <div class="guide-content">
+                  <div class="guide-title">Sitio web oficial</div>
+                  <span class="guide-arrow">&#8594;</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="https://www.youtube.com/@WutheringWaves" target="_blank" class="guide-link">
+              <div class="guide-card">
+                <div class="guide-img-wrapper">
+                  <img src="../images/categorias/youtubelogo.png" alt="" class="guide-img default">
+                  <img src="../images/categorias/youtubelogo.png" alt="" class="guide-img hover">
+                </div>
+                <div class="guide-content">
+                  <div class="guide-title">YouTube</div>
+                  <span class="guide-arrow">&#8594;</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="https://discord.com/invite/wutheringwaves" target="_blank" class="guide-link">
+              <div class="guide-card">
+                <div class="guide-img-wrapper">
+                  <img src="../images/categorias/discordlogo.png" alt="" class="guide-img default">
+                  <img src="../images/categorias/discordlogo.png" alt="" class="guide-img hover">
+                </div>
+                <div class="guide-content">
+                  <div class="guide-title">Discord</div>
+                  <span class="guide-arrow">&#8594;</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="https://x.com/Wuthering_Waves" target="_blank" class="guide-link">
+              <div class="guide-card">
+                <div class="guide-img-wrapper">
+                  <img src="../images/categorias/xlogo.png" alt="" class="guide-img default">
+                  <img src="../images/categorias/xlogo.png" alt="" class="guide-img hover">
+                </div>
+                <div class="guide-content">
+                  <div class="guide-title">X</div>
+                  <span class="guide-arrow">&#8594;</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.kurogame.wutheringwaves.global" target="_blank" class="guide-link">
+              <div class="guide-card">
+                <div class="guide-img-wrapper">
+                  <img src="../images/categorias/playstorelogo.png" alt="" class="guide-img default">
+                  <img src="../images/categorias/playstorelogo.png" alt="" class="guide-img hover">
+                </div>
+                <div class="guide-content">
+                  <div class="guide-title">Play Store</div>
+                  <span class="guide-arrow">&#8594;</span>
+                </div>
+              </div>
+            </a>
+
+            <a href="https://apps.apple.com/us/app/wuthering-waves-1st-anniv/id6475033368" target="_blank" class="guide-link">
+              <div class="guide-card">
+                <div class="guide-img-wrapper">
+                  <img src="../images/categorias/applestorelogo.png" alt="" class="guide-img default">
+                  <img src="../images/categorias/applestorelogo.png" alt="" class="guide-img hover">
+                </div>
+                <div class="guide-content">
+                  <div class="guide-title">Apple Store</div>
+                  <span class="guide-arrow">&#8594;</span>
+                </div>
+              </div>
+            </a>
+
+
+
+        </div>
+    </div>
+
+
+
+  </main>
+
+  <!--- FOOTER -->
+
+  <footer>
+
+    <div class="footer-nav">
+
+      <div class="footercontainer">
+
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Navegación</h2>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="../index.html" class="footer-nav-link">Inicio</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Sobre nosotros</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Políticas de privacidad</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Descarga nuestra App</h2>
+          </li>
+
+          <a href="#"><img src="../images/play-store.png" alt="Google Play"></a>
+          <a href="#"><img src="../images/app-store.png" alt="App Store"></a>
+
+        </ul>
+
+        <ul class="footer-nav-list">
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Contacto</h2>
+          </li>
+
+          <li class="footer-nav-item flex">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <a href="mailto:wutheringlabs@gmail.com" target="_blank" class="footer-nav-link">wutheringlabs@gmail.com</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="footercontainer">
+
+      <div class="footer-bottom"></div>
+
+      <p class="copyright">
+        Copyright &copy; 2025 - Wuthering Labs by <a href="#">franz</a> - Todos los derechos reservados.
+      </p>
+
+    </div>
+
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!--- Ionicon links -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!--- Custom JS links -->
+  <script type="text/javascript" src="../js/app.js"></script>
+
+
+</body>
+
+</html>
