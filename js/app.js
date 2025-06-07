@@ -32,3 +32,12 @@ function ajustarSidebar() {
 
 window.addEventListener('DOMContentLoaded', ajustarSidebar);
 window.addEventListener('resize', ajustarSidebar);
+
+let scrollTimeout;
+window.addEventListener('wheel', function () {
+  document.body.classList.add('is-scrolling');
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    document.body.classList.remove('is-scrolling');
+  }, 200);
+});
