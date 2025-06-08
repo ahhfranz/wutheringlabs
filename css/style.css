@@ -83,19 +83,13 @@ body.is-scrolling * {
 /* Imagen de fondo */
 
 body.bg-img {
-  /* Degradado oscuro sobre la imagen de fondo */
   background:
     linear-gradient(to bottom,
       rgba(17, 18, 26, 0) 0px,
-      /* Transparente desde el inicio */
       rgba(17, 18, 26, 0) 300px,
-      /* Sigue transparente hasta 300px */
       rgba(17, 18, 26, 0.85) 420px,
-      /* Empieza a oscurecer desde 300px a 420px */
       #11121a 600px,
-      /* Color sólido desde 600px */
       #11121a 100vh
-      /* Hasta el final */
     ),
     url('../images/fondo.png');
 }
@@ -104,6 +98,30 @@ body.bg-img {
 
 .sidebar-header a:hover {
   background-color: transparent !important;
+}
+
+/* Botón para volver arriba */
+
+#btn-ir-arriba {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  font-size: 2rem;
+  background: #232232;
+  color: #a44ce7;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s;
+}
+
+#btn-ir-arriba:hover {
+  background: #444;
 }
 
 /* IMAGENES */
@@ -567,7 +585,7 @@ body.bg-img {
 }
 
 .stat-extra .formula {
-  font-size: 0.65em;
+  font-size: 0.85em;
   letter-spacing: 0.2px;
 }
 
@@ -593,7 +611,8 @@ body.bg-img {
 }
 
 .nowrap {
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
 }
 
 /* ELEMENTOS */
@@ -1207,6 +1226,9 @@ main p {
   max-width: 300px;
   width: 100%;
   height: auto;
+  filter: drop-shadow(0 0 48px #3b053b63);
+  /* Puedes ajustar el color y la intensidad */
+  transition: filter 0.3s;
 }
 
 .presentacion p {
@@ -1335,7 +1357,7 @@ main p {
 }
 
 .guide-link {
-  display: block;
+  display: inline-block;
   text-decoration: none;
   color: inherit;
 }
@@ -1404,6 +1426,40 @@ main p {
 
 .guide-link:hover .guide-img.hover {
   filter: drop-shadow(0 0 12px #5a416b88) drop-shadow(0 0 24px #5a416b88);
+}
+
+/* ECOS */
+
+.echo-list {
+  margin: 0 0 1em 1.2em;
+  padding: 0;
+  list-style: disc inside;
+  font-size: 1em;
+}
+
+.echo-list li {
+  margin-bottom: 0.4em;
+  line-height: 1.5;
+}
+
+.echo-bold {
+  font-weight: bold;
+}
+
+.echo-common {
+  color: #fff;
+}
+
+.echo-elite {
+  color: #fce178;
+}
+
+.echo-overlord {
+  color: #e4af34;
+}
+
+.echo-calamity {
+  color: #cc0b38;
 }
 
 /* Introducción */
@@ -1783,8 +1839,66 @@ footer {
   display: block;
 }
 
+/* --- COLORES DE GACHA --- */
 
-
+.gacha-info-list {
+  margin-top: 1.5em;
+  font-size: 1em;
+  color: #e3e3e3;
+}
+.gacha-info-list ul {
+  margin: 0.5em 0 1em 1.5em;
+  padding: 0;
+  list-style: disc;
+}
+.gacha-info-list ul.gacha-rewards {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+.gacha-info-list ul.gacha-rewards li {
+  margin-bottom: 0.2em;
+  display: flex;
+  align-items: center;
+}
+.gacha-info-list .star {
+  font-weight: bold;
+  margin-right: 0.3em;
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+.star-3 { color: #3da9fc; }   
+.star-4 { color: #b983ff; }    
+.star-5 { color: #ffd700; }   
+.gacha-info-list .tide {
+  font-weight: bold;
+  padding: 0 0.2em;
+  border-radius: 4px;
+}
+.tide-lustrous { color: #3da9fc; }
+.tide-radiant { color: #ffd700; }
+.tide-forging { color: #ffd700; }
+.gacha-info-list .gacha-note {
+  margin: 0.8em 0 0.5em 0;
+  font-size: 0.98em;
+  color: #bdbdbd;
+}
+.gacha-info-list .gacha-guarantee-4 {
+  background: rgba(60, 40, 100, 0.18);
+  border-left: 4px solid #b983ff;
+  padding: 0.7em 1em;
+  margin-top: 0.5em;
+  font-size: 0.98em;
+  color: #e3e3e3;
+}
+.gacha-info-list .gacha-guarantee-5 {
+  background: rgba(60, 40, 100, 0.18);
+  border-left: 4px solid #ffd700;
+  padding: 0.7em 1em;
+  margin-top: 0.5em;
+  font-size: 0.98em;
+  color: #e3e3e3;
+}
 
 
 
@@ -2243,6 +2357,17 @@ footer {
     /* antes: 15px; */
   }
 
+  #btn-ir-arriba {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    right: 20px;
+    bottom: 80px;      
+    z-index: 3000;     
+    position: fixed;
+    display: block;
+  }
+
 }
 
 /* PRESENTACIÓN: TABLET Y DESKTOP */
@@ -2270,8 +2395,7 @@ footer {
 
   body.sidebar-close main,
   body.sidebar-close .footercontainer {
-    padding-left: 10px;
-    /* O el ancho de tu sidebar cerrada */
+    padding-left: 100px;
   }
 
   .presentacion {

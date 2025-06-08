@@ -3,34 +3,28 @@ document.querySelectorAll('.stat-accordion').forEach(details => {
     const content = details.querySelector('.stat-content');
     if (!content) return;
 
-    if (!details.open) {
-        content.style.height = '0';
-        content.style.overflow = 'hidden';
-        content.style.transition = 'height 0.35s cubic-bezier(.4,0,.2,1)';
-    }
+    // Inicializa el contenido cerrado
+    content.style.height = details.open ? 'auto' : '0';
+    content.style.overflow = 'hidden';
+    content.style.transition = 'height 0.35s cubic-bezier(.4,0,.2,1)';
 
     summary.addEventListener('click', e => {
-        e.preventDefault(); 
-
-        if (details.open) {
-            content.style.height = content.scrollHeight + 'px';
-            requestAnimationFrame(() => {
-                content.style.height = '0';
-            });
-            details.open = false;
-        } else {
-            details.open = true;
-            content.style.height = 'auto';
-            const h = content.scrollHeight;
-            content.style.height = '0';
-            requestAnimationFrame(() => {
-                content.style.transition = 'height 0.35s cubic-bezier(.4,0,.2,1)';
-                content.style.height = h + 'px';
-            });
-            content.addEventListener('transitionend', function handler() {
-                content.style.height = 'auto';
-                content.removeEventListener('transitionend', handler);
-            });
-        }
+        // No uses preventDefault, deja que <details> maneje el estado
+        setTimeout(() => {
+            if (details.open) {
+                // Abrir
+                content.style.height = content.scrollHeight + 'px';
+                content.addEventListener('transitionend', function handler() {
+                    content.style.height = 'auto';
+                    content.removeEventListener('transitionend', handler);
+                });
+            } else {
+                // Cerrar
+                content.style.height = content.scrollHeight + 'px';
+                requestAnimationFrame(() => {
+                    content.style.height = '0';
+                });
+            }
+        }, 0);
     });
 });

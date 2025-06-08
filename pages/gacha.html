@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wuthering Labs</title>
+
+
+  <!--- Favicon -->
+  <link rel="icon" href="../icons/favicon.png" type="image/x-icon">
+
+  <!--- Link al CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!--- Links de fonts de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!--- Links de Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-img">
+
+
+
+  <div class="sidebar-overlay"></div>
+
+  <nav id="sidebar">
+
+    <div class="sidebar-header">
+      <a href="../index.html">
+        <img src="../images/logo.png" class="logo-wuwalabs" alt="Logo de WuWa Labs" width="120" height="36">
+        <img src="../images/logo2.png" class="logo-wuwalabsmini" alt="Logo de WuWa Labs pequeño" width="40" height="40">
+      </a>
+      <div class="sidebar-logo-divider"></div>
+      <button onclick=toggleSidebar() id="toggle-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+          <path
+            d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z" />
+        </svg>
+      </button>
+    </div>
+
+    <ul>
+
+      <li class="divider"></li>
+
+      <li class="home-btn">
+        <a href="../index.html" id="home-link">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
+          </svg>
+          <span>Inicio</span>
+        </a>
+      </li>
+
+      <li class="divider"></li>
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path d="M160-160v-320h160v320H160Zm240 0v-640h160v640H400Zm240 0v-440h160v440H640Z" />
+          </svg>
+          <span>Tier List</span>
+        </a>
+      </li>
+
+      <li class="divider"></li>
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M560-564v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-600q-38 0-73 9.5T560-564Zm0 220v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-380q-38 0-73 9t-67 27Zm0-110v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-490q-38 0-73 9.5T560-454ZM260-320q47 0 91.5 10.5T440-278v-394q-41-24-87-36t-93-12q-36 0-71.5 7T120-692v396q35-12 69.5-18t70.5-6Zm260 42q44-21 88.5-31.5T700-320q36 0 70.5 6t69.5 18v-396q-33-14-68.5-21t-71.5-7q-47 0-93 12t-87 36v394Zm-40 118q-48-38-104-59t-116-21q-42 0-82.5 11T100-198q-21 11-40.5-1T40-234v-482q0-11 5.5-21T62-752q46-24 96-36t102-12q58 0 113.5 15T480-740q51-30 106.5-45T700-800q52 0 102 12t96 36q11 5 16.5 15t5.5 21v482q0 23-19.5 35t-40.5 1q-37-20-77.5-31T700-240q-60 0-116 21t-104 59ZM280-494Z" />
+          </svg>
+          <span>Guía para iniciantes</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M480-120q-151 0-255.5-46.5T120-280v-400q0-66 105.5-113T480-840q149 0 254.5 47T840-680v400q0 67-104.5 113.5T480-120Zm0-479q89 0 179-25.5T760-679q-11-29-100.5-55T480-760q-91 0-178.5 25.5T200-679q14 30 101.5 55T480-599Zm0 199q42 0 81-4t74.5-11.5q35.5-7.5 67-18.5t57.5-25v-120q-26 14-57.5 25t-67 18.5Q600-528 561-524t-81 4q-42 0-82-4t-75.5-11.5Q287-543 256-554t-56-25v120q25 14 56 25t66.5 18.5Q358-408 398-404t82 4Zm0 200q46 0 93.5-7t87.5-18.5q40-11.5 67-26t32-29.5v-98q-26 14-57.5 25t-67 18.5Q600-328 561-324t-81 4q-42 0-82-4t-75.5-11.5Q287-343 256-354t-56-25v99q5 15 31.5 29t66.5 25.5q40 11.5 88 18.5t94 7Z" />
+          </svg>
+          <span>Base de datos</span>
+        </a>
+      </li>
+
+      <li class="divider"></li>
+      <li>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M352-120H200q-33 0-56.5-23.5T120-200v-152q48 0 84-30.5t36-77.5q0-47-36-77.5T120-568v-152q0-33 23.5-56.5T200-800h160q0-42 29-71t71-29q42 0 71 29t29 71h160q33 0 56.5 23.5T800-720v160q42 0 71 29t29 71q0 42-29 71t-71 29v160q0 33-23.5 56.5T720-120H568q0-50-31.5-85T460-240q-45 0-76.5 35T352-120Zm-152-80h85q24-66 77-93t98-27q45 0 98 27t77 93h85v-240h80q8 0 14-6t6-14q0-8-6-14t-14-6h-80v-240H480v-80q0-8-6-14t-14-6q-8 0-14 6t-6 14v80H200v88q54 20 87 67t33 105q0 57-33 104t-87 68v88Zm260-260Z" />
+          </svg>
+          <span>Mods</span>
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+
+
+
+  <main>
+
+
+    <!-- Encabezado de la guía -->
+
+    <div class="guide-header">
+      <div class="guide-breadcrumbs">
+        <a href="../index.html">Wuthering Labs</a> / <a href="#">Guías</a> / <span>Guía del gacha</span>
+      </div>
+      <div class="guide-header-main">
+        <div class="intro-anim">
+          <div class="guide-img-wrapper">
+            <img src="../images/categorias/lustroustide.png" alt="Introducción al sistema gacha de Wuthering Waves"
+              class="guide-img default">
+            <img src="../images/categorias/radianttide.png" alt="Introducción al sistema gacha de Wuthering Waves"
+              class="guide-img hover">
+          </div>
+        </div>
+        <div class="guide-header-info">
+          <h1 class="guide-header-title">Guía del gacha</h1>
+          <div class="guide-header-desc">Una guía para comprender el funcionamiento del sistema gacha de Wuthering
+            Waves.</div>
+          <div class="guide-header-date">última actualización: <b>08/06/2025</b></div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- GUÍAS -->
+
+    <div class="guides-section">
+      <h2 class="guides-title"> <ion-icon name="dice-outline"></ion-icon> SISTEMA GACHA</h2>
+
+      <section class="about-section">
+        <h2 class="about-title">
+        </h2>
+        <p>
+          El sistema gacha de <b>Wuthering Waves</b> funciona como un sistema de "<b>tiradas</b>" o
+          "<b>invocaciones</b>" similar al de otros
+          juegos gacha, donde los jugadores <b>utilizan una moneda especial del juego para obtener personajes</b> y
+          <b>armas exclusivas</b> para ellos.
+        </p>
+
+        <details class="stat-accordion">
+          <summary>
+            <div class="stat-header">
+              <div class="stats-icons">
+                <img src="../images/stats/skill.png">
+              </div>
+              <span class="stat-title">INVOCACIÓN</span>
+            </div>
+            <span class="accordion-arrow"></span>
+          </summary>
+          <div class="stat-content">
+            <span class="nowrap">
+              El sistema gacha en <b>Wuthering Waves</b> funciona como una
+              <b>lotería</b> que permite a los jugadores obtener <b>nuevos personajes y armas</b>. Este sistema se
+              presenta dentro del
+              juego bajo el nombre de "<b>Invocación</b>", y es accesible desde el
+              menú principal una vez que el jugador ha avanzado lo suficiente en la historia inicial. Como en otros
+              juegos gacha, la experiencia se basa en el <b>azar</b>, pero existen <b>mecanismos que equilibran las
+                probabilidades</b>
+              para asegurar que los jugadores eventualmente consigan recompensas valiosas, incluso si no tienen suerte
+              al principio.
+            </span>
+            <div class="stat-extra">
+              <span class="formula">
+                Para realizar tiradas en los banners, necesitarás usar <b>Astritas</b> (la moneda del gacha) o <b>Marea
+                  Radiante</b>
+                (Una suerte de boletos que funcionan de la misma manera que las Astritas).
+
+                Tanto las <b>Astritas</b> y <b>Mareas Radiantes</b> pueden obtenerse de diversas formas dentro del
+                juego, como <b>misiones</b>, <b>eventos</b> y
+                ciertas <b>tiendas</b>.
+              </span>
+              <div class="gacha-info-list">
+                <ul>
+                  <li>Puedes intercambiar <b>160 Astritas</b> por 1 <span class="tide tide-lustrous">Marea
+                      Lustrosa</span>, 1 <span class="tide tide-radiant">Marea Radiante</span> o 1 <span
+                      class="tide tide-forging">Marea de Forja</span>.</li>
+                  <li><span class="tide tide-lustrous">Mareas Lustrosas</span> se usan en el banner de Novato,
+                    Permanente de Personaje y Permanente de Arma.</li>
+                  <li><span class="tide tide-radiant">Mareas Radiantes</span> se usan en el banner de Evento de
+                    Resonador destacado.</li>
+                  <li><span class="tide tide-forging">Mareas de Forja</span> se usan en el banner de Evento de Armas.
+                  </li>
+                </ul>
+                <p>Puedes obtener lo siguiente al invocar:</p>
+                <ul class="gacha-rewards">
+                  <li><span class="star star-3">3★</span> Armas</li>
+                  <li><span class="star star-4">4★</span> Armas</li>
+                  <li><span class="star star-5">5★</span> Armas</li>
+                  <li><span class="star star-4">4★</span> Resonadores</li>
+                  <li><span class="star star-5">5★</span> Resonadores</li>
+                </ul>
+                <p class="gacha-note">
+                  Las estrellas indican la rareza del Resonador y las Armas. A mayor número de estrellas, mayor rareza
+                  (y
+                  dificultad de obtener).
+                </p>
+                <div class="gacha-guarantee-4">
+                  <b>Garantía 4★:</b> Si no obtienes un Resonador o Arma <span class="star star-4">4★</span> tras
+                  <b>9</b>
+                  invocaciones, la tirada <b>10</b> está garantizada como <span class="star star-4">4★</span>. El
+                  contador se
+                  reinicia cada vez que obtienes un <span class="star star-4">4★</span>.
+                </div>
+                <div class="gacha-guarantee-5">
+                  <b>Garantía 5★:</b> Si no obtienes un Resonador o Arma <span class="star star-5">5★</span> tras
+                  <b>79</b>
+                  invocaciones, la tirada <b>80</b> está garantizada como <span class="star star-5">5★</span>. El
+                  contador se
+                  reinicia cada vez que obtienes un <span class="star star-5">5★</span>.
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+      </section>
+
+
+
+
+  </main>
+
+  <!--- FOOTER -->
+
+  <footer>
+
+    <div class="footer-nav">
+      <div class="footercontainer">
+
+        <ul class="footer-nav-list">
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Navegación</h2>
+          </li>
+          <li class="footer-nav-item">
+            <a href="index.html" class="footer-nav-link">Inicio</a>
+          </li>
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Sobre nosotros</a>
+          </li>
+          <li class="footer-nav-item">
+            <a href="#" class="footer-nav-link">Políticas de privacidad</a>
+          </li>
+        </ul>
+
+        <ul class="footer-nav-list">
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Descarga nuestra App</h2>
+          </li>
+          <a href="#"><img src="../images/play-store.png" alt="Google Play"></a>
+          <a href="#"><img src="../images/app-store.png" alt="App Store"></a>
+        </ul>
+
+        <ul class="footer-nav-list">
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Contacto</h2>
+          </li>
+          <li class="footer-nav-item flex">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+            <a href="mailto:wutheringlabs@gmail.com" target="_blank" class="footer-nav-link">wutheringlabs@gmail.com</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom"></div>
+    <p class="copyright">
+      Copyright &copy; 2025 Wuthering Labs by <a href="#">franz</a> - Todos los derechos reservados.
+    </p>
+
+  </footer>
+
+
+
+  <!-- Botón Ir arriba -->
+  <button id="btn-ir-arriba" title="Volver arriba">&#8679;</button>
+
+  <!--- Ionicon links -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!--- Custom JS links -->
+  <script type="text/javascript" src="../js/app.js"></script>
+  <script src="../js/accordion-anim.js"></script>
+
+
+</body>
+
+</html>
