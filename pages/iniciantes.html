@@ -79,7 +79,7 @@
             <path
               d="M560-564v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-600q-38 0-73 9.5T560-564Zm0 220v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-380q-38 0-73 9t-67 27Zm0-110v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-490q-38 0-73 9.5T560-454ZM260-320q47 0 91.5 10.5T440-278v-394q-41-24-87-36t-93-12q-36 0-71.5 7T120-692v396q35-12 69.5-18t70.5-6Zm260 42q44-21 88.5-31.5T700-320q36 0 70.5 6t69.5 18v-396q-33-14-68.5-21t-71.5-7q-47 0-93 12t-87 36v394Zm-40 118q-48-38-104-59t-116-21q-42 0-82.5 11T100-198q-21 11-40.5-1T40-234v-482q0-11 5.5-21T62-752q46-24 96-36t102-12q58 0 113.5 15T480-740q51-30 106.5-45T700-800q52 0 102 12t96 36q11 5 16.5 15t5.5 21v482q0 23-19.5 35t-40.5 1q-37-20-77.5-31T700-240q-60 0-116 21t-104 59ZM280-494Z" />
           </svg>
-          <span>Guías</span>
+          <span>Guía para iniciantes</span>
         </a>
       </li>
 
@@ -506,379 +506,379 @@
 
         <div class="stats-list">
 
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/ps.png">
+          <details class="stat-accordion">
+            <summary>
+              <div class="stat-header">
+                <div class="stats-icons">
+                  <img src="../images/stats/stamina.png">
+                </div>
+                <span class="stat-title">Resistencia máx.</span>
               </div>
-              <span class="stat-title">PS</span>
+              <span class="accordion-arrow"></span>
+            </summary>
+            <div class="stat-content">
+              <span class="nowrap">
+                Determina cuánta resistencia continua puedes usar antes de agotarte, al realizar acciones como correr,
+                esquivar, escalar, nadar, planear y realizar ataques cargados.
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Después de no realizar ninguna de estas acciones durante <b>1,5</b> segundos, la energía se regenerará
+                  de forma natural a una velocidad de <b>25</b> puntos de energía por segundo. El medidor de energía se
+                  muestra
+                  como una barra amarilla a la derecha del personaje en el centro de la pantalla cuando se está agotando
+                  o
+                  recargando, y se ocultará automáticamente cuando esté completamente cargada. Visualmente, el medidor
+                  está dividido en secciones, cada una representando <b>100</b> puntos de energía.
+                </span>
+              </div>
             </div>
-            <span class="nowrap">
-              Determina la vida adicional del resonador, y cuánto daño puede recibir antes de morir. La fórmula que se
-              utiliza para calcular los PS máximos es:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Vida Máxima = PS base<sub>Resonador</sub> &times; (1 + % Bonificación de PS) +
-                Bonificación de PS plana
+          </details>
+
+          <details class="stat-accordion">
+            <summary>
+              <div class="stat-header">
+                <div class="stats-icons">
+                  <img src="../images/stats/critrate.png">
+                </div>
+                <span class="stat-title">Prob. CRIT</span>
+              </div>
+              <span class="accordion-arrow"></span>
+            </summary>
+            <div class="stat-content">
+              <span class="nowrap">
+                Probabilidad de que el Resonador haga un golpe crítico. Todos los personajes comienzan con un 5% de
+                probabilidad y se calcula:
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Prob. CRIT= Prob. CRIT base<sub>Resonador</sub> + Prob. CRIT<sub>Arma</sub> + Prob.
+                  CRIT<sub>Ecos</sub> + Prob. CRIT de bonificaciones<sub>Sets y habilidades</sub>
+                </span>
+              </div>
+            </div>
+          </details>
+
+          <details class="stat-accordion">
+            <summary>
+              <div class="stat-header">
+                <div class="stats-icons">
+                  <img src="../images/stats/critdamage.png">
+                </div>
+                <span class="stat-title">Daño CRIT</span>
+              </div>
+              <span class="accordion-arrow"></span>
+            </summary>
+            <div class="stat-content">
+              <span class="nowrap">
+                Multiplicador de daño al hacer un golpe crítico. Se calcula:
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Daño Promedio= Daño &times; % de Daño CRIT &times; % de Prob. CRIT + Daño &times; (1 - % Prob. CRIT)
+                </span>
+              </div>
+            </div>
+          </details>
+
+          <details class="stat-accordion">
+            <summary>
+              <div class="stat-header">
+                <div class="stats-icons">
+                  <img src="../images/stats/energyre.png">
+                </div>
+                <span class="stat-title">Regen. de energía</span>
+              </div>
+              <span class="accordion-arrow"></span>
+            </summary>
+            <div class="stat-content">
+              <span class="nowrap">
+                Velocidad de recarga de energía para la Liberación de Resonancia (Ultimate). Se calcula:
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Energía ganada= Regen. de energía base<sub>Resonador</sub> &times; % de Regen. de energía
+                </span>
+              </div>
+            </div>
+          </details>
+
+          <details class="stat-accordion">
+            <summary>
+              <div class="stat-header">
+                <div class="stats-icons">
+                  <img src="../images/stats/bonif.png">
+                </div>
+                <span class="stat-title">Bonif. de Habilidad de resonancia</span>
+              </div>
+              <span class="accordion-arrow"></span>
+            </summary>
+            <div class="stat-content">
+              <span class="nowrap">
+                Aumenta el daño de la Habilidad de Resonancia. Se calcula:
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de Habilidad de Resonancia) &times; Otros
+                  modificadores
+                </span>
+              </div>
+            </div>
+          </details>
+
+          <details class="stat-accordion">
+            <summary>
+              <div class="stat-header">
+                <div class="stats-icons">
+                  <img src="../images/stats/bonif.png">
+                </div>
+                <span class="stat-title">Bonif. de Liberación de resonancia</span>
+              </div>
+              <span class="accordion-arrow"></span>
+            </summary>
+            <div class="stat-content">
+              <span class="nowrap">
+                Aumenta el daño de la Liberación de Resonancia (Ultimate). Se calcula:
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de Liberación de resonancia) &times; Otros
+                  modificadores
+                </span>
+              </div>
+            </div>
+          </details>
+
+          <details class="stat-accordion">
+            <summary>
+              <div class="stat-header">
+                <div class="stats-icons">
+                  <img src="../images/stats/bonif.png">
+                </div>
+                <span class="stat-title">Bonif. de ATQ básico</span>
+              </div>
+              <span class="accordion-arrow"></span>
+            </summary>
+            <div class="stat-content">
+              <span class="nowrap">
+                Aumenta el daño de los ataques básicos. Se calcula:
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de ATQ básico) &times; Otros
+                  modificadores
+                </span>
+              </div>
+            </div>
+          </details>
+
+          <details class="stat-accordion">
+            <summary>
+              <div class="stat-header">
+                <div class="stats-icons">
+                  <img src="../images/stats/bonif.png">
+                </div>
+                <span class="stat-title">Bonif. de ATQ cargado</span>
+              </div>
+              <span class="accordion-arrow"></span>
+            </summary>
+            <div class="stat-content">
+              <span class="nowrap">
+                Aumenta el daño de los ataques cargados. Se calcula:
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de ATQ cargado) &times; Otros
+                  modificadores
+                </span>
+              </div>
+            </div>
+          </details>
+
+          <details class="stat-accordion">
+            <summary>
+              <div class="stat-header">
+                <div class="stats-icons">
+                  <img src="../images/stats/bonif.png">
+                </div>
+                <span class="stat-title">Bonif. de Daño Elemental</span>
+              </div>
+              <span class="accordion-arrow"></span>
+            </summary>
+            <div class="stat-content">
+              <span class="nowrap">
+                Aumenta todo el daño elemental (hay seis elementos, cada uno con su propio bonus). Se calcula:
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonificación de Daño Elemental) &times; Otros
+                  modificadores
+                </span>
+              </div>
+            </div>
+          </details>
+
+          <details class="stat-accordion">
+            <summary>
+              <div class="stat-header">
+                <div class="stats-icons">
+                  <img src="../images/stats/res.png">
+                </div>
+                <span class="stat-title">RES Elemental</span>
+              </div>
+              <span class="accordion-arrow"></span>
+            </summary>
+            <div class="stat-content">
+              <span class="nowrap">
+                Reduce el daño elemental recibido de un elemento específico. Se calcula:
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Daño Recibido = Daño Base<sub>Resonador</sub> &times; (1 - RES Elemental)
+                </span>
+              </div>
+            </div>
+          </details>
+
+          <details class="stat-accordion">
+            <summary>
+              <div class="stat-header">
+                <div class="stats-icons">
+                  <img src="../images/stats/healingbonus.png">
+                </div>
+                <span class="stat-title">Bonif. de curación</span>
+              </div>
+              <span class="accordion-arrow"></span>
+            </summary>
+            <div class="stat-content">
+              <span class="nowrap">
+                Aumenta la cantidad de curación que proporciona un Resonador. Se calcula:
+              </span>
+              <div class="stat-extra">
+                <span class="formula">
+                  Cantidad de Curación = Curación Base<sub>Resonador</sub> &times; (1 + Bonif. de
+                  curación<sub>Resonador</sub>) + Bonif. de curación<sub>Objetivo</sub>
+                </span>
+              </div>
+            </div>
+          </details>
+
+
+
+          <h2 class="guides-title"> <ion-icon name="color-filter-outline"></ion-icon> ELEMENTOS</h2>
+          <section class="about-section">
+            <h2 class="about-title">
+            </h2>
+            <p>
+              En <b>Wuthering Waves</b>, cada Resonador está vinculado a un <b>Elemento</b>, el cual define el tipo de
+              daño
+              que inflige con sus <b>habilidades</b>, <b>ataques básicos</b> y <b>definitivas</b>.
+            <p>
+              El Elemento no solo determina la afinidad del personaje, sino que también interactúa con enemigos, efectos
+              de estado y mecánicas de resistencia y bonificación de daño.
+              Comprender la afinidad elemental de un Resonador es clave para optimizar <b>sinergias en equipo</b>,
+              contrarrestar enemigos resistentes y <b>potenciar el daño infligido</b>.
+            </p>
+            <p>
+              <b>Wuthering Waves</b> cuenta actualmente con <b>6 elementos</b> jugables:
+            </p>
+
+            <div class="lista-animada">
+              <span class="gelio-title">
+                <img src="../images/elementos/icon_gelio.png" alt="Gelio" class="gelio-icon">
+                Gelio
+              </span>
+              <span class="fusion-title">
+                <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="fusion-icon">
+                Fusión
+              </span>
+              <span class="aero-title">
+                <img src="../images/elementos/icon_aero.png" alt="Aero" class="aero-icon">
+                Aero
+              </span>
+              <span class="electro-title">
+                <img src="../images/elementos/icon_electro.png" alt="Electro" class="electro-icon">
+                Electro
+              </span>
+              <span class="espectro-title">
+                <img src="../images/elementos/icon_espectro.png" alt="Espectro" class="espectro-icon">
+                Espectro
+              </span>
+              <span class="havoc-title">
+                <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="havoc-icon">
+                Destrucción
               </span>
             </div>
-          </div>
+          </section>
 
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/atq.png">
-              </div>
-              <span class="stat-title">ATQ</span>
-            </div>
-            <span class="nowrap">
-              Determina cuánto daño inflige un Resonador. La fórmula que se utiliza para calcular el ATQ es:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                ATQ = (ATQ base<sub>Resonador</sub> + ATQ base<sub>Arma</sub>) &times; (1 + % Bonificación de ATQ) +
-                Bonificación de ATQ plana
+          <h2 class="guides-title"> <ion-icon name="eyedrop-outline"></ion-icon> ARMAS</h2>
+
+          <section class="about-section">
+            <h2 class="about-title">
+            </h2>
+            <p>
+              Las armas son un componente clave del desarrollo de tus resonadores y su rendimiento en combate. Cada
+              resonador
+              puede utilizar <b>un solo tipo</b> de arma específico y proporcionan mejoras a estadísticas extremadamente
+              importantes como la <b>Prob. CRIT</b>, el <b>Daño
+                CRIT</b> o la <b>Regen. de energía</b>.
+            <p>
+              Las armas tienen distintos niveles de rareza, que van desde <b>2★</b> hasta <b>5★</b>. A mayor rareza,
+              <b>mejores estadísticas</b>
+              base y habilidades pasivas más poderosas. Pueden <b>mejorarse</b> utilizando materiales obtenidos durante
+              la <b>exploración</b>, farmeo de <b>dungeons</b> y <b>combates</b>, lo que permite incrementar su nivel y
+              potencial.
+            </p>
+
+            <div class="lista-animada">
+
+              <span class="armacolor-lista">
+                <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="armaicono-lista">
+                Espadas
+              </span>
+              <span class="armacolor-lista">
+                <img src="../images/tipos-armas/weapon_mandoble.png" alt="Mandoble" class="armaicono-lista">
+                Mandobles
+              </span>
+              <span class="armacolor-lista">
+                <img src="../images/tipos-armas/weapon_pistolas.png" alt="Pistolas" class="armaicono-lista">
+                Pistolas
+              </span>
+              <span class="armacolor-lista">
+                <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" class="armaicono-lista">
+                Rectificadores
+              </span>
+              <span class="armacolor-lista">
+                <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="armaicono-lista">
+                Brazales
               </span>
             </div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/def.png">
-              </div>
-              <span class="stat-title">DEF</span>
-            </div>
-            <span class="nowrap">
-              Reduce el daño que recibe un Resonador. La fórmula que se utiliza para calcular la DEF es:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                DEF= DEF base<sub>Resonador</sub> &times; (1 + % Bonificación de DEF) +
-                Bonificación de DEF plana
-              </span>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/stamina.png">
-              </div>
-              <span class="stat-title">Resistencia máx.</span>
-            </div>
-            <span class="nowrap">
-              Determina cuánta resistencia continua puedes usar antes de agotarte, al realizar acciones como correr,
-              esquivar, escalar, nadar, planear y realizar ataques cargados.
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Después de no realizar ninguna de estas acciones durante <b>1,5</b> segundos, la energía se regenerará
-                de forma
-                natural a una velocidad de <b>25</b> puntos de energía por segundo. El medidor de energía se muestra
-                como una
-                barra amarilla a la derecha del personaje en el centro de la pantalla cuando se está agotando o
-                recargando, y se ocultará automáticamente cuando esté completamente cargada. Visualmente, el medidor
-                está dividido en secciones, cada una representando <b>100</b> puntos de energía.
-              </span>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/critrate.png">
-              </div>
-              <span class="stat-title">Prob. CRIT</span>
-            </div>
-            <span class="nowrap">
-              Probabilidad de que el Resonador haga un golpe crítico. Todos los personajes comienzan con un 5% de
-              probabilidad y se calcula:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Prob. CRIT= Prob. CRIT base<sub>Resonador</sub> + Prob. CRIT<sub>Arma</sub> + Prob.
-                CRIT<sub>Ecos</sub> + Prob. CRIT de bonificaciones<sub>Sets y habilidades</sub>
-              </span>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/critdamage.png">
-              </div>
-              <span class="stat-title">Daño CRIT</span>
-            </div>
-            <span class="nowrap">
-              Multiplicador de daño al hacer un golpe crítico. Se calcula:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Daño Promedio= Daño &times; % de Daño CRIT &times; % de Prob. CRIT + Daño &times; (1 - % Prob. CRIT)
-              </span>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/energyre.png">
-              </div>
-              <span class="stat-title">Regen. de energía</span>
-            </div>
-            <span class="nowrap">
-              Velocidad de recarga de energía para la Liberación de Resonancia (Ultimate). Se calcula:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Energía ganada= Regen. de energía base<sub>Resonador</sub> &times; % de Regen. de energía
-              </span>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/bonif.png">
-              </div>
-              <span class="stat-title">Bonif. de Habilidad de resonancia</span>
-            </div>
-            <span class="nowrap">
-              Aumenta el daño de la Habilidad de Resonancia. Se calcula:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de Habilidad de Resonancia) &times; Otros
-                modificadores
-              </span>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/bonif.png">
-              </div>
-              <span class="stat-title">Bonif. de Liberación de resonancia</span>
-            </div>
-            <span class="nowrap">
-              Aumenta el daño de la Liberación de Resonancia (Ultimate). Se calcula:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de Liberación de resonancia) &times; Otros
-                modificadores
-              </span>
-            </div>
-          </div>
-
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/bonif.png">
-              </div>
-              <span class="stat-title">Bonif. de ATQ básico</span>
-            </div>
-            <span class="nowrap">
-              Aumenta el daño de los ataques básicos. Se calcula:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de ATQ básico) &times; Otros
-                modificadores
-              </span>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/bonif.png">
-              </div>
-              <span class="stat-title">Bonif. de ATQ cargado</span>
-            </div>
-            <span class="nowrap">
-              Aumenta el daño de los ataques cargados. Se calcula:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonif. de ATQ cargado) &times; Otros
-                modificadores
-              </span>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/bonif.png">
-              </div>
-              <span class="stat-title">Bonif. de Daño Elemental</span>
-            </div>
-            <span class="nowrap">
-              Aumenta todo el daño elemental (hay seis elementos, cada uno con su propio bonus). Se calcula:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Daño= Daño Base<sub>Resonador</sub> &times; (1 + % Bonificación de Daño Elemental) &times; Otros
-                modificadores
-              </span>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/res.png">
-              </div>
-              <span class="stat-title">RES Elemental</span>
-            </div>
-            <span class="nowrap">
-              Reduce el daño elemental recibido de un elemento específico. Se calcula:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Daño Recibido = Daño Base<sub>Resonador</sub> &times; (1 - RES Elemental)
-              </span>
-            </div>
-          </div>
-
-          <div class="stat-item">
-            <div class="stat-header">
-              <div class="stats-icons">
-                <img src="../images/stats/healingbonus.png">
-              </div>
-              <span class="stat-title">Bonif. de curación</span>
-            </div>
-            <span class="nowrap">
-              Aumenta la cantidad de curación que proporciona un Resonador. Se calcula:
-            </span>
-            <div class="stat-extra">
-              <span class="formula">
-                Cantidad de Curación = Curación Base<sub>Resonador</sub> &times; (1 + Bonif. de
-                curación<sub>Resonador</sub>) + Bonif. de curación<sub>Objetivo</sub>
-              </span>
-            </div>
-          </div>
+        </div>
       </section>
 
-      <h2 class="guides-title"> <ion-icon name="color-filter-outline"></ion-icon> ELEMENTOS</h2>
       <section class="about-section">
         <h2 class="about-title">
         </h2>
         <p>
-          En <b>Wuthering Waves</b>, cada Resonador está vinculado a un <b>Elemento</b>, el cual define el tipo de
-          daño
-          que inflige con sus <b>habilidades</b>, <b>ataques básicos</b> y <b>definitivas</b>.
-        <p>
-          El Elemento no solo determina la afinidad del personaje, sino que también interactúa con enemigos, efectos
-          de estado y mecánicas de resistencia y bonificación de daño.
-          Comprender la afinidad elemental de un Resonador es clave para optimizar <b>sinergias en equipo</b>,
-          contrarrestar enemigos resistentes y <b>potenciar el daño infligido</b>.
-        </p>
-        <p>
-          <b>Wuthering Waves</b> cuenta actualmente con <b>6 elementos</b> jugables:
+          Para más información, visita nuestra base de datos para poder ver todas las armas disponibles hasta la fecha:
         </p>
 
-        <div class="lista-animada">
-          <span class="gelio-title">
-            <img src="../images/elementos/icon_gelio.png" alt="Gelio" class="gelio-icon">
-            Gelio
-          </span>
-          <span class="fusion-title">
-            <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="fusion-icon">
-            Fusión
-          </span>
-          <span class="aero-title">
-            <img src="../images/elementos/icon_aero.png" alt="Aero" class="aero-icon">
-            Aero
-          </span>
-          <span class="electro-title">
-            <img src="../images/elementos/icon_electro.png" alt="Electro" class="electro-icon">
-            Electro
-          </span>
-          <span class="espectro-title">
-            <img src="../images/elementos/icon_espectro.png" alt="Espectro" class="espectro-icon">
-            Espectro
-          </span>
-          <span class="havoc-title">
-            <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="havoc-icon">
-            Destrucción
-          </span>
-        </div>
+        <div class="guides-grid">
+          <a href="#" class="guide-link">
+            <div class="guide-card">
+              <div class="guide-img-wrapper">
+                <img src="../images/categorias/sword.png" alt="Base de datos de armas" class="guide-img default">
+                <img src="../images/categorias/sword2.png" alt="Base de datos de armas" class="guide-img hover">
+              </div>
+              <div class="guide-content">
+                <div class="guide-title">Armas</div>
+                <span class="guide-arrow">&#8594;</span>
+              </div>
+            </div>
+          </a>
+
+
       </section>
-
-      <h2 class="guides-title"> <ion-icon name="eyedrop-outline"></ion-icon> ARMAS</h2>
-
-      <section class="about-section">
-        <h2 class="about-title">
-        </h2>
-        <p>
-          Las armas son un componente clave del desarrollo de tus resonadores y su rendimiento en combate. Cada
-          resonador
-          puede utilizar <b>un solo tipo</b> de arma específico y proporcionan mejoras a estadísticas extremadamente
-          importantes como la <b>Prob. CRIT</b>, el <b>Daño
-            CRIT</b> o la <b>Regen. de energía</b>.
-        <p>
-          Las armas tienen distintos niveles de rareza, que van desde <b>2★</b> hasta <b>5★</b>. A mayor rareza,
-          <b>mejores estadísticas</b>
-          base y habilidades pasivas más poderosas. Pueden <b>mejorarse</b> utilizando materiales obtenidos durante
-          la <b>exploración</b>, farmeo de <b>dungeons</b> y <b>combates</b>, lo que permite incrementar su nivel y
-          potencial.
-        </p>
-
-        <div class="lista-animada">
-
-          <span class="armacolor-lista">
-            <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="armaicono-lista">
-            Espadas
-          </span>
-          <span class="armacolor-lista">
-            <img src="../images/tipos-armas/weapon_mandoble.png" alt="Mandoble" class="armaicono-lista">
-            Mandobles
-          </span>
-          <span class="armacolor-lista">
-            <img src="../images/tipos-armas/weapon_pistolas.png" alt="Pistolas" class="armaicono-lista">
-            Pistolas
-          </span>
-          <span class="armacolor-lista">
-            <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" class="armaicono-lista">
-            Rectificadores
-          </span>
-          <span class="armacolor-lista">
-            <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="armaicono-lista">
-            Brazales
-          </span>
-        </div>
-    </div>
-    </section>
-
-    <section class="about-section">
-      <h2 class="about-title">
-      </h2>
-      <p>
-        Para más información, visita nuestra base de datos para poder ver todas las armas disponibles hasta la fecha:
-      </p>
-
-      <div class="guides-grid">
-        <a href="#" class="guide-link">
-          <div class="guide-card">
-            <div class="guide-img-wrapper">
-              <img src="../images/categorias/sword.png" alt="Base de datos de armas" class="guide-img default">
-              <img src="../images/categorias/sword2.png" alt="Base de datos de armas" class="guide-img hover">
-            </div>
-            <div class="guide-content">
-              <div class="guide-title">Armas</div>
-              <span class="guide-arrow">&#8594;</span>
-            </div>
-          </div>
-        </a>
-
-
-    </section>
 
 
 
@@ -894,69 +894,50 @@
   <footer>
 
     <div class="footer-nav">
-
       <div class="footercontainer">
 
         <ul class="footer-nav-list">
-
           <li class="footer-nav-item">
             <h2 class="nav-title">Navegación</h2>
           </li>
-
           <li class="footer-nav-item">
-            <a href="../index.html" class="footer-nav-link">Inicio</a>
+            <a href="index.html" class="footer-nav-link">Inicio</a>
           </li>
-
           <li class="footer-nav-item">
-            <a href="../index.html" class="footer-nav-link">Sobre nosotros</a>
+            <a href="#" class="footer-nav-link">Sobre nosotros</a>
           </li>
-
           <li class="footer-nav-item">
             <a href="#" class="footer-nav-link">Políticas de privacidad</a>
           </li>
-
         </ul>
 
         <ul class="footer-nav-list">
-
           <li class="footer-nav-item">
             <h2 class="nav-title">Descarga nuestra App</h2>
           </li>
-
           <a href="#"><img src="../images/play-store.png" alt="Google Play"></a>
           <a href="#"><img src="../images/app-store.png" alt="App Store"></a>
-
         </ul>
 
         <ul class="footer-nav-list">
           <li class="footer-nav-item">
             <h2 class="nav-title">Contacto</h2>
           </li>
-
           <li class="footer-nav-item flex">
             <div class="icon-box">
               <ion-icon name="briefcase-outline"></ion-icon>
             </div>
-
             <a href="mailto:wutheringlabs@gmail.com" target="_blank" class="footer-nav-link">wutheringlabs@gmail.com</a>
           </li>
         </ul>
 
       </div>
-
     </div>
 
-    <div class="footercontainer">
-
-      <div class="footer-bottom"></div>
-
-      <p class="copyright">
-        Copyright &copy; 2025 - Wuthering Labs by <a href="#">franz</a> - Todos los derechos reservados.
-      </p>
-
-    </div>
-
-    </div>
+    <div class="footer-bottom"></div>
+    <p class="copyright">
+      Copyright &copy; 2025 Wuthering Labs by <a href="#">franz</a> - Todos los derechos reservados.
+    </p>
 
   </footer>
 
@@ -970,6 +951,7 @@
 
   <!--- Custom JS links -->
   <script type="text/javascript" src="../js/app.js"></script>
+  <script src="../js/accordion-anim.js"></script>
 
 
 </body>
