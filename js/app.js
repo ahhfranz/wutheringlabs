@@ -27,23 +27,6 @@ function closeAllSubMenus() {
   });
 }
 
-function ajustarSidebar() {
-  sidebar.classList.remove('close');
-  toggleButton.classList.remove('rotate');
-  document.body.classList.remove('sidebar-close');
-}
-
-window.addEventListener('DOMContentLoaded', ajustarSidebar);
-window.addEventListener('resize', ajustarSidebar);
-
-let scrollTimeout;
-window.addEventListener('wheel', function () {
-  document.body.classList.add('is-scrolling');
-  clearTimeout(scrollTimeout);
-  scrollTimeout = setTimeout(() => {
-    document.body.classList.remove('is-scrolling');
-  }, 200);
-});
 
 window.onscroll = function () {
   const btn = document.getElementById("btn-ir-arriba");
@@ -54,7 +37,6 @@ window.onscroll = function () {
   }
 };
 
-// Al hacer clic, vuelve arriba
 document.getElementById("btn-ir-arriba").onclick = function () {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };

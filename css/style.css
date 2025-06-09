@@ -89,8 +89,7 @@ body.bg-img {
       rgba(17, 18, 26, 0) 300px,
       rgba(17, 18, 26, 0.85) 420px,
       #11121a 600px,
-      #11121a 100vh
-    ),
+      #11121a 100vh),
     url('../images/fondo.png');
 }
 
@@ -127,7 +126,7 @@ body.bg-img {
 /* IMAGENES */
 
 .custom-img-container {
-  display: flex;
+  display: block;
   justify-content: center;
   margin: 24px 0;
 }
@@ -147,43 +146,16 @@ body.bg-img {
   gap: 40px;
   margin-top: 24px;
   flex-wrap: wrap;
-}
-
-
-/* Personajes - 5 - Gelio */
-
-.resonador-gelio-card-5 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
+  overflow: visible;
   position: relative;
-  border-bottom: 4px solid #6BB3D8;
-
+  z-index: 1;
 }
 
-.resonador-gelio-card-5:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-gelio-card-5:hover>img {
-  transform: scale(1.12);
-}
-
-.resonador-gelio-card-5>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #a58e53;
-  transition: transform 0.5s cubic-bezier(.4, 2, .6, 1);
+.stat-accordion,
+.stat-content,
+.stat-extra,
+.resonadores-grid {
+  overflow: visible !important;
 }
 
 .img-frame-5 {
@@ -226,34 +198,27 @@ body.bg-img {
   transition: transform 0.5s cubic-bezier(.4, 2, .6, 1);
 }
 
-.resonador-gelio-card-5:hover .img-frame-5 img {
+.resonador-gelio-card-5:hover .img-frame-5 img,
+.resonador-fusion-card-5:hover .img-frame-5 img,
+.resonador-havoc-card-5:hover .img-frame-5 img,
+.resonador-espectro-card-5:hover .img-frame-5 img,
+.resonador-aero-card-5:hover .img-frame-5 img,
+.resonador-electro-card-5:hover .img-frame-5 img {
   transform: scale(1.12);
 }
 
-.resonador-fusion-card-5:hover .img-frame-5 img {
-  transform: scale(1.12);
-}
-
-.resonador-havoc-card-5:hover .img-frame-5 img {
-  transform: scale(1.12);
-}
-
-.resonador-espectro-card-5:hover .img-frame-5 img {
-  transform: scale(1.12);
-}
-
-.resonador-aero-card-4:hover .img-frame-4 img {
-  transform: scale(1.12);
-}
-
+.resonador-gelio-card-4:hover .img-frame-4 img,
+.resonador-fusion-card-4:hover .img-frame-4 img,
+.resonador-havoc-card-4:hover .img-frame-4 img,
+.resonador-espectro-card-4:hover .img-frame-4 img,
+.resonador-aero-card-4:hover .img-frame-4 img,
 .resonador-electro-card-4:hover .img-frame-4 img {
   transform: scale(1.12);
 }
 
+/* Personajes - 5 - Gelio */
 
-/* Personajes - 5 - Destrucción */
-
-.resonador-havoc-card-5 {
+.resonador-gelio-card-5 {
   background: #232232;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -264,23 +229,28 @@ body.bg-img {
   width: 150px;
   transition: transform 0.2s;
   position: relative;
-  border-bottom: 4px solid #ED41A3;
+  border-bottom: 4px solid #6BB3D8;
+
 }
 
-.resonador-havoc-card-5:hover {
+.resonador-gelio-card-5:hover {
   transform: translateY(-6px) scale(1.04);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
-.resonador-havoc-card-5>img {
+.resonador-gelio-card-5:hover>img {
+  transform: scale(1.12);
+}
+
+.resonador-gelio-card-5>img {
   width: 130px;
   height: 130px;
   object-fit: cover;
   border-radius: 6px;
   margin-bottom: 8px;
   background: #a58e53;
+  transition: transform 0.5s cubic-bezier(.4, 2, .6, 1);
 }
-
 
 /* Personajes - 5 - Fusion */
 
@@ -312,6 +282,36 @@ body.bg-img {
   background: #a58e53;
 }
 
+/* Personajes - 5 - Destrucción */
+
+.resonador-havoc-card-5 {
+  background: #232232;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #ED41A3;
+}
+
+.resonador-havoc-card-5:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.resonador-havoc-card-5>img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #a58e53;
+}
+
 /* Personajes - 5 - Espectro */
 
 .resonador-espectro-card-5 {
@@ -334,6 +334,192 @@ body.bg-img {
 }
 
 .resonador-espectro-card-5>img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #FFF180;
+}
+
+/* Personajes - 5 - Aero */
+
+.resonador-aero-card-5 {
+  background: #232232;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #5FFFC2;
+}
+
+.resonador-aero-card-5:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.resonador-aero-card-5>img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #5FFFC2;
+}
+
+/* Personajes - 5 - Electro */
+
+.resonador-electro-card-5 {
+  background: #232232;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #B86FFF;
+}
+
+.resonador-electro-card-5:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.resonador-electro-card-5>img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #B86FFF;
+}
+
+/* Personajes - 4 - Gelio */
+
+.resonador-gelio-card-4 {
+  background: #232232;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #6BB3D8;
+
+}
+
+.resonador-gelio-card-4:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.resonador-gelio-card-4:hover>img {
+  transform: scale(1.12);
+}
+
+.resonador-gelio-card-4>img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #a58e53;
+  transition: transform 0.5s cubic-bezier(.4, 2, .6, 1);
+}
+
+/* Personajes - 4 - Fusion */
+
+.resonador-fusion-card-4 {
+  background: #232232;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #F47C56;
+}
+
+.resonador-fusion-card-4:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.resonador-fusion-card-4>img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #a58e53;
+}
+
+/* Personajes - 4 - Destrucción */
+
+.resonador-havoc-card-4 {
+  background: #232232;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #ED41A3;
+}
+
+.resonador-havoc-card-4:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.resonador-havoc-card-4>img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: #a58e53;
+}
+
+/* Personajes - 4 - Espectro */
+
+.resonador-espectro-card-4 {
+  background: #232232;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #FFF180;
+}
+
+.resonador-espectro-card-4:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.resonador-espectro-card-4>img {
   width: 130px;
   height: 130px;
   object-fit: cover;
@@ -589,6 +775,22 @@ body.bg-img {
   letter-spacing: 0.2px;
 }
 
+.stat-extra ul {
+  margin: 0.5em 0 1em 1.5em;
+  padding: 0;
+  list-style: disc;
+}
+
+.stat-extra ul ul {
+  margin: 0.2em 0 0.5em 1.5em;
+  list-style: circle;
+}
+
+.stat-extra li {
+  margin-bottom: 0.3em;
+  font-size: 1em;
+}
+
 .stat-item {
   margin-bottom: 12px;
   line-height: 1.6;
@@ -745,28 +947,103 @@ body.bg-img {
   display: none;
 }
 
-.resonador-gelio-card-5:hover .resonador-tooltip-content {
+.resonador-gelio-card-5:hover .resonador-tooltip-content,
+.resonador-fusion-card-5:hover .resonador-tooltip-content,
+.resonador-havoc-card-5:hover .resonador-tooltip-content,
+.resonador-espectro-card-5:hover .resonador-tooltip-content,
+.resonador-aero-card-5:hover .resonador-tooltip-content,
+.resonador-electro-card-5:hover .resonador-tooltip-content {
   display: block;
 }
 
-.resonador-havoc-card-5:hover .resonador-tooltip-content {
-  display: block;
-}
-
-.resonador-fusion-card-5:hover .resonador-tooltip-content {
-  display: block;
-}
-
-.resonador-espectro-card-5:hover .resonador-tooltip-content {
-  display: block;
-}
-
-.resonador-aero-card-4:hover .resonador-tooltip-content {
-  display: block;
-}
-
+.resonador-gelio-card-4:hover .resonador-tooltip-content,
+.resonador-fusion-card-4:hover .resonador-tooltip-content,
+.resonador-havoc-card-4:hover .resonador-tooltip-content,
+.resonador-espectro-card-4:hover .resonador-tooltip-content,
+.resonador-aero-card-4:hover .resonador-tooltip-content,
 .resonador-electro-card-4:hover .resonador-tooltip-content {
   display: block;
+}
+
+/* LISTA DE ARMAS EN GACHA */
+
+.weapons-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 14px;         
+  margin: 20px 0;
+  padding-left: 20px;   
+  padding-right: 20px;  
+}
+
+.weapon-card {
+  background: #181c23;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #000a;
+  display: flex;
+  padding: 10px 10px 0 10px; 
+  min-height: 110px;         
+  position: relative;
+  overflow: hidden;
+}
+
+.weapon-img {
+  width: 54px;            
+  height: 54px;
+  margin-right: 10px;
+  margin-top: 4px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px #ffe066;
+  background-color: #222;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.weapon-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.weapon-info h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.05em;        
+  font-weight: 700;
+  color: #fff;
+}
+
+.weapon-meta {
+  font-size: 0.93em;        
+  color: #bfc9d5;
+  margin-bottom: 6px;
+}
+
+.weapon-desc {
+  color: #e3e3e3;
+  font-size: 0.93em;        
+  margin-bottom: 18px;
+}
+
+.weapon-desc b {
+  color: #ffe066;
+  font-weight: 600;
+}
+
+.weapon-stats {
+  display: flex;
+  justify-content: flex-start;
+  gap: 18px;
+  font-size: 0.93em;        
+  color: #bfc9d5;
+  margin-bottom: 6px;
+}
+
+.star-5 {
+  color: #ffe066;
+  font-weight: bold;
 }
 
 /* Flecha del tooltip */
@@ -891,6 +1168,10 @@ body.bg-img {
   margin-right: 4px;
 }
 
+.tag {
+  white-space: nowrap;
+}
+
 /* Tiers */
 
 .resonador-tiers {
@@ -955,8 +1236,8 @@ body.bg-img {
   margin-bottom: 0;
 }
 
-.tier-box-c {
-  background: #fed4a0;
+.tier-box-b {
+  background: #f3ff87;
   border-radius: 6px;
   padding: 0 18px;
   min-width: 150px;
@@ -967,7 +1248,7 @@ body.bg-img {
   margin-bottom: 0;
 }
 
-.tier-box-d {
+.tier-box-c {
   background: #bfff7f;
   border-radius: 6px;
   padding: 0 18px;
@@ -1846,43 +2127,69 @@ footer {
   font-size: 1em;
   color: #e3e3e3;
 }
+
 .gacha-info-list ul {
   margin: 0.5em 0 1em 1.5em;
   padding: 0;
   list-style: disc;
 }
+
+.gacha-info-list li {
+  margin-bottom: 0.3em;
+  font-size: 1em;
+}
+
 .gacha-info-list ul.gacha-rewards {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
 }
+
 .gacha-info-list ul.gacha-rewards li {
   margin-bottom: 0.2em;
   display: flex;
   align-items: center;
 }
+
 .gacha-info-list .star {
   font-weight: bold;
   margin-right: 0.3em;
   font-size: 1.1em;
   vertical-align: middle;
 }
-.star-3 { color: #3da9fc; }   
-.star-4 { color: #b983ff; }    
-.star-5 { color: #ffd700; }   
+
+.star-3 {
+  color: #3da9fc;
+}
+
+.star-4 {
+  color: #b983ff;
+}
+
+.star-5 {
+  color: #ffd700;
+}
+
 .gacha-info-list .tide {
   font-weight: bold;
   padding: 0 0.2em;
   border-radius: 4px;
 }
-.tide-lustrous { color: #3da9fc; }
-.tide-radiant { color: #ffd700; }
-.tide-forging { color: #ffd700; }
+
+.star-3-color {
+  color: #3da9fc;
+}
+
+.star-5-color {
+  color: #ffd700;
+}
+
 .gacha-info-list .gacha-note {
   margin: 0.8em 0 0.5em 0;
   font-size: 0.98em;
   color: #bdbdbd;
 }
+
 .gacha-info-list .gacha-guarantee-4 {
   background: rgba(60, 40, 100, 0.18);
   border-left: 4px solid #b983ff;
@@ -1891,6 +2198,7 @@ footer {
   font-size: 0.98em;
   color: #e3e3e3;
 }
+
 .gacha-info-list .gacha-guarantee-5 {
   background: rgba(60, 40, 100, 0.18);
   border-left: 4px solid #ffd700;
@@ -1899,7 +2207,6 @@ footer {
   font-size: 0.98em;
   color: #e3e3e3;
 }
-
 
 
 /* RESPONSIVE 800px */
@@ -2288,6 +2595,12 @@ footer {
   .resonador-havoc-card-5:hover,
   .resonador-fusion-card-5:hover,
   .resonador-espectro-card-5:hover,
+  .resonador-aero-card-5:hover,
+  .resonador-electro-card-5:hover,
+  .resonador-gelio-card-4:hover,
+  .resonador-havoc-card-4:hover,
+  .resonador-fusion-card-4:hover,
+  .resonador-espectro-card-4:hover,
   .resonador-aero-card-4:hover,
   .resonador-electro-card-4:hover {
     transform: none !important;
@@ -2298,6 +2611,12 @@ footer {
   .resonador-havoc-card-5:hover .img-frame-5 img .img-frame-4 img,
   .resonador-fusion-card-5:hover .img-frame-5 img .img-frame-4 img,
   .resonador-espectro-card-5:hover .img-frame-5 img .img-frame-4 img,
+  .resonador-aero-card-5:hover .img-frame-5 img .img-frame-4 img,
+  .resonador-electro-card-5:hover .img-frame-5 img .img-frame-4 img,
+  .resonador-gelio-card-4:hover .img-frame-5 img .img-frame-4 img,
+  .resonador-havoc-card-4:hover .img-frame-5 img .img-frame-4 img,
+  .resonador-fusion-card-4:hover .img-frame-5 img .img-frame-4 img,
+  .resonador-espectro-card-4:hover .img-frame-5 img .img-frame-4 img,
   .resonador-aero-card-4:hover .img-frame-5 img .img-frame-4 img,
   .resonador-electro-card-4:hover .img-frame-5 img .img-frame-4 img {
     transform: none !important;
@@ -2362,12 +2681,18 @@ footer {
     height: 50px;
     font-size: 1.5rem;
     right: 20px;
-    bottom: 80px;      
-    z-index: 3000;     
+    bottom: 80px;
+    z-index: 3000;
     position: fixed;
     display: block;
   }
 
+}
+
+@media (max-width: 900px) {
+  .weapons-menu {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* PRESENTACIÓN: TABLET Y DESKTOP */
