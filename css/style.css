@@ -230,7 +230,6 @@ body.bg-img {
   transition: transform 0.2s;
   position: relative;
   border-bottom: 4px solid #6BB3D8;
-
 }
 
 .resonador-gelio-card-5:hover {
@@ -947,33 +946,15 @@ body.bg-img {
   display: none;
 }
 
-.resonador-gelio-card-5:hover .resonador-tooltip-content,
-.resonador-fusion-card-5:hover .resonador-tooltip-content,
-.resonador-havoc-card-5:hover .resonador-tooltip-content,
-.resonador-espectro-card-5:hover .resonador-tooltip-content,
-.resonador-aero-card-5:hover .resonador-tooltip-content,
-.resonador-electro-card-5:hover .resonador-tooltip-content {
-  display: block;
-}
-
-.resonador-gelio-card-4:hover .resonador-tooltip-content,
-.resonador-fusion-card-4:hover .resonador-tooltip-content,
-.resonador-havoc-card-4:hover .resonador-tooltip-content,
-.resonador-espectro-card-4:hover .resonador-tooltip-content,
-.resonador-aero-card-4:hover .resonador-tooltip-content,
-.resonador-electro-card-4:hover .resonador-tooltip-content {
-  display: block;
-}
-
 /* LISTA DE ARMAS EN GACHA */
 
 .weapons-menu {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px 14px;         
+  gap: 18px 14px;
   margin: 20px 0;
-  padding-left: 20px;   
-  padding-right: 20px;  
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .weapon-card {
@@ -981,14 +962,14 @@ body.bg-img {
   border-radius: 8px;
   box-shadow: 0 2px 8px #000a;
   display: flex;
-  padding: 10px 10px 0 10px; 
-  min-height: 110px;         
+  padding: 10px 10px 0 10px;
+  min-height: 110px;
   position: relative;
   overflow: hidden;
 }
 
 .weapon-img {
-  width: 54px;            
+  width: 54px;
   height: 54px;
   margin-right: 10px;
   margin-top: 4px;
@@ -1010,20 +991,20 @@ body.bg-img {
 
 .weapon-info h3 {
   margin: 0 0 4px 0;
-  font-size: 1.05em;        
+  font-size: 1.05em;
   font-weight: 700;
   color: #fff;
 }
 
 .weapon-meta {
-  font-size: 0.93em;        
+  font-size: 0.93em;
   color: #bfc9d5;
   margin-bottom: 6px;
 }
 
 .weapon-desc {
   color: #e3e3e3;
-  font-size: 0.93em;        
+  font-size: 0.93em;
   margin-bottom: 18px;
 }
 
@@ -1036,7 +1017,7 @@ body.bg-img {
   display: flex;
   justify-content: flex-start;
   gap: 18px;
-  font-size: 0.93em;        
+  font-size: 0.93em;
   color: #bfc9d5;
   margin-bottom: 6px;
 }
@@ -1260,7 +1241,7 @@ body.bg-img {
   margin-bottom: 0;
 }
 
-.tier-label {
+.tier-label-paginas {
   font-size: 1.2em;
   font-weight: bold;
   color: #232232;
@@ -1508,7 +1489,6 @@ main p {
   width: 100%;
   height: auto;
   filter: drop-shadow(0 0 48px #3b053b63);
-  /* Puedes ajustar el color y la intensidad */
   transition: filter 0.3s;
 }
 
@@ -2209,6 +2189,953 @@ footer {
 }
 
 
+/* Barra de filtros */
+
+.filters-bar {
+  display: flex;
+  align-items: center;
+  background: #191922;
+  padding: 8px 10px;
+  border-radius: 4px;
+  gap: 6px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+/* Input de búsqueda */
+
+.filter-search {
+  background: #24252b;
+  color: #e3e3e3;
+  border: none;
+  border-radius: 4px;
+  padding: 7px 12px;
+  font-size: 15px;
+  outline: none;
+  min-width: 210px;
+  margin-right: 6px;
+}
+
+.filter-search::placeholder {
+  color: #b0b0b0;
+  opacity: 1;
+}
+
+.filters-group {
+  display: flex;
+  gap: 6px;
+  margin-right: 18px;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.filters-group:not(:last-child) {
+  border-right: 2px solid #31333a;
+  padding-right: 18px;
+}
+
+/* Botones de filtro */
+
+.filter-btn {
+  background: #23252b;
+  color: #e3e3e3;
+  border: none;
+  border-radius: 4px;
+  padding: 0 14px;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  border: 1px solid #31333a;
+  position: relative;
+}
+
+.filter-btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: brightness(1.2);
+  pointer-events: none;
+}
+
+.filter-btn.active,
+.filter-btn:active,
+.filter-btn:focus {
+  background: #1e90ff;
+  color: #fff;
+  border-color: #1e90ff;
+}
+
+.filter-btn:hover:not(.active) {
+  background: #2d3037;
+}
+
+/* Botón Reset */
+
+.filter-reset-btn {
+  background: #31333a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0 18px;
+  height: 40px;
+  margin-left: auto;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  border: 1px solid #44454a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-reset-btn:hover {
+  background: #e74c3c;
+  color: #fff;
+  border-color: #e74c3c;
+}
+
+/* Scroll horizontal para móviles */
+
+.filters-bar {
+  scrollbar-width: thin;
+  scrollbar-color: #1e90ff #23252b;
+}
+
+.filters-bar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.filters-bar::-webkit-scrollbar-thumb {
+  background: #1e90ff;
+  border-radius: 4px;
+}
+
+.filters-bar::-webkit-scrollbar-track {
+  background: #23252b;
+}
+
+
+/* Tier List */
+
+.tierlist-container {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.tierlist-roles {
+  display: flex;
+  justify-content: space-between;
+  background: #191922;
+  padding: 12px 32px;
+  border-radius: 8px 8px 0 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #2f1242;
+}
+
+.role {
+  flex: 1;
+  text-align: center;
+}
+
+.role.dps {
+  color: #ff5a5a;
+}
+
+.role.hybrid {
+  color: #b97fff;
+}
+
+.role.support {
+  color: #ffd166;
+}
+
+.tier-section {
+  margin-bottom: 5px;
+}
+
+.tier-header-1 {
+  background: #191922;
+  padding: 8px 32px;
+  font-family: "Anuphan", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #EF5350;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tier-header-2 {
+  background: #191922;
+  padding: 8px 32px;
+  font-family: "Anuphan", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #EC6C68;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tier-header-3 {
+  background: #191922;
+  padding: 8px 32px;
+  font-family: "Anuphan", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffa967;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tier-header-4 {
+  background: #191922;
+  padding: 8px 32px;
+  font-family: "Anuphan", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #f3ff87;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tier-header-5 {
+  background: #191922;
+  padding: 8px 32px;
+  font-family: "Anuphan", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #bfff7f;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tier-header.meta {
+  color: #ffb347;
+  border-color: #ffb347;
+}
+
+.tierlist-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr 1fr;
+  align-items: stretch;
+  margin-bottom: 0;
+}
+
+.tierlist-row .tier-col:nth-child(1) {
+  background: #28283a;
+  border-radius: 0 0 0px 12px;
+}
+
+.tierlist-row .tier-col:nth-child(2) {
+  background: #28283a;
+
+}
+
+.tierlist-row .tier-col:nth-child(3) {
+  background: #373750;
+}
+
+.tierlist-row .tier-col:nth-child(4) {
+  background: #28283a;
+  border-radius: 0 0 12px 0dvb;
+}
+
+.tier-col {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 10px;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.tier-label.t0 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  min-width: 60px;
+  max-width: 60px;
+  padding-left: 0;
+  padding-right: 0;
+  grid-row: 1;
+  grid-column: 1;
+  background: #EF5350;
+  color: #23232b;
+  height: 100%;
+  border-radius: 8px 0 0 0px;
+}
+
+.tier-label.t0-5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  min-width: 60px;
+  max-width: 60px;
+  padding-left: 0;
+  padding-right: 0;
+  grid-row: 1;
+  grid-column: 1;
+  background: #EC6C68;
+  color: #23232b;
+  height: 100%;
+  border-radius: 0px 0 0 8px;
+
+}
+
+.tier-label.t1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  min-width: 60px;
+  max-width: 60px;
+  padding-left: 0;
+  padding-right: 0;
+  grid-row: 1;
+  grid-column: 1;
+  background: #ffa967;
+  color: #23232b;
+  height: 100%;
+  border-radius: 8px 0 0 0px;
+}
+
+.tier-label.t1-5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  min-width: 60px;
+  max-width: 60px;
+  padding-left: 0;
+  padding-right: 0;
+  grid-row: 1;
+  grid-column: 1;
+  background: #ffbe7c;
+  color: #23232b;
+  height: 100%;
+  border-radius: 0px 0 0 8px;
+}
+
+.tier-label.t2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  min-width: 60px;
+  max-width: 60px;
+  padding-left: 0;
+  padding-right: 0;
+  grid-row: 1;
+  grid-column: 1;
+  background: #f3ff87;
+  color: #23232b;
+  height: 100%;
+  border-radius: 8px 0 0 0px;
+}
+
+.tier-label.t2-5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  min-width: 60px;
+  max-width: 60px;
+  padding-left: 0;
+  padding-right: 0;
+  grid-row: 1;
+  grid-column: 1;
+  background: #bfff7f;
+  color: #23232b;
+  height: 100%;
+  border-radius: 0px 0 0 8px;
+}
+
+/* TIER LIST - Estilos resonadores */
+
+.resonadores-gelio,
+.resonadores-espectro,
+.resonadores-fusion,
+.resonadores-havoc,
+.resonadores-aero,
+.resonadores-electro {
+  width: 100px !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding: 8px 8px 4px 8px !important;
+  /* antes 12px 12px 8px 12px */
+  box-sizing: border-box;
+}
+
+.resonadores-gelio {
+  border-radius: 8px;
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #6BB3D8;
+}
+
+.resonadores-gelio:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.elemento-gelio {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.elemento-gelio img {
+  display: block;
+  filter: drop-shadow(0 0 2px #6BB3D8);
+}
+
+.elemento-gelio img,
+.elemento-espectro img,
+.elemento-fusion img,
+.elemento-havoc img,
+.elemento-aero img,
+.elemento-electro img {
+  width: 35px;
+  height: 35px;
+}
+
+.imagen-personaje-5 {
+  background: #a58e53;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.imagen-personaje-5 img {
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform 0.5s cubic-bezier(.4, 2, .6, 1);
+}
+
+.imagen-personaje-4 {
+  background: #71369e;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.imagen-personaje-4 img {
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform 0.5s cubic-bezier(.4, 2, .6, 1);
+}
+
+.imagen-personaje-5,
+.imagen-personaje-4 {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 3px;
+}
+
+.imagen-personaje-5 img,
+.imagen-personaje-4 img {
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+}
+
+
+.resonadores-gelio:hover .imagen-personaje-5 img {
+  transform: scale(1.12);
+}
+
+.resonadores-espectro {
+  border-radius: 8px;
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #FFF180;
+}
+
+.resonadores-espectro:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.elemento-espectro {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.elemento-espectro img {
+  display: block;
+  filter: drop-shadow(0 0 2px #FFF180);
+}
+
+.resonadores-espectro:hover .imagen-personaje-5 img {
+  transform: scale(1.12);
+}
+
+.resonadores-aero {
+  border-radius: 8px;
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #5FFFC2;
+}
+
+.resonadores-aero:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.elemento-aero {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.elemento-aero img {
+  display: block;
+  filter: drop-shadow(0 0 2px #5FFFC2);
+}
+
+.resonadores-aero:hover .imagen-personaje-5 img {
+  transform: scale(1.12);
+}
+
+.resonadores-fusion {
+  border-radius: 8px;
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #F47C56;
+}
+
+.resonadores-fusion:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.elemento-fusion {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.elemento-fusion img {
+  display: block;
+  filter: drop-shadow(0 0 2px #F47C56);
+}
+
+.resonadores-fusion:hover .imagen-personaje-5 img {
+  transform: scale(1.12);
+}
+
+.resonadores-electro {
+  border-radius: 8px;
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #B86FFF;
+}
+
+.resonadores-electro:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.elemento-electro {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.elemento-electro img {
+  display: block;
+  filter: drop-shadow(0 0 2px #B86FFF);
+}
+
+.resonadores-electro:hover .imagen-personaje-5 img {
+  transform: scale(1.12);
+}
+
+.resonadores-havoc {
+  border-radius: 8px;
+  padding: 12px 12px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  transition: transform 0.2s;
+  position: relative;
+  border-bottom: 4px solid #ED41A3;
+}
+
+.resonadores-havoc:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.elemento-havoc {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.elemento-havoc img {
+  display: block;
+  filter: drop-shadow(0 0 2px #ED41A3);
+}
+
+.resonadores-havoc:hover .imagen-personaje-5 img {
+  transform: scale(1.12);
+}
+
+/* Tooltip adaptado */
+
+.contenido-del-tooltip {
+  background: #232232;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+  font-size: 0.92em;
+  padding: 8px 10px;
+  min-width: unset;
+  max-width: none;
+  width: auto;
+  text-align: center;
+  font-family: 'Poppins', Arial, sans-serif;
+  display: none;
+  position: absolute;
+  z-index: 100;
+}
+
+.resonadores-avatar-5 {
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #a58e53;
+  border: 3px solid #a58e53;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.resonadores-avatar-4 {
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #71369e;
+  border: 3px solid #71369e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.resonadores-avatar-5,
+.resonadores-avatar-4 {
+  width: 80px;
+  height: 80px;
+}
+
+.resonadores-nombre {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.resonadores-tags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: nowrap;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  background: #181824;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 1em;
+  font-weight: 600;
+  color: #fff;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.tag-rarezas {
+  background: #35363c;
+  color: #fff;
+}
+
+.tag-tipo-gelio {
+  background: #232232;
+  color: #41AEFB;
+  border-bottom: 2px solid #41AEFB;
+}
+
+.tag-tipo-fusion {
+  background: #232232;
+  color: #F47C56;
+  border-bottom: 2px solid #F47C56;
+}
+
+.tag-tipo-aero {
+  background: #232232;
+  color: #5FFFC2;
+  border-bottom: 2px solid #5FFFC2;
+}
+
+.tag-tipo-electro {
+  background: #232232;
+  color: #B86FFF;
+  border-bottom: 2px solid #B86FFF;
+}
+
+.tag-tipo-espectro {
+  background: #232232;
+  color: #FFF180;
+  border-bottom: 2px solid #FFF180;
+}
+
+.tag-tipo-havoc {
+  background: #232232;
+  color: #ED41A3;
+  border-bottom: 2px solid #ED41A3;
+}
+
+.tag-armas {
+  background: #232232;
+  color: #bdbdbd;
+  border-bottom: 2px solid #bdbdbd;
+}
+
+.tag-iconos {
+  width: 30px;
+  height: 30px;
+  margin-right: 4px;
+}
+
+.resonadores-tiers {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.tier-grupos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.tiers-box-ss {
+  background: #EF5350;
+  border-radius: 6px;
+  padding: 0 18px;
+  min-width: 150px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.tier-box-s {
+  background: #EC6C68;
+  border-radius: 6px;
+  padding: 0 18px;
+  min-width: 150px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.tiers-label {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #232232;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.tiers-desc {
+  font-size: 0.9em;
+  color: #fff;
+  margin-top: 8px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 14px solid #232232;
+}
+
+.role-mobile {
+  display: none;
+  font-weight: 300;
+  font-family: "Anuphan", sans-serif;
+  font-size: 1.0em;
+  margin: 10px 0 8px 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.role-mobile.dps {
+  color: #ff5a5a;
+}
+
+.role-mobile.hybrid {
+  color: #b97fff;
+}
+
+.role-mobile.support {
+  color: #ffd166;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* RESPONSIVE 800px */
 
 @media (max-width: 800px) {
@@ -2591,37 +3518,6 @@ footer {
     display: none !important;
   }
 
-  .resonador-gelio-card-5:hover,
-  .resonador-havoc-card-5:hover,
-  .resonador-fusion-card-5:hover,
-  .resonador-espectro-card-5:hover,
-  .resonador-aero-card-5:hover,
-  .resonador-electro-card-5:hover,
-  .resonador-gelio-card-4:hover,
-  .resonador-havoc-card-4:hover,
-  .resonador-fusion-card-4:hover,
-  .resonador-espectro-card-4:hover,
-  .resonador-aero-card-4:hover,
-  .resonador-electro-card-4:hover {
-    transform: none !important;
-    box-shadow: none !important;
-  }
-
-  .resonador-gelio-card-5:hover .img-frame-5 img .img-frame-4 img,
-  .resonador-havoc-card-5:hover .img-frame-5 img .img-frame-4 img,
-  .resonador-fusion-card-5:hover .img-frame-5 img .img-frame-4 img,
-  .resonador-espectro-card-5:hover .img-frame-5 img .img-frame-4 img,
-  .resonador-aero-card-5:hover .img-frame-5 img .img-frame-4 img,
-  .resonador-electro-card-5:hover .img-frame-5 img .img-frame-4 img,
-  .resonador-gelio-card-4:hover .img-frame-5 img .img-frame-4 img,
-  .resonador-havoc-card-4:hover .img-frame-5 img .img-frame-4 img,
-  .resonador-fusion-card-4:hover .img-frame-5 img .img-frame-4 img,
-  .resonador-espectro-card-4:hover .img-frame-5 img .img-frame-4 img,
-  .resonador-aero-card-4:hover .img-frame-5 img .img-frame-4 img,
-  .resonador-electro-card-4:hover .img-frame-5 img .img-frame-4 img {
-    transform: none !important;
-  }
-
   .lista-animada {
     gap: 14px;
     justify-content: flex-start;
@@ -2658,7 +3554,6 @@ footer {
   .stat-content {
     font-size: 0.97em;
     padding: 8px 0 8px 6px;
-    /* antes: 8px 0 8px 15px; */
   }
 
   .stat-extra .formula {
@@ -2673,7 +3568,6 @@ footer {
   .stat-accordion .nowrap,
   .stat-accordion .stat-extra {
     margin-left: 0 !important;
-    /* antes: 15px; */
   }
 
   #btn-ir-arriba {
@@ -2685,8 +3579,212 @@ footer {
     z-index: 3000;
     position: fixed;
     display: block;
+
   }
 
+  .tierlist-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100%;
+    gap: 0 !important;
+  }
+
+  .tier-label {
+    width: 100%;
+    max-width: 100vw;
+    min-width: 0;
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 1.3em;
+    border-radius: 8px 8px 0 0 !important;
+    height: auto;
+    padding: 12px 0;
+  }
+
+  .tier-col {
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px 0;
+    justify-items: center;
+    align-items: flex-start;
+    padding: 10px 0 !important;
+    min-width: 0 !important;
+    position: relative;
+  }
+
+  .resonadores-gelio,
+  .resonadores-espectro,
+  .resonadores-aero,
+  .resonadores-havoc,
+  .resonadores-fusion,
+  .resonadores-electro {
+    width: 120px !important;
+    min-width: 0 !important;
+    max-width: 140px !important;
+    margin: 0 !important;
+    padding: 12px 6px 6px 6px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    border-radius: 12px;
+    display: flex !important;
+  }
+
+  .imagen-personaje-5,
+  .imagen-personaje-4 {
+    min-width: 80px !important;
+    min-height: 80px !important;
+    margin-right: 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .resonadores-nombre {
+    font-size: 1em !important;
+    margin-bottom: 6px !important;
+    text-align: center;
+    word-break: break-word;
+  }
+
+  .resonadores-tags,
+  .resonadores-tiers {
+    flex-wrap: wrap !important;
+    font-size: 0.95em !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .resonador-tooltip-content,
+  .contenido-del-tooltip {
+    display: none !important;
+    pointer-events: none !important;
+  }
+
+  .tier-section {
+    padding: 0 2vw !important;
+  }
+
+  .role-mobile {
+    display: block;
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 8px;
+    margin-top: 0;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    z-index: 2;
+  }
+
+  .tierlist-roles {
+    display: none !important;
+  }
+
+  .filters-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    padding: 10px 6px !important;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .filter-search {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 0 6px 0 !important;
+    box-sizing: border-box;
+  }
+
+  .filters-group.search-group {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .filters-group {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px !important;
+    margin: 0 0 6px 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    width: 100%;
+    box-sizing: border-box;
+    justify-items: center;
+  }
+
+  .filters-group.stars {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px !important;
+    margin: 0 0 6px 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+    justify-items: center;
+  }
+
+  .filters-group.elements {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px !important;
+    margin: 0 0 6px 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+    justify-items: center;
+  }
+
+  .filters-group.weapons {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px !important;
+    margin: 0 0 6px 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+    justify-items: center;
+  }
+
+  .filters-group:first-of-type {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .filter-btn {
+    min-width: 0 !important;
+    width: 100%;
+    height: 38px !important;
+    font-size: 1em !important;
+    padding: 0 !important;
+    border-radius: 4px !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .filter-btn img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .filter-reset-btn {
+    width: 100% !important;
+    margin: 0 !important;
+    border-radius: 4px !important;
+    font-size: 1em !important;
+    height: 38px !important;
+    box-sizing: border-box;
+  }
+
+}
+
+
+@media (min-width: 801px) {
+  .tier-col .role {
+    display: none;
+  }
 }
 
 @media (max-width: 900px) {
@@ -2720,7 +3818,7 @@ footer {
 
   body.sidebar-close main,
   body.sidebar-close .footercontainer {
-    padding-left: 100px;
+    padding-left: 10px;
   }
 
   .presentacion {
