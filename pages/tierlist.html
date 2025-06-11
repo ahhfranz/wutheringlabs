@@ -135,6 +135,24 @@
       </div>
     </div>
 
+    <!-- Menu de 3 botones -->
+
+    <div class="menu-imagenes">
+      <div class="menu-img-item activo" data-tipo="labs">
+        <img src="../images/labscorefondo.png" alt="Labs score" />
+        <span class="menu-titulo">LABS SCORE</span>
+      </div>
+      <div class="menu-img-item" data-tipo="torre">
+        <img src="../images/torrefondo.png" alt="Torre de la adversidad" />
+        <span class="menu-titulo">TORRE DE LA ADVERSIDAD</span>
+      </div>
+      <div class="menu-img-item" data-tipo="olas">
+        <img src="../images/olasfondo.png" alt="Olas clamantes" />
+        <span class="menu-titulo">OLAS CLAMANTES</span>
+      </div>
+    </div>
+
+
     <!-- Filtros -->
 
     <div class="filters-bar">
@@ -171,6 +189,7 @@
       </div>
 
       <div class="filters-group weapons">
+        <button class="filter-btn active" title="Todos"><i class="bi bi-asterisk"></i></button>
         <button class="filter-btn" title="Espada">
           <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" />
         </button>
@@ -194,7 +213,7 @@
 
     <!-- Tier List -->
 
-    <section class="tierlist-container">
+    <section class="tierlist-container" id="tierlist-container">
       <div class="tierlist-roles">
         <div class="role dps"><i class="bi bi-fire" style="margin-right:5px;"></i> DPS</div>
         <div class="role hybrid"><i class="bi bi-yin-yang" style="margin-right:5px;"></i> SUB-DPS</div>
@@ -205,11 +224,11 @@
 
       <div class="tier-section">
         <div class="tier-header-1">
-          <i class="bi bi-chevron-double-left" style="margin-right: 8px;"></i>DIOSES<i
+          <i class="bi bi-chevron-double-left" style="margin-right: 8px;"></i>ASTRALES<i
             class="bi bi-chevron-double-right" style="margin-left: 8px;"></i>
         </div>
 
-        <div class="tierlist-row">
+        <div class="tierlist-row" data-tier="S+">
           <div class="tier-label t0">S+</div>
 
           <!-- DPS -->
@@ -217,7 +236,8 @@
           <div class="tier-col">
             <div class="role-mobile dps"><i class="bi bi-fire"></i> DPS</div>
 
-            <div class="resonadores-gelio" data-rarezas="5" data-elemento="gelio" data-arma="pistola">
+            <div class="resonadores-gelio" data-rarezas="5" data-elemento="gelio" data-arma="pistola"
+              data-labs-rank-dps="S+" data-torre-rank-dps="S+" data-olas-rank-dps="S" data-role="dps">
               <span class="elemento-gelio">
                 <img src="../images/elementos/icon_gelio.png" alt="gelio">
               </span>
@@ -250,11 +270,19 @@
                     <div class="tiers-desc">Olas Clamantes</div>
                   </div>
                 </div>
+                <div class="tier-grupos labs-score-label">
+                  <div class="tier-box-labs-ss">
+                    <div class="tiers-label">S+</div>
+                  </div>
+                  <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+                </div>
                 <div class="tooltip-arrow"></div>
               </div>
             </div>
 
-            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="rectificador">
+            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="rectificador"
+              data-labs-rank-dps="S+" data-labs-rank-hybrid="S+" data-torre-rank-dps="S+" data-torre-rank-hybrid="S+"
+              data-olas-rank-dps="S" data-olas-rank-hybrid="S" data-role="dps hybrid">
               <span class="elemento-espectro">
                 <img src="../images/elementos/icon_espectro.png" alt="espectro">
               </span>
@@ -288,11 +316,18 @@
                     <div class="tiers-desc">Olas Clamantes</div>
                   </div>
                 </div>
+                <div class="tier-grupos labs-score-label">
+                  <div class="tier-box-labs-ss">
+                    <div class="tiers-label">S+</div>
+                  </div>
+                  <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+                </div>
                 <div class="tooltip-arrow"></div>
               </div>
             </div>
 
-            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="brazales">
+            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="brazales"
+              data-labs-rank-dps="S+" data-torre-rank-dps="S+" data-olas-rank-dps="S+" data-role="dps">
               <span class="elemento-espectro">
                 <img src="../images/elementos/icon_espectro.png" alt="espectro">
               </span>
@@ -326,10 +361,15 @@
                     <div class="tiers-desc">Olas Clamantes</div>
                   </div>
                 </div>
+                <div class="tier-grupos labs-score-label">
+                  <div class="tier-box-labs-ss">
+                    <div class="tiers-label">S+</div>
+                  </div>
+                  <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+                </div>
                 <div class="tooltip-arrow"></div>
               </div>
             </div>
-
           </div>
 
           <!-- SUB-DPS -->
@@ -337,7 +377,8 @@
           <div class="tier-col">
             <div class="role-mobile dps"><i class="bi bi-yin-yang"></i> SUB-DPS</div>
 
-            <div class="resonadores-aero" data-rarezas="5" data-elemento="aero" data-arma="pistola">
+            <div class="resonadores-aero" data-rarezas="5" data-elemento="aero" data-arma="pistola"
+              data-labs-rank-hybrid="S+" data-torre-rank-hybrid="S+" data-olas-rank-hybrid="S" data-role="hybrid">
               <span class="elemento-aero">
                 <img src="../images/elementos/icon_aero.png" alt="aero">
               </span>
@@ -370,49 +411,18 @@
                     <div class="tiers-desc">Olas Clamantes</div>
                   </div>
                 </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-
-            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="rectificador">
-              <span class="elemento-espectro">
-                <img src="../images/elementos/icon_espectro.png" alt="espectro">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_phoebe.png" alt="Phoebe">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_phoebe.png" alt="Phoebe">
-                <div class="resonadores-nombre">Phoebe</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-espectro">
-                    <img src="../images/elementos/icon_espectro.png" alt="Espectro" class="tag-iconos"> Espectro
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" class="tag-iconos">
-                    Rectificador
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-ss">
-                      <div class="tiers-label">S+</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
+                <div class="tier-grupos labs-score-label">
+                  <div class="tier-box-labs-ss">
+                    <div class="tiers-label">S+</div>
                   </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-s">
-                      <div class="tiers-label">S</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
+                  <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
                 </div>
                 <div class="tooltip-arrow"></div>
               </div>
             </div>
 
-            <div class="resonadores-gelio" data-rarezas="5" data-elemento="gelio" data-arma="rectificador">
+            <div class="resonadores-gelio" data-rarezas="5" data-elemento="gelio" data-arma="rectificador"
+              data-labs-rank-hybrid="S" data-torre-rank-hybrid="S+" data-olas-rank-hybrid="A+" data-role="hybrid">
               <span class="elemento-gelio">
                 <img src="../images/elementos/icon_gelio.png" alt="gelio">
               </span>
@@ -446,11 +456,18 @@
                     <div class="tiers-desc">Olas Clamantes</div>
                   </div>
                 </div>
+                <div class="tier-grupos labs-score-label">
+                  <div class="tier-box-labs-s">
+                    <div class="tiers-label">S</div>
+                  </div>
+                  <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+                </div>
                 <div class="tooltip-arrow"></div>
               </div>
             </div>
 
-            <div class="resonadores-gelio" data-rarezas="4" data-elemento="gelio" data-arma="espada">
+            <div class="resonadores-gelio" data-rarezas="4" data-elemento="gelio" data-arma="espada"
+              data-labs-rank-hybrid="S+" data-torre-rank-hybrid="S+" data-olas-rank-hybrid="S" data-role="hybrid">
               <span class="elemento-gelio">
                 <img src="../images/elementos/icon_gelio.png" alt="gelio">
               </span>
@@ -484,6 +501,12 @@
                     <div class="tiers-desc">Olas Clamantes</div>
                   </div>
                 </div>
+                <div class="tier-grupos labs-score-label">
+                  <div class="tier-box-labs-ss">
+                    <div class="tiers-label">S+</div>
+                  </div>
+                  <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+                </div>
                 <div class="tooltip-arrow"></div>
               </div>
             </div>
@@ -494,7 +517,8 @@
           <div class="tier-col">
             <div class="role-mobile support"><i class="bi bi-heart-pulse-fill">SOPORTE</i></div>
 
-            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="rectificador">
+            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="rectificador"
+              data-labs-rank-support="S+" data-torre-rank-support="S+" data-olas-rank-support="S+" data-role="support">
               <span class="elemento-espectro">
                 <img src="../images/elementos/icon_espectro.png" alt="espectro">
               </span>
@@ -528,11 +552,18 @@
                     <div class="tiers-desc">Olas Clamantes</div>
                   </div>
                 </div>
+                <div class="tier-grupos labs-score-label">
+                  <div class="tier-box-labs-ss">
+                    <div class="tiers-label">S+</div>
+                  </div>
+                  <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+                </div>
                 <div class="tooltip-arrow"></div>
               </div>
             </div>
 
-            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="rectificador">
+            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="rectificador"
+              data-labs-rank-support="S+" data-torre-rank-support="S+" data-olas-rank-support="S+" data-role="support">
               <span class="elemento-espectro">
                 <img src="../images/elementos/icon_espectro.png" alt="espectro">
               </span>
@@ -566,17 +597,22 @@
                     <div class="tiers-desc">Olas Clamantes</div>
                   </div>
                 </div>
+                <div class="tier-grupos labs-score-label">
+                  <div class="tier-box-labs-ss">
+                    <div class="tiers-label">S+</div>
+                  </div>
+                  <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+                </div>
                 <div class="tooltip-arrow"></div>
               </div>
             </div>
-
           </div>
     </section>
 
     <!-- TIER S -->
 
     <div class="tier-section">
-      <div class="tierlist-row">
+      <div class="tierlist-row" data-tier="S">
         <div class="tier-label t0-5">S</div>
 
         <!-- DPS -->
@@ -584,7 +620,8 @@
         <div class="tier-col">
           <div class="role-mobile dps"><i class="bi bi-fire"></i> DPS</div>
 
-          <div class="resonadores-havoc" data-rarezas="5" data-elemento="havoc" data-arma="espada">
+          <div class="resonadores-havoc" data-rarezas="5" data-elemento="havoc" data-arma="espada"
+            data-labs-rank-dps="S+" data-torre-rank-dps="S" data-olas-rank-dps="S+" data-role="dps">
             <span class="elemento-havoc">
               <img src="../images/elementos/icon_havoc.png" alt="Havoc">
             </span>
@@ -617,11 +654,18 @@
                   <div class="tiers-desc">Olas Clamantes</div>
                 </div>
               </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-ss">
+                  <div class="tiers-label">S+</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
               <div class="tooltip-arrow"></div>
             </div>
           </div>
 
-          <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="mandoble">
+          <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="mandoble"
+            data-labs-rank-dps="S" data-torre-rank-dps="S" data-olas-rank-dps="A" data-role="dps">
             <span class="elemento-espectro">
               <img src="../images/elementos/icon_espectro.png" alt="espectro">
             </span>
@@ -655,15 +699,14 @@
                   <div class="tiers-desc">Olas Clamantes</div>
                 </div>
               </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-s">
+                  <div class="tiers-label">S</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
               <div class="tooltip-arrow"></div>
             </div>
-          </div>
-
-          <!-- Personaje fantasma para espacio -->
-          <div class="resonadores-espectro" style="visibility: hidden;">
-            <span class="elemento-espectro"></span>
-            <div class="imagen-personaje-5"></div>
-            <div class="contenido-del-tooltip"></div>
           </div>
 
         </div>
@@ -673,7 +716,8 @@
         <div class="tier-col">
           <div class="role-mobile hybrid"><i class="bi bi-yin-yang"></i> SUB-DPS</div>
 
-          <div class="resonadores-fusion" data-rarezas="4" data-elemento="fusion" data-arma="pistola">
+          <div class="resonadores-fusion" data-rarezas="4" data-elemento="fusion" data-arma="pistola"
+            data-labs-rank-hybrid="S" data-torre-rank-hybrid="S" data-olas-rank-hybrid="S" data-role="hybrid">
             <span class="elemento-fusion">
               <img src="../images/elementos/icon_fusion.png" alt="fusion">
             </span>
@@ -706,447 +750,510 @@
                   <div class="tiers-desc">Olas Clamantes</div>
                 </div>
               </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-s">
+                  <div class="tiers-label">S</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOPORTE -->
+
+        <div class="tier-col">
+          
+        </div>
+</div>
+    </div>
+    </section>
+
+
+    <!-- TIER A+ -->
+
+    <div class="tier-section">
+      <div class="tier-header-3">
+        <i class="bi bi-chevron-double-left" style="margin-right: 8px;"></i>CALAMIDADES<i
+          class="bi bi-chevron-double-right" style="margin-left: 8px;"></i>
+      </div>
+
+      <div class="tierlist-row" data-tier="A+">
+        <div class="tier-label t1">A+</div>
+
+        <!-- DPS -->
+
+        <div class="tier-col">
+          <div class="role-mobile dps"><i class="bi bi-fire"></i> DPS</div>
+
+          <div class="resonadores-fusion" data-rarezas="5" data-elemento="fusion" data-arma="espada"
+            data-labs-rank-dps="S" data-labs-rank-hybrid="S" data-torre-rank-dps="A+" data-torre-rank-hybrid="A+"
+            data-olas-rank-dps="A+" data-olas-rank-hybrid="S" data-role="dps hybrid">
+            <span class="elemento-fusion">
+              <img src="../images/elementos/icon_fusion.png" alt="fusion">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_brant.png" alt="Brant">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_brant.png" alt="Brant">
+              <div class="resonadores-nombre">Brant</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-fusion">
+                  <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="tag-iconos"> Fusion
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos"> Espada
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-s">
+                    <div class="tiers-label">S</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-s">
+                  <div class="tiers-label">S</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
               <div class="tooltip-arrow"></div>
             </div>
           </div>
 
-          <!-- Personaje fantasma si quieres un hueco visual -->
-          <div class="resonadores-espectro" style="visibility: hidden;">
-            <span class="elemento-espectro"></span>
-            <div class="imagen-personaje-5"></div>
-            <div class="contenido-del-tooltip"></div>
+          <div class="resonadores-fusion" data-rarezas="5" data-elemento="fusion" data-arma="rectificador"
+            data-labs-rank-dps="A+" data-torre-rank-dps="A+" data-olas-rank-dps="A" data-role="dps">
+            <span class="elemento-fusion">
+              <img src="../images/elementos/icon_fusion.png" alt="fusion">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_encore.png" alt="Encore">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_encore.png" alt="Encore">
+              <div class="resonadores-nombre">Encore</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-fusion">
+                  <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="tag-iconos"> Fusion
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" class="tag-iconos">
+                  Rectificador
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-a">
+                    <div class="tiers-label">A</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-aa">
+                  <div class="tiers-label">A+</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
           </div>
 
-          <!-- Personaje fantasma si quieres un hueco visual -->
-          <div class="resonadores-espectro" style="visibility: hidden;">
-            <span class="elemento-espectro"></span>
-            <div class="imagen-personaje-5"></div>
-            <div class="contenido-del-tooltip"></div>
+          <div class="resonadores-aero" data-rarezas="5" data-elemento="aero" data-arma="mandoble"
+            data-labs-rank-dps="S" data-torre-rank-dps="A+" data-olas-rank-dps="S+" data-role="dps">
+            <span class="elemento-aero">
+              <img src="../images/elementos/icon_aero.png" alt="aero">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_jiyan.png" alt="Jiyan">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_jiyan.png" alt="Jiyan">
+              <div class="resonadores-nombre">Jiyan</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-aero">
+                  <img src="../images/elementos/icon_aero.png" alt="Aero" class="tag-iconos"> Aero
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_mandoble.png" alt="Mandoble" class="tag-iconos">
+                  Mandoble
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-s">
+                    <div class="tiers-label">S</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-s">
+                  <div class="tiers-label">S</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
           </div>
 
-          <!-- Personaje fantasma si quieres un hueco visual -->
-          <div class="resonadores-espectro" style="visibility: hidden;">
-            <span class="elemento-espectro"></span>
-            <div class="imagen-personaje-5"></div>
-            <div class="contenido-del-tooltip"></div>
+          <div class="resonadores-havoc" data-rarezas="5" data-elemento="havoc" data-arma="espada"
+            data-labs-rank-dps="A+" data-torre-rank-dps="A+" data-olas-rank-dps="A+" data-role="dps">
+            <span class="elemento-havoc">
+              <img src="../images/elementos/icon_havoc.png" alt="Havoc">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_rover.png" alt="Rover (Havoc)">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_rover.png" alt="Rover (Havoc)">
+              <div class="resonadores-nombre">Rover (Destrucción)</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-havoc">
+                  <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="tag-iconos">
+                  Destrucción
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos"> Espada
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-aa">
+                  <div class="tiers-label">A+</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
           </div>
 
+          <div class="resonadores-electro" data-rarezas="5" data-elemento="electro" data-arma="brazales"
+            data-labs-rank-dps="S" data-torre-rank-dps="A+" data-olas-rank-dps="S" data-role="dps">
+            <span class="elemento-electro">
+              <img src="../images/elementos/icon_electro.png" alt="Electro">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_xiang.png" alt="Xiangli Yao">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_xiang.png" alt="Xiangli Yao">
+              <div class="resonadores-nombre">Xiangli Yao</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-electro">
+                  <img src="../images/elementos/icon_electro.png" alt="Electro" class="tag-iconos"> Electro
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="tag-iconos">
+                  Brazales
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-s">
+                    <div class="tiers-label">S</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-s">
+                  <div class="tiers-label">S</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
         </div>
 
+        <!-- SUB-DPS -->
 
-        <!-- SOPORTE -->
+        <div class="tier-col">
+          <div class="role-mobile hybrid"><i class="bi bi-yin-yang"></i> SUB-DPS</div>
 
-        <div class="tier-col"></div>
+          <div class="resonadores-havoc" data-rarezas="5" data-elemento="havoc" data-arma="rectificador"
+            data-labs-rank-hybrid="A+" data-torre-rank-hybrid="A+" data-olas-rank-hybrid="A" data-role="hybrid">
+            <span class="elemento-havoc">
+              <img src="../images/elementos/icon_havoc.png" alt="Havoc">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_cantarella.png" alt="Cantarella">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_cantarella.png" alt="Cantarella">
+              <div class="resonadores-nombre">Cantarella</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-havoc">
+                  <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="tag-iconos">
+                  Destrucción
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" class="tag-iconos">
+                  Rectificador
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-a">
+                    <div class="tiers-label">A</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-aa">
+                  <div class="tiers-label">A+</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
 
+          <div class="resonadores-fusion" data-rarezas="5" data-elemento="fusion" data-arma="espada"
+            data-labs-rank-dps="S" data-labs-rank-hybrid="S" data-torre-rank-hybrid="A+" data-olas-rank-dps="S+"
+            data-role="dps hybrid">
+            <span class="elemento-fusion">
+              <img src="../images/elementos/icon_fusion.png" alt="fusion">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_changli.png" alt="Changli">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_changli.png" alt="Changli">
+              <div class="resonadores-nombre">Changli</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-fusion">
+                  <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="tag-iconos"> Fusion
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos"> Espada
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-ss">
+                    <div class="tiers-label">S+</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-s">
+                  <div class="tiers-label">S</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
 
-      </div>
-      </section>
+          <div class="resonadores-havoc" data-rarezas="5" data-elemento="havoc" data-arma="brazales"
+            data-labs-rank-hybrid="S" data-torre-rank-hybrid="A+" data-olas-rank-hybrid="S+" data-role="hybrid">
+            <span class="elemento-havoc">
+              <img src="../images/elementos/icon_havoc.png" alt="Havoc">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_roccia.png" alt="Roccia">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_roccia.png" alt="Roccia">
+              <div class="resonadores-nombre">Roccia</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-havoc">
+                  <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="tag-iconos">
+                  Destrucción
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_brazales.png" alt="Rectificador" class="tag-iconos">
+                  Brazales
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-ss">
+                    <div class="tiers-label">S+</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-s">
+                  <div class="tiers-label">S</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
 
-
-      <!-- TIER A+ -->
-
-      <div class="tier-section">
-        <div class="tier-header-3">
-          <i class="bi bi-chevron-double-left" style="margin-right: 8px;"></i>CALAMIDADES<i
-            class="bi bi-chevron-double-right" style="margin-left: 8px;"></i>
+          <div class="resonadores-electro" data-rarezas="5" data-elemento="electro" data-arma="rectificador"
+            data-labs-rank-hybrid="A+" data-torre-rank-hybrid="A+" data-olas-rank-hybrid="A+" data-role="hybrid">
+            <span class="elemento-electro">
+              <img src="../images/elementos/icon_electro.png" alt="Electro">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_yinlin.png" alt="Yinlin">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_yinlin.png" alt="Yinlin">
+              <div class="resonadores-nombre">Yinlin</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-electro">
+                  <img src="../images/elementos/icon_electro.png" alt="Electro" class="tag-iconos"> Electro
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" class="tag-iconos">
+                  Rectificador
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-aa">
+                  <div class="tiers-label">A+</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="tierlist-row">
-          <div class="tier-label t1">A+</div>
+        <!-- SOPORTE  -->
 
-          <!-- DPS -->
+        <div class="tier-col">
+          <div class="role-mobile support"><i class="bi bi-heart-pulse-fill"></i> SOPORTE</div>
 
-          <div class="tier-col">
-            <div class="role-mobile dps"><i class="bi bi-fire"></i> DPS</div>
-
-            <div class="resonadores-fusion" data-rarezas="5" data-elemento="fusion" data-arma="espada">
-              <span class="elemento-fusion">
-                <img src="../images/elementos/icon_fusion.png" alt="fusion">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_brant.png" alt="Brant">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_brant.png" alt="Brant">
-                <div class="resonadores-nombre">Brant</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-fusion">
-                    <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="tag-iconos"> Fusion
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos"> Espada
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-s">
-                      <div class="tiers-label">S</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
+          <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="espada"
+            data-labs-rank-hybrid="A" data-torre-rank-hybrid="A" data-olas-rank-hybrid="A" data-role="hybrid">
+            <span class="elemento-espectro">
+              <img src="../images/elementos/icon_espectro.png" alt="espectro">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_rover.png" alt="Rover (Espectro)">
             </div>
-
-            <div class="resonadores-fusion" data-rarezas="5" data-elemento="fusion" data-arma="rectificador">
-              <span class="elemento-fusion">
-                <img src="../images/elementos/icon_fusion.png" alt="fusion">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_encore.png" alt="Encore">
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_rover.png" alt="Rover (Espectro)">
+              <div class="resonadores-nombre">Rover (Espectro)</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-espectro">
+                  <img src="../images/elementos/icon_espectro.png" alt="Espectro" class="tag-iconos"> Espectro
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos">
+                  Espada
+                </span>
               </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_encore.png" alt="Encore">
-                <div class="resonadores-nombre">Encore</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-fusion">
-                    <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="tag-iconos"> Fusion
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" class="tag-iconos">
-                    Rectificador
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-a">
+                    <div class="tiers-label">A</div>
                   </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">A</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
                 </div>
-                <div class="tooltip-arrow"></div>
+                <div class="tier-grupos">
+                  <div class="tier-box-a">
+                    <div class="tiers-label">A</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
               </div>
-            </div>
-
-            <div class="resonadores-aero" data-rarezas="5" data-elemento="aero" data-arma="mandoble">
-              <span class="elemento-aero">
-                <img src="../images/elementos/icon_aero.png" alt="aero">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_jiyan.png" alt="Jiyan">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_jiyan.png" alt="Jiyan">
-                <div class="resonadores-nombre">Jiyan</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-aero">
-                    <img src="../images/elementos/icon_aero.png" alt="Aero" class="tag-iconos"> Aero
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_mandoble.png" alt="Mandoble" class="tag-iconos"> Mandoble
-                  </span>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-a">
+                  <div class="tiers-label">A</div>
                 </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-s">
-                      <div class="tiers-label">S</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
               </div>
-            </div>
-
-            <div class="resonadores-havoc" data-rarezas="5" data-elemento="havoc" data-arma="espada">
-              <span class="elemento-havoc">
-                <img src="../images/elementos/icon_havoc.png" alt="Havoc">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_rover.png" alt="Rover (Havoc)">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_rover.png" alt="Rover (Havoc)">
-                <div class="resonadores-nombre">Rover (Destrucción)</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-havoc">
-                    <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="tag-iconos"> Destrucción
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos"> Espada
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-
-            <div class="resonadores-electro" data-rarezas="5" data-elemento="electro" data-arma="brazales">
-              <span class="elemento-electro">
-                <img src="../images/elementos/icon_electro.png" alt="Electro">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_xiang.png" alt="Xiangli Yao">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_xiang.png" alt="Xiangli Yao">
-                <div class="resonadores-nombre">Xiangli Yao</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-electro">
-                    <img src="../images/elementos/icon_electro.png" alt="Electro" class="tag-iconos"> Electro
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="tag-iconos"> Brazales
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-s">
-                      <div class="tiers-label">S</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
+              <div class="tooltip-arrow"></div>
             </div>
           </div>
 
-          <!-- SUB-DPS -->
-
-          <div class="tier-col">
-            <div class="role-mobile hybrid"><i class="bi bi-yin-yang"></i> SUB-DPS</div>
-
-            <div class="resonadores-fusion" data-rarezas="5" data-elemento="fusion" data-arma="espada">
-              <span class="elemento-fusion">
-                <img src="../images/elementos/icon_fusion.png" alt="fusion">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_brant.png" alt="Brant">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_brant.png" alt="Brant">
-                <div class="resonadores-nombre">Brant</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-fusion">
-                    <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="tag-iconos"> Fusion
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos"> Espada
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-s">
-                      <div class="tiers-label">S</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-
-            <div class="resonadores-havoc" data-rarezas="5" data-elemento="havoc" data-arma="rectificador">
-              <span class="elemento-havoc">
-                <img src="../images/elementos/icon_havoc.png" alt="Havoc">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_cantarella.png" alt="Cantarella">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_cantarella.png" alt="Cantarella">
-                <div class="resonadores-nombre">Cantarella</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-havoc">
-                    <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="tag-iconos"> Destrucción
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" class="tag-iconos">
-                    Rectificador
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">A</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-
-            <div class="resonadores-fusion" data-rarezas="5" data-elemento="fusion" data-arma="espada">
-              <span class="elemento-fusion">
-                <img src="../images/elementos/icon_fusion.png" alt="fusion">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_changli.png" alt="Changli">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_changli.png" alt="Changli">
-                <div class="resonadores-nombre">Changli</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-fusion">
-                    <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="tag-iconos"> Fusion
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos"> Espada
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-ss">
-                      <div class="tiers-label">S+</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-
-            <div class="resonadores-havoc" data-rarezas="5" data-elemento="havoc" data-arma="brazales">
-              <span class="elemento-havoc">
-                <img src="../images/elementos/icon_havoc.png" alt="Havoc">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_roccia.png" alt="Roccia">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_roccia.png" alt="Roccia">
-                <div class="resonadores-nombre">Roccia</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-havoc">
-                    <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="tag-iconos"> Destrucción
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_brazales.png" alt="Rectificador" class="tag-iconos">
-                    Brazales
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-ss">
-                      <div class="tiers-label">S+</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-
-            <div class="resonadores-electro" data-rarezas="5" data-elemento="electro" data-arma="rectificador">
-              <span class="elemento-electro">
-                <img src="../images/elementos/icon_electro.png" alt="Electro">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_yinlin.png" alt="Yinlin">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_yinlin.png" alt="Yinlin">
-                <div class="resonadores-nombre">Yinlin</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-electro">
-                    <img src="../images/elementos/icon_electro.png" alt="Electro" class="tag-iconos"> Electro
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" class="tag-iconos">
-                    Rectificador
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- SOPORTE  -->
-
-          <div class="tier-col">
-            <div class="role-mobile support"><i class="bi bi-heart-pulse-fill"></i> SOPORTE</div>
-
-            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="espada">
+            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="espada"
+              data-labs-rank-support="A+" data-torre-rank-support="A+" data-olas-rank-support="A"
+              data-role="hybrid support">
               <span class="elemento-espectro">
                 <img src="../images/elementos/icon_espectro.png" alt="espectro">
               </span>
@@ -1168,235 +1275,23 @@
                 </div>
                 <div class="resonadores-tiers">
                   <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">A</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">A</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </section>
-
-      <!-- TIER A -->
-
-      <div class="tier-section">
-        <div class="tierlist-row">
-          <div class="tier-label t1-5">A</div>
-
-          <!-- DPS -->
-
-          <div class="tier-col">
-            <div class="role-mobile dps"><i class="bi bi-fire"></i> DPS</div>
-
-            <div class="resonadores-havoc" data-rarezas="4" data-elemento="havoc" data-arma="espada">
-              <span class="elemento-havoc">
-                <img src="../images/elementos/icon_havoc.png" alt="Havoc">
-              </span>
-              <div class="imagen-personaje-4">
-                <img src="../images/personajes/icon_danjin.png" alt="Danjin">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-4" src="../images/personajes/icon_danjin.png" alt="Danjin">
-                <div class="resonadores-nombre">Danjin</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-havoc">
-                    <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="tag-iconos"> Destrucción
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos">
-                    Espada
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">A</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">A</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- SUB-DPS -->
-
-          <div class="tier-col">
-            <div class="role-mobile hybrid"><i class="bi bi-yin-yang"></i> SUB-DPS</div>
-
-            <div class="resonadores-havoc" data-rarezas="4" data-elemento="havoc" data-arma="espada">
-              <span class="elemento-havoc">
-                <img src="../images/elementos/icon_havoc.png" alt="Havoc">
-              </span>
-              <div class="imagen-personaje-4">
-                <img src="../images/personajes/icon_danjin.png" alt="Danjin">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-4" src="../images/personajes/icon_danjin.png" alt="Danjin">
-                <div class="resonadores-nombre">Danjin</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-havoc">
-                    <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="tag-iconos"> Destrucción
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos">
-                    Espada
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">A</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">A</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-
-            <div class="resonadores-espectro" data-rarezas="5" data-elemento="espectro" data-arma="espada">
-              <span class="elemento-espectro">
-                <img src="../images/elementos/icon_espectro.png" alt="espectro">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_rover.png" alt="Rover (Espectro)">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_rover.png" alt="Rover (Espectro)">
-                <div class="resonadores-nombre">Rover (Espectro)</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-espectro">
-                    <img src="../images/elementos/icon_espectro.png" alt="Espectro" class="tag-iconos"> Espectro
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos">
-                    Espada
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">A</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">A</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-
-            <div class="resonadores-aero" data-rarezas="4" data-elemento="aero" data-arma="espada">
-              <span class="elemento-aero">
-                <img src="../images/elementos/icon_aero.png" alt="aero">
-              </span>
-              <div class="imagen-personaje-4">
-                <img src="../images/personajes/icon_yangyang.png" alt="Yangyang">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-4" src="../images/personajes/icon_yangyang.png" alt="Yangyang">
-                <div class="resonadores-nombre">Yangyang</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-aero">
-                    <img src="../images/elementos/icon_aero.png" alt="Aero" class="tag-iconos"> Aero
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos"> Espada
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">A</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
                     <div class="tier-box-aa">
                       <div class="tiers-label">A+</div>
                     </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
+                    <div class="tiers-desc">Torre de la adversidad</div>
                   </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-
-
-          </div>
-
-          <!-- Support -->
-
-          <div class="tier-col">
-            <div class="role-mobile support"><i class="bi bi-heart-pulse-fill"></i> SOPORTE</div>
-
-            <div class="resonadores-gelio" data-rarezas="4" data-elemento="gelio" data-arma="rectificador">
-              <span class="elemento-gelio">
-                <img src="../images/elementos/icon_gelio.png" alt="gelio">
-              </span>
-              <div class="imagen-personaje-4">
-                <img src="../images/personajes/icon_baizhi.png" alt="Baizhi">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-4" src="../images/personajes/icon_baizhi.png" alt="Baizhi">
-                <div class="resonadores-nombre">Baizhi</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-gelio">
-                    <img src="../images/elementos/icon_gelio.png" alt="Gelio" class="tag-iconos"> Gelio
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" class="tag-iconos">
-                    Rectificador
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
                   <div class="tier-grupos">
                     <div class="tier-box-a">
                       <div class="tiers-label">A</div>
                     </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">A+</div>
-                    </div>
                     <div class="tiers-desc">Olas Clamantes</div>
                   </div>
+                </div>
+                <div class="tier-grupos labs-score-label">
+                  <div class="tier-box-labs-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
                 </div>
                 <div class="tooltip-arrow"></div>
               </div>
@@ -1404,477 +1299,678 @@
           </div>
         </div>
       </div>
-      </section>
+    </div>
+    </section>
 
-      <!-- TIER B -->
+    <!-- TIER A -->
 
-      <div class="tier-section">
-        <div class="tier-header-4">
-          <i class="bi bi-chevron-double-left" style="margin-right: 8px;"></i>MORTALES<i
-            class="bi bi-chevron-double-right" style="margin-left: 8px;"></i>
+    <div class="tier-section">
+      <div class="tierlist-row" data-tier="A">
+        <div class="tier-label t1-5">A</div>
+
+        <!-- DPS -->
+
+        <div class="tier-col">
+          <div class="role-mobile dps"><i class="bi bi-fire"></i> DPS</div>
+
+          <div class="resonadores-havoc" data-rarezas="4" data-elemento="havoc" data-arma="espada"
+            data-labs-rank-dps="A" data-labs-rank-hybrid="A" data-torre-rank-dps="A" data-torre-rank-hybrid="A"
+            data-olas-rank-hybrid="A" data-role="dps hybrid">
+            <span class="elemento-havoc">
+              <img src="../images/elementos/icon_havoc.png" alt="Havoc">
+            </span>
+            <div class="imagen-personaje-4">
+              <img src="../images/personajes/icon_danjin.png" alt="Danjin">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-4" src="../images/personajes/icon_danjin.png" alt="Danjin">
+              <div class="resonadores-nombre">Danjin</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">4★</span>
+                <span class="tag tag-tipo-havoc">
+                  <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="tag-iconos">
+                  Destrucción
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos">
+                  Espada
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-a">
+                    <div class="tiers-label">A</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-a">
+                    <div class="tiers-label">A</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-a">
+                  <div class="tiers-label">A</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="tierlist-row">
-          <div class="tier-label t2">B</div>
+        <!-- SUB-DPS -->
 
-          <!-- DPS -->
+        <div class="tier-col">
+          <div class="role-mobile hybrid"><i class="bi bi-yin-yang"></i> SUB-DPS</div>
 
-          <div class="tier-col">
-            <div class="role-mobile dps"><i class="bi bi-fire"></i> DPS</div>
-
-            <div class="resonadores-electro" data-rarezas="5" data-elemento="electro" data-arma="mandoble">
-              <span class="elemento-electro">
-                <img src="../images/elementos/icon_electro.png" alt="Electro">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_calcharo.png" alt="Calcharo">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_calcharo.png" alt="Calcharo">
-                <div class="resonadores-nombre">Calcharo</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-electro">
-                    <img src="../images/elementos/icon_electro.png" alt="Electro" class="tag-iconos"> Electro
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_mandoble.png" alt="Mandoble" class="tag-iconos"> Mandoble
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-b">
-                      <div class="tiers-label">B</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
+          <div class="resonadores-aero" data-rarezas="4" data-elemento="aero" data-arma="espada"
+            data-labs-rank-hybrid="A+" data-torre-rank-hybrid="A" data-olas-rank-hybrid="A+" data-role="hybrid">
+            <span class="elemento-aero">
+              <img src="../images/elementos/icon_aero.png" alt="aero">
+            </span>
+            <div class="imagen-personaje-4">
+              <img src="../images/personajes/icon_yangyang.png" alt="Yangyang">
             </div>
-
-            <div class="resonadores-fusion" data-rarezas="4" data-elemento="fusion" data-arma="pistola">
-              <span class="elemento-fusion">
-                <img src="../images/elementos/icon_fusion.png" alt="fusion">
-              </span>
-              <div class="imagen-personaje-4">
-                <img src="../images/personajes/icon_chixia.png" alt="Chixia">
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-4" src="../images/personajes/icon_yangyang.png" alt="Yangyang">
+              <div class="resonadores-nombre">Yangyang</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">4★</span>
+                <span class="tag tag-tipo-aero">
+                  <img src="../images/elementos/icon_aero.png" alt="Aero" class="tag-iconos"> Aero
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos"> Espada
+                </span>
               </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-4" src="../images/personajes/icon_chixia.png" alt="Chixia">
-                <div class="resonadores-nombre">Chixia</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-fusion">
-                    <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="tag-iconos"> Fusion
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_pistola.png" alt="Pistola" class="tag-iconos"> Pistola
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-b">
-                      <div class="tiers-label">B</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-a">
+                    <div class="tiers-label">A</div>
                   </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-b">
-                      <div class="tiers-label">B</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
                 </div>
-                <div class="tooltip-arrow"></div>
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
               </div>
-            </div>
-
-          </div>
-
-          <!-- SUB-DPS -->
-
-          <div class="tier-col">
-            <div class="role-mobile hybrid"><i class="bi bi-yin-yang"></i> SUB-DPS</div>
-
-            <div class="resonadores-aero" data-rarezas="5" data-elemento="aero" data-arma="brazales">
-              <span class="elemento-aero">
-                <img src="../images/elementos/icon_aero.png" alt="aero">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_jianxin.png" alt="Jianxin">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_jianxin.png" alt="Jianxin">
-                <div class="resonadores-nombre">Jianxin</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-aero">
-                    <img src="../images/elementos/icon_aero.png" alt="Aero" class="tag-iconos"> Aero
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="tag-iconos"> Brazales
-                  </span>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-aa">
+                  <div class="tiers-label">A+</div>
                 </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-b">
-                      <div class="tiers-label">B</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-b">
-                      <div class="tiers-label">B</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
               </div>
-            </div>
-
-            <div class="resonadores-havoc" data-rarezas="4" data-elemento="havoc" data-arma="mandoble">
-              <span class="elemento-havoc">
-                <img src="../images/elementos/icon_havoc.png" alt="Havoc">
-              </span>
-              <div class="imagen-personaje-4">
-                <img src="../images/personajes/icon_taoqi.png" alt="Taoqi">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-4" src="../images/personajes/icon_taoqi.png" alt="Taoqi">
-                <div class="resonadores-nombre">Taoqi</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-havoc">
-                    <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="tag-iconos"> Destrucción
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_mandoble.png" alt="Espada" class="tag-iconos">
-                    Mandoble
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-b">
-                      <div class="tiers-label">B</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
+              <div class="tooltip-arrow"></div>
             </div>
           </div>
+        </div>
 
-          <!-- Support -->
+        <!-- Support -->
 
-          <div class="tier-col">
-            <div class="role-mobile support"><i class="bi bi-heart-pulse-fill"></i> SOPORTE</div>
+        <div class="tier-col">
+          <div class="role-mobile support"><i class="bi bi-heart-pulse-fill"></i> SOPORTE</div>
 
-            <div class="resonadores-gelio" data-rarezas="4" data-elemento="gelio" data-arma="brazales">
-              <span class="elemento-gelio">
-                <img src="../images/elementos/icon_gelio.png" alt="gelio">
-              </span>
-              <div class="imagen-personaje-4">
-                <img src="../images/personajes/icon_youhu.png" alt="Youhu">
+          <div class="resonadores-gelio" data-rarezas="4" data-elemento="gelio" data-arma="rectificador"
+            data-labs-rank-support="A+" data-torre-rank-support="A" data-olas-rank-support="A+" data-role="support">
+            <span class="elemento-gelio">
+              <img src="../images/elementos/icon_gelio.png" alt="gelio">
+            </span>
+            <div class="imagen-personaje-4">
+              <img src="../images/personajes/icon_baizhi.png" alt="Baizhi">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-4" src="../images/personajes/icon_baizhi.png" alt="Baizhi">
+              <div class="resonadores-nombre">Baizhi</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">4★</span>
+                <span class="tag tag-tipo-gelio">
+                  <img src="../images/elementos/icon_gelio.png" alt="Gelio" class="tag-iconos"> Gelio
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" class="tag-iconos">
+                  Rectificador
+                </span>
               </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-4" src="../images/personajes/icon_youhu.png" alt="Youhu">
-                <div class="resonadores-nombre">Youhu</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-gelio">
-                    <img src="../images/elementos/icon_gelio.png" alt="Gelio" class="tag-iconos"> Gelio
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="tag-iconos">
-                    Brazales
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-a">
-                      <div class="tiers-label">B</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-a">
+                    <div class="tiers-label">A</div>
                   </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-aa">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
                 </div>
-                <div class="tooltip-arrow"></div>
+                <div class="tier-grupos">
+                  <div class="tier-box-aa">
+                    <div class="tiers-label">A+</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
               </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-aa">
+                  <div class="tiers-label">A+</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    </section>
 
-      <!-- TIER C -->
+    <!-- TIER B -->
 
-      <div class="tier-section">
-        <div class="tierlist-row">
-          <div class="tier-label t2-5">C</div>
+    <div class="tier-section">
+      <div class="tier-header-4">
+        <i class="bi bi-chevron-double-left" style="margin-right: 8px;"></i>MORTALES<i
+          class="bi bi-chevron-double-right" style="margin-left: 8px;"></i>
+      </div>
 
-          <!-- DPS -->
+      <div class="tierlist-row" data-tier="B">
+        <div class="tier-label t2">B</div>
 
-          <div class="tier-col">
-            <div class="role-mobile dps"><i class="bi bi-fire"></i> DPS</div>
+        <!-- DPS -->
 
-            <div class="resonadores-aero" data-rarezas="4" data-elemento="aero" data-arma="pistola">
-              <span class="elemento-aero">
-                <img src="../images/elementos/icon_aero.png" alt="aero">
-              </span>
-              <div class="imagen-personaje-4">
-                <img src="../images/personajes/icon_aalto.png" alt="Aalto">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-4" src="../images/personajes/icon_aalto.png" alt="Aalto">
-                <div class="resonadores-nombre">Aalto</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-aero">
-                    <img src="../images/elementos/icon_aero.png" alt="Aero" class="tag-iconos"> Aero
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_pistola.png" alt="Pistola" class="tag-iconos"> Pistola
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
+        <div class="tier-col">
+          <div class="role-mobile dps"><i class="bi bi-fire"></i> DPS</div>
+
+          <div class="resonadores-electro" data-rarezas="5" data-elemento="electro" data-arma="mandoble"
+            data-labs-rank-dps="B" data-torre-rank-dps="B" data-olas-rank-dps="C" data-role="dps">
+            <span class="elemento-electro">
+              <img src="../images/elementos/icon_electro.png" alt="Electro">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_calcharo.png" alt="Calcharo">
             </div>
-
-            <div class="resonadores-gelio" data-rarezas="5" data-elemento="gelio" data-arma="brazales">
-              <span class="elemento-gelio">
-                <img src="../images/elementos/icon_gelio.png" alt="gelio">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_ling.png" alt="Lingyang">
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_calcharo.png" alt="Calcharo">
+              <div class="resonadores-nombre">Calcharo</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-electro">
+                  <img src="../images/elementos/icon_electro.png" alt="Electro" class="tag-iconos"> Electro
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_mandoble.png" alt="Mandoble" class="tag-iconos">
+                  Mandoble
+                </span>
               </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_ling.png" alt="Lingyang">
-                <div class="resonadores-nombre">Lingyang</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-gelio">
-                    <img src="../images/elementos/icon_gelio.png" alt="Destrucción" class="tag-iconos"> Gelio
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="tag-iconos"> Brazales
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-b">
+                    <div class="tiers-label">B</div>
                   </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
                 </div>
-                <div class="tooltip-arrow"></div>
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
               </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-b">
+                  <div class="tiers-label">B</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
             </div>
           </div>
 
-          <!-- SUB-DPS -->
-
-          <div class="tier-col">
-            <div class="role-mobile hybrid"><i class="bi bi-yin-yang"></i> SUB-DPS</div>
-
-            <div class="resonadores-aero" data-rarezas="4" data-elemento="aero" data-arma="pistola">
-              <span class="elemento-aero">
-                <img src="../images/elementos/icon_aero.png" alt="aero">
-              </span>
-              <div class="imagen-personaje-4">
-                <img src="../images/personajes/icon_aalto.png" alt="Aalto">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-4" src="../images/personajes/icon_aalto.png" alt="Aalto">
-                <div class="resonadores-nombre">Aalto</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-aero">
-                    <img src="../images/elementos/icon_aero.png" alt="Aero" class="tag-iconos"> Aero
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_pistola.png" alt="Pistola" class="tag-iconos"> Pistola
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
+          <div class="resonadores-fusion" data-rarezas="4" data-elemento="fusion" data-arma="pistola"
+            data-labs-rank-dps="B" data-torre-rank-dps="B" data-olas-rank-dps="B" data-role="dps">
+            <span class="elemento-fusion">
+              <img src="../images/elementos/icon_fusion.png" alt="fusion">
+            </span>
+            <div class="imagen-personaje-4">
+              <img src="../images/personajes/icon_chixia.png" alt="Chixia">
             </div>
-
-            <div class="resonadores-electro" data-rarezas="4" data-elemento="electro" data-arma="mandoble">
-              <span class="elemento-electro">
-                <img src="../images/elementos/icon_electro.png" alt="Electro">
-              </span>
-              <div class="imagen-personaje-4">
-                <img src="../images/personajes/icon_lumi.png" alt="Lumi">
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-4" src="../images/personajes/icon_chixia.png" alt="Chixia">
+              <div class="resonadores-nombre">Chixia</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">4★</span>
+                <span class="tag tag-tipo-fusion">
+                  <img src="../images/elementos/icon_fusion.png" alt="Fusion" class="tag-iconos"> Fusion
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_pistola.png" alt="Pistola" class="tag-iconos"> Pistola
+                </span>
               </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-4" src="../images/personajes/icon_lumi.png" alt="Lumi">
-                <div class="resonadores-nombre">Lumi</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-electro">
-                    <img src="../images/elementos/icon_electro.png" alt="Electro" class="tag-iconos"> Electro
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_mandoble.png" alt="Mandoble" class="tag-iconos"> Mandoble
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-b">
+                    <div class="tiers-label">B</div>
                   </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
                 </div>
-                <div class="tooltip-arrow"></div>
+                <div class="tier-grupos">
+                  <div class="tier-box-b">
+                    <div class="tiers-label">B</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
               </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-b">
+                  <div class="tiers-label">B</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
             </div>
           </div>
-
-          <!-- Support -->
-
-          <div class="tier-col">
-            <div class="role-mobile support"><i class="bi bi-heart-pulse-fill"></i> SOPORTE</div>
-
-            <div class="resonadores-aero" data-rarezas="5" data-elemento="aero" data-arma="espada">
-              <span class="elemento-aero">
-                <img src="../images/elementos/icon_aero.png" alt="aero">
-              </span>
-              <div class="imagen-personaje-5">
-                <img src="../images/personajes/icon_rover.png" alt="Rover (Aero)">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-5" src="../images/personajes/icon_rover.png" alt="Rover (Aero)">
-                <div class="resonadores-nombre">Rover (Aero)</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-aero">
-                    <img src="../images/elementos/icon_aero.png" alt="Aero" class="tag-iconos"> Aero
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos"> Espada
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-
-            <div class="resonadores-electro" data-rarezas="4" data-elemento="electro" data-arma="brazales">
-              <span class="elemento-electro">
-                <img src="../images/elementos/icon_electro.png" alt="Electro">
-              </span>
-              <div class="imagen-personaje-4">
-                <img src="../images/personajes/icon_yuanwu.png" alt="Yuanwu">
-              </div>
-              <div class="contenido-del-tooltip">
-                <img class="resonadores-avatar-4" src="../images/personajes/icon_yuanwu.png" alt="Lumi">
-                <div class="resonadores-nombre">Yuanwu</div>
-                <div class="resonadores-tags">
-                  <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-electro">
-                    <img src="../images/elementos/icon_electro.png" alt="Electro" class="tag-iconos"> Electro
-                  </span>
-                  <span class="tag tag-armas">
-                    <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="tag-iconos"> Brazales
-                  </span>
-                </div>
-                <div class="resonadores-tiers">
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Torre de la adversidad</div>
-                  </div>
-                  <div class="tier-grupos">
-                    <div class="tier-box-c">
-                      <div class="tiers-label">C</div>
-                    </div>
-                    <div class="tiers-desc">Olas Clamantes</div>
-                  </div>
-                </div>
-                <div class="tooltip-arrow"></div>
-              </div>
-            </div>
-          </div>
-
         </div>
-        </section>
+
+        <!-- SUB-DPS -->
+
+        <div class="tier-col">
+          <div class="role-mobile hybrid"><i class="bi bi-yin-yang"></i> SUB-DPS</div>
+
+          <div class="resonadores-aero" data-rarezas="5" data-elemento="aero" data-arma="brazales"
+            data-labs-rank-hybrid="B" data-torre-rank-hybrid="B" data-olas-rank-hybrid="B" data-role="hybrid">
+            <span class="elemento-aero">
+              <img src="../images/elementos/icon_aero.png" alt="aero">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_jianxin.png" alt="Jianxin">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_jianxin.png" alt="Jianxin">
+              <div class="resonadores-nombre">Jianxin</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-aero">
+                  <img src="../images/elementos/icon_aero.png" alt="Aero" class="tag-iconos"> Aero
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="tag-iconos">
+                  Brazales
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-b">
+                    <div class="tiers-label">B</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-b">
+                    <div class="tiers-label">B</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-b">
+                  <div class="tiers-label">B</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
+
+          <div class="resonadores-havoc" data-rarezas="4" data-elemento="havoc" data-arma="mandoble"
+            data-labs-rank-hybrid="B" data-torre-rank-hybrid="B" data-olas-rank-hybrid="C" data-role="hybrid">
+            <span class="elemento-havoc">
+              <img src="../images/elementos/icon_havoc.png" alt="Havoc">
+            </span>
+            <div class="imagen-personaje-4">
+              <img src="../images/personajes/icon_taoqi.png" alt="Taoqi">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-4" src="../images/personajes/icon_taoqi.png" alt="Taoqi">
+              <div class="resonadores-nombre">Taoqi</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">4★</span>
+                <span class="tag tag-tipo-havoc">
+                  <img src="../images/elementos/icon_havoc.png" alt="Destrucción" class="tag-iconos">
+                  Destrucción
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_mandoble.png" alt="Espada" class="tag-iconos">
+                  Mandoble
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-b">
+                    <div class="tiers-label">B</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-b">
+                  <div class="tiers-label">B</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Support -->
+
+        <div class="tier-col">
+          <div class="role-mobile support"><i class="bi bi-heart-pulse-fill"></i> SOPORTE</div>
+
+          <div class="resonadores-gelio" data-rarezas="4" data-elemento="gelio" data-arma="brazales"
+            data-labs-rank-support="B" data-torre-rank-support="B" data-olas-rank-support="C" data-role="support">
+            <span class="elemento-gelio">
+              <img src="../images/elementos/icon_gelio.png" alt="gelio">
+            </span>
+            <div class="imagen-personaje-4">
+              <img src="../images/personajes/icon_youhu.png" alt="Youhu">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-4" src="../images/personajes/icon_youhu.png" alt="Youhu">
+              <div class="resonadores-nombre">Youhu</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">4★</span>
+                <span class="tag tag-tipo-gelio">
+                  <img src="../images/elementos/icon_gelio.png" alt="Gelio" class="tag-iconos"> Gelio
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="tag-iconos">
+                  Brazales
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-b">
+                    <div class="tiers-label">B</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-b">
+                  <div class="tiers-label">B</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
 
 
+
+    <!-- TIER C -->
+
+    <div class="tier-section">
+      <div class="tierlist-row" data-tier="C">
+        <div class="tier-label t2-5">C</div>
+
+        <!-- DPS -->
+
+        <div class="tier-col">
+          <div class="role-mobile dps"><i class="bi bi-fire"></i> DPS</div>
+
+          <div class="resonadores-aero" data-rarezas="4" data-elemento="aero" data-arma="pistola" data-labs-rank-dps="C"
+            data-labs-rank-hybrid="C" data-torre-rank-dps="C" data-torre-rank-hybrid="C" data-olas-rank-hybrid="C"
+            data-role="dps hybrid">
+            <span class="elemento-aero">
+              <img src="../images/elementos/icon_aero.png" alt="aero">
+            </span>
+            <div class="imagen-personaje-4">
+              <img src="../images/personajes/icon_aalto.png" alt="Aalto">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-4" src="../images/personajes/icon_aalto.png" alt="Aalto">
+              <div class="resonadores-nombre">Aalto</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">4★</span>
+                <span class="tag tag-tipo-aero">
+                  <img src="../images/elementos/icon_aero.png" alt="Aero" class="tag-iconos"> Aero
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_pistola.png" alt="Pistola" class="tag-iconos"> Pistola
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-c">
+                  <div class="tiers-label">C</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
+
+          <div class="resonadores-gelio" data-rarezas="5" data-elemento="gelio" data-arma="brazales"
+            data-labs-rank-dps="C" data-torre-rank-dps="C" data-olas-rank-dps="C" data-role="dps">
+            <span class="elemento-gelio">
+              <img src="../images/elementos/icon_gelio.png" alt="gelio">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_ling.png" alt="Lingyang">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_ling.png" alt="Lingyang">
+              <div class="resonadores-nombre">Lingyang</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-gelio">
+                  <img src="../images/elementos/icon_gelio.png" alt="Destrucción" class="tag-iconos"> Gelio
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="tag-iconos">
+                  Brazales
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-c">
+                  <div class="tiers-label">C</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB-DPS -->
+
+        <div class="tier-col">
+          <div class="role-mobile hybrid"><i class="bi bi-yin-yang"></i> SUB-DPS</div>
+
+          <div class="resonadores-electro" data-rarezas="4" data-elemento="electro" data-arma="mandoble"
+            data-labs-rank-hybrid="C" data-torre-rank-hybrid="C" data-olas-rank-hybrid="C" data-role="hybrid">
+            <span class="elemento-electro">
+              <img src="../images/elementos/icon_electro.png" alt="Electro">
+            </span>
+            <div class="imagen-personaje-4">
+              <img src="../images/personajes/icon_lumi.png" alt="Lumi">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-4" src="../images/personajes/icon_lumi.png" alt="Lumi">
+              <div class="resonadores-nombre">Lumi</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">4★</span>
+                <span class="tag tag-tipo-electro">
+                  <img src="../images/elementos/icon_electro.png" alt="Electro" class="tag-iconos"> Electro
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_mandoble.png" alt="Mandoble" class="tag-iconos">
+                  Mandoble
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-c">
+                  <div class="tiers-label">C</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Support -->
+
+        <div class="tier-col">
+          <div class="role-mobile support"><i class="bi bi-heart-pulse-fill"></i> SOPORTE</div>
+
+          <div class="resonadores-aero" data-rarezas="5" data-elemento="aero" data-arma="espada"
+            data-labs-rank-support="C" data-torre-rank-support="C" data-olas-rank-support="C" data-role="support">
+            <span class="elemento-aero">
+              <img src="../images/elementos/icon_aero.png" alt="aero">
+            </span>
+            <div class="imagen-personaje-5">
+              <img src="../images/personajes/icon_rover.png" alt="Rover (Aero)">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-5" src="../images/personajes/icon_rover.png" alt="Rover (Aero)">
+              <div class="resonadores-nombre">Rover (Aero)</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">5★</span>
+                <span class="tag tag-tipo-aero">
+                  <img src="../images/elementos/icon_aero.png" alt="Aero" class="tag-iconos"> Aero
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" class="tag-iconos"> Espada
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-c">
+                  <div class="tiers-label">C</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
+
+          <div class="resonadores-electro" data-rarezas="4" data-elemento="electro" data-arma="brazales"
+            data-labs-rank-support="C" data-torre-rank-support="C" data-olas-rank-support="C" data-role="support">
+            <span class="elemento-electro">
+              <img src="../images/elementos/icon_electro.png" alt="Electro">
+            </span>
+            <div class="imagen-personaje-4">
+              <img src="../images/personajes/icon_yuanwu.png" alt="Yuanwu">
+            </div>
+            <div class="contenido-del-tooltip">
+              <img class="resonadores-avatar-4" src="../images/personajes/icon_yuanwu.png" alt="Lumi">
+              <div class="resonadores-nombre">Yuanwu</div>
+              <div class="resonadores-tags">
+                <span class="tag tag-rarezas">4★</span>
+                <span class="tag tag-tipo-electro">
+                  <img src="../images/elementos/icon_electro.png" alt="Electro" class="tag-iconos"> Electro
+                </span>
+                <span class="tag tag-armas">
+                  <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" class="tag-iconos">
+                  Brazales
+                </span>
+              </div>
+              <div class="resonadores-tiers">
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Torre de la adversidad</div>
+                </div>
+                <div class="tier-grupos">
+                  <div class="tier-box-c">
+                    <div class="tiers-label">C</div>
+                  </div>
+                  <div class="tiers-desc">Olas Clamantes</div>
+                </div>
+              </div>
+              <div class="tier-grupos labs-score-label">
+                <div class="tier-box-labs-c">
+                  <div class="tiers-label">C</div>
+                </div>
+                <div class="tiers-desc labs-score-desc"> <i class="bi bi-sort-up"></i> Labs Score</div>
+              </div>
+              <div class="tooltip-arrow"></div>
+            </div>
+          </div>
+        </div>
       </div>
       </section>
 
@@ -1944,6 +2040,7 @@
 
   <!--- Custom JS links -->
   <script type="text/javascript" src="../js/app.js"></script>
+  <script src="../js/tierlist.js"></script>
   <script src="../js/accordion-anim.js"></script>
 
 

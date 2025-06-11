@@ -139,596 +139,6 @@ body.bg-img {
   transition: transform 0.2s;
 }
 
-/* Personajes grid */
-
-.resonadores-grid {
-  display: flex;
-  gap: 40px;
-  margin-top: 24px;
-  flex-wrap: wrap;
-  overflow: visible;
-  position: relative;
-  z-index: 1;
-}
-
-.stat-accordion,
-.stat-content,
-.stat-extra,
-.resonadores-grid {
-  overflow: visible !important;
-}
-
-.img-frame-5 {
-  width: 130px;
-  height: 130px;
-  background: #a58e53;
-  border-radius: 6px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
-.img-frame-5 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 6px;
-  transition: transform 0.5s cubic-bezier(.4, 2, .6, 1);
-}
-
-.img-frame-4 {
-  width: 130px;
-  height: 130px;
-  background: #71369e;
-  border-radius: 6px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-
-.img-frame-4 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 6px;
-  transition: transform 0.5s cubic-bezier(.4, 2, .6, 1);
-}
-
-.resonador-gelio-card-5:hover .img-frame-5 img,
-.resonador-fusion-card-5:hover .img-frame-5 img,
-.resonador-havoc-card-5:hover .img-frame-5 img,
-.resonador-espectro-card-5:hover .img-frame-5 img,
-.resonador-aero-card-5:hover .img-frame-5 img,
-.resonador-electro-card-5:hover .img-frame-5 img {
-  transform: scale(1.12);
-}
-
-.resonador-gelio-card-4:hover .img-frame-4 img,
-.resonador-fusion-card-4:hover .img-frame-4 img,
-.resonador-havoc-card-4:hover .img-frame-4 img,
-.resonador-espectro-card-4:hover .img-frame-4 img,
-.resonador-aero-card-4:hover .img-frame-4 img,
-.resonador-electro-card-4:hover .img-frame-4 img {
-  transform: scale(1.12);
-}
-
-/* Personajes - 5 - Gelio */
-
-.resonador-gelio-card-5 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #6BB3D8;
-}
-
-.resonador-gelio-card-5:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-gelio-card-5:hover>img {
-  transform: scale(1.12);
-}
-
-.resonador-gelio-card-5>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #a58e53;
-  transition: transform 0.5s cubic-bezier(.4, 2, .6, 1);
-}
-
-/* Personajes - 5 - Fusion */
-
-.resonador-fusion-card-5 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #F47C56;
-}
-
-.resonador-fusion-card-5:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-fusion-card-5>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #a58e53;
-}
-
-/* Personajes - 5 - Destrucción */
-
-.resonador-havoc-card-5 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #ED41A3;
-}
-
-.resonador-havoc-card-5:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-havoc-card-5>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #a58e53;
-}
-
-/* Personajes - 5 - Espectro */
-
-.resonador-espectro-card-5 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #FFF180;
-}
-
-.resonador-espectro-card-5:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-espectro-card-5>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #FFF180;
-}
-
-/* Personajes - 5 - Aero */
-
-.resonador-aero-card-5 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #5FFFC2;
-}
-
-.resonador-aero-card-5:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-aero-card-5>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #5FFFC2;
-}
-
-/* Personajes - 5 - Electro */
-
-.resonador-electro-card-5 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #B86FFF;
-}
-
-.resonador-electro-card-5:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-electro-card-5>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #B86FFF;
-}
-
-/* Personajes - 4 - Gelio */
-
-.resonador-gelio-card-4 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #6BB3D8;
-
-}
-
-.resonador-gelio-card-4:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-gelio-card-4:hover>img {
-  transform: scale(1.12);
-}
-
-.resonador-gelio-card-4>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #a58e53;
-  transition: transform 0.5s cubic-bezier(.4, 2, .6, 1);
-}
-
-/* Personajes - 4 - Fusion */
-
-.resonador-fusion-card-4 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #F47C56;
-}
-
-.resonador-fusion-card-4:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-fusion-card-4>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #a58e53;
-}
-
-/* Personajes - 4 - Destrucción */
-
-.resonador-havoc-card-4 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #ED41A3;
-}
-
-.resonador-havoc-card-4:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-havoc-card-4>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #a58e53;
-}
-
-/* Personajes - 4 - Espectro */
-
-.resonador-espectro-card-4 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #FFF180;
-}
-
-.resonador-espectro-card-4:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-espectro-card-4>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #FFF180;
-}
-
-/* Personajes - 4 - Aero */
-
-.resonador-aero-card-4 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #5FFFC2;
-}
-
-.resonador-aero-card-4:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-aero-card-4>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #71369e;
-}
-
-/* Personajes - 4 - Electro */
-
-.resonador-electro-card-4 {
-  background: #232232;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 12px 12px 8px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  transition: transform 0.2s;
-  position: relative;
-  border-bottom: 4px solid #B86FFF;
-}
-
-.resonador-electro-card-4:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.resonador-electro-card-4>img {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  background: #71369e;
-}
-
-
-/* ELEMENTOS ICONOS - 4 */
-
-.element-gelio-icon {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 2;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.element-gelio-icon img {
-  width: 40px;
-  height: 40px;
-  display: block;
-  filter: drop-shadow(0 0 2px #6BB3D8);
-}
-
-.element-havoc-icon {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 2;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.element-havoc-icon img {
-  width: 40px;
-  height: 40px;
-  display: block;
-  filter: drop-shadow(0 0 2px #ED41A3);
-}
-
-.element-fusion-icon {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 2;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.element-fusion-icon img {
-  width: 40px;
-  height: 40px;
-  display: block;
-  filter: drop-shadow(0 0 2px #F47C56);
-}
-
-.element-fusion-icon {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 2;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.element-fusion-icon img {
-  width: 40px;
-  height: 40px;
-  display: block;
-  filter: drop-shadow(0 0 2px #F47C56);
-}
-
-.element-espectro-icon {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 2;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.element-espectro-icon img {
-  width: 40px;
-  height: 40px;
-  display: block;
-  filter: drop-shadow(0 0 2px #FFF180);
-}
-
-.element-aero-icon {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 2;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.element-aero-icon img {
-  width: 40px;
-  height: 40px;
-  display: block;
-  filter: drop-shadow(0 0 2px #5FFFC2);
-}
-
-.element-electro-icon {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 2;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.element-electro-icon img {
-  width: 40px;
-  height: 40px;
-  display: block;
-  filter: drop-shadow(0 0 2px #71369e);
-}
 
 /* STATS */
 
@@ -918,33 +328,6 @@ body.bg-img {
   color: space
 }
 
-/* Tarjeta principal */
-.resonador-card-tooltip {
-  display: inline-block;
-  position: relative;
-  margin: 40px;
-}
-
-/* Tooltip */
-
-.resonador-tooltip-content {
-  background: #232232;
-  color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
-  padding: 24px 18px 32px 18px;
-  min-width: unset;
-  max-width: none;
-  width: auto;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -110%);
-  z-index: 100;
-  font-family: 'Poppins', Arial, sans-serif;
-  display: none;
-}
 
 /* LISTA DE ARMAS EN GACHA */
 
@@ -1027,132 +410,6 @@ body.bg-img {
   font-weight: bold;
 }
 
-/* Flecha del tooltip */
-
-.tooltip-arrow {
-  position: absolute;
-  left: 50%;
-  bottom: -14px;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 14px solid transparent;
-  border-right: 14px solid transparent;
-  border-top: 14px solid #232232;
-}
-
-/* Avatar */
-
-.resonador-avatar-5 {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  background: #a58e53;
-  border: 3px solid #a58e53;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.resonador-avatar-4 {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  background: #7337a0;
-  border: 3px solid #7337a0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Nombre */
-
-.resonador-nombre {
-  font-size: 1.3em;
-  font-weight: bold;
-  margin-bottom: 14px;
-}
-
-/* Tags */
-
-.resonador-tags {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 18px;
-  flex-wrap: nowrap;
-
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  background: #181824;
-  border-radius: 6px;
-  padding: 4px 12px;
-  font-size: 1em;
-  font-weight: 600;
-  color: #fff;
-  gap: 6px;
-}
-
-.tag-rareza {
-  background: #35363c;
-  color: #fff;
-}
-
-.tag-glacio {
-  background: #232232;
-  color: #41AEFB;
-  border-bottom: 2px solid #41AEFB;
-}
-
-.tag-havoc {
-  background: #232232;
-  color: #ED41A3;
-  border-bottom: 2px solid #ED41A3;
-}
-
-.tag-fusion {
-  background: #232232;
-  color: #F47C56;
-  border-bottom: 2px solid #F47C56;
-}
-
-.tag-espectro {
-  background: #232232;
-  color: #FFF180;
-  border-bottom: 2px solid #FFF180;
-}
-
-.tag-aero {
-  background: #232232;
-  color: #5FFFC2;
-  border-bottom: 2px solid #5FFFC2;
-}
-
-.tag-electro {
-  background: #232232;
-  color: #B86FFF;
-  border-bottom: 2px solid #B86FFF;
-}
-
-.tag-arma {
-  background: #232232;
-  color: #bdbdbd;
-  border-bottom: 2px solid #bdbdbd;
-}
-
-.tag-icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 4px;
-}
-
-.tag {
-  white-space: nowrap;
-}
-
 /* Tiers */
 
 .resonador-tiers {
@@ -1174,6 +431,8 @@ body.bg-img {
   border-radius: 6px;
   padding: 0 18px;
   min-width: 150px;
+  max-width: 150px;
+  width: 150px;
   min-height: 48px;
   display: flex;
   align-items: center;
@@ -1186,6 +445,8 @@ body.bg-img {
   border-radius: 6px;
   padding: 0 18px;
   min-width: 150px;
+  max-width: 150px;
+  width: 150px;
   min-height: 48px;
   display: flex;
   align-items: center;
@@ -1198,6 +459,8 @@ body.bg-img {
   border-radius: 6px;
   padding: 0 18px;
   min-width: 150px;
+  max-width: 150px;
+  width: 150px;
   min-height: 48px;
   display: flex;
   align-items: center;
@@ -1210,6 +473,8 @@ body.bg-img {
   border-radius: 6px;
   padding: 0 18px;
   min-width: 150px;
+  max-width: 150px;
+  width: 150px;
   min-height: 48px;
   display: flex;
   align-items: center;
@@ -1222,6 +487,8 @@ body.bg-img {
   border-radius: 6px;
   padding: 0 18px;
   min-width: 150px;
+  max-width: 150px;
+  width: 150px;
   min-height: 48px;
   display: flex;
   align-items: center;
@@ -1234,6 +501,8 @@ body.bg-img {
   border-radius: 6px;
   padding: 0 18px;
   min-width: 150px;
+  max-width: 150px;
+  width: 150px;
   min-height: 48px;
   display: flex;
   align-items: center;
@@ -1258,8 +527,6 @@ body.bg-img {
   text-align: center;
   white-space: nowrap;
 }
-
-
 
 
 /* SIDEBAR */
@@ -1910,6 +1177,7 @@ main p {
 }
 
 /* FOOTER */
+
 footer {
   grid-column: 1 / -1;
   grid-row: 2;
@@ -1931,6 +1199,7 @@ footer {
 }
 
 /* Footer Nav */
+
 .footer-nav {
   border-bottom: 1px solid var(--line-clr);
   padding-bottom: 30px;
@@ -1944,7 +1213,6 @@ footer {
   list-style: none;
   padding: 0;
   margin: 0;
-  /* min-width: 220px;  <-- ELIMINA ESTA LÍNEA */
   width: 100%;
 }
 
@@ -2284,7 +1552,7 @@ footer {
   padding: 0 18px;
   height: 40px;
   margin-left: auto;
-  font-size: 15px;
+  font-size: 11px;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
   border: 1px solid #44454a;
@@ -2353,11 +1621,11 @@ footer {
 }
 
 .role.hybrid {
-  color: #b97fff;
+  color: #b368fa;
 }
 
 .role.support {
-  color: #ffd166;
+  color: #b2fc81;
 }
 
 .tier-section {
@@ -2620,6 +1888,15 @@ footer {
   box-sizing: border-box;
 }
 
+.resonadores-gelio[style*="display: none"],
+.resonadores-espectro[style*="display: none"],
+.resonadores-aero[style*="display: none"],
+.resonadores-havoc[style*="display: none"],
+.resonadores-fusion[style*="display: none"],
+.resonadores-electro[style*="display: none"] {
+  display: none !important;
+}
+
 .resonadores-gelio {
   border-radius: 8px;
   padding: 12px 12px 8px 12px;
@@ -2713,6 +1990,15 @@ footer {
 
 
 .resonadores-gelio:hover .imagen-personaje-5 img {
+  transform: scale(1.12);
+}
+
+.resonadores-gelio:hover .imagen-personaje-4 img,
+.resonadores-fusion:hover .imagen-personaje-4 img,
+.resonadores-havoc:hover .imagen-personaje-4 img,
+.resonadores-electro:hover .imagen-personaje-4 img,
+.resonadores-espectro:hover .imagen-personaje-4 img,
+.resonadores-aero:hover .imagen-personaje-4 img {
   transform: scale(1.12);
 }
 
@@ -3048,6 +2334,122 @@ footer {
   min-width: 0;
 }
 
+.resonadores-tiers .tiers-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.tier-grupos.labs-score-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.tier-box-labs-ss {
+  background: #EF5350;
+  border-radius: 6px;
+  padding: 0 18px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  width: calc(2 * 150px + 16px);
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+.tier-box-labs-s {
+  background: #EC6C68;
+  border-radius: 6px;
+  padding: 0 18px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  width: calc(2 * 150px + 16px);
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+.tier-box-labs-aa {
+  background: #ffa967;
+  border-radius: 6px;
+  padding: 0 18px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  width: calc(2 * 150px + 16px);
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+.tier-box-labs-a {
+  background: #ffbe7c;
+  border-radius: 6px;
+  padding: 0 18px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  width: calc(2 * 150px + 16px);
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+.tier-box-labs-b {
+  background: #f3ff87;
+  border-radius: 6px;
+  padding: 0 18px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  width: calc(2 * 150px + 16px);
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+.tier-box-labs-c {
+  background: #bfff7f;
+  border-radius: 6px;
+  padding: 0 18px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  width: calc(2 * 150px + 16px);
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+
+.labs-score-desc {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-top: 4px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
 .tiers-box-ss {
   background: #EF5350;
   border-radius: 6px;
@@ -3104,9 +2506,11 @@ footer {
 
 .role-mobile {
   display: none;
-  font-weight: 300;
+  font-weight: 500;
   font-family: "Anuphan", sans-serif;
-  font-size: 1.0em;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 15px;
   margin: 10px 0 8px 0;
   text-align: center;
   letter-spacing: 1px;
@@ -3117,24 +2521,109 @@ footer {
 }
 
 .role-mobile.hybrid {
-  color: #b97fff;
+  color: #b368fa;
 }
 
 .role-mobile.support {
-  color: #ffd166;
+  color: #b2fc81;
+
+}
+
+.menu-imagenes {
+  display: flex;
+  gap: 18px;
+  padding: 12px 0;
+}
+
+.menu-img-item {
+  position: relative;
+  flex: 1 1 0;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 16/5;
+  min-width: 0;
+  min-height: 120px;
+  max-height: 180px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.menu-img-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55);
+  transition: filter 0.2s;
+  display: block;
+}
+
+.menu-img-item .menu-titulo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 2em;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #000;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.menu-img-item.activo {
+  border: 2px solid #a928db42;
+  box-shadow: 0 0 0 4px #721199;
+  animation: menuImgActive 0.3s;
+  z-index: 2;
+}
+
+.menu-img-item.activo img {
+  filter: brightness(1);
+}
+
+.menu-img-item:not(.activo) img {
+  filter: brightness(0.35) grayscale(0.4);
+}
+
+.menu-img-item:not(.activo) .menu-titulo {
+  opacity: 0.7;
 }
 
 
+/* RESPONSIVE 480px */
 
+@media (max-width: 480px) {
 
+  .resonadores-gelio,
+  .resonadores-espectro,
+  .resonadores-aero,
+  .resonadores-havoc,
+  .resonadores-fusion,
+  .resonadores-electro {
+    width: 100px !important;
+    max-width: 110px !important;
+    min-width: 0 !important;
+    padding: 8px 2px 4px 2px !important;
+  }
 
+  .imagen-personaje-5,
+  .imagen-personaje-4 {
+    width: 70px !important;
+    height: 70px !important;
+    min-width: 70px !important;
+    min-height: 70px !important;
+    margin-bottom: 6px !important;
+  }
 
-
-
-
-
-
-
+  .resonadores-nombre {
+    font-size: 0.95em !important;
+  }
+}
 
 /* RESPONSIVE 800px */
 
@@ -3583,23 +3072,33 @@ footer {
   }
 
   .tierlist-row {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
+    display: block !important;
     width: 100%;
-    gap: 0 !important;
+    padding: 0;
+    margin: 0;
   }
 
-  .tier-label {
-    width: 100%;
-    max-width: 100vw;
-    min-width: 0;
-    text-align: center;
-    margin-bottom: 12px;
-    font-size: 1.3em;
+  .tier-label,
+  .tier-label.t0,
+  .tier-label.t0-5,
+  .tier-label.t1,
+  .tier-label.t1-5,
+  .tier-label.t2,
+  .tier-label.t2-5 {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    display: block !important;
     border-radius: 8px 8px 0 0 !important;
-    height: auto;
-    padding: 12px 0;
+    margin: 0 !important;
+    box-sizing: border-box;
+    left: unset !important;
+    transform: none !important;
+  }
+
+  .tier-section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .tier-col {
@@ -3620,7 +3119,7 @@ footer {
   .resonadores-havoc,
   .resonadores-fusion,
   .resonadores-electro {
-    width: 120px !important;
+    width: 100px !important;
     min-width: 0 !important;
     max-width: 140px !important;
     margin: 0 !important;
@@ -3671,9 +3170,11 @@ footer {
     grid-column: 1 / -1;
     text-align: center;
     margin-bottom: 8px;
-    margin-top: 0;
-    font-size: 1.1em;
-    font-weight: 700;
+    font-weight: 600;
+    font-family: "Anuphan", sans-serif;
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 20px;
     letter-spacing: 1px;
     z-index: 2;
   }
@@ -3709,14 +3210,13 @@ footer {
 
   .filters-group {
     display: grid !important;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 6px !important;
+    width: 100%;
+    box-sizing: border-box;
     margin: 0 0 6px 0 !important;
     padding: 0 !important;
     border: none !important;
-    width: 100%;
-    box-sizing: border-box;
     justify-items: center;
+    gap: 6px !important;
   }
 
   .filters-group.stars {
@@ -3731,7 +3231,7 @@ footer {
 
   .filters-group.elements {
     display: grid !important;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 6px !important;
     margin: 0 0 6px 0 !important;
     width: 100%;
@@ -3778,6 +3278,60 @@ footer {
     box-sizing: border-box;
   }
 
+  .menu-imagenes {
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    width: 96vw !important;
+    max-width: 96vw !important;
+    margin: 0 auto 20px auto !important;
+  }
+
+  .menu-img-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 60px !important;
+    max-height: 80px !important;
+    aspect-ratio: unset !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-width: 2px !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  .menu-img-item img {
+    width: 100vw !important;
+    height: 100% !important;
+    min-height: 60px !important;
+    max-height: 80px !important;
+    object-fit: cover !important;
+    filter: brightness(0.55) !important;
+  }
+
+  .menu-img-item .menu-titulo {
+    font-size: 1.25em !important;
+    font-weight: 800 !important;
+    letter-spacing: 1px !important;
+    text-shadow: 0 2px 8px #000;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    text-align: center;
+    pointer-events: none;
+    white-space: normal;
+    line-height: 1.2;
+    z-index: 2;
+  }
 }
 
 

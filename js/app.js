@@ -92,88 +92,121 @@ document.querySelectorAll('.resonadores-gelio, .resonadores-espectro, .resonador
   }
 });
 
-// --- FILTROS TIER LIST ---
-const filterBtns = document.querySelectorAll('.filter-btn');
-const personajes = document.querySelectorAll(
-  '.resonadores-gelio, .resonadores-espectro, .resonadores-aero, .resonadores-havoc, .resonadores-fusion, .resonadores-electro'
-);
+document.addEventListener('DOMContentLoaded', function () {
 
-let activeFilters = {
-  rareza: '*',
-  elemento: '*',
-  arma: '*'
-};
-let searchTerm = '';
+  // --- FILTROS TIER LIST ---
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const personajes = document.querySelectorAll(
+    '.resonadores-gelio, .resonadores-espectro, .resonadores-aero, .resonadores-havoc, .resonadores-fusion, .resonadores-electro'
+  );
 
-function handleFilterBtn(e) {
-  this.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  this.classList.add('active');
+  let activeFilters = {
+    rareza: '*',
+    elemento: '*',
+    arma: '*'
+  };
+  let searchTerm = '';
 
-  if (this.title.includes('Rareza')) {
-    activeFilters.rareza = this.title.includes('4') ? '4' : this.title.includes('5') ? '5' : '*';
-  } else if (this.title === 'Todos') {
-    if (this.parentElement.classList.contains('elements')) {
-      activeFilters.elemento = '*';
-    } else if (this.parentElement.classList.contains('stars')) {
-      activeFilters.rareza = '*';
-    } else if (this.parentElement.classList.contains('weapons')) {
-      activeFilters.arma = '*';
+  function handleFilterBtn(e) {
+    this.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+
+    if (this.title.includes('Rareza')) {
+      activeFilters.rareza = this.title.includes('4') ? '4' : this.title.includes('5') ? '5' : '*';
+    } else if (this.title === 'Todos') {
+      if (this.parentElement.classList.contains('elements')) {
+        activeFilters.elemento = '*';
+      } else if (this.parentElement.classList.contains('stars')) {
+        activeFilters.rareza = '*';
+      } else if (this.parentElement.classList.contains('weapons')) {
+        activeFilters.arma = '*';
+      }
+    } else if (this.title.match(/Espectro|Aero|Havoc|Fusion|Gelio|Electro/)) {
+      activeFilters.elemento = this.title.toLowerCase();
+    } else if (this.title.match(/Espada|Brazales|Pistola|Mandoble|Rectificador/)) {
+      activeFilters.arma = this.title.toLowerCase();
     }
-  } else if (this.title.match(/Espectro|Aero|Havoc|Fusion|Gelio|Electro/)) {
-    activeFilters.elemento = this.title.toLowerCase();
-  } else if (this.title.match(/Espada|Brazales|Pistola|Mandoble|Rectificador/)) {
-    activeFilters.arma = this.title.toLowerCase();
+
+    filtrarPersonajes();
   }
 
-  filtrarPersonajes();
-}
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', handleFilterBtn);
+  });
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', handleFilterBtn);
+  const searchInput = document.querySelector('.filter-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      searchTerm = this.value.trim().toLowerCase();
+      filtrarPersonajes();
+    });
+  }
+
+  function filtrarPersonajes() {
+    const personajes = document.querySelectorAll(
+      '.resonadores-gelio, .resonadores-espectro, .resonadores-aero, .resonadores-havoc, .resonadores-fusion, .resonadores-electro'
+    );
+    console.log('Filtrando', personajes.length, activeFilters, searchTerm);
+    personajes.forEach(pj => {
+      const rareza = pj.getAttribute('data-rarezas') || '';
+      const elemento = pj.getAttribute('data-elemento') || '';
+      const arma = pj.getAttribute('data-arma') || '';
+      const nombreElem = pj.querySelector('.resonadores-nombre');
+      const nombre = nombreElem ? nombreElem.textContent.trim().toLowerCase() : '';
+      console.log({ rareza, elemento, arma, nombre });
+
+      const matchRareza = activeFilters.rareza === '*' || rareza === activeFilters.rareza;
+      const matchElemento = activeFilters.elemento === '*' || elemento === activeFilters.elemento;
+      const matchArma = activeFilters.arma === '*' || arma === activeFilters.arma;
+      const matchNombre = !searchTerm || nombre.includes(searchTerm);
+
+      if (matchRareza && matchElemento && matchArma && matchNombre) {
+        pj.style.display = '';
+      } else {
+        pj.style.display = 'none';
+      }
+    });
+  }
+
+  const resetBtn = document.querySelector('.filter-reset-btn');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      activeFilters = { rareza: '*', elemento: '*', arma: '*' };
+      searchTerm = '';
+      document.querySelectorAll('.filter-btn.active').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.filters-group').forEach(g => {
+        const btnTodos = g.querySelector('.filter-btn[title="Todos"]');
+        if (btnTodos) btnTodos.classList.add('active');
+      });
+      if (searchInput) searchInput.value = '';
+      filtrarPersonajes();
+    });
+  }
 });
 
-const searchInput = document.querySelector('.filter-search');
-if (searchInput) {
-  searchInput.addEventListener('input', function () {
-    searchTerm = this.value.trim().toLowerCase();
-    filtrarPersonajes();
-  });
-}
+document.querySelectorAll('.menu-img-item').forEach(item => {
+  item.addEventListener('click', function () {
+    document.querySelectorAll('.menu-img-item').forEach(i => i.classList.remove('activo'));
+    this.classList.add('activo');
+    const tipo = this.getAttribute('data-tipo');
 
-function filtrarPersonajes() {
-  personajes.forEach(pj => {
-    const rareza = pj.getAttribute('data-rarezas') || '';
-    const elemento = pj.getAttribute('data-elemento') || '';
-    const arma = pj.getAttribute('data-arma') || '';
-    const nombreElem = pj.querySelector('.resonadores-nombre');
-    const nombre = nombreElem ? nombreElem.textContent.trim().toLowerCase() : '';
+    const order = ['S+', 'S', 'A+', 'A', 'B', 'C'];
 
-    const matchRareza = activeFilters.rareza === '*' || rareza === activeFilters.rareza;
-    const matchElemento = activeFilters.elemento === '*' || elemento === activeFilters.elemento;
-    const matchArma = activeFilters.arma === '*' || arma === activeFilters.arma;
-    const matchNombre = !searchTerm || nombre.includes(searchTerm);
+    const allCards = Array.from(document.querySelectorAll(
+      '.resonadores-gelio, .resonadores-espectro, .resonadores-fusion, .resonadores-havoc, .resonadores-aero, .resonadores-electro'
+    ));
 
-    if (matchRareza && matchElemento && matchArma && matchNombre) {
-      pj.style.display = '';
-    } else {
-      pj.style.display = 'none';
-    }
-  });
-}
-
-const resetBtn = document.querySelector('.filter-reset-btn');
-if (resetBtn) {
-  resetBtn.addEventListener('click', () => {
-    activeFilters = { rareza: '*', elemento: '*', arma: '*' };
-    searchTerm = '';
-    document.querySelectorAll('.filter-btn.active').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.filters-group').forEach(g => {
-      const btnTodos = g.querySelector('.filter-btn[title="Todos"]');
-      if (btnTodos) btnTodos.classList.add('active');
+    order.forEach(tier => {
+      document.querySelectorAll(`.tier-row[data-tier="${tier}"]`).forEach(row => {
+        row.innerHTML = '';
+      });
     });
-    if (searchInput) searchInput.value = '';
-    filtrarPersonajes();
-  });
-}
 
-// ...existing code...
+    allCards.forEach(card => {
+      const rank = (card.getAttribute(`data-${tipo}-rank`) || 'C').toUpperCase();
+      const tier = order.includes(rank) ? rank : 'C';
+      const row = document.querySelector(`.tier-row[data-tier="${tier}"]`);
+      if (row) row.appendChild(card);
+    });
+  });
+});
