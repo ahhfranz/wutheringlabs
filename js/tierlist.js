@@ -106,16 +106,14 @@ function inicializarTooltips() {
             });
 
             if (tooltip) {
-                if (!tooltip.__originalParent) tooltip.__originalParent = card;
-                document.body.appendChild(tooltip);
                 tooltip.style.display = 'block';
-
-                const rect = card.getBoundingClientRect();
-                tooltip.style.position = 'fixed';
-                tooltip.style.left = (rect.left + rect.width / 2) + 'px';
-                tooltip.style.top = (rect.top - tooltip.offsetHeight - 12) + 'px';
-                tooltip.style.transform = 'translate(-50%, 0)';
+                tooltip.style.position = 'absolute';
+                tooltip.style.left = '50%';
+                tooltip.style.top = '-12px'; 
+                tooltip.style.transform = 'translate(-50%, -100%)';
                 tooltip.style.zIndex = 99999;
+                card.style.position = 'relative';
+                card.appendChild(tooltip);
             }
         }
 
