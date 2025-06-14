@@ -1,5 +1,3 @@
-// --- TOOLTIPS ---
-
 document.querySelectorAll('.resonadores-gelio, .resonadores-espectro, .resonadores-havoc, .resonadores-fusion, .resonadores-aero, .resonadores-electro').forEach(card => {
   const tooltip = card.querySelector('.contenido-del-tooltip');
   let hideTimeout;
@@ -50,8 +48,6 @@ document.querySelectorAll('.resonadores-gelio, .resonadores-espectro, .resonador
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-
-  // --- FILTROS TIER LIST ---
   
   const filterBtns = document.querySelectorAll('.filter-btn');
   const personajes = document.querySelectorAll(
