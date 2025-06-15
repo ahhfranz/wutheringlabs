@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     function getPathPrefix() {
-        // Si estamos en la raíz (index.html), no usamos ../
-        // Si estamos en una subcarpeta (como /pages/), usamos ../
         const path = window.location.pathname;
-        // Ajusta esto si tu estructura cambia
         return path.endsWith('/index.html') || path === '/' ? '' : '../';
     }
 
