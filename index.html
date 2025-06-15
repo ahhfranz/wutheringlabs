@@ -9,7 +9,7 @@
 
 
   <!--- Favicon -->
-  <link rel="icon" href="icons/favicon.png" type="image/x-icon">
+  <link rel="icon" href="images/icons/favicon.png" type="image/x-icon">
 
   <!--- Link al CSS -->
   <link rel="stylesheet" href="css/style.css" />
@@ -40,81 +40,54 @@
   <div class="sidebar-overlay"></div>
 
   <nav id="sidebar">
-
     <div class="sidebar-header">
       <a href="index.html">
         <img src="images/logo.png" class="logo-wuwalabs" alt="Logo de WuWa Labs" width="120" height="36">
         <img src="images/logo2.png" class="logo-wuwalabsmini" alt="Logo de WuWa Labs pequeño" width="40" height="40">
       </a>
-      <div class="sidebar-logo-divider"></div>
-      <button onclick=toggleSidebar() id="toggle-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-          <path
-            d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z" />
-        </svg>
-      </button>
     </div>
-
     <ul>
-
-      <li class="divider"></li>
-
-      <li class="home-btn">
-        <a href="index.html" id="home-link">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-            <path
-              d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
-          </svg>
+      <li>
+        <a href="index.html" class="menu-link-flex active">
           <span>Inicio</span>
+          <img src="images/categorias/inicio.png" alt="Inicio" class="menu-icon-img">
         </a>
       </li>
-
       <li class="divider"></li>
       <li>
-        <a href="pages/tierlist.html">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-            <path d="M160-160v-320h160v320H160Zm240 0v-640h160v640H400Zm240 0v-440h160v440H640Z" />
-          </svg>
+        <a href="pages/tierlist.html" class="menu-link-flex">
           <span>Tier List</span>
+          <img src="images/categorias/tierlist.png" alt="Tier List" class="menu-icon-img">
         </a>
       </li>
-
       <li class="divider"></li>
-
       <li>
-        <a href="pages/resonadores.html">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-            class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-            <path
-              d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z" />
-          </svg>
+        <a href="pages/resonadores.html" class="menu-link-flex">
           <span>Resonadores</span>
+          <img src="images/categorias/resonadores.png" alt="Resonadores" class="menu-icon-img">
         </a>
       </li>
-
       <li>
-        <a href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-magic"
-            viewBox="0 0 16 16">
-            <path
-              d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707zM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1zM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707zM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0z" />
-          </svg>
+        <a href="#" class="menu-link-flex">
           <span>Armas</span>
+          <img src="images/categorias/armas.png" alt="Armas" class="menu-icon-img">
         </a>
       </li>
-
       <li class="divider"></li>
       <li>
-        <a href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-            <path
-              d="M352-120H200q-33 0-56.5-23.5T120-200v-152q48 0 84-30.5t36-77.5q0-47-36-77.5T120-568v-152q0-33 23.5-56.5T200-800h160q0-42 29-71t71-29q42 0 71 29t29 71h160q33 0 56.5 23.5T800-720v160q42 0 71 29t29 71q0 42-29 71t-71 29v160q0 33-23.5 56.5T720-120H568q0-50-31.5-85T460-240q-45 0-76.5 35T352-120Zm-152-80h85q24-66 77-93t98-27q45 0 98 27t77 93h85v-240h80q8 0 14-6t6-14q0-8-6-14t-14-6h-80v-240H480v-80q0-8-6-14t-14-6q-8 0-14 6t-6 14v80H200v88q54 20 87 67t33 105q0 57-33 104t-87 68v88Zm260-260Z" />
-          </svg>
+        <a href="#" class="menu-link-flex">
           <span>Mods</span>
+          <img src="images/categorias/mods.png" alt="Mods" class="menu-icon-img">
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a href="https://forms.gle/2kPYNky9kRuUnLqQ7" target="_blank" class="menu-link-flex">
+          <span>Feedback</span>
+          <img src="images/categorias/feedback.png" alt="Feedback" class="menu-icon-img">
         </a>
       </li>
     </ul>
-
   </nav>
 
 
@@ -133,7 +106,8 @@
     <!-- GUÍAS -->
 
     <div class="guides-section">
-      <h2 class="guides-title"> <ion-icon name="book-outline"></ion-icon> INICIO</h2>
+      <h2 class="guides-title"> <img class="iconos-de-inicio" src="images/categorias/inicio.png" alt="Inicio"> INICIO
+      </h2>
       <div class="guides-grid">
 
         <a href="pages/introduccion.html" class="guide-link">
@@ -221,7 +195,7 @@
 
       <!-- HERRAMIENTAS -->
 
-      <h2 class="guides-title"> <ion-icon name="grid-outline"></ion-icon> HERRAMIENTAS</h2>
+      <h2 class="guides-title"> <img class="iconos-de-inicio" src="images/categorias/inicio.png" alt="Herramientas"> HERRAMIENTAS</h2>
       <div class="guides-grid">
 
         <a href="https://www.ghzs666.com/wutheringwaves-map#/" target="_blank" class="guide-link">
@@ -240,7 +214,7 @@
 
       <!-- MODDING -->
 
-      <h2 class="guides-title"> <ion-icon name="construct-outline"></ion-icon> MODDING</h2>
+      <h2 class="guides-title"> <img class="iconos-de-inicio" src="images/categorias/inicio.png" alt="Modding"> MODDING</h2>
       <div class="guides-grid">
 
         <a href="#" class="guide-link">
@@ -327,6 +301,7 @@
 
   <!--- Custom JS links -->
   <script src="js/sidebar.js"></script>
+  <script src="js/sidebar-mobile.js"></script>
   <script src="/js/boton-arriba.js"></script>
 
 
