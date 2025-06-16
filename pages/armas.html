@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wuthering Labs</title>
+
+
+  <!--- Favicon -->
+  <link rel="icon" href="../images/icons/favicon.png" type="image/x-icon">
+
+  <!--- Link al CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!--- Links de fonts de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&display=swap" rel="stylesheet">
+
+  <!--- Links de Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-img">
+
+
+
+  <div class="sidebar-overlay"></div>
+
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <a href="../index.html">
+        <img src="../images/logo.png" class="logo-wuwalabs" alt="Logo de WuWa Labs" width="120" height="36">
+        <img src="../images/logo2.png" class="logo-wuwalabsmini" alt="Logo de WuWa Labs pequeño" width="40" height="40">
+      </a>
+    </div>
+    <ul>
+      <li>
+        <a href="../index.html" class="menu-link-flex">
+          <span>Inicio</span>
+          <img src="../images/categorias/inicio.png" alt="Inicio" class="menu-icon-img">
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a href="../pages/tierlist.html" class="menu-link-flex">
+          <span>Tier List</span>
+          <img src="../images/categorias/tierlist.png" alt="Tier List" class="menu-icon-img">
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a href="../pages/resonadores.html" class="menu-link-flex">
+          <span>Resonadores</span>
+          <img src="../images/categorias/resonadores.png" alt="Resonadores" class="menu-icon-img">
+        </a>
+      </li>
+      <li>
+        <a href="../pages/armas.html" class="menu-link-flex active">
+          <span>Armas</span>
+          <img src="../images/categorias/armas.png" alt="Armas" class="menu-icon-img">
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a href="#" class="menu-link-flex">
+          <span>Mods</span>
+          <img src="../images/categorias/mods.png" alt="Mods" class="menu-icon-img">
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a href="https://forms.gle/2kPYNky9kRuUnLqQ7" target="_blank" class="menu-link-flex">
+          <span>Feedback</span>
+          <img src="../images/categorias/feedback.png" alt="Feedback" class="menu-icon-img">
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
+
+  <main>
+
+
+    <!-- Encabezado de la guía -->
+
+    <div class="guide-header">
+      <div class="guide-breadcrumbs">
+        <a href="../index.html">Wuthering Labs</a> / <span>Armas</span>
+      </div>
+      <div class="guide-header-main">
+        <div class="intro-anim">
+          <div class="guide-img-wrapper">
+            <img src="../images/armas/stellarsymphony.png" alt="Armas de Wuthering Waves" class="guide-img default">
+            <img src="../images/armas/luminoushymn.png" alt="Armas de Wuthering Waves" class="guide-img hover">
+          </div>
+        </div>
+        <div class="guide-header-info">
+          <h1 class="guide-header-title">Armas</h1>
+          <div class="guide-header-desc">Base de datos con todas las armas <b>disponibles</b> de Wuthering Waves hasta
+            la fecha.</div>
+          <div class="guide-header-date">última actualización: <b>15/06/2025</b></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <h2 class="guides-title"> <ion-icon name="man-outline"></ion-icon> RESONADORES</h2>
+
+    <!-- Filtros -->
+
+    <div class="filters-bar">
+      <div class="filters-group search-group">
+        <input type="text" class="filter-search" placeholder="Buscar personaje...">
+      </div>
+
+      <div class="filters-group stars">
+        <button class="filter-btn active" title="Todos"><i class="bi bi-asterisk"></i></button>
+        <button class="filter-btn" title="Rareza 1 estrellas">1★</button>
+        <button class="filter-btn" title="Rareza 2 estrellas">2★</button>
+        <button class="filter-btn" title="Rareza 3 estrellas">3★</button>
+        <button class="filter-btn" title="Rareza 4 estrellas">4★</button>
+        <button class="filter-btn" title="Rareza 5 estrellas">5★</button>
+      </div>
+
+      <div class="filters-group weapons">
+        <button class="filter-btn active" title="Todos"><i class="bi bi-asterisk"></i></button>
+        <button class="filter-btn" title="Espada">
+          <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" />
+        </button>
+        <button class="filter-btn" title="Brazales">
+          <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" />
+        </button>
+        <button class="filter-btn" title="Pistola">
+          <img src="../images/tipos-armas/weapon_pistola.png" alt="Pistola" />
+        </button>
+        <button class="filter-btn" title="Mandoble">
+          <img src="../images/tipos-armas/weapon_mandoble.png" alt="Mandoble" />
+        </button>
+        <button class="filter-btn" title="Rectificador">
+          <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" />
+        </button>
+      </div>
+
+      <button class="filter-reset-btn">✖ QUITAR FILTROS</button>
+    </div>
+
+    <!-- Armas -->
+
+<div class="armas-grid">
+  <div class="arma-card rare-5">
+    <div class="arma-tipo">
+      <img src="../images/tipos-armas/weapon_espada.png" alt="Espada" />
+    </div>
+    <img class="arma-img" src="../images/armas/esmeraldadelgenesis.png" alt="Esmeralda del génesis" />
+    <div class="arma-nombre">Esmeralda del génesis</div>
+  </div>
+  <div class="arma-card rare-5">
+    <div class="arma-tipo">
+      <img src="../images/tipos-armas/weapon_rectificador.png" alt="Rectificador" />
+    </div>
+    <img class="arma-img" src="../images/armas/ondascosmicas.png" alt="Ondas cósmicas" />
+    <div class="arma-nombre">Ondas cósmicas</div>
+  </div>
+  <div class="arma-card rare-5">
+    <div class="arma-tipo">
+      <img src="../images/tipos-armas/weapon_pistola.png" alt="Pistola" />
+    </div>
+    <img class="arma-img" src="../images/armas/nieblaestatica.png" alt="Niebla estática" />
+    <div class="arma-nombre">Niebla estática</div>
+  </div>
+    <div class="arma-card rare-5">
+    <div class="arma-tipo">
+      <img src="../images/tipos-armas/weapon_mandoble.png" alt="Mandoble" />
+    </div>
+    <img class="arma-img" src="../images/armas/navajabrillante.png" alt="Navaja brillante" />
+    <div class="arma-nombre">Navaja brillante</div>
+  </div>
+    <div class="arma-card rare-5">
+    <div class="arma-tipo">
+      <img src="../images/tipos-armas/weapon_brazales.png" alt="Brazales" />
+    </div>
+    <img class="arma-img" src="../images/armas/oleadasdelabismo.png" alt="Oleadas del abismo" />
+    <div class="arma-nombre">Oleadas del abismo</div>
+  </div>
+    </div>
+
+
+
+
+
+
+
+
+
+  </main>
+
+  <!--- FOOTER -->
+
+  <footer>
+
+    <div class="footer-nav">
+      <div class="footercontainer">
+
+        <ul class="footer-nav-list">
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Navegación</h2>
+          </li>
+          <li class="footer-nav-item">
+            <a href="index.html" class="footer-nav-link">Inicio</a>
+          </li>
+          <li class="footer-nav-item">
+            <a href="../pages/politicas.html" class="footer-nav-link">Políticas de privacidad</a>
+          </li>
+        </ul>
+
+        <ul class="footer-nav-list">
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Descarga nuestra App</h2>
+          </li>
+          <a href="#"><img src="../images/play-store.png" alt="Google Play"></a>
+          <a href="#"><img src="../images/app-store.png" alt="App Store"></a>
+        </ul>
+
+        <ul class="footer-nav-list">
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Contacto</h2>
+          </li>
+          <li class="footer-nav-item flex">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+            <a href="mailto:wutheringlabs@gmail.com" target="_blank" class="footer-nav-link">wutheringlabs@gmail.com</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom"></div>
+    <p class="copyright">
+      Copyright &copy; 2025 Wuthering Labs by <a href="http://discordapp.com/users/640310157796179978" target="_blank"
+        class="franz-link">franz</a> - Todos los derechos reservados.
+    </p>
+
+  </footer>
+
+
+
+  <!-- Botón Ir arriba -->
+  <button id="btn-ir-arriba" title="Volver arriba">&#8679;</button>
+
+  <!--- Ionicon links -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!--- Custom JS links -->
+  <script src="../js/sidebar.js"></script>
+  <script src="../js/sidebar-mobile.js"></script>
+  <script src="../js/filtros-armas.js"></script>
+  <script src="../js/boton-arriba.js"></script>
+
+
+</body>
+
+</html>
