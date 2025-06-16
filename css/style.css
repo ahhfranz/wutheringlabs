@@ -1580,9 +1580,9 @@ footer {
 .filter-btn.active,
 .filter-btn:active,
 .filter-btn:focus {
-  background: #1e90ff;
+  background: #7421b8;
   color: #fff;
-  border-color: #1e90ff;
+  border-color: #7421b8;
 }
 
 .filter-btn:hover:not(.active) {
@@ -2748,7 +2748,116 @@ footer {
   display: none;
 }
 
+/* LISTA DE ARMAS */
 
+.armas-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin: 32px 0;
+  justify-content: flex-start;
+}
+
+.arma-card {
+  background: linear-gradient(180deg, #23253a 60%, #191a1f 100%);
+  border-radius: 0px;
+  border: 2px solid #232232;
+  width: 170px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 2px 12px #0003;
+  transition: transform 0.18s, box-shadow 0.18s;
+  padding: 18px 10px 0 10px;
+}
+
+.arma-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 8px 32px #0007;
+  z-index: 2;
+}
+
+.arma-tipo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #232232cc;
+  border-radius: 6px;
+  padding: 4px;
+  box-shadow: 0 2px 8px #0005;
+  z-index: 3;
+}
+
+.arma-tipo img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px #fff8);
+}
+
+.arma-img {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  margin: 18px 0 0 0;
+  display: block;
+  z-index: 1;
+  transition: transform 0.3s cubic-bezier(.4, 2, .6, 1);
+}
+
+.arma-card:hover .arma-img {
+  transform: scale(1.20); /* zoom al hacer hover en la tarjeta */
+}
+
+.arma-nombre {
+  width: 100%;
+  text-align: center;
+  font-size: 1.05em;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: none;
+  border-radius: 0;
+  text-shadow: 0 2px 8px #000a;
+  letter-spacing: 0.5px;
+  padding: 0;
+  border-top: none; 
+}
+
+.rare-5 {
+  border-bottom: 4px solid #ffe066;
+  position: relative;
+}
+
+.rare-5::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0; 
+  height: 0px; 
+  pointer-events: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 6px 16px 2px #ffe066cc;
+  opacity: 1;
+  z-index: 2;
+}
+
+.rare-4 {
+  border-bottom: 3px solid #b983ff;
+}
+
+.rare-3 {
+  border-bottom: 3px solid #3da9fc;
+}
 
 
 
