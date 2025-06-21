@@ -1,12 +1,12 @@
 <template>
     <nav id="sidebar">
         <div class="sidebar-header">
-            <a href="/">
+            <router-link to="/">
                 <img src="@/assets/images/logo.webp" class="logo-wuwalabs" alt="Logo de WuWa Labs" width="120"
                     height="36">
                 <img src="@/assets/images/logo2.webp" class="logo-wuwalabsmini" alt="Logo de WuWa Labs pequeño"
                     width="40" height="40">
-            </a>
+            </router-link>
         </div>
         <ul>
             <li>
@@ -52,6 +52,4 @@ export default {
 }
 </script>
 
-<style scoped>
-/* Add your sidebar styles here */
-</style>
+<style scoped></style>
