@@ -888,7 +888,7 @@
                     <div class="resonadores-nombre">Camellya</div>
                     <div class="resonadores-tags">
                       <span class="tag tag-rarezas">5★</span>
-                      <span class="tag tag-tipo-havoc">
+                      <span class="tag tag-tipo-destrucción">
                         <img src="@/assets/images/elementos/icon_havoc.webp" alt="Destrucción" class="tag-iconos">
                         Destrucción
                       </span>
@@ -1055,7 +1055,7 @@
                     <div class="resonadores-nombre">Roccia</div>
                     <div class="resonadores-tags">
                       <span class="tag tag-rarezas">5★</span>
-                      <span class="tag tag-tipo-havoc">
+                      <span class="tag tag-tipo-destrucción">
                         <img src="@/assets/images/elementos/icon_havoc.webp" alt="Destrucción" class="tag-iconos">
                         Destrucción
                       </span>
@@ -1556,7 +1556,7 @@
                 <div class="resonadores-nombre">Rover (Destrucción)</div>
                 <div class="resonadores-tags">
                   <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-havoc">
+                  <span class="tag tag-tipo-destrucción">
                     <img src="@/assets/images/elementos/icon_havoc.webp" alt="Destrucción" class="tag-iconos">
                     Destrucción
                   </span>
@@ -1658,7 +1658,7 @@
                 <div class="resonadores-nombre">Cantarella</div>
                 <div class="resonadores-tags">
                   <span class="tag tag-rarezas">5★</span>
-                  <span class="tag tag-tipo-havoc">
+                  <span class="tag tag-tipo-destrucción">
                     <img src="@/assets/images/elementos/icon_havoc.webp" alt="Destrucción" class="tag-iconos">
                     Destrucción
                   </span>
@@ -1953,7 +1953,7 @@
                 <div class="resonadores-nombre">Danjin</div>
                 <div class="resonadores-tags">
                   <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-havoc">
+                  <span class="tag tag-tipo-destrucción">
                     <img src="@/assets/images/elementos/icon_havoc.webp" alt="Destrucción" class="tag-iconos">
                     Destrucción
                   </span>
@@ -2286,7 +2286,7 @@
                 <div class="resonadores-nombre">Taoqi</div>
                 <div class="resonadores-tags">
                   <span class="tag tag-rarezas">4★</span>
-                  <span class="tag tag-tipo-havoc">
+                  <span class="tag tag-tipo-destrucción">
                     <img src="@/assets/images/elementos/icon_havoc.webp" alt="Destrucción" class="tag-iconos">
                     Destrucción
                   </span>

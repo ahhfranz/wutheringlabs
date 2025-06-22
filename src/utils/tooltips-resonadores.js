@@ -25,22 +25,23 @@ export function inicializarTooltips() {
             let left = rect.left + rect.width / 2 + scrollX - tooltip.offsetWidth / 2;
             let top = rect.top + scrollY - tooltip.offsetHeight - 12;
 
+            const padding = 8;
+            const maxLeft = window.innerWidth - tooltip.offsetWidth - padding;
+            if (left < padding) left = padding;
+            if (left > maxLeft) left = maxLeft;
+
             const espacioArriba = rect.top - 12;
             if (espacioArriba >= tooltip.offsetHeight) {
                 tooltip.style.left = left + 'px';
                 tooltip.style.top = top + 'px';
+                tooltip.classList.remove('arrow-top');
+                tooltip.classList.add('arrow-bottom');
             } else {
                 top = rect.bottom + scrollY + 12;
                 tooltip.style.left = left + 'px';
                 tooltip.style.top = top + 'px';
-            }
-
-            const tooltipRect = tooltip.getBoundingClientRect();
-            if (tooltipRect.left < 0) {
-                tooltip.style.left = (scrollX + 8) + 'px';
-            }
-            if (tooltipRect.right > window.innerWidth) {
-                tooltip.style.left = (scrollX + window.innerWidth - tooltip.offsetWidth - 8) + 'px';
+                tooltip.classList.remove('arrow-bottom');
+                tooltip.classList.add('arrow-top');
             }
         }
 

@@ -122,47 +122,19 @@
     <!-- Armas -->
 
     <div class="armas-grid">
-      <div class="arma-card rare-5">
+      <div class="arma-card" :class="`rare-${arma.rareza}`" v-for="(arma, idx) in armas" :key="idx">
         <div class="arma-tipo">
-          <img src="@/assets/images/tipos-armas/weapon_espada.webp" alt="Espada" />
+          <img :src="arma.tipoImg" :alt="arma.tipo" />
         </div>
-        <img class="arma-img" src="@/assets/images/armas/esmeraldadelgenesis.webp" alt="Esmeralda del génesis" />
-        <div class="arma-nombre">Esmeralda del génesis</div>
-      </div>
-      <div class="arma-card rare-5">
-        <div class="arma-tipo">
-          <img src="@/assets/images/tipos-armas/weapon_rectificador.webp" alt="Rectificador" />
-        </div>
-        <img class="arma-img" src="@/assets/images/armas/ondascosmicas.webp" alt="Ondas cósmicas" />
-        <div class="arma-nombre">Ondas cósmicas</div>
-      </div>
-      <div class="arma-card rare-5">
-        <div class="arma-tipo">
-          <img src="@/assets/images/tipos-armas/weapon_pistola.webp" alt="Pistola" />
-        </div>
-        <img class="arma-img" src="@/assets/images/armas/nieblaestatica.webp" alt="Niebla estática" />
-        <div class="arma-nombre">Niebla estática</div>
-      </div>
-      <div class="arma-card rare-5">
-        <div class="arma-tipo">
-          <img src="@/assets/images/tipos-armas/weapon_mandoble.webp" alt="Mandoble" />
-        </div>
-        <img class="arma-img" src="@/assets/images/armas/navajabrillante.webp" alt="Navaja brillante" />
-        <div class="arma-nombre">Navaja brillante</div>
-      </div>
-      <div class="arma-card rare-5">
-        <div class="arma-tipo">
-          <img src="@/assets/images/tipos-armas/weapon_brazales.webp" alt="Brazales" />
-        </div>
-        <img class="arma-img" src="@/assets/images/armas/oleadasdelabismo.webp" alt="Oleadas del abismo" />
-        <div class="arma-nombre">Oleadas del abismo</div>
+        <img class="arma-img" :src="arma.armaImg" :alt="arma.nombre" />
+        <div class="arma-nombre">{{ arma.nombre }}</div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script setup>
+import armas from '@/utils/armas.js'
 import { onMounted, nextTick } from 'vue'
 import { inicializarFiltrosArmas } from '@/utils/filtros-armas.js'
 

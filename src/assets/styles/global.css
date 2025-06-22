@@ -33,7 +33,7 @@ body {
 
 .app-grid {
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 140px 1fr;
   grid-template-rows: 1fr auto;
   min-height: 100vh;
   overflow-x: hidden;
@@ -1465,7 +1465,7 @@ footer {
   padding: 7px 12px;
   font-size: 15px;
   outline: none;
-  min-width: 210px;
+  min-width: 300px;
   margin-right: 6px;
 }
 
@@ -2195,7 +2195,7 @@ footer {
   font-size: 0.92em;
   padding: 8px 10px;
   min-width: unset;
-  max-width: none;
+  max-width: 95vw;
   width: auto;
   text-align: center;
   font-family: 'Poppins', Arial, sans-serif;
@@ -2305,7 +2305,7 @@ footer {
   border-bottom: 2px solid #FFF180;
 }
 
-.tag-tipo-havoc {
+.tag-tipo-destrucción {
   background: #232232;
   color: #ED41A3;
   border-bottom: 2px solid #ED41A3;
@@ -2381,6 +2381,30 @@ footer {
   border-radius: 6px;
   border-bottom: 2px solid #bdbdbd;
   margin-bottom: 10px;
+}
+
+.contenido-del-tooltip .tooltip-arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+}
+
+.contenido-del-tooltip.arrow-bottom .tooltip-arrow {
+  bottom: -14px;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 14px solid #232232;
+  border-bottom: none;
+}
+
+.contenido-del-tooltip.arrow-top .tooltip-arrow {
+  top: -14px;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 14px solid #232232;
+  border-top: none;
 }
 
 .tooltip-arrow {
@@ -2503,10 +2527,12 @@ footer {
 
 .characters-grid {
   display: grid;
-  gap: 6px;
+  gap: 5px;
   overflow: visible;
-  grid-template-columns: repeat(auto-fill, 150px);
+  grid-template-columns: repeat(auto-fit, 150px);
   justify-content: start;
+  width: auto;
+  max-width: 100%;
 }
 
 .character-card-4,
@@ -2523,6 +2549,7 @@ footer {
   position: relative;
   font-family: 'Poppins', sans-serif;
   overflow: hidden;
+  margin-bottom: 3px;
 }
 
 .character-card-4 {
@@ -2597,7 +2624,7 @@ footer {
   font-weight: bold;
   padding: 2px 10px;
   border-radius: 6px;
-  z-index: 2;
+  z-index: 20;
   letter-spacing: 1px;
 }
 
@@ -2865,7 +2892,7 @@ footer {
   }
 
   .characters-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
     justify-content: center;
   }
@@ -2874,7 +2901,7 @@ footer {
   .character-card-5 {
     width: 100%;
     max-width: 170px;
-    height: 180px;
+    height: 220px;
   }
 
   .character-name {
@@ -2945,14 +2972,14 @@ footer {
   .resonadores-havoc,
   .resonadores-aero,
   .resonadores-electro {
-    width: 80px !important;
-    padding: 6px 6px 2px 6px !important;
+    width: 120px !important;
+    padding: 10px 10px 6px 10px !important;
   }
 
   .imagen-personaje-5,
   .imagen-personaje-4 {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
 
   .resonadores-avatar-5,
@@ -2974,6 +3001,10 @@ footer {
 
   .youtube-video-container iframe {
     height: 200px;
+  }
+
+  .custom-img {
+    max-width: 100%;
   }
 
   .filters-bar {
@@ -3052,23 +3083,88 @@ footer {
   }
 
   .tierlist-row {
-    grid-template-columns: 40px 1fr 1fr 1fr;
+    display: block !important;
+    flex-direction: row !important;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+    overflow-x: visible;
+    padding-bottom: 10px;
   }
 
+  .tierlist-roles {
+    display: none;
+  }
+
+  .tier-label,
   .tier-label.t0,
   .tier-label.t0-5,
   .tier-label.t1,
   .tier-label.t1-5,
   .tier-label.t2,
   .tier-label.t2-5 {
-    font-size: 1em;
-    min-width: 40px;
-    max-width: 40px;
-    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    border-radius: 8px 8px 0 0;
+    margin: 0 0 8px 0;
+    padding-left: 0;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    height: 44px;
+    text-align: center;
+  }
+
+  .tier-col {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 12px 8px 16px 8px;
+    align-items: start;
+    justify-content: start;
+    margin-bottom: 12px;
+    position: relative;
+    background: #28283a;
+    border-radius: 10px;
+  }
+
+  .tier-col:nth-child(3) {
+    background: #373750;
+  }
+
+  .tier-col:last-child {
+    margin-bottom: 0;
+  }
+
+  .tier-col:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  .tierlist-row>.tier-col {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .role-mobile {
-    display: block;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    margin: 0 0 4px 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .tier-col>.role-mobile {
+    grid-column: 1 / -1;
+    margin-bottom: 6px;
+    margin-top: -2px;
+    justify-content: flex-start;
   }
 
   .tiers-role,
@@ -3124,11 +3220,9 @@ footer {
   }
 
   .contenido-del-tooltip {
-    font-size: 0.85em;
-    padding: 6px 6px;
-    border-radius: 8px;
-    min-width: 120px;
-    max-width: 90vw;
+    display: none !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
   }
 
   .footer-bottom {
