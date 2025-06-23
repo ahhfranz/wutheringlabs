@@ -3,10 +3,9 @@
         <div class="presentacion">
             <img src="@/assets/images/logo.webp" alt="Logo Wuthering Labs" class="presentacion-logo">
             <p>
-                Una wiki dedicada a la comunidad hispanohablante de <strong>Wuthering Waves</strong>. Puedes encontrar
-                guías,
-                herramientas, modificaciones, novedades e información sobre los personajes y el universo del juego.
-            </p>
+                Una wiki dedicada a la comunidad hispanohablante de <strong>Wuthering Waves</strong>. </p>
+            <p>Puedes encontrar guías, herramientas, novedades e información sobre los personajes y el universo del
+                juego.</p>
         </div>
 
         <div class="guides-section">

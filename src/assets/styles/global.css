@@ -697,11 +697,12 @@ main p {
 }
 
 .presentacion p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 0;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  white-space: nowrap;
 }
 
 /* MENU ACORDEON */
@@ -891,6 +892,11 @@ main p {
 .guide-img.hover {
   opacity: 0;
   pointer-events: none;
+  filter: drop-shadow(0 0 6px #5a416b88) drop-shadow(0 0 12px #5a416b88);
+}
+
+.guide-link:hover .guide-img.hover {
+  filter: drop-shadow(0 0 12px #5a416b88) drop-shadow(0 0 24px #5a416b88);
 }
 
 .guide-card:hover .guide-img.default {
@@ -923,15 +929,6 @@ main p {
   margin-left: 24px;
 }
 
-/* Efectos de luz en Hovers */
-
-.guide-img.hover {
-  filter: drop-shadow(0 0 6px #5a416b88) drop-shadow(0 0 12px #5a416b88);
-}
-
-.guide-link:hover .guide-img.hover {
-  filter: drop-shadow(0 0 12px #5a416b88) drop-shadow(0 0 24px #5a416b88);
-}
 
 /* ECOS */
 
@@ -2719,11 +2716,13 @@ footer {
 /* LISTA DE ARMAS */
 
 .armas-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 22px;
   margin: 32px 0;
-  justify-content: flex-start;
+  justify-content: start;
+  width: 100%;
+  max-width: 100%;
 }
 
 .arma-card {
@@ -2836,6 +2835,10 @@ footer {
 
 /* Responsive para móviles */
 @media (max-width: 800px) {
+  .presentacion p {
+    white-space: normal;
+  }
+
   .app-grid {
     display: block;
     min-height: 100vh;
