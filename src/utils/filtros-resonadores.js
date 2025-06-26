@@ -1,7 +1,7 @@
 export function inicializarFiltrosResonadores() {
     const searchInput = document.querySelector('.filter-search');
     const resetBtn = document.querySelector('.filter-reset-btn');
-    const cards = document.querySelectorAll('.characters-grid > div[class^="character-card"]');
+    const cards = document.querySelectorAll('.characters-grid [class^="character-card"]');
 
     let filtro = {
         rareza: 'todos',
@@ -59,7 +59,9 @@ export function inicializarFiltrosResonadores() {
     }
 
     function filtrar() {
-        cards.forEach(card => {
+        document.querySelectorAll('.characters-grid > a, .characters-grid > router-link').forEach(link => {
+            const card = link.querySelector('[class^="character-card"]');
+            if (!card) return;
             const nombre = card.querySelector('.character-name').textContent.toLowerCase();
             const rareza = card.classList.contains('character-card-5') ? '5' : '4';
             const elemento = card.getAttribute('data-elemento');
@@ -71,7 +73,7 @@ export function inicializarFiltrosResonadores() {
             if (filtro.arma !== 'todos' && filtro.arma !== arma) visible = false;
             if (filtro.busqueda && !nombre.includes(filtro.busqueda)) visible = false;
 
-            card.style.display = visible ? '' : 'none';
+            link.style.display = visible ? '' : 'none';
         });
     }
 }

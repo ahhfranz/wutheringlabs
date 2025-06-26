@@ -1,6 +1,6 @@
 export function inicializarTooltips() {
     document.querySelectorAll(
-        '.resonadores-gelio, .resonadores-espectro, .resonadores-havoc, .resonadores-fusion, .resonadores-aero, .resonadores-electro, .character-card-4, .character-card-5'
+        '.resonadores-gelio, .resonadores-espectro, .resonadores-destrucción, .resonadores-fusion, .resonadores-aero, .resonadores-electro, .character-card-4, .character-card-5'
     ).forEach(card => {
         const tooltip = card.querySelector('.contenido-del-tooltip');
         let hideTimeout;

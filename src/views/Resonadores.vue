@@ -120,14 +120,14 @@
         <button class="filter-btn" title="Espada">
           <img src="@/assets/images/tipos-armas/weapon_espada.webp" alt="Espada" />
         </button>
-        <button class="filter-btn" title="Brazales">
-          <img src="@/assets/images/tipos-armas/weapon_brazales.webp" alt="Brazales" />
-        </button>
-        <button class="filter-btn" title="Pistola">
-          <img src="@/assets/images/tipos-armas/weapon_pistola.webp" alt="Pistola" />
-        </button>
         <button class="filter-btn" title="Mandoble">
           <img src="@/assets/images/tipos-armas/weapon_mandoble.webp" alt="Mandoble" />
+        </button>
+        <button class="filter-btn" title="Pistolas">
+          <img src="@/assets/images/tipos-armas/weapon_pistolas.webp" alt="Pistolas" />
+        </button>
+        <button class="filter-btn" title="Brazales">
+          <img src="@/assets/images/tipos-armas/weapon_brazales.webp" alt="Brazales" />
         </button>
         <button class="filter-btn" title="Rectificador">
           <img src="@/assets/images/tipos-armas/weapon_rectificador.webp" alt="Rectificador" />
@@ -138,58 +138,60 @@
     </div>
 
     <!-- Personajes -->
-    <div class="characters-grid">
-      <div :class="['character-card-' + resonador.rareza]" v-for="(resonador, idx) in resonadores" :key="idx"
-        :data-rareza="resonador.rareza" :data-elemento="resonador.elemento" :data-arma="resonador.arma"
-        style="position: relative;">
-        <!-- Indicador NUEVA -->
-        <span v-if="resonador.nueva" class="new-badge">NUEVA</span>
-        <img class="element-icon" :src="resonador.iconoElemento" :alt="resonador.elemento" />
-        <img class="character-img" :src="resonador.imagen" :alt="resonador.nombre" />
-        <div class="character-name">{{ resonador.nombre }}</div>
-        <div class="contenido-del-tooltip">
-          <img :class="`resonadores-avatar-${resonador.rareza}`" :src="resonador.avatar" :alt="resonador.nombre" />
-          <div class="resonadores-nombre">{{ resonador.nombre }}</div>
-          <div class="resonadores-tags">
-            <span class="tag tag-rarezas">{{ resonador.rareza }}★</span>
-            <span :class="`tag tag-tipo-${resonador.elemento}`">
-              <img :src="resonador.iconoElemento" :alt="resonador.elemento" class="tag-iconos" />
-              {{ resonador.elemento.charAt(0).toUpperCase() + resonador.elemento.slice(1) }}
-            </span>
-            <span class="tag tag-armas">
-              <img :src="resonador.tags.find(t => t.tipo === 'arma').icono" :alt="resonador.arma" class="tag-iconos" />
-              {{ resonador.arma.charAt(0).toUpperCase() + resonador.arma.slice(1) }}
-            </span>
-          </div>
 
-          <!-- ROLES Y TIERS -->
-          <div class="resonadores-roles-tiers">
-            <div v-for="(rol, i) in resonador.roles" :key="i" class="rol-con-tier">
-              <div :class="['tiers-role', rol.colorClass]">
-                <img :src="rol.icono" :alt="rol.nombre" class="icono-rol" />
-                <span>{{ rol.nombre }}</span>
-              </div>
-              <div class="resonadores-tiers tiers-row">
-                <div class="tier-grupos" v-for="(tier, j) in rol.tiers" :key="j">
-                  <div :class="['tier-box', tierClass(tier.label)]">
-                    <div class="tiers-label">{{ tier.label }}</div>
+    <div class="characters-grid">
+      <router-link v-for="(resonador, idx) in resonadores" :key="idx" :to="`/personaje/${resonador.nombre}`"
+        style="text-decoration: none;">
+        <div :class="['character-card-' + resonador.rareza]" :data-rareza="resonador.rareza"
+          :data-elemento="resonador.elemento" :data-arma="resonador.arma" style="position: relative;">
+          <span v-if="resonador.nueva" class="new-badge">NUEVA</span>
+          <img class="element-icon" :src="resonador.iconoElemento" :alt="resonador.elemento" />
+          <img class="character-img" :src="resonador.imagen" :alt="resonador.nombre" />
+          <div class="character-name">{{ resonador.nombre }}</div>
+          <div class="contenido-del-tooltip">
+            <img :class="`resonadores-avatar-${resonador.rareza}`" :src="resonador.avatar" :alt="resonador.nombre" />
+            <div class="resonadores-nombre">{{ resonador.nombre }}</div>
+            <div class="resonadores-tags">
+              <span class="tag tag-rarezas">{{ resonador.rareza }}★</span>
+              <span :class="`tag tag-tipo-${resonador.elemento}`">
+                <img :src="resonador.iconoElemento" :alt="resonador.elemento" class="tag-iconos" />
+                {{ resonador.elemento.charAt(0).toUpperCase() + resonador.elemento.slice(1) }}
+              </span>
+              <span class="tag tag-armas">
+                <img :src="resonador.tags.find(t => t.tipo === 'arma').icono" :alt="resonador.arma"
+                  class="tag-iconos" />
+                {{ resonador.arma.charAt(0).toUpperCase() + resonador.arma.slice(1) }}
+              </span>
+            </div>
+
+            <div class="resonadores-roles-tiers">
+              <div v-for="(rol, i) in resonador.roles" :key="i" class="rol-con-tier">
+                <div :class="['tiers-role', rol.colorClass]">
+                  <img :src="rol.icono" :alt="rol.nombre" class="icono-rol" />
+                  <span>{{ rol.nombre }}</span>
+                </div>
+                <div class="resonadores-tiers tiers-row">
+                  <div class="tier-grupos" v-for="(tier, j) in rol.tiers" :key="j">
+                    <div :class="['tier-box', tierClass(tier.label)]">
+                      <div class="tiers-label">{{ tier.label }}</div>
+                    </div>
+                    <div class="tiers-desc">{{ tier.desc }}</div>
                   </div>
-                  <div class="tiers-desc">{{ tier.desc }}</div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="tier-grupos labs-score-label">
-            <div :class="['tier-box-labs', resonador.labsScoreTier]">
-              <div class="tiers-label">{{ resonador.labsScore }}</div>
+            <div class="tier-grupos labs-score-label">
+              <div :class="['tier-box-labs', resonador.labsScoreTier]">
+                <div class="tiers-label">{{ resonador.labsScore }}</div>
+              </div>
+              <div class="tiers-desc labs-score-desc">
+                <i class="bi bi-sort-up"></i> Labs Score
+              </div>
             </div>
-            <div class="tiers-desc labs-score-desc">
-              <i class="bi bi-sort-up"></i> Labs Score
-            </div>
+            <div class="tooltip-arrow"></div>
           </div>
-          <div class="tooltip-arrow"></div>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>

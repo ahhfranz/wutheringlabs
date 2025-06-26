@@ -176,7 +176,7 @@
 
         <div class="tier-col">
 
-          <div class="resonadores-gelio" data-rarezas="5" data-elemento="gelio" data-arma="pistola"
+          <div class="resonadores-gelio" data-rarezas="5" data-elemento="gelio" data-arma="pistolas"
             data-labs-rank-dps="S+" data-torre-rank-dps="S+" data-olas-rank-dps="S" data-role="dps">
             <span class="elemento-gelio">
               <img src="@/assets/images/elementos/icon_gelio.webp" alt="gelio">
@@ -193,7 +193,8 @@
                   <img src="@/assets/images/elementos/icon_gelio.webp" alt="Destrucción" class="tag-iconos"> Gelio
                 </span>
                 <span class="tag tag-armas">
-                  <img src="@/assets/images/tipos-armas/weapon_pistola.webp" alt="Pistola" class="tag-iconos"> Pistola
+                  <img src="@/assets/images/tipos-armas/weapon_pistolas.webp" alt="pistolas" class="tag-iconos">
+                  pistolas
                 </span>
               </div>
               <div class="tiers-role dps"><img src="@/assets/images/categorias/dps.webp" alt="DPS" class="icono-rol">
@@ -223,10 +224,10 @@
             </div>
           </div>
 
-          <div class="resonadores-havoc" data-rarezas="5" data-elemento="havoc" data-arma="espada"
+          <div class="resonadores-destrucción" data-rarezas="5" data-elemento="destrucción" data-arma="espada"
             data-labs-rank-dps="S+" data-torre-rank-dps="S" data-olas-rank-dps="S+" data-role="dps">
-            <span class="elemento-havoc">
-              <img src="@/assets/images/elementos/icon_havoc.webp" alt="Havoc">
+            <span class="elemento-destrucción">
+              <img src="@/assets/images/elementos/icon_havoc.webp" alt="destrucción">
             </span>
             <div class="imagen-personaje-5">
               <img src="@/assets/images/personajes/icon_camellya.webp" alt="Camellya">
@@ -236,7 +237,7 @@
               <div class="resonadores-nombre">Camellya</div>
               <div class="resonadores-tags">
                 <span class="tag tag-rarezas">5★</span>
-                <span class="tag tag-tipo-havoc">
+                <span class="tag tag-tipo-destrucción">
                   <img src="@/assets/images/elementos/icon_havoc.webp" alt="Destrucción" class="tag-iconos"> Destrucción
                 </span>
                 <span class="tag tag-armas">
@@ -801,8 +802,8 @@
           <img src="@/assets/images/elementos/icon_espectro.webp" alt="Espectro" class="espectro-icon">
           Espectro
         </span>
-        <span class="havoc-title">
-          <img src="@/assets/images/elementos/icon_havoc.webp" alt="Destrucción" class="havoc-icon">
+        <span class="destrucción-title">
+          <img src="@/assets/images/elementos/icon_havoc.webp" alt="Destrucción" class="destrucción-icon">
           Destrucción
         </span>
       </div>
@@ -836,8 +837,8 @@
           Mandobles
         </span>
         <span class="armacolor-lista">
-          <img src="@/assets/images/tipos-armas/weapon_pistola.webp" alt="Pistolas" class="armaicono-lista">
-          Pistolas
+          <img src="@/assets/images/tipos-armas/weapon_pistolas.webp" alt="pistolas" class="armaicono-lista">
+          pistolas
         </span>
         <span class="armacolor-lista">
           <img src="@/assets/images/tipos-armas/weapon_rectificador.webp" alt="Rectificador" class="armaicono-lista">

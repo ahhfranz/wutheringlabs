@@ -85,7 +85,7 @@
 
     <div class="filters-bar">
       <div class="filters-group search-group">
-        <input type="text" class="filter-search" placeholder="Buscar personaje...">
+        <input type="text" class="filter-search" placeholder="Buscar arma...">
       </div>
 
       <div class="filters-group stars">
@@ -102,14 +102,14 @@
         <button class="filter-btn" title="Espada">
           <img src="@/assets/images/tipos-armas/weapon_espada.webp" alt="Espada" />
         </button>
-        <button class="filter-btn" title="Brazales">
-          <img src="@/assets/images/tipos-armas/weapon_brazales.webp" alt="Brazales" />
-        </button>
-        <button class="filter-btn" title="Pistola">
-          <img src="@/assets/images/tipos-armas/weapon_pistola.webp" alt="Pistola" />
-        </button>
         <button class="filter-btn" title="Mandoble">
           <img src="@/assets/images/tipos-armas/weapon_mandoble.webp" alt="Mandoble" />
+        </button>
+        <button class="filter-btn" title="Pistolas">
+          <img src="@/assets/images/tipos-armas/weapon_pistolas.webp" alt="Pistolas" />
+        </button>
+        <button class="filter-btn" title="Brazales">
+          <img src="@/assets/images/tipos-armas/weapon_brazales.webp" alt="Brazales" />
         </button>
         <button class="filter-btn" title="Rectificador">
           <img src="@/assets/images/tipos-armas/weapon_rectificador.webp" alt="Rectificador" />

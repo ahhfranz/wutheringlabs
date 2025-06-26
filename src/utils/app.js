@@ -1,4 +1,4 @@
-document.querySelectorAll('.resonadores-gelio, .resonadores-espectro, .resonadores-havoc, .resonadores-fusion, .resonadores-aero, .resonadores-electro').forEach(card => {
+document.querySelectorAll('.resonadores-gelio, .resonadores-espectro, .resonadores-destrucción, .resonadores-fusion, .resonadores-aero, .resonadores-electro').forEach(card => {
   const tooltip = card.querySelector('.contenido-del-tooltip');
   let hideTimeout;
 
@@ -48,10 +48,10 @@ document.querySelectorAll('.resonadores-gelio, .resonadores-espectro, .resonador
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  
+
   const filterBtns = document.querySelectorAll('.filter-btn');
   const personajes = document.querySelectorAll(
-    '.resonadores-gelio, .resonadores-espectro, .resonadores-aero, .resonadores-havoc, .resonadores-fusion, .resonadores-electro'
+    '.resonadores-gelio, .resonadores-espectro, .resonadores-aero, .resonadores-destrucción, .resonadores-fusion, .resonadores-electro'
   );
 
   let activeFilters = {
@@ -75,9 +75,9 @@ document.addEventListener('DOMContentLoaded', function () {
       } else if (this.parentElement.classList.contains('weapons')) {
         activeFilters.arma = '*';
       }
-    } else if (this.title.match(/Espectro|Aero|Havoc|Fusion|Gelio|Electro/)) {
+    } else if (this.title.match(/Espectro|Aero|Destrucción|Fusion|Gelio|Electro/)) {
       activeFilters.elemento = this.title.toLowerCase();
-    } else if (this.title.match(/Espada|Brazales|Pistola|Mandoble|Rectificador/)) {
+    } else if (this.title.match(/Espada|Brazales|Pistolas|Mandoble|Rectificador/)) {
       activeFilters.arma = this.title.toLowerCase();
     }
 
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function filtrarPersonajes() {
     const personajes = document.querySelectorAll(
-      '.resonadores-gelio, .resonadores-espectro, .resonadores-aero, .resonadores-havoc, .resonadores-fusion, .resonadores-electro'
+      '.resonadores-gelio, .resonadores-espectro, .resonadores-aero, .resonadores-destrucción, .resonadores-fusion, .resonadores-electro'
     );
     console.log('Filtrando', personajes.length, activeFilters, searchTerm);
     personajes.forEach(pj => {
@@ -147,7 +147,7 @@ document.querySelectorAll('.menu-img-item').forEach(item => {
     const order = ['S+', 'S', 'A+', 'A', 'B', 'C'];
 
     const allCards = Array.from(document.querySelectorAll(
-      '.resonadores-gelio, .resonadores-espectro, .resonadores-fusion, .resonadores-havoc, .resonadores-aero, .resonadores-electro'
+      '.resonadores-gelio, .resonadores-espectro, .resonadores-fusion, .resonadores-destrucción, .resonadores-aero, .resonadores-electro'
     ));
 
     order.forEach(tier => {

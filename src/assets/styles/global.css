@@ -105,7 +105,7 @@ main p {
       var(--base-clr) 600px);
 }
 
-.bg-darken {
+.bg-darken-video {
   position: fixed;
   top: 0;
   left: 0;
@@ -114,6 +114,17 @@ main p {
   z-index: -1;
   pointer-events: none;
   background: rgba(20, 18, 34, 0.90);
+}
+
+.bg-darken-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: rgba(20, 18, 34, 0.1);
 }
 
 /* Botón para volver arriba */
@@ -533,7 +544,7 @@ main p {
   filter: drop-shadow(0 0 2px #FFF180);
 }
 
-.havoc-title {
+.destrucción-title {
   display: inline-flex;
   align-items: center;
   font-weight: 700;
@@ -541,7 +552,7 @@ main p {
   font-size: 1.2em;
 }
 
-.havoc-title .havoc-icon {
+.destrucción-title .destrucción-icon {
   height: 1.3em;
   width: auto;
   margin-right: 6px;
@@ -1767,7 +1778,6 @@ footer {
 
 .tierlist-row .tier-col:nth-child(4) {
   background: #28283a;
-  border-radius: 0 0 12px 0dvb;
 }
 
 .tier-col {
@@ -1814,7 +1824,6 @@ footer {
   background: #EC6C68;
   color: #23232b;
   height: 100%;
-  border-radius: 0px 0 0 8px;
 
 }
 
@@ -1834,7 +1843,6 @@ footer {
   background: #ffa967;
   color: #23232b;
   height: 100%;
-  border-radius: 8px 0 0 0px;
 }
 
 .tier-label.t1-5 {
@@ -1853,7 +1861,6 @@ footer {
   background: #ffbe7c;
   color: #23232b;
   height: 100%;
-  border-radius: 0px 0 0 8px;
 }
 
 .tier-label.t2 {
@@ -1872,7 +1879,6 @@ footer {
   background: #f3ff87;
   color: #23232b;
   height: 100%;
-  border-radius: 8px 0 0 0px;
 }
 
 .tier-label.t2-5 {
@@ -1899,7 +1905,7 @@ footer {
 .resonadores-gelio,
 .resonadores-espectro,
 .resonadores-fusion,
-.resonadores-havoc,
+.resonadores-destrucción,
 .resonadores-aero,
 .resonadores-electro {
   border-radius: 8px;
@@ -1919,7 +1925,7 @@ footer {
 .resonadores-gelio[style*="display: none"],
 .resonadores-espectro[style*="display: none"],
 .resonadores-aero[style*="display: none"],
-.resonadores-havoc[style*="display: none"],
+.resonadores-destrucción[style*="display: none"],
 .resonadores-fusion[style*="display: none"],
 .resonadores-electro[style*="display: none"] {
   display: none;
@@ -1937,7 +1943,7 @@ footer {
 .resonadores-gelio:hover,
 .resonadores-espectro:hover,
 .resonadores-fusion:hover,
-.resonadores-havoc:hover,
+.resonadores-destrucción:hover,
 .resonadores-aero:hover,
 .resonadores-electro:hover {
   z-index: 10000 !important;
@@ -1950,7 +1956,7 @@ footer {
 
 .resonadores-gelio:hover .imagen-personaje-4 img,
 .resonadores-fusion:hover .imagen-personaje-4 img,
-.resonadores-havoc:hover .imagen-personaje-4 img,
+.resonadores-destrucción:hover .imagen-personaje-4 img,
 .resonadores-electro:hover .imagen-personaje-4 img,
 .resonadores-espectro:hover .imagen-personaje-4 img,
 .resonadores-aero:hover .imagen-personaje-4 img {
@@ -2009,16 +2015,16 @@ footer {
   transform: scale(1.12);
 }
 
-.resonadores-havoc {
+.resonadores-destrucción {
   border-bottom: 4px solid #ED41A3;
 }
 
-.resonadores-havoc:hover {
+.resonadores-destrucción:hover {
   transform: translateY(-6px) scale(1.04);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
-.resonadores-havoc:hover .imagen-personaje-5 img {
+.resonadores-destrucción:hover .imagen-personaje-5 img {
   transform: scale(1.12);
 }
 
@@ -2036,13 +2042,13 @@ footer {
 
 .elemento-gelio img {
   display: block;
-  filter: drop-shadow(0 0 2px #6BB3D8);
+  filter: drop-shadow(0 0 2px #6BB3D8) drop-shadow(0 2px 6px #000b) drop-shadow(0 0 2px #000a);
 }
 
 .elemento-gelio,
 .elemento-espectro,
 .elemento-fusion,
-.elemento-havoc,
+.elemento-destrucción,
 .elemento-aero,
 .elemento-electro {
   z-index: 2 !important;
@@ -2109,7 +2115,7 @@ footer {
 
 .elemento-espectro img {
   display: block;
-  filter: drop-shadow(0 0 2px #FFF180);
+  filter: drop-shadow(0 0 2px #FFF180) drop-shadow(0 2px 6px #000b) drop-shadow(0 0 2px #000a);
 }
 
 .elemento-aero {
@@ -2126,7 +2132,7 @@ footer {
 
 .elemento-aero img {
   display: block;
-  filter: drop-shadow(0 0 2px #5FFFC2);
+  filter: drop-shadow(0 0 2px #5FFFC2) drop-shadow(0 2px 6px #000b) drop-shadow(0 0 2px #000a);
 }
 
 .elemento-fusion {
@@ -2143,7 +2149,7 @@ footer {
 
 .elemento-fusion img {
   display: block;
-  filter: drop-shadow(0 0 2px #F47C56);
+  filter: drop-shadow(0 0 2px #F47C56) drop-shadow(0 2px 6px #000b) drop-shadow(0 0 2px #000a);
 }
 
 .elemento-electro {
@@ -2160,10 +2166,10 @@ footer {
 
 .elemento-electro img {
   display: block;
-  filter: drop-shadow(0 0 2px #B86FFF);
+  filter: drop-shadow(0 0 2px #B86FFF) drop-shadow(0 2px 6px #000b) drop-shadow(0 0 2px #000a);
 }
 
-.elemento-havoc {
+.elemento-destrucción {
   position: absolute;
   top: 8px;
   left: 8px;
@@ -2175,9 +2181,9 @@ footer {
   border-radius: 50%;
 }
 
-.elemento-havoc img {
+.elemento-destrucción img {
   display: block;
-  filter: drop-shadow(0 0 2px #ED41A3);
+  filter: drop-shadow(0 0 2px #ED41A3) drop-shadow(0 2px 6px #000b) drop-shadow(0 0 2px #000a);
 }
 
 
@@ -2432,7 +2438,7 @@ footer {
   color: #ff5a5a;
 }
 
-.role-mobile.hybrid {
+.role-mobile.sub-dps {
   color: #b368fa;
 }
 
@@ -2620,9 +2626,12 @@ footer {
   font-size: 0.95em;
   font-weight: bold;
   padding: 2px 10px;
-  border-radius: 6px;
-  z-index: 20;
+  border-radius: 8px;
+  z-index: 30;
   letter-spacing: 1px;
+  display: flex;
+  box-shadow: 0 2px 8px #0005;
+  pointer-events: none;
 }
 
 /* Politicas de privacidad */
@@ -2823,17 +2832,83 @@ footer {
   border-bottom: 3px solid #b983ff;
 }
 
+.rare-4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0px;
+  pointer-events: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 6px 16px 2px #b983ffcc;
+  opacity: 1;
+  z-index: 2;
+}
+
 .rare-3 {
   border-bottom: 3px solid #3da9fc;
 }
 
+.rare-3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0px;
+  pointer-events: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 6px 16px 2px #3da9fccc;
+  opacity: 1;
+  z-index: 2;
+}
+
+.rare-2 {
+  border-bottom: 3px solid #16ec5a;
+}
+
+.rare-2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0px;
+  pointer-events: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 6px 16px 2px #16ec5acc;
+  opacity: 1;
+  z-index: 2;
+}
+
+.rare-1 {
+  border-bottom: 3px solid #d3d3d3;
+}
+
+.rare-1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0px;
+  pointer-events: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 6px 16px 2px #d3d3d3cc;
+  opacity: 1;
+  z-index: 2;
+}
+
 /* Quitar highlight azul en mobile para los botones de la home */
+
 .guide-link,
 .guide-card {
   -webkit-tap-highlight-color: transparent;
 }
 
 /* Responsive para móviles */
+
 @media (max-width: 800px) {
   .presentacion p {
     white-space: normal;
@@ -2895,7 +2970,7 @@ footer {
   }
 
   .characters-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
     justify-content: center;
   }
@@ -2913,25 +2988,29 @@ footer {
   }
 
   .armas-grid {
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 15px;
     justify-content: center;
+    width: 100%;
   }
 
   .arma-card {
-    width: 120px;
-    min-height: 170px;
+    width: 190px;
+    min-height: 190px;
     padding: 10px 4px 0 4px;
+    margin: 0 auto;
   }
 
   .arma-img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin: 10px 0 0 0;
   }
 
   .arma-nombre {
-    font-size: 0.95em;
-    margin-top: 16px;
+    font-size: 1em;
+    margin-top: 30px;
     height: 32px;
   }
 
@@ -2972,7 +3051,7 @@ footer {
   .resonadores-gelio,
   .resonadores-espectro,
   .resonadores-fusion,
-  .resonadores-havoc,
+  .resonadores-destrucción,
   .resonadores-aero,
   .resonadores-electro {
     width: 120px !important;
@@ -3257,4 +3336,29 @@ footer {
     margin-bottom: 40px;
   }
 
+}
+
+@media (max-width: 430px) {
+  .armas-grid {
+    gap: 10px;
+  }
+
+  .arma-card {
+    width: 170px;
+    min-height: 170px;
+    padding: 8px 2px 0 2px;
+    margin-bottom: 10px;
+  }
+
+  .arma-img {
+    width: 90px;
+    height: 90px;
+    margin: 8px 0 0 0;
+  }
+
+  .arma-nombre {
+    font-size: 0.95em;
+    margin-top: 30px;
+    height: 28px;
+  }
 }

@@ -3,14 +3,15 @@ export default [
         nombre: "Aalto",
         rareza: 4,
         elemento: "aero",
-        arma: "pistola",
+        arma: "pistolas",
         iconoElemento: require("@/assets/images/elementos/icon_aero.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/aalto.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Aalto.webp"),
         avatar: require("@/assets/images/personajes/icon_aalto.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
             { tipo: "elemento", valor: "Aero", icono: require("@/assets/images/elementos/icon_aero.webp") },
-            { tipo: "arma", valor: "Pistola", icono: require("@/assets/images/tipos-armas/weapon_pistola.webp") }
+            { tipo: "arma", valor: "Pistolas", icono: require("@/assets/images/tipos-armas/weapon_pistolas.webp") }
         ],
         roles: [
             {
@@ -189,14 +190,14 @@ export default [
         nombre: "Carlotta",
         rareza: 5,
         elemento: "gelio",
-        arma: "pistola",
+        arma: "pistolas",
         iconoElemento: require("@/assets/images/elementos/icon_gelio.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/carlotta.webp"),
         avatar: require("@/assets/images/personajes/icon_carlotta.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
             { tipo: "elemento", valor: "Gelio", icono: require("@/assets/images/elementos/icon_gelio.webp") },
-            { tipo: "arma", valor: "Pistola", icono: require("@/assets/images/tipos-armas/weapon_pistola.webp") }
+            { tipo: "arma", valor: "Pistolas", icono: require("@/assets/images/tipos-armas/weapon_pistolas.webp") }
         ],
         roles: [
             {
@@ -283,14 +284,14 @@ export default [
         nombre: "Chixia",
         rareza: 4,
         elemento: "fusion",
-        arma: "pistola",
+        arma: "pistolas",
         iconoElemento: require("@/assets/images/elementos/icon_fusion.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/chixia.webp"),
         avatar: require("@/assets/images/personajes/icon_chixia.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
             { tipo: "elemento", valor: "Fusion", icono: require("@/assets/images/elementos/icon_fusion.webp") },
-            { tipo: "arma", valor: "Pistola", icono: require("@/assets/images/tipos-armas/weapon_pistola.webp") }
+            { tipo: "arma", valor: "Pistolas", icono: require("@/assets/images/tipos-armas/weapon_pistolas.webp") }
         ],
         roles: [
             {
@@ -311,14 +312,14 @@ export default [
         nombre: "Ciaccona",
         rareza: 5,
         elemento: "aero",
-        arma: "pistola",
+        arma: "pistolas",
         iconoElemento: require("@/assets/images/elementos/icon_aero.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/ciaccona.webp"),
         avatar: require("@/assets/images/personajes/icon_ciaccona.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
             { tipo: "elemento", valor: "Aero", icono: require("@/assets/images/elementos/icon_aero.webp") },
-            { tipo: "arma", valor: "Pistola", icono: require("@/assets/images/tipos-armas/weapon_pistola.webp") }
+            { tipo: "arma", valor: "Pistolas", icono: require("@/assets/images/tipos-armas/weapon_pistolas.webp") }
         ],
         roles: [
             {
@@ -553,14 +554,14 @@ export default [
         nombre: "Mortefi",
         rareza: 4,
         elemento: "fusion",
-        arma: "pistola",
+        arma: "pistolas",
         iconoElemento: require("@/assets/images/elementos/icon_fusion.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/mortefi.webp"),
         avatar: require("@/assets/images/personajes/icon_mortefi.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
             { tipo: "elemento", valor: "Fusion", icono: require("@/assets/images/elementos/icon_fusion.webp") },
-            { tipo: "arma", valor: "Pistola", icono: require("@/assets/images/tipos-armas/weapon_pistola.webp") }
+            { tipo: "arma", valor: "Pistolas", icono: require("@/assets/images/tipos-armas/weapon_pistolas.webp") }
         ],
         roles: [
             {

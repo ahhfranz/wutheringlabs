@@ -24,7 +24,7 @@ function actualizarTierList() {
                     child.classList.contains('resonadores-gelio') ||
                     child.classList.contains('resonadores-espectro') ||
                     child.classList.contains('resonadores-fusion') ||
-                    child.classList.contains('resonadores-havoc') ||
+                    child.classList.contains('resonadores-destrucción') ||
                     child.classList.contains('resonadores-aero') ||
                     child.classList.contains('resonadores-electro')
                 ) {
@@ -80,7 +80,7 @@ function actualizarTierList() {
 
     document.querySelectorAll('.tierlist-row, .tier-row').forEach(row => {
         const hasVisible = Array.from(row.querySelectorAll('.tier-col')).some(col =>
-            col.querySelector('.resonadores-gelio, .resonadores-espectro, .resonadores-aero, .resonadores-fusion, .resonadores-havoc, .resonadores-electro')
+            col.querySelector('.resonadores-gelio, .resonadores-espectro, .resonadores-aero, .resonadores-fusion, .resonadores-destrucción, .resonadores-electro')
         );
         row.style.display = hasVisible ? '' : 'none';
     });
@@ -95,7 +95,7 @@ function actualizarTierList() {
 
 export function inicializarFiltrosTierlist() {
     originalCardsData = Array.from(document.querySelectorAll(
-        '.resonadores-gelio, .resonadores-espectro, .resonadores-fusion, .resonadores-havoc, .resonadores-aero, .resonadores-electro'
+        '.resonadores-gelio, .resonadores-espectro, .resonadores-fusion, .resonadores-destrucción, .resonadores-aero, .resonadores-electro'
     )).map(card => ({
         attrs: card.attributes,
         html: card.outerHTML
@@ -116,9 +116,9 @@ export function inicializarFiltrosTierlist() {
                 } else if (this.parentElement.classList.contains('weapons')) {
                     activeFilters.arma = '*';
                 }
-            } else if (this.title.match(/Espectro|Aero|Havoc|Fusion|Gelio|Electro/)) {
+            } else if (this.title.match(/Espectro|Aero|Destrucción|Fusion|Gelio|Electro/)) {
                 activeFilters.elemento = this.title.toLowerCase();
-            } else if (this.title.match(/Espada|Brazales|Pistola|Mandoble|Rectificador/)) {
+            } else if (this.title.match(/Espada|Brazales|Pistolas|Mandoble|Rectificador/)) {
                 activeFilters.arma = this.title.toLowerCase();
             }
 

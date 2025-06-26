@@ -2,11 +2,14 @@
   <div id="app" class="app-grid">
     <Sidebar />
     <div class="main-content">
-      <video id="bg-video" autoplay loop muted playsinline>
-        <source src="@/assets/images/videos/fondo.mp4" type="video/mp4">
+      <video v-if="isHome && !isMobile" id="bg-video" autoplay loop muted playsinline>
+        <source src="@/assets/images/videos/fondo.mp4" type="video/mp4" />
         Tu navegador no soporta video HTML5.
       </video>
-      <div class="bg-darken"></div>
+      <img v-if="isHome && isMobile" id="bg-image" src="@/assets/images/fondo.webp" alt="Fondo" />
+      <div v-if="isHome" class="bg-darken-video"></div>
+      <img v-else id="bg-image" src="@/assets/images/fondo.webp" alt="Fondo" />
+      <div v-if="!isHome" class="bg-darken-image"></div>
       <div class="bg-overlay"></div>
       <div class="sidebar-overlay"></div>
       <main>
@@ -34,42 +37,68 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import Sidebar from './views/AppSidebar.vue'
 import Footer from './views/Footer.vue'
 
-export default {
-  name: 'App',
-  components: {
-    Sidebar,
-    Footer,
-  },
-  data() {
-    return {
-      showBtn: false
-    }
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    },
-    handleScroll() {
-      this.showBtn = window.scrollY > 200;
-    }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll);
-  },
-  beforeUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-}
-</script>
+const showBtn = ref(false)
+const router = useRouter()
+const route = useRoute()
 
+const isHome = computed(() => route.path === '/')
+
+const isMobile = ref(window.innerWidth <= 800)
+function handleResize() {
+  isMobile.value = window.innerWidth <= 800
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function handleScroll() {
+  showBtn.value = window.scrollY > 200;
+}
+function hideAllTooltips() {
+  document.querySelectorAll('.contenido-del-tooltip').forEach(t => {
+    t.style.display = 'none'
+  })
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+  window.addEventListener('scroll', handleScroll)
+  router.afterEach(() => {
+    hideAllTooltips()
+  })
+  document.addEventListener('click', hideAllTooltips)
+  window.addEventListener('blur', hideAllTooltips)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize)
+  window.removeEventListener('scroll', handleScroll)
+  document.removeEventListener('click', hideAllTooltips)
+  window.removeEventListener('blur', hideAllTooltips)
+})
+</script>
 
 <style>
 .mobile-bottom-nav {
   display: none;
+}
+
+#bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  pointer-events: none;
+  user-select: none;
 }
 
 @media (max-width: 800px) {
@@ -126,10 +155,27 @@ export default {
     transform: scale(1.30);
   }
 
-
   .main-content {
     padding-bottom: 60px;
   }
 
+  #bg-video {
+    display: none !important;
+  }
+
+  #bg-image {
+    object-position: 65% center;
+  }
+
+  .bg-darken,
+  .bg-overlay {
+    background: transparent !important;
+    opacity: 0.5 !important;
+  }
+
+  .bg-darken-video,
+  .bg-darken-image {
+    opacity: 0.10 !important;
+  }
 }
 </style>

@@ -50,11 +50,19 @@ const routes = [
         name: 'Politicas',
         component: Politicas
     },
+    {
+        path: '/personaje/:nombre',
+        name: 'Perfiles',
+        component: () => import('@/components/Perfiles.vue')
+    },
 ]
 
 const router = createRouter({
     history: createWebHashHistory(),
-    routes
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+        return { top: 0 }
+    }
 })
 
 export default router
