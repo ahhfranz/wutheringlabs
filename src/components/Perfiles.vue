@@ -5,21 +5,17 @@
             / <span>{{ personaje ? personaje.nombre : '...' }}</span>
         </div>
         <div class="guide-header-main">
-            <div class="intro-anim">
-                <div class="guide-img-wrapper">
-                    <img src="@/assets/images/categorias/wave-sanhua.webp" alt="Personajes de Wuthering Waves"
-                        class="guide-img default">
-                    <img src="@/assets/images/categorias/wave-jinhsi.webp" alt="Personajes de Wuthering Waves"
-                        class="guide-img hover">
+
+        </div>
+        <div class="guide-header-info">
+            <div class="guide-header-date">
+                <div class="perfil-mini-icon" v-if="personaje">
+                    <img :src="personaje.imagenPerfil || personaje.imagen" :alt="personaje.nombre" />
                 </div>
-            </div>
-            <div class="guide-header-info">
-                <h1 class="guide-header-title">{{ personaje ? personaje.nombre : 'Resonador' }}</h1>
-                <div class="guide-header-date">última actualización: <b>23/06/2025</b></div>
+                Última actualización: <b>26/06/2025</b>
             </div>
         </div>
     </div>
-
 
     <div v-if="personaje" class="perfil-main">
         <div class="perfil-header">
@@ -30,23 +26,26 @@
                 </div>
             </div>
             <div class="perfil-info-col">
-                <div class="perfil-nombre-row">
-                    <h1 class="perfil-nombre">
-                        {{ personaje.nombre }}
-                        <span class="perfil-rareza">{{ personaje.rareza }}★</span>
-                    </h1>
-                    <div class="perfil-subtitulo">Aalto</div>
-                </div>
-                <div class="perfil-tags-row">
-                    <span class="perfil-tag">
-                        <img v-if="personaje.tags.find(t => t.tipo === 'arma')"
-                            :src="personaje.tags.find(t => t.tipo === 'arma').icono" alt="Arma" class="tag-iconos" />
-                        {{ personaje.arma.charAt(0).toUpperCase() + personaje.arma.slice(1) }}
-                    </span>
-                    <span class="perfil-tag perfil-tag-elemento">
-                        <img :src="personaje.iconoElemento" :alt="personaje.elemento" class="tag-iconos" />
-                        {{ personaje.elemento.charAt(0).toUpperCase() + personaje.elemento.slice(1) }}
-                    </span>
+                <div class="perfil-nombre-bloque">
+                    <div style="display: flex; align-items: center; width: 100%; justify-content: space-between;">
+                        <div style="display: flex; flex-direction: column;">
+                            <h1 class="perfil-nombre">
+                                {{ personaje.nombre }}
+                                <span class="perfil-rareza">{{ personaje.rareza }}★</span>
+                            </h1>
+                            <div class="perfil-subtitulo">{{ personaje.nombre }}</div>
+                        </div>
+                        <div class="perfil-tags-row">
+                            <span class="perfil-tag perfil-tag-elemento" :class="elementColorClass">
+                                <img :src="personaje.iconoElemento" alt="" class="tag-iconos"
+                                    v-if="personaje.iconoElemento" />
+                                {{ personaje.elemento.charAt(0).toUpperCase() + personaje.elemento.slice(1) }}
+                            </span>
+                            <span class="perfil-tag perfil-tag-arma">
+                                {{ personaje.arma.charAt(0).toUpperCase() + personaje.arma.slice(1) }}
+                            </span>
+                        </div>
+                    </div>
                 </div>
                 <div class="perfil-nivel-row">
                     <span>Nivel</span>
@@ -79,23 +78,18 @@
             <div class="perfil-intro-box">
                 <span class="perfil-intro-highlight">{{ personaje.nombre }}</span>
                 es un personaje de
-                <span class="perfil-intro-rareza-4">{{ personaje.rareza }}★</span> del elemento
+                <span :class="['perfil-intro-rareza-' + personaje.rareza]">{{ personaje.rareza }}★</span> del elemento
                 <span class="perfil-intro-elemento">{{ personaje.elemento.charAt(0).toUpperCase() +
                     personaje.elemento.slice(1) }}</span>
                 que utiliza
                 <span class="perfil-intro-arma">{{ personaje.arma.charAt(0).toUpperCase() + personaje.arma.slice(1)
-                }}</span>
+                    }}</span>
                 como arma.<br>
                 <span class="perfil-intro-desc">
-                    Es un enigmático Corredor de Información, conocido por su naturaleza esquiva y su sonrisa
-                    acogedora. Se rumorea que proporcionará cualquier información al precio correcto.
+                    {{ personaje.descripcion || 'Sin descripción disponible.' }}
                 </span>
             </div>
         </div>
-
-    </div>
-    <div v-else>
-        <p>Personaje no encontrado.</p>
     </div>
 </template>
 
@@ -110,23 +104,23 @@ export default {
     },
     computed: {
         mats() {
-            return this.personaje?.mats || [
-                { qty: 16, img: require('@/assets/images/materiales/roaringrockfist.webp'), name: 'Puño de Roca Rugiente' },
-                { qty: 20, img: require('@/assets/images/materiales/wintrybell.webp'), name: 'Campana invernal' },
-                { qty: 4, img: require('@/assets/images/materiales/ffhowlercore.webp'), name: 'Núcleo de aullido premium' },
-                { qty: '80000', img: require('@/assets/images/materiales/shellcredit.webp'), name: 'Moneda Caparazón' },
-            ];
+            return this.personaje?.mats || [];
         },
         stats() {
-            return this.personaje?.stats || [
-                { label: 'PS', value: '9850', icon: require('@/assets/images/stats/ps.webp') },
-                { label: 'ATQ', value: '262', icon: require('@/assets/images/stats/atq.webp') },
-                { label: 'DEF', value: '1075', icon: require('@/assets/images/stats/def.webp') },
-                { label: 'Prob. CRIT', value: '5%', icon: require('@/assets/images/stats/critrate.webp') },
-                { label: 'Daño CRIT', value: '150%', icon: require('@/assets/images/stats/critdamage.webp') },
-                { label: 'Regen. de energía', value: '100%', icon: require('@/assets/images/stats/energyre.webp') },
-            ];
-        }
+            return this.personaje?.stats || [];
+        },
+        elementColorClass() {
+            if (!this.personaje) return '';
+            const map = {
+                'gelio': 'elementcolor-1',
+                'fusion': 'elementcolor-2',
+                'aero': 'elementcolor-3',
+                'electro': 'elementcolor-4',
+                'espectro': 'elementcolor-5',
+                'destrucción': 'elementcolor-6',
+            };
+            return map[this.personaje.elemento.toLowerCase()] || '';
+        },
     },
     created() {
         const nombre = this.$route.params.nombre;
@@ -186,6 +180,7 @@ export default {
 
 .perfil-nombre-row {
     margin-bottom: 8px;
+    width: 100%;
 }
 
 .perfil-nombre {
@@ -218,12 +213,19 @@ export default {
 
 .perfil-tags-row {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     gap: 12px;
     margin-bottom: 8px;
-    position: absolute;
-    top: 30px;
-    right: -150px;
-    z-index: 10;
+    margin-top: 4px;
+}
+
+.perfil-nombre-bloque {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .perfil-tag {
@@ -237,23 +239,18 @@ export default {
     font-weight: 600;
     color: #fff;
     border: 2px solid #35365a;
+    white-space: nowrap;
 }
 
-.perfil-tag-fecha {
-    background: #2d2330;
-    color: #ff6b81;
-    border-color: #ff6b81;
-}
-
-.perfil-tag-elemento {
-    background: #1e2d2f;
-    color: #6ee7b7;
-    border-color: #6ee7b7;
+.perfil-tag-arma {
+    border-color: #b0bac7;
+    color: #b0bac7;
 }
 
 .tag-iconos {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
+    margin-right: 6px;
 }
 
 .perfil-nivel-row {
@@ -286,6 +283,7 @@ export default {
 .perfil-mats-title {
     font-size: 1em;
     color: #fff;
+    margin-bottom: 15px;
 }
 
 .perfil-mats-row {
@@ -311,8 +309,9 @@ export default {
 
 .perfil-mat-qty {
     background-color: #262933;
-    border: 1px solid #171920;
+    border: 1px solid #a44ce7;
     border-radius: 5px;
+    padding: 4px 12px;
     color: #a44ce7;
     font-size: 20px;
     font-weight: 700;
@@ -475,50 +474,109 @@ export default {
     color: #fff;
 }
 
-@media (max-width: 900px) {
-    .perfil-header {
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-        padding: 18px 8px;
-    }
-
-    .perfil-img-bg {
-        min-width: 220px;
-        min-height: 260px;
-        padding: 18px 18px 0 18px;
-    }
-
-    .perfil-imagen {
-        max-width: 220px;
-    }
-
-    .perfil-info-col {
-        max-width: 100vw;
-    }
-
-    .perfil-stats-box {
-        max-width: 100vw;
-    }
+.perfil-mini-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #a44ce7;
+    box-shadow: 0 2px 8px #0003;
+    background: #23243a;
 }
 
-@media (max-width: 600px) {
-    .perfil-main {
-        padding: 8px 2vw 24px 2vw;
-    }
+.perfil-mini-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center -20%;
+    display: block;
+    transform: scale(3);
+}
 
-    .perfil-header {
-        padding: 8px 2vw;
-    }
+.guide-header-date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
-    .perfil-img-bg {
-        min-width: 120px;
-        min-height: 140px;
-        padding: 8px 8px 0 8px;
-    }
+.perfil-skilltree-section {
+    margin-top: 36px;
+    background: #23243a;
+    border-radius: 14px;
+    padding: 18px 18px 24px 18px;
+    color: #fff;
+    box-shadow: 0 2px 8px #0002;
+}
 
-    .perfil-imagen {
-        max-width: 120px;
-    }
+.perfil-skill-info-box {
+    margin-top: 24px;
+    background: #18192a;
+    border-radius: 12px;
+    padding: 18px 18px 14px 18px;
+    color: #fff;
+    font-size: 1.08em;
+    box-shadow: 0 2px 8px #0002;
+}
+
+.perfil-skill-info-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.perfil-skill-info-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.perfil-skill-type {
+    background: #35365a;
+    color: #a44ce7;
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: 0.9em;
+    margin-left: 8px;
+}
+
+.perfil-skill-info-desc {
+    color: #b0b3c1;
+    margin-top: 6px;
+}
+
+:deep(.elementcolor-1) {
+    border-color: #41AEFB;
+    color: #41AEFB;
+}
+
+:deep(.elementcolor-2) {
+    border-color: #F47C56;
+    color: #F47C56;
+}
+
+:deep(.elementcolor-3) {
+    border-color: #5FFFC2;
+    color: #5FFFC2;
+}
+
+:deep(.elementcolor-4) {
+    border-color: #B86FFF;
+    color: #B86FFF;
+}
+
+:deep(.elementcolor-5) {
+    border-color: #FFF180;
+    color: #FFF180;
+}
+
+:deep(.elementcolor-6) {
+    border-color: #ED41A3;
+    color: #ED41A3;
 }
 </style>

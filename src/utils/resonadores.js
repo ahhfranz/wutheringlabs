@@ -8,6 +8,21 @@ export default [
         imagen: require("@/assets/images/tarjetas-personajes/aalto.webp"),
         imagenPerfil: require("@/assets/images/perfiles-personajes/Aalto.webp"),
         avatar: require("@/assets/images/personajes/icon_aalto.webp"),
+        descripcion: "Es un enigmático Corredor de Información, conocido por su naturaleza esquiva y su sonrisa acogedora. Se rumorea que proporcionará cualquier información al precio correcto.",
+        mats: [
+            { qty: 16, img: require('@/assets/images/materiales/roaringrockfist.webp'), name: 'Puño de Roca Rugiente' },
+            { qty: 20, img: require('@/assets/images/materiales/wintrybell.webp'), name: 'Campana invernal' },
+            { qty: 4, img: require('@/assets/images/materiales/ffhowlercore.webp'), name: 'Núcleo de aullido premium' },
+            { qty: '80000', img: require('@/assets/images/materiales/shellcredit.webp'), name: 'Moneda Caparazón' },
+        ],
+        stats: [
+            { label: 'PS', value: '9850', icon: require('@/assets/images/stats/ps.webp') },
+            { label: 'ATQ', value: '262', icon: require('@/assets/images/stats/atq.webp') },
+            { label: 'DEF', value: '1075', icon: require('@/assets/images/stats/def.webp') },
+            { label: 'Prob. CRIT', value: '5%', icon: require('@/assets/images/stats/critrate.webp') },
+            { label: 'Daño CRIT', value: '150%', icon: require('@/assets/images/stats/critdamage.webp') },
+            { label: 'Regen. de energía', value: '100%', icon: require('@/assets/images/stats/energyre.webp') },
+        ],
         tags: [
             { tipo: "rareza", valor: "4★" },
             { tipo: "elemento", valor: "Aero", icono: require("@/assets/images/elementos/icon_aero.webp") },
@@ -34,7 +49,7 @@ export default [
             }
         ],
         labsScore: "C",
-        labsScoreTier: "tier-box-labs-c"
+        labsScoreTier: "tier-box-labs-c",
     },
 
     {
@@ -44,7 +59,9 @@ export default [
         arma: "rectificador",
         iconoElemento: require("@/assets/images/elementos/icon_gelio.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/baizhi.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Baizhi.webp"),
         avatar: require("@/assets/images/personajes/icon_baizhi.webp"),
+        descripcion: "Es una investigadora en Ecoacústica Remanente. El deseo una vez incumplido de Baizhi ahora se ha manifestado como su fiel compañero. La Criatura Remanente You'tan es su fuente de poderes de curación, y un enfoque de investigación de toda la vida.",
         tags: [
             { tipo: "rareza", valor: "4★" },
             { tipo: "elemento", valor: "Gelio", icono: require("@/assets/images/elementos/icon_gelio.webp") },
@@ -72,6 +89,7 @@ export default [
         arma: "espada",
         iconoElemento: require("@/assets/images/elementos/icon_fusion.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/brant.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Brant.webp"),
         avatar: require("@/assets/images/personajes/icon_brant.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -109,6 +127,7 @@ export default [
         arma: "mandoble",
         iconoElemento: require("@/assets/images/elementos/icon_electro.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/calcharo.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Calcharo.webp"),
         avatar: require("@/assets/images/personajes/icon_calcharo.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -137,6 +156,7 @@ export default [
         arma: "espada",
         iconoElemento: require("@/assets/images/elementos/icon_havoc.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/camellya.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Camellya.webp"),
         avatar: require("@/assets/images/personajes/icon_camellya.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -165,6 +185,7 @@ export default [
         arma: "rectificador",
         iconoElemento: require("@/assets/images/elementos/icon_havoc.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/cantarella.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Cantarella.webp"),
         avatar: require("@/assets/images/personajes/icon_cantarella.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -193,6 +214,7 @@ export default [
         arma: "pistolas",
         iconoElemento: require("@/assets/images/elementos/icon_gelio.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/carlotta.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Carlotta.webp"),
         avatar: require("@/assets/images/personajes/icon_carlotta.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -222,6 +244,7 @@ export default [
         arma: "espada",
         iconoElemento: require("@/assets/images/elementos/icon_aero.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/cartethyia.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Cartethyia.webp"),
         avatar: require("@/assets/images/personajes/icon_cartethyia.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -250,6 +273,7 @@ export default [
         arma: "espada",
         iconoElemento: require("@/assets/images/elementos/icon_fusion.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/changli.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Changli.webp"),
         avatar: require("@/assets/images/personajes/icon_changli.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -287,6 +311,7 @@ export default [
         arma: "pistolas",
         iconoElemento: require("@/assets/images/elementos/icon_fusion.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/chixia.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Chixia.webp"),
         avatar: require("@/assets/images/personajes/icon_chixia.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
@@ -315,6 +340,7 @@ export default [
         arma: "pistolas",
         iconoElemento: require("@/assets/images/elementos/icon_aero.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/ciaccona.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Ciaccona.webp"),
         avatar: require("@/assets/images/personajes/icon_ciaccona.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -352,6 +378,7 @@ export default [
         arma: "espada",
         iconoElemento: require("@/assets/images/elementos/icon_havoc.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/danjin.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Danjin.webp"),
         avatar: require("@/assets/images/personajes/icon_danjin.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
@@ -389,6 +416,7 @@ export default [
         arma: "rectificador",
         iconoElemento: require("@/assets/images/elementos/icon_fusion.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/encore.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Encore.webp"),
         avatar: require("@/assets/images/personajes/icon_encore.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -417,6 +445,7 @@ export default [
         arma: "brazales",
         iconoElemento: require("@/assets/images/elementos/icon_aero.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/Jianxin.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Jianxin.webp"),
         avatar: require("@/assets/images/personajes/icon_jianxin.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -445,6 +474,7 @@ export default [
         arma: "mandoble",
         iconoElemento: require("@/assets/images/elementos/icon_espectro.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/jinhsi.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Jinhsi.webp"),
         avatar: require("@/assets/images/personajes/icon_jinhsi.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -473,6 +503,7 @@ export default [
         arma: "mandoble",
         iconoElemento: require("@/assets/images/elementos/icon_aero.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/jiyan.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Jiyan.webp"),
         avatar: require("@/assets/images/personajes/icon_jiyan.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -501,6 +532,7 @@ export default [
         arma: "brazales",
         iconoElemento: require("@/assets/images/elementos/icon_gelio.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/lingyang.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Lingyang.webp"),
         avatar: require("@/assets/images/personajes/icon_ling.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -529,6 +561,7 @@ export default [
         arma: "mandoble",
         iconoElemento: require("@/assets/images/elementos/icon_electro.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/lumi.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Lumi.webp"),
         avatar: require("@/assets/images/personajes/icon_lumi.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
@@ -557,6 +590,7 @@ export default [
         arma: "pistolas",
         iconoElemento: require("@/assets/images/elementos/icon_fusion.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/mortefi.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Mortefi.webp"),
         avatar: require("@/assets/images/personajes/icon_mortefi.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
@@ -585,6 +619,7 @@ export default [
         arma: "rectificador",
         iconoElemento: require("@/assets/images/elementos/icon_espectro.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/phoebe.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Phoebe.webp"),
         avatar: require("@/assets/images/personajes/icon_phoebe.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -622,6 +657,7 @@ export default [
         arma: "brazales",
         iconoElemento: require("@/assets/images/elementos/icon_havoc.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/roccia.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Roccia.webp"),
         avatar: require("@/assets/images/personajes/icon_roccia.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -650,6 +686,7 @@ export default [
         arma: "espada",
         iconoElemento: require("@/assets/images/elementos/icon_aero.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/rover.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Rover.webp"),
         avatar: require("@/assets/images/personajes/icon_rover.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -678,6 +715,7 @@ export default [
         arma: "espada",
         iconoElemento: require("@/assets/images/elementos/icon_havoc.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/rover.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Rover.webp"),
         avatar: require("@/assets/images/personajes/icon_rover.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -706,6 +744,7 @@ export default [
         arma: "espada",
         iconoElemento: require("@/assets/images/elementos/icon_espectro.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/rover.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Rover.webp"),
         avatar: require("@/assets/images/personajes/icon_rover.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -743,6 +782,7 @@ export default [
         arma: "espada",
         iconoElemento: require("@/assets/images/elementos/icon_gelio.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/sanhua.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/sanhua.webp"),
         avatar: require("@/assets/images/personajes/icon_sanhua.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
@@ -771,6 +811,7 @@ export default [
         arma: "mandoble",
         iconoElemento: require("@/assets/images/elementos/icon_havoc.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/taoqi.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Taoqi.webp"),
         avatar: require("@/assets/images/personajes/icon_taoqi.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
@@ -799,6 +840,7 @@ export default [
         arma: "rectificador",
         iconoElemento: require("@/assets/images/elementos/icon_espectro.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/shorekeeper.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Shorekeeper.webp"),
         avatar: require("@/assets/images/personajes/icon_shorekeeper.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -827,6 +869,7 @@ export default [
         arma: "rectificador",
         iconoElemento: require("@/assets/images/elementos/icon_espectro.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/verina.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Verina.webp"),
         avatar: require("@/assets/images/personajes/icon_verina.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -855,6 +898,7 @@ export default [
         arma: "brazales",
         iconoElemento: require("@/assets/images/elementos/icon_electro.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/yao.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Xiangli Yao.webp"),
         avatar: require("@/assets/images/personajes/icon_xiang.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -883,6 +927,7 @@ export default [
         arma: "espada",
         iconoElemento: require("@/assets/images/elementos/icon_aero.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/yangyang.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Yangyang.webp"),
         avatar: require("@/assets/images/personajes/icon_yangyang.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
@@ -911,6 +956,7 @@ export default [
         arma: "rectificador",
         iconoElemento: require("@/assets/images/elementos/icon_electro.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/yinlin.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Yinlin.webp"),
         avatar: require("@/assets/images/personajes/icon_yinlin.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -939,6 +985,7 @@ export default [
         arma: "brazales",
         iconoElemento: require("@/assets/images/elementos/icon_gelio.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/youhu.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Youhu.webp"),
         avatar: require("@/assets/images/personajes/icon_youhu.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
@@ -967,6 +1014,7 @@ export default [
         arma: "brazales",
         iconoElemento: require("@/assets/images/elementos/icon_electro.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/yuanwu.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Yuanwu.webp"),
         avatar: require("@/assets/images/personajes/icon_yuanwu.webp"),
         tags: [
             { tipo: "rareza", valor: "4★" },
@@ -995,6 +1043,7 @@ export default [
         arma: "brazales",
         iconoElemento: require("@/assets/images/elementos/icon_espectro.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/zani.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Zani.webp"),
         avatar: require("@/assets/images/personajes/icon_zani.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
@@ -1023,6 +1072,7 @@ export default [
         arma: "rectificador",
         iconoElemento: require("@/assets/images/elementos/icon_gelio.webp"),
         imagen: require("@/assets/images/tarjetas-personajes/zhezhi.webp"),
+        imagenPerfil: require("@/assets/images/perfiles-personajes/Zhezhi.webp"),
         avatar: require("@/assets/images/personajes/icon_zhezhi.webp"),
         tags: [
             { tipo: "rareza", valor: "5★" },
