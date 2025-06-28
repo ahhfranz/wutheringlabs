@@ -50,7 +50,10 @@
                 </div>
                 <div class="perfil-nivel-row">
                     <span>Nivel</span>
-                    <div class="perfil-nivel-bar">
+                    <div class="perfil-nivel-bar" :style="{
+                        '--nivel-bar-main': elementColors.main,
+                        '--nivel-bar-grad': elementColors.grad
+                    }">
                         <div class="perfil-nivel-bar-fill" :style="{ width: '100%' }"></div>
                     </div>
                     <span class="perfil-nivel-num">90</span>
@@ -77,7 +80,12 @@
             </div>
         </div>
 
-        <div class="perfil-content-centered">
+        <div class="perfil-content-centered" :style="{
+            '--diamond-main': elementColors.main,
+            '--diamond-grad': elementColors.grad,
+            '--diamond-shadow': elementColors.shadow,
+            '--section-title-bar': elementColors.main
+        }">
             <div class="perfil-intro-section">
                 <h3 class="perfil-section-title">Introducción</h3>
                 <div class="perfil-intro-box">
@@ -184,17 +192,56 @@
                     </div>
                 </transition>
             </div>
+            <h3 class="perfil-section-title">Cadena de Resonancia (Dupes)</h3>
+            <div class="perfil-cadena-resonancia-list"
+                :class="{ 'perfil-cadena-resonancia-list-shifted': selectedDupe !== null }"
+                v-if="cadenaResonancia && cadenaResonancia.length">
+                <div class="perfil-cadena-resonancia-item" v-for="(dupe, idx) in cadenaResonancia" :key="idx">
+                    <div class="skilltree-diamond perfil-cadena-resonancia-diamond"
+                        :class="{ selected: selectedDupe === idx }" @click="selectDupe(idx)">
+                        <span class="skilltree-icon-placeholder">
+                            <img :src="dupe.icono" alt="Dupe Icon" class="perfil-cadena-resonancia-icon" />
+                        </span>
+                    </div>
+                    <div class="dupe-label">S{{ idx + 1 }}</div>
+                </div>
+                <transition name="fade-slide">
+                    <div v-if="selectedDupeData" class="perfil-skill-info-box perfil-dupe-info-box">
+                        <button class="perfil-skill-info-close" @click="closeDupeInfo" aria-label="Cerrar">✕</button>
+                        <div class="perfil-skill-info-title">
+                            <img v-if="selectedDupeData.icono" :src="selectedDupeData.icono"
+                                class="perfil-skill-info-icon" />
+                            <span>{{ selectedDupeData.titulo || ('Cadena de Resonancia ' + (selectedDupe + 1)) }}</span>
+                        </div>
+                        <div v-if="selectedDupeData.subtitulo" class="perfil-skill-info-subtitulo">
+                            {{ selectedDupeData.subtitulo }}
+                        </div>
+                        <div class="perfil-skill-info-desc" v-html="selectedDupeData.descripcion"></div>
+                    </div>
+                </transition>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import resonadores from '@/utils/resonadores.js';
+
+const ELEMENT_COLORS = {
+    gelio: { main: '#41AEFB', grad: '#0ff', shadow: '#41AEFBcc' },
+    fusion: { main: '#F47C56', grad: '#ffb347', shadow: '#F47C56cc' },
+    aero: { main: '#1ecb7a', grad: '#0e7c4a', shadow: '#1ecb7acc' },
+    electro: { main: '#B86FFF', grad: '#8e44ad', shadow: '#B86FFFcc' },
+    espectro: { main: '#FFF180', grad: '#ffe066', shadow: '#FFF180cc' },
+    destrucción: { main: '#ED41A3', grad: '#ff5fa2', shadow: '#ED41A3cc' },
+};
+
 export default {
     data() {
         return {
             personaje: null,
             selectedSkill: null,
+            selectedDupe: null,
         };
     },
     computed: {
@@ -216,8 +263,15 @@ export default {
             };
             return map[this.personaje.elemento.toLowerCase()] || '';
         },
+        elementColors() {
+            if (!this.personaje) return ELEMENT_COLORS.aero;
+            return ELEMENT_COLORS[this.personaje.elemento.toLowerCase()] || ELEMENT_COLORS.aero;
+        },
         selectedSkillIcon() {
             return '';
+        },
+        cadenaResonancia() {
+            return this.personaje?.cadenaResonancia || [];
         },
         skills() {
             return this.personaje?.skills || [];
@@ -226,7 +280,11 @@ export default {
             if (!this.selectedSkill) return null;
             const { col, idx } = this.selectedSkill;
             return this.skills[col]?.[idx] || null;
-        }
+        },
+        selectedDupeData() {
+            if (this.selectedDupe === null) return null;
+            return this.cadenaResonancia[this.selectedDupe] || null;
+        },
     },
     created() {
         const nombre = this.$route.params.nombre;
@@ -238,7 +296,13 @@ export default {
         },
         closeSkillInfo() {
             this.selectedSkill = null;
-        }
+        },
+        selectDupe(idx) {
+            this.selectedDupe = idx;
+        },
+        closeDupeInfo() {
+            this.selectedDupe = null;
+        },
     }
 };
 </script>
@@ -275,6 +339,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    position: relative;
 }
 
 .perfil-intro-section,
@@ -403,7 +468,7 @@ export default {
     bottom: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, #a44ce7 0%, #460775 100%);
+    background: linear-gradient(90deg, var(--section-title-bar, #a44ce7) 0%, transparent 100%);
     border-radius: 1px;
     opacity: 0.85;
     transform: scaleX(0);
@@ -473,7 +538,7 @@ export default {
 
 .perfil-nivel-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, #a44ce7 0%, #6ee7b7 100%);
+    background: linear-gradient(90deg, var(--nivel-bar-main, #a44ce7) 0%, var(--nivel-bar-grad, #6ee7b7) 100%);
     border-radius: 8px;
 }
 
@@ -737,7 +802,6 @@ export default {
 
 .perfil-skill-info-close:hover {
     opacity: 1;
-    color: #a44ce7;
 }
 
 .perfil-skill-info-title {
@@ -781,7 +845,7 @@ export default {
     width: 100%;
     margin: 0 auto;
     justify-content: center;
-    transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .skilltree-columns-shifted {
@@ -833,14 +897,11 @@ export default {
 .skilltree-diamond {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #23244a 60%, #3a1c5c 100%);
-    border: 2.5px solid #a44ce7;
     border-radius: 18px;
     transform: rotate(45deg);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 24px 0 #0008, 0 0 0 2px #a44ce733;
     transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s, background 0.3s;
     cursor: pointer;
     position: relative;
@@ -855,16 +916,13 @@ export default {
     position: absolute;
     inset: 0;
     border-radius: 18px;
-    box-shadow: 0 0 24px 6px #a44ce766;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s;
 }
 
 .skilltree-diamond:hover {
-    box-shadow: 0 0 32px 8px #a44ce7cc, 0 4px 24px #000a;
     border-color: #fff;
-    background: linear-gradient(135deg, #3a1c5c 40%, #a44ce7 100%);
     transform: rotate(45deg) scale(1.10);
 }
 
@@ -896,7 +954,7 @@ export default {
 .skilltree-connector {
     width: 4px;
     height: 72px;
-    background: linear-gradient(to bottom, #a44ce7 60%, transparent 100%);
+    background: linear-gradient(to bottom, #363536 60%, transparent 100%);
     position: relative;
     top: -16px;
     left: 0;
@@ -940,15 +998,13 @@ export default {
 }
 
 .skilltree-diamond.selected {
-    box-shadow: 0 0 32px 8px #a44ce7cc, 0 4px 24px #000a;
     border-color: #fff;
-    background: linear-gradient(135deg, #3a1c5c 40%, #a44ce7 100%);
     transform: rotate(45deg) scale(1.10);
 }
 
 .fade-slide-enter-active,
 .fade-slide-leave-active {
-    transition: opacity 0.9s cubic-bezier(0.77, 0, 0.175, 1), transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: opacity 0.5s cubic-bezier(0.77, 0, 0.175, 1), transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .fade-slide-enter-from,
@@ -966,7 +1022,7 @@ export default {
 :deep(.desc-title) {
     color: #ffffff;
     font-weight: bold;
-    font-size: 0.8em;
+    font-size: 1em;
     display: block;
 }
 
@@ -990,5 +1046,123 @@ export default {
     color: #5FFFC2;
     font-weight: bold;
     font-size: 0.9em;
+}
+
+.perfil-cadena-resonancia-list {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 32px;
+    justify-content: center;
+    position: relative;
+    transition: opacity 0.5s cubic-bezier(0.77, 0, 0.175, 1), transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.perfil-cadena-resonancia-list-shifted {
+    transform: translateX(-400px);
+}
+
+.perfil-cadena-resonancia-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    gap: 8px;
+}
+
+.perfil-cadena-resonancia-diamond {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s, background 0.3s;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(2px);
+    background-clip: padding-box;
+    opacity: 0.97;
+}
+
+.perfil-cadena-resonancia-diamond::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.perfil-cadena-resonancia-diamond:hover {
+    border-color: #fff;
+    transform: rotate(45deg) scale(1.10);
+}
+
+.perfil-cadena-resonancia-diamond:hover::after {
+    opacity: 1;
+}
+
+.perfil-cadena-resonancia-diamond.selected {
+    border-color: #fff;
+    transform: rotate(45deg) scale(1.10);
+}
+
+.perfil-cadena-resonancia-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin: 0;
+}
+
+.perfil-dupe-info-box {
+    position: absolute;
+    right: -360px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 700px;
+    min-height: 200px;
+    margin-left: 40px;
+    box-shadow: 0 2px 24px #0007;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #18192a;
+    border-radius: 18px;
+    font-size: 1.18em;
+    margin-top: 24px;
+    z-index: 20;
+    padding: 32px 32px 32px 32px;
+}
+
+.skilltree-diamond,
+.perfil-cadena-resonancia-diamond {
+    border: 2.5px solid var(--diamond-main);
+    background: linear-gradient(135deg, var(--diamond-grad) 0%, var(--diamond-main) 100%);
+}
+
+.skilltree-diamond.selected,
+.perfil-cadena-resonancia-diamond.selected,
+.skilltree-diamond:hover,
+.perfil-cadena-resonancia-diamond:hover {
+    box-shadow: 0 0 32px 8px var(--diamond-shadow), 0 4px 24px #000a;
+    border-color: var(--diamond-main);
+    background: linear-gradient(135deg, var(--diamond-grad) 0%, var(--diamond-main) 100%);
+}
+
+.dupe-label {
+    margin-top: 12px;
+    color: #fff;
+    font-size: 1.25em;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #000a;
 }
 </style>

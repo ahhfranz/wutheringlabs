@@ -159,6 +159,44 @@ Nivel`,
                 },
             ],
         ],
+        cadenaResonancia: [
+            {
+                icono: require('@/assets/images/dupes/Aalto/aalto1.webp'),
+                titulo: "Espectáculo de apertura del embaucador",
+                subtitulo: "Cadena de Resonancia 1",
+                descripcion: "El tiempo de reutilización de la habilidad de Resonancia <b>Truco de cambio</b> se reduce en 4 s."
+            },
+            {
+                icono: require('@/assets/images/dupes/Aalto/aalto2.webp'),
+                titulo: "Debut de Mistweaver",
+                subtitulo: "Cadena de Resonancia 2",
+                descripcion: `"Avatar de niebla" hereda 100% más PS de Aalto. Cuando Aalto ataca a objetivos provocados por el "Avatar de niebla", su ATQ se incrementa en 15%.`
+            },
+            {
+                icono: require('@/assets/images/dupes/Aalto/aalto3.webp'),
+                titulo: "Transición nebulosa",
+                subtitulo: "Cadena de Resonancia 3",
+                descripcion: `Cuando el <b>Ataque básico</b> o el <b>Ataque aéreo</b> de Aalto pasa a través de la "Niebla", se generarán 2 balas más, infligiendo un 50% del daño de <b>Ataque básico</b> o <b>Ataque aéreo</b>.`
+            },
+            {
+                icono: require('@/assets/images/dupes/Aalto/aalto4.webp'),
+                titulo: "Flor negra para el final",
+                subtitulo: "Cadena de Resonancia 4",
+                descripcion: `El daño de la habilidad de Resonancia <b>Bala de niebla</b> se incrementa en 30%; Aalto recibe 30% menos de daño en su estado de Circuito del Forte <b>Carrera en niebla</b>.`
+            },
+            {
+                icono: require('@/assets/images/dupes/Aalto/aalto5.webp'),
+                titulo: "Aplausos de los perdidos",
+                subtitulo: "Cadena de Resonancia 5",
+                descripcion: `En el estado de Circuito del Forte <b>Carrera en niebla</b>, la Bonif. de <span class="desc-aero">Daño Aero</span> de Aalto se incrementa en 25% durante 6 s.`
+            },
+            {
+                icono: require('@/assets/images/dupes/Aalto/aalto6.webp'),
+                titulo: "Los secretos del intermediario",
+                subtitulo: "Cadena de Resonancia 6",
+                descripcion: `La Liberación de resonancia <b>Flor en la niebla</b> ahora aumenta la Prob. CRIT un 8% adicional. Cuando el Ataque cargado de Aalto pasa a través de la "Puerta del dilema", el daño infligido aumenta un 50% adicional.`
+            }
+        ],
         stats: [
             { label: 'PS', value: '9850', icon: require('@/assets/images/stats/ps.webp') },
             { label: 'ATQ', value: '262', icon: require('@/assets/images/stats/atq.webp') },
