@@ -46,6 +46,7 @@
                             </span>
                         </div>
                     </div>
+
                 </div>
                 <div class="perfil-nivel-row">
                     <span>Nivel</span>
@@ -57,37 +58,130 @@
                 <div class="perfil-mats-title">
                     <b>Materiales de ascensión</b> - Nivel máximo: 90
                 </div>
-                <div class="perfil-mats-row">
-                    <div class="perfil-mat" v-for="mat in mats" :key="mat.name">
-                        <div class="perfil-mat-qty">{{ mat.qty }}</div>
-                        <img :src="mat.img" :alt="mat.name" class="perfil-mat-img" />
-                        <div class="perfil-mat-name">{{ mat.name }}</div>
+                <div class="perfil-mats-stats-wrapper">
+                    <div class="perfil-mats-row">
+                        <div class="perfil-mat" v-for="mat in mats" :key="mat.name">
+                            <div class="perfil-mat-qty">{{ mat.qty }}</div>
+                            <img :src="mat.img" :alt="mat.name" class="perfil-mat-img" />
+                            <div class="perfil-mat-name">{{ mat.name }}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="perfil-stats-box">
-                    <div class="perfil-stat-row" v-for="stat in stats" :key="stat.label">
-                        <img class="perfil-stat-icon-img" :src="stat.icon" :alt="stat.label" />
-                        <span class="perfil-stat-label">{{ stat.label }}</span>
-                        <span class="perfil-stat-value">{{ stat.value }}</span>
+                    <div class="perfil-stats-box">
+                        <div class="perfil-stat-row" v-for="stat in stats" :key="stat.label">
+                            <img class="perfil-stat-icon-img" :src="stat.icon" :alt="stat.label" />
+                            <span class="perfil-stat-label">{{ stat.label }}</span>
+                            <span class="perfil-stat-value">{{ stat.value }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="perfil-intro-section">
-            <h3>Introducción</h3>
-            <div class="perfil-intro-box">
-                <span class="perfil-intro-highlight">{{ personaje.nombre }}</span>
-                es un personaje de
-                <span :class="['perfil-intro-rareza-' + personaje.rareza]">{{ personaje.rareza }}★</span> del elemento
-                <span class="perfil-intro-elemento">{{ personaje.elemento.charAt(0).toUpperCase() +
-                    personaje.elemento.slice(1) }}</span>
-                que utiliza
-                <span class="perfil-intro-arma">{{ personaje.arma.charAt(0).toUpperCase() + personaje.arma.slice(1)
-                    }}</span>
-                como arma.<br>
-                <span class="perfil-intro-desc">
-                    {{ personaje.descripcion || 'Sin descripción disponible.' }}
-                </span>
+
+        <div class="perfil-content-centered">
+            <div class="perfil-intro-section">
+                <h3 class="perfil-section-title">Introducción</h3>
+                <div class="perfil-intro-box">
+                    <span class="perfil-intro-highlight">{{ personaje.nombre }}</span>
+                    es un personaje de
+                    <span :class="['perfil-intro-rareza-' + personaje.rareza]">{{ personaje.rareza
+                        }}★</span> del
+                    elemento
+                    <span class="perfil-intro-elemento">{{ personaje.elemento.charAt(0).toUpperCase() +
+                        personaje.elemento.slice(1) }}</span>
+                    que utiliza
+                    <span class="perfil-intro-arma">{{ personaje.arma.charAt(0).toUpperCase() +
+                        personaje.arma.slice(1)
+                        }}</span>
+                    como arma.<br>
+                    <span class="perfil-intro-desc">
+                        {{ personaje.descripcion || 'Sin descripción disponible.' }}
+                    </span>
+                </div>
+            </div>
+            <h3 class="perfil-section-title">Árbol de habilidades</h3>
+            <div class="perfil-skilltree-section">
+                <div
+                    :class="['skilltree-columns', { 'skilltree-columns-shifted': selectedSkill !== null, 'skilltree-columns-centered': selectedSkill === null }]">
+                    <div class="skilltree-vertical skilltree-vertical-extra-izq">
+                        <div v-for="n in 3" :key="'extra-izq-' + n" class="skilltree-node">
+                            <div class="skilltree-diamond"
+                                :class="{ selected: selectedSkill && selectedSkill.col === 0 && selectedSkill.idx === n - 1 }"
+                                @click="selectSkill(0, n - 1)">
+                                <span class="skilltree-icon-placeholder">
+                                    <img v-if="skills[0] && skills[0][n - 1]" :src="skills[0][n - 1].icono"
+                                        alt="Skill Icon" class="skilltree-icon-img" />
+                                </span>
+                            </div>
+                            <div v-if="n < 3" class="skilltree-connector"></div>
+                        </div>
+                    </div>
+                    <div class="skilltree-vertical skilltree-vertical-tercera">
+                        <div v-for="n in 3" :key="'tercera-' + n" class="skilltree-node">
+                            <div class="skilltree-diamond"
+                                :class="{ selected: selectedSkill && selectedSkill.col === 1 && selectedSkill.idx === n - 1 }"
+                                @click="selectSkill(1, n - 1)">
+                                <span class="skilltree-icon-placeholder">
+                                    <img v-if="skills[1] && skills[1][n - 1]" :src="skills[1][n - 1].icono"
+                                        alt="Skill Icon" class="skilltree-icon-img" />
+                                </span>
+                            </div>
+                            <div v-if="n < 3" class="skilltree-connector"></div>
+                        </div>
+                    </div>
+                    <div class="skilltree-vertical">
+                        <div v-for="n in 4" :key="n" class="skilltree-node">
+                            <div class="skilltree-diamond"
+                                :class="{ selected: selectedSkill && selectedSkill.col === 2 && selectedSkill.idx === n - 1 }"
+                                @click="selectSkill(2, n - 1)">
+                                <span class="skilltree-icon-placeholder">
+                                    <img v-if="skills[2] && skills[2][n - 1]" :src="skills[2][n - 1].icono"
+                                        alt="Skill Icon" class="skilltree-icon-img" />
+                                </span>
+                            </div>
+                            <div v-if="n < 3" class="skilltree-connector"></div>
+                        </div>
+                    </div>
+                    <div class="skilltree-vertical skilltree-vertical-sec">
+                        <div v-for="n in 3" :key="'sec-' + n" class="skilltree-node">
+                            <div class="skilltree-diamond"
+                                :class="{ selected: selectedSkill && selectedSkill.col === 3 && selectedSkill.idx === n - 1 }"
+                                @click="selectSkill(3, n - 1)">
+                                <span class="skilltree-icon-placeholder">
+                                    <img v-if="skills[3] && skills[3][n - 1]" :src="skills[3][n - 1].icono"
+                                        alt="Skill Icon" class="skilltree-icon-img" />
+                                </span>
+                            </div>
+                            <div v-if="n < 3" class="skilltree-connector"></div>
+                        </div>
+                    </div>
+                    <div class="skilltree-vertical skilltree-vertical-extra-der">
+                        <div v-for="n in 3" :key="'extra-der-' + n" class="skilltree-node">
+                            <div class="skilltree-diamond"
+                                :class="{ selected: selectedSkill && selectedSkill.col === 4 && selectedSkill.idx === n - 1 }"
+                                @click="selectSkill(4, n - 1)">
+                                <span class="skilltree-icon-placeholder">
+                                    <img v-if="skills[4] && skills[4][n - 1]" :src="skills[4][n - 1].icono"
+                                        alt="Skill Icon" class="skilltree-icon-img" />
+                                </span>
+                            </div>
+                            <div v-if="n < 3" class="skilltree-connector"></div>
+                        </div>
+                    </div>
+                </div>
+                <transition name="fade-slide">
+                    <div v-if="selectedSkillData" class="perfil-skill-info-box">
+                        <button class="perfil-skill-info-close" @click="closeSkillInfo" aria-label="Cerrar">✕</button>
+                        <div class="perfil-skill-info-title">
+                            <img v-if="selectedSkillData.icono" :src="selectedSkillData.icono"
+                                class="perfil-skill-info-icon" />
+                            <span>{{ selectedSkillData.nombre || 'Habilidad seleccionada' }}</span>
+                        </div>
+                        <div v-if="selectedSkillData.subtitulo" class="perfil-skill-info-subtitulo">
+                            {{ selectedSkillData.subtitulo }}
+                        </div>
+                        <div class="perfil-skill-info-desc" v-html="selectedSkillData.descripcion || ''"></div>
+                    </div>
+                </transition>
             </div>
         </div>
     </div>
@@ -95,11 +189,11 @@
 
 <script>
 import resonadores from '@/utils/resonadores.js';
-
 export default {
     data() {
         return {
             personaje: null,
+            selectedSkill: null, // { col: number, idx: number }
         };
     },
     computed: {
@@ -121,30 +215,101 @@ export default {
             };
             return map[this.personaje.elemento.toLowerCase()] || '';
         },
+        selectedSkillIcon() {
+            // Eliminado, ya no se usa
+            return '';
+        },
+        skills() {
+            return this.personaje?.skills || [];
+        },
+        selectedSkillData() {
+            if (!this.selectedSkill) return null;
+            const { col, idx } = this.selectedSkill;
+            return this.skills[col]?.[idx] || null;
+        }
     },
     created() {
         const nombre = this.$route.params.nombre;
         this.personaje = resonadores.find(p => p.nombre === nombre);
     },
+    methods: {
+        selectSkill(col, idx) {
+            this.selectedSkill = { col, idx };
+        },
+        closeSkillInfo() {
+            this.selectedSkill = null;
+        }
+    }
 };
 </script>
 
 <style scoped>
 .perfil-main {
-    max-width: 1200px;
-    margin: 0;
-    padding: 0 20px 60px 0;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
     color: #fff;
+    box-sizing: border-box;
+    display: flex;
+    padding: 0 20px;
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: -30px;
 }
 
 .perfil-header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
     gap: 40px;
     align-items: flex-start;
     border-radius: 32px;
-    padding: 32px 32px 32px 32px;
-    margin-bottom: 32px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.perfil-content-centered {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.perfil-intro-section,
+.perfil-skilltree-section {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.perfil-intro-section {
+    margin-top: 36px;
+}
+
+.perfil-intro-box {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+
+}
+
+.perfil-skilltree-section {
+    background: #23243a;
+    border-radius: 14px;
+    padding: 18px 18px 24px 18px;
+    color: #fff;
+    box-shadow: 0 2px 8px #0002;
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    min-height: 380px;
 }
 
 .perfil-img-col {
@@ -158,8 +323,11 @@ export default {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    min-width: 340px;
-    min-height: 440px;
+    min-width: unset;
+    min-height: unset;
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
 
 }
 
@@ -173,6 +341,8 @@ export default {
 
 .perfil-info-col {
     flex: 2 1 500px;
+    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -216,8 +386,6 @@ export default {
     flex-direction: row;
     align-items: center;
     gap: 12px;
-    margin-bottom: 8px;
-    margin-top: 4px;
 }
 
 .perfil-nombre-bloque {
@@ -334,13 +502,13 @@ export default {
     background: #23233a;
     border-radius: 18px;
     padding: 12px 10px;
-    margin-top: 8px;
+    margin-top: 18px;
     box-shadow: 0 2px 8px #0002;
     display: flex;
     flex-direction: column;
     gap: 0;
     width: 100%;
-    max-width: none;
+
 }
 
 .perfil-stat-row {
@@ -400,6 +568,8 @@ export default {
 }
 
 .perfil-intro-box {
+    max-width: none;
+    width: 100%;
     background: #23243a;
     border-radius: 14px;
     padding: 18px 18px 14px 18px;
@@ -503,51 +673,219 @@ export default {
 }
 
 .perfil-skilltree-section {
-    margin-top: 36px;
     background: #23243a;
     border-radius: 14px;
     padding: 18px 18px 24px 18px;
     color: #fff;
     box-shadow: 0 2px 8px #0002;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    min-height: 380px;
 }
 
 .perfil-skill-info-box {
-    margin-top: 24px;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 700px;
+    min-height: 600px;
+    z-index: 10;
+    margin-left: 40px;
+    box-shadow: 0 2px 24px #0007;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     background: #18192a;
-    border-radius: 12px;
-    padding: 18px 18px 14px 18px;
+    border-radius: 18px;
+    padding: 32px 38px 32px 38px;
+    font-size: 1.18em;
+}
+
+.perfil-skill-info-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
     color: #fff;
-    font-size: 1.08em;
-    box-shadow: 0 2px 8px #0002;
+    font-size: 2.1em;
+    cursor: pointer;
+    z-index: 20;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.perfil-skill-info-close:hover {
+    opacity: 1;
+    color: #a44ce7;
 }
 
 .perfil-skill-info-title {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 1.2em;
+    gap: 18px;
+    font-size: 1.20em;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 0;
+    margin-top: 8px;
+}
+
+.perfil-skill-info-subtitulo {
+    font-size: 1em;
+    color: #b0b3c1;
+    margin-top: -10px;
+    font-weight: 600;
+    margin-left: 66px;
 }
 
 .perfil-skill-info-icon {
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
-}
-
-.perfil-skill-type {
-    background: #35365a;
-    color: #a44ce7;
-    border-radius: 8px;
-    padding: 2px 10px;
-    font-size: 0.9em;
-    margin-left: 8px;
 }
 
 .perfil-skill-info-desc {
     color: #b0b3c1;
-    margin-top: 6px;
+    margin-top: 10px;
+    font-size: 0.9em;
+    line-height: 1.7;
+    margin-top: 50px;
+}
+
+.skilltree-columns {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 50px;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.skilltree-columns-shifted {
+    transform: translateX(-400px);
+}
+
+.skilltree-vertical-sec {
+    margin-top: 70px;
+}
+
+.skilltree-vertical-tercera {
+    margin-top: 70px;
+}
+
+.skilltree-vertical-extra-izq {
+    margin-top: 120px;
+}
+
+.skilltree-vertical-extra-der {
+    margin-top: 120px;
+}
+
+.skilltree-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 0;
+}
+
+.skilltree-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.skilltree-node {
+    margin-bottom: 20px;
+}
+
+.skilltree-node:nth-child(4) {
+    margin-top: 60px;
+}
+
+.skilltree-node:last-child {
+    margin-bottom: 0;
+}
+
+.skilltree-diamond {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #23244a 60%, #3a1c5c 100%);
+    border: 2.5px solid #a44ce7;
+    border-radius: 18px;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 24px 0 #0008, 0 0 0 2px #a44ce733;
+    transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s, background 0.3s;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(2px);
+    background-clip: padding-box;
+    opacity: 0.97;
+}
+
+.skilltree-diamond::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    box-shadow: 0 0 24px 6px #a44ce766;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.skilltree-diamond:hover {
+    box-shadow: 0 0 32px 8px #a44ce7cc, 0 4px 24px #000a;
+    border-color: #fff;
+    background: linear-gradient(135deg, #3a1c5c 40%, #a44ce7 100%);
+    transform: rotate(45deg) scale(1.10);
+}
+
+.skilltree-diamond:hover::after {
+    opacity: 1;
+}
+
+.skilltree-icon-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 2.2em;
+    color: #fff;
+    transform: rotate(-45deg);
+    user-select: none;
+}
+
+.skilltree-icon-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 2px 8px #0008);
+}
+
+.skilltree-connector {
+    width: 4px;
+    height: 72px;
+    background: linear-gradient(to bottom, #a44ce7 60%, transparent 100%);
+    position: relative;
+    top: -16px;
+    left: 0;
+    margin-bottom: -16px;
+    z-index: 1;
 }
 
 :deep(.elementcolor-1) {
@@ -578,5 +916,57 @@ export default {
 :deep(.elementcolor-6) {
     border-color: #ED41A3;
     color: #ED41A3;
+}
+
+.perfil-mats-stats-wrapper {
+    width: fit-content;
+    max-width: 100%;
+}
+
+.skilltree-diamond.selected {
+    box-shadow: 0 0 32px 8px #a44ce7cc, 0 4px 24px #000a;
+    border-color: #fff;
+    background: linear-gradient(135deg, #3a1c5c 40%, #a44ce7 100%);
+    transform: rotate(45deg) scale(1.10);
+}
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+    transition: opacity 0.9s cubic-bezier(0.77, 0, 0.175, 1), transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+    opacity: 0;
+    transform: translateY(-50%) translateX(400px);
+}
+
+.fade-slide-enter-to,
+.fade-slide-leave-from {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+:deep(.desc-title) {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.8em;
+    display: block;
+}
+
+:deep(.desc-list) {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+:deep(.desc-title:first-child) {
+    margin-top: 5px;
+}
+
+:deep(.desc-aero) {
+    color: #5FFFC2;
+    font-weight: bold;
+    font-size: 0.9em;
 }
 </style>

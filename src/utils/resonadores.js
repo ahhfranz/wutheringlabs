@@ -15,6 +15,136 @@ export default [
             { qty: 4, img: require('@/assets/images/materiales/ffhowlercore.webp'), name: 'Núcleo de aullido premium' },
             { qty: '80000', img: require('@/assets/images/materiales/shellcredit.webp'), name: 'Moneda Caparazón' },
         ],
+        skills: [
+            [
+                {
+                    nombre: "Bonif. de Daño Aero+",
+                    descripcion: `Bonif. de  <span class="desc-aero">Daño Aero</span> +4.20%`,
+                    icono: require('@/assets/images/habilidades/Aalto/T_Iconpropertyredwind_UI.webp')
+                },
+                {
+                    nombre: "Bonif. de Daño Aero+",
+                    descripcion: `Bonif. de  <span class="desc-aero">Daño Aero</span> +1.80%`,
+                    icono: require('@/assets/images/habilidades/Aalto/T_Iconpropertyredwind_UI.webp')
+                },
+                {
+                    nombre: "Medias verdades",
+                    subtitulo: "Ataque normal",
+                    descripcion: `
+<ul class="desc-list">
+    <li>
+        <span class="desc-title">Ataque básico</span>
+        Aalto realiza hasta 5 disparos consecutivos que infligen <span class="desc-aero">Daño Aero</span>. El 4.º Ataque básico dispersará una Niebla durante 1.5 s.
+    </li>
+    <li>
+        <span class="desc-title">Ataque cargado</span>
+        Activa el modo de apuntado, permitiendo disparos más fuertes. Tras cargar, ataca al objetivo e inflige <span class="desc-aero">Daño Aero</span>.
+    </li>
+    <li>
+        <span class="desc-title">Ataque aéreo</span>
+        Consume resistencia para atacar consecutivamente en el aire, infligiendo <span class="desc-aero">Daño Aero</span>.
+    </li>
+    <li>
+        <span class="desc-title">Contraataque evasivo</span>
+        Tras una evasión exitosa, pulsa Ataque básico poco después para atacar al objetivo e infligir <span class="desc-aero">Daño Aero</span>.
+    </li>
+</ul>
+`,
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconNorGun.webp')
+                }
+            ],
+            [
+                {
+                    nombre: "ATQ+",
+                    descripcion: "ATQ +4.20%",
+                    icono: require('@/assets/images/habilidades/Aalto/T_Iconpropertyredattack_UI.webp')
+                },
+                {
+                    nombre: "ATQ+",
+                    descripcion: "ATQ +1.80%",
+                    icono: require('@/assets/images/habilidades/Aalto/T_Iconpropertyredattack_UI.webp')
+                },
+                {
+                    nombre: "Truco de cambio",
+                    subtitulo: "Ataque normal",
+                    descripcion: `
+<ul class="desc-list">
+    <li>
+        <span class="desc-title">Avatar de Niebla</span>
+Lanza "Niebla" y 1 "Avatar de Niebla" para provocar a los objetivos circundantes. El avatar heredan una porción de los PS de Aalto y generan 6 Balas de Niebla a su alrededor, infligiendo <span class="desc-aero">Daño Aero</span>.
+    </li>
+    <li>
+        <span class="desc-title">Balas de Niebla</span>
+        Inflige <span class="desc-aero">Daño Aero</span>, considerado daño de Habilidad de resonancia.
+    </li>
+</ul>
+`,
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiB1.webp')
+                },
+            ],
+            [
+                {
+                    nombre: "Descanso a mitad del juego",
+                    subtitulo: "Ataque normal",
+                    descripcion: "Aalto continuará recuperando Resistencia cuando se encuentre en el estado de Carrera en niebla en el Circuito del Forte.",
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiD2.webp')
+                },
+                {
+                    nombre: "Rendimiento perfecto",
+                    subtitulo: "Ataque normal",
+                    descripcion: "El Ataque cargado de Aalto siempre dará un golpe crítico, activado una vez cada 30 s.",
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiD1.webp')
+                },
+                {
+                    nombre: "Cubierta brumosa",
+                    subtitulo: "Ataque normal",
+                    descripcion: "Corte rápido con daño adicional.",
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiB1.webp')
+                },
+                {
+                    nombre: "Niebla desvanecida",
+                    subtitulo: "Ataque normal",
+                    descripcion: "El personaje entrante tiene su Daño Aero amplificado en un 23% durante 14 s o hasta que se cambie.",
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiT.webp')
+                },
+            ],
+            [
+                {
+                    nombre: "ATQ+",
+                    descripcion: "ATQ +4.20%",
+                    icono: require('@/assets/images/habilidades/Aalto/T_Iconpropertyredattack_UI.webp')
+                },
+                {
+                    nombre: "ATQ+",
+                    descripcion: "ATQ +1.80%",
+                    icono: require('@/assets/images/habilidades/Aalto/T_Iconpropertyredattack_UI.webp')
+                },
+                {
+                    nombre: "Flor en la niebla",
+                    subtitulo: "Ataque normal",
+                    descripcion: "Corte rápido con daño adicional.",
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiC1.webp')
+                },
+            ],
+            [
+                {
+                    nombre: "Bonif. de Daño Aero+",
+                    descripcion: `Bonif. de  <span class="desc-aero">Daño Aero</span> +4.20%`,
+                    icono: require('@/assets/images/habilidades/Aalto/T_Iconpropertyredwind_UI.webp')
+                },
+                {
+                    nombre: "Bonif. de Daño Aero+",
+                    descripcion: `Bonif. de  <span class="desc-aero">Daño Aero</span> +1.80%`,
+                    icono: require('@/assets/images/habilidades/Aalto/T_Iconpropertyredwind_UI.webp')
+                },
+                {
+                    nombre: "Disparo finta",
+                    subtitulo: "Ataque normal",
+                    descripcion: "Corte rápido con daño adicional.",
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiB1.webp')
+                },
+            ],
+        ],
         stats: [
             { label: 'PS', value: '9850', icon: require('@/assets/images/stats/ps.webp') },
             { label: 'ATQ', value: '262', icon: require('@/assets/images/stats/atq.webp') },
@@ -61,7 +191,6 @@ export default [
         imagen: require("@/assets/images/tarjetas-personajes/baizhi.webp"),
         imagenPerfil: require("@/assets/images/perfiles-personajes/Baizhi.webp"),
         avatar: require("@/assets/images/personajes/icon_baizhi.webp"),
-        descripcion: "Es una investigadora en Ecoacústica Remanente. El deseo una vez incumplido de Baizhi ahora se ha manifestado como su fiel compañero. La Criatura Remanente You'tan es su fuente de poderes de curación, y un enfoque de investigación de toda la vida.",
         tags: [
             { tipo: "rareza", valor: "4★" },
             { tipo: "elemento", valor: "Gelio", icono: require("@/assets/images/elementos/icon_gelio.webp") },
