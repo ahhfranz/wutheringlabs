@@ -12,7 +12,7 @@
                 <div class="perfil-mini-icon" v-if="personaje">
                     <img :src="personaje.imagenPerfil || personaje.imagen" :alt="personaje.nombre" />
                 </div>
-                Última actualización: <b>26/06/2025</b>
+                Última actualización: <b>28/06/2025</b>
             </div>
         </div>
     </div>
@@ -50,13 +50,15 @@
                 </div>
                 <div class="perfil-nivel-row">
                     <span>Nivel</span>
-                    <div class="perfil-nivel-bar" :style="{
+                    <div class="perfil-nivel-bar" ref="nivelBar" :style="{
                         '--nivel-bar-main': elementColors.main,
                         '--nivel-bar-grad': elementColors.grad
                     }">
-                        <div class="perfil-nivel-bar-fill" :style="{ width: '100%' }"></div>
+                        <div class="perfil-nivel-bar-fill" :style="{ width: ((nivel - 1) / 89 * 100) + '%' }"></div>
+                        <div class="perfil-nivel-thumb" :style="{ left: ((nivel - 1) / 89 * 100) + '%' }"
+                            @mousedown="startDragNivel"></div>
                     </div>
-                    <span class="perfil-nivel-num">90</span>
+                    <span class="perfil-nivel-num">{{ nivel }}</span>
                 </div>
                 <div class="perfil-mats-title">
                     <b>Materiales de ascensión</b> - Nivel máximo: 90
@@ -192,7 +194,7 @@
                     </div>
                 </transition>
             </div>
-            <h3 class="perfil-section-title">Cadena de Resonancia (Dupes)</h3>
+            <h3 class="perfil-section-title">Cadena de Resonancia</h3>
             <div class="perfil-cadena-resonancia-list"
                 :class="{ 'perfil-cadena-resonancia-list-shifted': selectedDupe !== null }"
                 v-if="cadenaResonancia && cadenaResonancia.length">
@@ -242,6 +244,8 @@ export default {
             personaje: null,
             selectedSkill: null,
             selectedDupe: null,
+            nivel: 90,
+            draggingNivel: false,
         };
     },
     computed: {
@@ -249,7 +253,19 @@ export default {
             return this.personaje?.mats || [];
         },
         stats() {
-            return this.personaje?.stats || [];
+            if (!this.personaje?.stats) return [];
+            return this.personaje.stats.map(stat => {
+                if (stat.values && Array.isArray(stat.values)) {
+                    let value = stat.values.length === 1
+                        ? stat.values[0]
+                        : stat.values[this.nivel - 1];
+                    if (stat.isPercent) {
+                        value = Math.round(value) + '%';
+                    }
+                    return { ...stat, value };
+                }
+                return stat;
+            });
         },
         elementColorClass() {
             if (!this.personaje) return '';
@@ -302,6 +318,26 @@ export default {
         },
         closeDupeInfo() {
             this.selectedDupe = null;
+        },
+        startDragNivel(e) {
+            this.draggingNivel = true;
+            document.addEventListener('mousemove', this.onDragNivel);
+            document.addEventListener('mouseup', this.stopDragNivel);
+        },
+        onDragNivel(e) {
+            if (!this.draggingNivel) return;
+            e.preventDefault();
+            const bar = this.$refs.nivelBar;
+            const rect = bar.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            x = Math.max(0, Math.min(x, rect.width));
+            const nivel = Math.round((x / rect.width) * 89) + 1;
+            this.nivel = nivel;
+        },
+        stopDragNivel() {
+            this.draggingNivel = false;
+            document.removeEventListener('mousemove', this.onDragNivel);
+            document.removeEventListener('mouseup', this.stopDragNivel);
         },
     }
 };
@@ -488,7 +524,7 @@ export default {
 }
 
 .perfil-nombre-bloque {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -525,32 +561,54 @@ export default {
     align-items: center;
     gap: 12px;
     margin-bottom: 8px;
+    max-width: 90%;
 }
 
 .perfil-nivel-bar {
-    flex: 1;
-    height: 8px;
-    background: #35365a;
-    border-radius: 8px;
-    overflow: hidden;
     position: relative;
+    flex: 1;
+    height: 16px;
+    background: #23243a;
+    border-radius: 8px;
+    overflow: visible;
+    margin: 0 8px;
+    box-shadow: 0 2px 8px #0003;
+    display: flex;
+    align-items: center;
+}
+
+.perfil-nivel-bar,
+.perfil-nivel-thumb {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .perfil-nivel-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
     height: 100%;
     background: linear-gradient(90deg, var(--nivel-bar-main, #a44ce7) 0%, var(--nivel-bar-grad, #6ee7b7) 100%);
     border-radius: 8px;
+    z-index: 1;
+    transition: width 0.08s linear;
 }
 
 .perfil-nivel-num {
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    min-width: 32px;
+    text-align: center;
 }
 
 .perfil-mats-title {
     font-size: 1em;
     color: #fff;
     margin-bottom: 15px;
+    max-width: fit-content;
+    width: auto;
+    margin-left: 0;
 }
 
 .perfil-mats-row {
@@ -599,7 +657,7 @@ export default {
 
 .perfil-stats-box {
     background: #23233a;
-    border-radius: 18px;
+    border-radius: 5px;
     padding: 12px 10px;
     margin-top: 18px;
     box-shadow: 0 2px 8px #0002;
@@ -665,7 +723,7 @@ export default {
     max-width: none;
     width: 100%;
     background: #23243a;
-    border-radius: 14px;
+    border-radius: 5px;
     padding: 18px 18px 14px 18px;
     color: #fff;
     font-size: 1.08em;
@@ -995,6 +1053,9 @@ export default {
 .perfil-mats-stats-wrapper {
     width: fit-content;
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .skilltree-diamond.selected {
@@ -1164,5 +1225,38 @@ export default {
     text-align: center;
     letter-spacing: 1px;
     text-shadow: 0 2px 8px #000a;
+}
+
+.perfil-nivel-bar {
+    position: relative;
+}
+
+.perfil-nivel-thumb {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    background: #fff;
+    border: 4px solid var(--nivel-bar-main, #a44ce7);
+    box-shadow: 0 2px 8px #0006;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    transition: border-color 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.perfil-nivel-thumb::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: var(--nivel-bar-main, #a44ce7);
+    border-radius: 50%;
+    margin: auto;
+    transition: background 0.2s;
 }
 </style>

@@ -198,12 +198,12 @@ Nivel`,
             }
         ],
         stats: [
-            { label: 'PS', value: '9850', icon: require('@/assets/images/stats/ps.webp') },
-            { label: 'ATQ', value: '262', icon: require('@/assets/images/stats/atq.webp') },
-            { label: 'DEF', value: '1075', icon: require('@/assets/images/stats/def.webp') },
-            { label: 'Prob. CRIT', value: '5%', icon: require('@/assets/images/stats/critrate.webp') },
-            { label: 'Daño CRIT', value: '150%', icon: require('@/assets/images/stats/critdamage.webp') },
-            { label: 'Regen. de energía', value: '100%', icon: require('@/assets/images/stats/energyre.webp') },
+            { label: 'PS', values: [788, 854, 920, 987, 1053, 1119, 1186, 1252, 1319, 1385, 1451, 1518, 1584, 1651, 1717, 1784, 1850, 1916, 1983, 2049, 2641, 2707, 2774, 2840, 2907, 2973, 3039, 3106, 3172, 3238, 3305, 3371, 3438, 3504, 3571, 3637, 3703, 3770, 3836, 3903, 4494, 4561, 4627, 4694, 4760, 4826, 4893, 4959, 5026, 5092, 5684, 5750, 5817, 5883, 5949, 6016, 6082, 6149, 6215, 6281, 6873, 6939, 7006, 7072, 7139, 7205, 7271, 7338, 7404, 7471, 8062, 8129, 8195, 8262, 8328, 8394, 8461, 8527, 8594, 8660, 9252, 9318, 9385, 9451, 9517, 9584, 9650, 9717, 9783, 9850], icon: require('@/assets/images/stats/ps.webp') },
+            { label: 'ATQ', values: [21, 22, 24, 26, 28, 29, 31, 33, 35, 36, 38, 40, 42, 44, 45, 47, 49, 51, 52, 54, 72, 73, 75, 77, 79, 80, 82, 84, 86, 88, 89, 91, 93, 95, 96, 98, 100, 102, 103, 105, 123, 125, 126, 128, 130, 132, 133, 135, 137, 139, 156, 158, 160, 162, 163, 165, 167, 169, 170, 172, 190, 191, 193, 195, 197, 199, 200, 202, 204, 206, 218, 220, 221, 223, 225, 227, 228, 230, 232, 234, 246, 248, 250, 251, 253, 255, 257, 258, 260, 262], icon: require('@/assets/images/stats/atq.webp') },
+            { label: 'DEF', values: [788, 854, 920,], icon: require('@/assets/images/stats/def.webp') },
+            { label: 'Prob. CRIT', values: [5], icon: require('@/assets/images/stats/critrate.webp'), isPercent: true },
+            { label: 'Daño CRIT', values: [150], icon: require('@/assets/images/stats/critdamage.webp'), isPercent: true },
+            { label: 'Regen. de energía', values: [100], icon: require('@/assets/images/stats/energyre.webp'), isPercent: true },
         ],
         tags: [
             { tipo: "rareza", valor: "4★" },
