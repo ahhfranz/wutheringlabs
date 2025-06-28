@@ -46,7 +46,7 @@ export default [
     </li>
     <li>
         <span class="desc-title">Contraataque evasivo</span>
-        Tras una evasión exitosa, pulsa Ataque básico poco después para atacar al objetivo e infligir <span class="desc-aero">Daño Aero</span>.
+        Tras una <span class="desc-importante">evasión exitosa</span>, pulsa <span class="desc-importante">Ataque básico</span> poco después para atacar al objetivo e infligir <span class="desc-aero">Daño Aero</span>.
     </li>
 </ul>
 `,
@@ -66,7 +66,7 @@ export default [
                 },
                 {
                     nombre: "Truco de cambio",
-                    subtitulo: "Ataque normal",
+                    subtitulo: "Habilidad de resonancia",
                     descripcion: `
 <ul class="desc-list">
     <li>
@@ -86,24 +86,36 @@ Lanza "Niebla" y 1 "Avatar de Niebla" para provocar a los objetivos circundantes
                 {
                     nombre: "Descanso a mitad del juego",
                     subtitulo: "Ataque normal",
-                    descripcion: "Aalto continuará recuperando Resistencia cuando se encuentre en el estado de Carrera en niebla en el Circuito del Forte.",
+                    descripcion: `Aalto continuará recuperando Resistencia cuando se encuentre en el estado de <span class="desc-importante">Carrera en niebla</span> en el Circuito del Forte.`,
                     icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiD2.webp')
                 },
                 {
                     nombre: "Rendimiento perfecto",
                     subtitulo: "Ataque normal",
-                    descripcion: "El Ataque cargado de Aalto siempre dará un golpe crítico, activado una vez cada 30 s.",
+                    descripcion: `El <span class="desc-importante">Ataque cargado</span> de Aalto siempre dará un golpe crítico, activado una vez cada 30 s.`,
                     icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiD1.webp')
                 },
                 {
                     nombre: "Cubierta brumosa",
-                    subtitulo: "Ataque normal",
-                    descripcion: "Corte rápido con daño adicional.",
+                    subtitulo: "Circuito del Forte",
+                    descripcion: `Cuando Aalto pasa a través de "Niebla" o "Puerta del dilema", entra en <span class="desc-importante">Carrera en niebla</span>.
+<ul class="desc-list">
+    <li>
+        <span class="desc-title">Carrera en niebla</span>
+Velocidad de movimiento incrementada;
+Durante este periodo, las "Gotas de niebla" se consumen continuamente, y por cada 1 "Gota de niebla" consumida, se genera 1 <span class="desc-importante">Bala de niebla</span>.
+    </li>
+    <li>
+        <span class="desc-title">Gotas de niebla</span>
+        Aalto puede contener hasta 6 "Gotas de niebla". Cuando <span class="desc-importante">Ataque básico</span> o <span class="desc-importante">Ataque aéreo</span> pasa a tráves de "Niebla" y golpea al objetivo, se recupera 1 "Gota de niebla".
+    </li>
+</ul>
+`,
                     icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiB1.webp')
                 },
                 {
                     nombre: "Niebla desvanecida",
-                    subtitulo: "Ataque normal",
+                    subtitulo: "Habilidad Outro",
                     descripcion: "El personaje entrante tiene su Daño Aero amplificado en un 23% durante 14 s o hasta que se cambie.",
                     icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiT.webp')
                 },
@@ -121,8 +133,10 @@ Lanza "Niebla" y 1 "Avatar de Niebla" para provocar a los objetivos circundantes
                 },
                 {
                     nombre: "Flor en la niebla",
-                    subtitulo: "Ataque normal",
-                    descripcion: "Corte rápido con daño adicional.",
+                    subtitulo: "Liberación de resonancia",
+                    descripcion: `Genera una "Puerta del dilema" al frente, infligiendo <span class="desc-aero">Daño Aero</span>. Cuando las balas pasan a través de la "Puerta del dilema", el ATQ aumenta. "Puerta del dilema" dura 10 s.
+
+Nivel`,
                     icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiC1.webp')
                 },
             ],
@@ -139,8 +153,8 @@ Lanza "Niebla" y 1 "Avatar de Niebla" para provocar a los objetivos circundantes
                 },
                 {
                     nombre: "Disparo finta",
-                    subtitulo: "Ataque normal",
-                    descripcion: "Corte rápido con daño adicional.",
+                    subtitulo: "Habilidad Intro",
+                    descripcion: `Aalto aparece de la nada para realizar disparos continuos rápidos, infligiendo <span class="desc-aero">Daño Aero</span>.`,
                     icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiB1.webp')
                 },
             ],

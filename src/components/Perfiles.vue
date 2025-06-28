@@ -84,14 +84,15 @@
                     <span class="perfil-intro-highlight">{{ personaje.nombre }}</span>
                     es un personaje de
                     <span :class="['perfil-intro-rareza-' + personaje.rareza]">{{ personaje.rareza
-                        }}★</span> del
+                    }}★</span> del
                     elemento
-                    <span class="perfil-intro-elemento">{{ personaje.elemento.charAt(0).toUpperCase() +
-                        personaje.elemento.slice(1) }}</span>
+                    <span class="perfil-intro-elemento" :class="elementColorClass">
+                        {{ personaje.elemento.charAt(0).toUpperCase() + personaje.elemento.slice(1) }}
+                    </span>
                     que utiliza
                     <span class="perfil-intro-arma">{{ personaje.arma.charAt(0).toUpperCase() +
                         personaje.arma.slice(1)
-                        }}</span>
+                    }}</span>
                     como arma.<br>
                     <span class="perfil-intro-desc">
                         {{ personaje.descripcion || 'Sin descripción disponible.' }}
@@ -193,7 +194,7 @@ export default {
     data() {
         return {
             personaje: null,
-            selectedSkill: null, // { col: number, idx: number }
+            selectedSkill: null,
         };
     },
     computed: {
@@ -216,7 +217,6 @@ export default {
             return map[this.personaje.elemento.toLowerCase()] || '';
         },
         selectedSkillIcon() {
-            // Eliminado, ya no se usa
             return '';
         },
         skills() {
@@ -300,11 +300,9 @@ export default {
 }
 
 .perfil-skilltree-section {
-    background: #23243a;
     border-radius: 14px;
     padding: 18px 18px 24px 18px;
     color: #fff;
-    box-shadow: 0 2px 8px #0002;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -379,6 +377,42 @@ export default {
     font-size: 1.1rem;
     color: #b0b3c1;
     margin-top: 2px;
+}
+
+.perfil-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 40px;
+    margin-bottom: 18px;
+    letter-spacing: 2px;
+    background: none;
+    border: none;
+    padding-bottom: 10px;
+    position: relative;
+    display: block;
+    text-shadow: 0 2px 10px #0007;
+}
+
+.perfil-section-title::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #a44ce7 0%, #460775 100%);
+    border-radius: 1px;
+    opacity: 0.85;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+}
+
+.perfil-section-title:hover::after {
+    transform: scaleX(1);
 }
 
 .perfil-tags-row {
@@ -562,11 +596,6 @@ export default {
     margin-top: 36px;
 }
 
-.perfil-intro-section h3 {
-    font-size: 1.3em;
-    margin-bottom: 10px;
-}
-
 .perfil-intro-box {
     max-width: none;
     width: 100%;
@@ -672,19 +701,6 @@ export default {
     gap: 8px;
 }
 
-.perfil-skilltree-section {
-    background: #23243a;
-    border-radius: 14px;
-    padding: 18px 18px 24px 18px;
-    color: #fff;
-    box-shadow: 0 2px 8px #0002;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    min-height: 380px;
-}
-
 .perfil-skill-info-box {
     position: absolute;
     right: 40px;
@@ -739,12 +755,12 @@ export default {
     color: #b0b3c1;
     margin-top: -10px;
     font-weight: 600;
-    margin-left: 66px;
+    margin-left: 78px;
 }
 
 .perfil-skill-info-icon {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
 }
 
@@ -962,6 +978,12 @@ export default {
 
 :deep(.desc-title:first-child) {
     margin-top: 5px;
+}
+
+:deep(.desc-importante) {
+    color: #f3df27;
+    font-weight: bold;
+    font-size: 0.9em;
 }
 
 :deep(.desc-aero) {
