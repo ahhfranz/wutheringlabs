@@ -42,7 +42,6 @@
             <div class="copyright">
                 Copyright &copy; 2025 Wuthering Labs by
                 <a href="http://discordapp.com/users/640310157796179978" target="_blank" class="franz-link">franz</a>
-                - Todos los derechos reservados.
             </div>
         </div>
     </footer>

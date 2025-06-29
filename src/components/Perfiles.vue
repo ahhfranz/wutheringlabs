@@ -53,15 +53,15 @@
                     <div class="perfil-nivel-bar" ref="nivelBar" :style="{
                         '--nivel-bar-main': elementColors.main,
                         '--nivel-bar-grad': elementColors.grad
-                    }">
+                    }" @mousedown="onBarClick">
                         <div class="perfil-nivel-bar-fill" :style="{ width: ((nivel - 1) / 89 * 100) + '%' }"></div>
-                        <div class="perfil-nivel-thumb" :style="{ left: ((nivel - 1) / 89 * 100) + '%' }"
-                            @mousedown="startDragNivel"></div>
+                        <div class="perfil-nivel-thumb" :class="{ dragging: draggingNivel }"
+                            :style="{ left: ((nivel - 1) / 89 * 100) + '%' }" @mousedown="startDragNivel"></div>
                     </div>
                     <span class="perfil-nivel-num">{{ nivel }}</span>
                 </div>
                 <div class="perfil-mats-title">
-                    <b>Materiales de ascensión</b> - Nivel máximo: 90
+                    <b>{{ matsTitle }}</b>
                 </div>
                 <div class="perfil-mats-stats-wrapper">
                     <div class="perfil-mats-row">
@@ -94,7 +94,7 @@
                     <span class="perfil-intro-highlight">{{ personaje.nombre }}</span>
                     es un personaje de
                     <span :class="['perfil-intro-rareza-' + personaje.rareza]">{{ personaje.rareza
-                    }}★</span> del
+                        }}★</span> del
                     elemento
                     <span class="perfil-intro-elemento" :class="elementColorClass">
                         {{ personaje.elemento.charAt(0).toUpperCase() + personaje.elemento.slice(1) }}
@@ -102,14 +102,14 @@
                     que utiliza
                     <span class="perfil-intro-arma">{{ personaje.arma.charAt(0).toUpperCase() +
                         personaje.arma.slice(1)
-                    }}</span>
+                        }}</span>
                     como arma.<br>
                     <span class="perfil-intro-desc">
                         {{ personaje.descripcion || 'Sin descripción disponible.' }}
                     </span>
                 </div>
             </div>
-            <h3 class="perfil-section-title">Árbol de habilidades</h3>
+            <h3 class="perfil-section-title">Habilidades</h3>
             <div class="perfil-skilltree-section">
                 <div
                     :class="['skilltree-columns', { 'skilltree-columns-shifted': selectedSkill !== null, 'skilltree-columns-centered': selectedSkill === null }]">
@@ -249,7 +249,23 @@ export default {
         };
     },
     computed: {
+        matsTitle() {
+            if (this.nivel <= 40) return 'Materiales de ascensión - Nivel máximo: 40';
+            if (this.nivel <= 50) return 'Materiales de ascensión - Nivel máximo: 50';
+            if (this.nivel <= 60) return 'Materiales de ascensión - Nivel máximo: 60';
+            if (this.nivel <= 70) return 'Materiales de ascensión - Nivel máximo: 70';
+            if (this.nivel <= 80) return 'Materiales de ascensión - Nivel máximo: 80';
+            return 'Materiales de ascensión - Nivel máximo: 90';
+        },
         mats() {
+            if (this.personaje?.matsAscension) {
+                if (this.nivel <= 40) return this.personaje.matsAscension[0];
+                if (this.nivel <= 50) return this.personaje.matsAscension[1];
+                if (this.nivel <= 60) return this.personaje.matsAscension[2];
+                if (this.nivel <= 70) return this.personaje.matsAscension[3];
+                if (this.nivel <= 80) return this.personaje.matsAscension[4];
+                return this.personaje.matsAscension[5];
+            }
             return this.personaje?.mats || [];
         },
         stats() {
@@ -321,6 +337,7 @@ export default {
         },
         startDragNivel(e) {
             this.draggingNivel = true;
+            document.body.classList.add('grabbing-cursor');
             document.addEventListener('mousemove', this.onDragNivel);
             document.addEventListener('mouseup', this.stopDragNivel);
         },
@@ -334,14 +351,31 @@ export default {
             const nivel = Math.round((x / rect.width) * 89) + 1;
             this.nivel = nivel;
         },
+        onBarClick(e) {
+            if (e.target.classList.contains('perfil-nivel-thumb')) return;
+            const bar = this.$refs.nivelBar;
+            const rect = bar.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            x = Math.max(0, Math.min(x, rect.width));
+            const nivel = Math.round((x / rect.width) * 89) + 1;
+            this.nivel = nivel;
+        },
         stopDragNivel() {
             this.draggingNivel = false;
+            document.body.classList.remove('grabbing-cursor');
             document.removeEventListener('mousemove', this.onDragNivel);
             document.removeEventListener('mouseup', this.stopDragNivel);
         },
     }
 };
 </script>
+
+<style>
+.grabbing-cursor,
+.grabbing-cursor * {
+    cursor: grabbing !important;
+}
+</style>
 
 <style scoped>
 .perfil-main {
@@ -592,7 +626,7 @@ export default {
     background: linear-gradient(90deg, var(--nivel-bar-main, #a44ce7) 0%, var(--nivel-bar-grad, #6ee7b7) 100%);
     border-radius: 8px;
     z-index: 1;
-    transition: width 0.08s linear;
+    transition: none;
 }
 
 .perfil-nivel-num {
@@ -614,6 +648,7 @@ export default {
 .perfil-mats-row {
     display: flex;
     gap: 18px;
+    max-width: 92%;
 }
 
 .perfil-mat {
@@ -664,7 +699,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 0;
-    width: 100%;
+    width: 92%;
 
 }
 
@@ -720,8 +755,7 @@ export default {
 }
 
 .perfil-intro-box {
-    max-width: none;
-    width: 100%;
+    width: 96%;
     background: #23243a;
     border-radius: 5px;
     padding: 18px 18px 14px 18px;
@@ -933,6 +967,21 @@ export default {
     padding: 32px 0;
 }
 
+.skilltree-vertical-extra-izq .skilltree-node:nth-child(1) .skilltree-diamond,
+.skilltree-vertical-extra-izq .skilltree-node:nth-child(2) .skilltree-diamond,
+.skilltree-vertical-tercera .skilltree-node:nth-child(1) .skilltree-diamond,
+.skilltree-vertical-tercera .skilltree-node:nth-child(2) .skilltree-diamond,
+.skilltree-vertical-sec .skilltree-node:nth-child(1) .skilltree-diamond,
+.skilltree-vertical-sec .skilltree-node:nth-child(2) .skilltree-diamond,
+.skilltree-vertical-extra-der .skilltree-node:nth-child(1) .skilltree-diamond,
+.skilltree-vertical-extra-der .skilltree-node:nth-child(2) .skilltree-diamond {
+    width: 70px !important;
+    height: 70px !important;
+    border-radius: 50px !important;
+}
+
+
+
 .skilltree-node {
     display: flex;
     flex-direction: column;
@@ -1051,7 +1100,6 @@ export default {
 }
 
 .perfil-mats-stats-wrapper {
-    width: fit-content;
     max-width: 100%;
     display: flex;
     flex-direction: column;
@@ -1258,5 +1306,13 @@ export default {
     border-radius: 50%;
     margin: auto;
     transition: background 0.2s;
+}
+
+.perfil-nivel-thumb {
+    cursor: grab;
+}
+
+.perfil-nivel-thumb.dragging {
+    cursor: grabbing;
 }
 </style>

@@ -9,11 +9,47 @@ export default [
         imagenPerfil: require("@/assets/images/perfiles-personajes/Aalto.webp"),
         avatar: require("@/assets/images/personajes/icon_aalto.webp"),
         descripcion: "Es un enigmático Corredor de Información, conocido por su naturaleza esquiva y su sonrisa acogedora. Se rumorea que proporcionará cualquier información al precio correcto.",
-        mats: [
-            { qty: 16, img: require('@/assets/images/materiales/roaringrockfist.webp'), name: 'Puño de Roca Rugiente' },
-            { qty: 20, img: require('@/assets/images/materiales/wintrybell.webp'), name: 'Campana invernal' },
-            { qty: 4, img: require('@/assets/images/materiales/ffhowlercore.webp'), name: 'Núcleo de aullido premium' },
-            { qty: '80000', img: require('@/assets/images/materiales/shellcredit.webp'), name: 'Moneda Caparazón' },
+        matsAscension: [
+            // 1-40
+            [
+                { qty: 4, img: require('@/assets/images/materiales/lfhowlercore.webp'), name: 'Núcleo de aullido básico' },
+                { qty: '5000', img: require('@/assets/images/materiales/shellcredit.webp'), name: 'Moneda Caparazón' },
+            ],
+            // 41-50
+            [
+                { qty: 3, img: require('@/assets/images/materiales/roaringrockfist.webp'), name: 'Puño de Roca Rugiente' },
+                { qty: 4, img: require('@/assets/images/materiales/wintrybell.webp'), name: 'Campana invernal' },
+                { qty: 4, img: require('@/assets/images/materiales/mfhowlercore.webp'), name: 'Núcleo de aullido medio' },
+                { qty: '10000', img: require('@/assets/images/materiales/shellcredit.webp'), name: 'Moneda Caparazón' },
+            ],
+            // 51-60
+            [
+                { qty: 6, img: require('@/assets/images/materiales/roaringrockfist.webp'), name: 'Puño de Roca Rugiente' },
+                { qty: 8, img: require('@/assets/images/materiales/wintrybell.webp'), name: 'Campana invernal' },
+                { qty: 8, img: require('@/assets/images/materiales/mfhowlercore.webp'), name: 'Núcleo de aullido medio' },
+                { qty: '15000', img: require('@/assets/images/materiales/shellcredit.webp'), name: 'Moneda Caparazón' },
+            ],
+            // 61-70
+            [
+                { qty: 9, img: require('@/assets/images/materiales/roaringrockfist.webp'), name: 'Puño de Roca Rugiente' },
+                { qty: 12, img: require('@/assets/images/materiales/wintrybell.webp'), name: 'Campana invernal' },
+                { qty: 4, img: require('@/assets/images/materiales/hfhowlercore.webp'), name: 'Núcleo de aullido avanzado' },
+                { qty: '20000', img: require('@/assets/images/materiales/shellcredit.webp'), name: 'Moneda Caparazón' },
+            ],
+            // 71-80
+            [
+                { qty: 12, img: require('@/assets/images/materiales/roaringrockfist.webp'), name: 'Puño de Roca Rugiente' },
+                { qty: 16, img: require('@/assets/images/materiales/wintrybell.webp'), name: 'Campana invernal' },
+                { qty: 8, img: require('@/assets/images/materiales/hfhowlercore.webp'), name: 'Núcleo de aullido avanzado' },
+                { qty: '40000', img: require('@/assets/images/materiales/shellcredit.webp'), name: 'Moneda Caparazón' },
+            ],
+            // 81-90
+            [
+                { qty: 16, img: require('@/assets/images/materiales/roaringrockfist.webp'), name: 'Puño de Roca Rugiente' },
+                { qty: 20, img: require('@/assets/images/materiales/wintrybell.webp'), name: 'Campana invernal' },
+                { qty: 4, img: require('@/assets/images/materiales/ffhowlercore.webp'), name: 'Núcleo de aullido premium' },
+                { qty: '80000', img: require('@/assets/images/materiales/shellcredit.webp'), name: 'Moneda Caparazón' },
+            ],
         ],
         skills: [
             [
@@ -200,7 +236,7 @@ Nivel`,
         stats: [
             { label: 'PS', values: [788, 854, 920, 987, 1053, 1119, 1186, 1252, 1319, 1385, 1451, 1518, 1584, 1651, 1717, 1784, 1850, 1916, 1983, 2049, 2641, 2707, 2774, 2840, 2907, 2973, 3039, 3106, 3172, 3238, 3305, 3371, 3438, 3504, 3571, 3637, 3703, 3770, 3836, 3903, 4494, 4561, 4627, 4694, 4760, 4826, 4893, 4959, 5026, 5092, 5684, 5750, 5817, 5883, 5949, 6016, 6082, 6149, 6215, 6281, 6873, 6939, 7006, 7072, 7139, 7205, 7271, 7338, 7404, 7471, 8062, 8129, 8195, 8262, 8328, 8394, 8461, 8527, 8594, 8660, 9252, 9318, 9385, 9451, 9517, 9584, 9650, 9717, 9783, 9850], icon: require('@/assets/images/stats/ps.webp') },
             { label: 'ATQ', values: [21, 22, 24, 26, 28, 29, 31, 33, 35, 36, 38, 40, 42, 44, 45, 47, 49, 51, 52, 54, 72, 73, 75, 77, 79, 80, 82, 84, 86, 88, 89, 91, 93, 95, 96, 98, 100, 102, 103, 105, 123, 125, 126, 128, 130, 132, 133, 135, 137, 139, 156, 158, 160, 162, 163, 165, 167, 169, 170, 172, 190, 191, 193, 195, 197, 199, 200, 202, 204, 206, 218, 220, 221, 223, 225, 227, 228, 230, 232, 234, 246, 248, 250, 251, 253, 255, 257, 258, 260, 262], icon: require('@/assets/images/stats/atq.webp') },
-            { label: 'DEF', values: [788, 854, 920,], icon: require('@/assets/images/stats/def.webp') },
+            { label: 'DEF', values: [88, 95, 102, 109, 116, 124, 131, 138, 146, 153, 160, 167, 175, 182, 189, 196, 204, 211, 218, 225, 290, 297, 304, 311, 319, 326, 333, 340, 348, 355, 362, 369, 377, 384, 391, 398, 406, 413, 420, 427, 492, 499, 506, 513, 521, 528, 535, 542, 550, 557, 621, 628, 636, 643, 650, 657, 665, 672, 679, 686, 751, 758, 765, 772, 780, 787, 794, 801, 809, 816, 880, 887, 895, 902, 909, 917, 924, 931, 938, 946, 1010, 1017, 1024, 1032, 1039, 1046, 1053, 1061, 1068, 1075], icon: require('@/assets/images/stats/def.webp') },
             { label: 'Prob. CRIT', values: [5], icon: require('@/assets/images/stats/critrate.webp'), isPercent: true },
             { label: 'Daño CRIT', values: [150], icon: require('@/assets/images/stats/critdamage.webp'), isPercent: true },
             { label: 'Regen. de energía', values: [100], icon: require('@/assets/images/stats/energyre.webp'), isPercent: true },
