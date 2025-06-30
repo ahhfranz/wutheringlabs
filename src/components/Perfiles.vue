@@ -109,10 +109,12 @@
                 <div class="perfil-intro-section">
                     <h3 class="perfil-section-title">INTRODUCCIÓN</h3>
                     <div class="perfil-intro-box">
-                        <span class="perfil-intro-highlight">{{ personaje.nombre }}</span>
+                        <span class="perfil-intro-highlight" :style="{ color: elementColors.main }">
+                            {{ personaje.nombre }}
+                        </span>
                         es un personaje de
                         <span :class="['perfil-intro-rareza-' + personaje.rareza]">{{ personaje.rareza
-                        }}★</span> del
+                            }}★</span> del
                         elemento
                         <span class="perfil-intro-elemento" :class="elementColorClass">
                             {{ personaje.elemento.charAt(0).toUpperCase() + personaje.elemento.slice(1) }}
@@ -120,7 +122,7 @@
                         que utiliza
                         <span class="perfil-intro-arma">{{ personaje.arma.charAt(0).toUpperCase() +
                             personaje.arma.slice(1)
-                        }}</span>
+                            }}</span>
                         como arma.<br>
                         <span class="perfil-intro-desc">
                             {{ personaje.descripcion || 'Sin descripción disponible.' }}
@@ -268,7 +270,7 @@
                                 <img v-if="selectedDupeData.icono" :src="selectedDupeData.icono"
                                     class="perfil-skill-info-icon" />
                                 <span>{{ selectedDupeData.titulo || ('Cadena de Resonancia ' + (selectedDupe + 1))
-                                }}</span>
+                                    }}</span>
                             </div>
                             <div v-if="selectedDupeData.subtitulo" class="perfil-skill-info-subtitulo">
                                 {{ selectedDupeData.subtitulo }}
