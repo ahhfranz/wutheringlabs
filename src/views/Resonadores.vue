@@ -79,9 +79,8 @@
       </div>
     </div>
 
-    <h2 class="guides-title"> <ion-icon name="man-outline"></ion-icon> RESONADORES</h2>
+    <h2 class="guides-title">RESONADORES</h2>
 
-    <!-- Filtros -->
     <div class="filters-bar">
       <div class="filters-group search-group">
         <input type="text" class="filter-search" placeholder="Buscar personaje...">

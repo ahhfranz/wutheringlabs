@@ -380,9 +380,9 @@
                     en el menor
                     tiempo posible</b>.
                 </p>
-                <P>
+                <p>
                   Criterios que se evalúan en los <b>DPS</b>:
-                </P>
+                </p>
                 <ul>
                   <li>
                     La <b>dificultad de rotación</b> del personaje, (La posibilidad de cometer <b>errores</b> o
@@ -444,9 +444,9 @@
                   enfrentamiento
                   lo antes posible.
                 </p>
-                <P>
+                <p>
                   Criterios que se evalúan en los <b>SUB-DPS</b>:
-                </P>
+                </p>
                 <ul>
                   <li>
                     La <b>dificultad de rotación</b> del personaje, (La posibilidad de cometer <b>errores</b> o
@@ -505,9 +505,9 @@
                   el <b>daño general</b> del equipo,
                   permitiendo así <b>maximizar el potencial</b> de tus personajes <b>DPS</b> y <b>SUB-DPS</b>.
                 </p>
-                <P>
+                <p>
                   Criterios que se evalúan en los <b>SOPORTES</b>:
-                </P>
+                </p>
                 <ul>
                   <li>
                     La <b>dificultad de rotación</b> del personaje, (La posibilidad de cometer <b>errores</b> o

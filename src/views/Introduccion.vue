@@ -78,7 +78,7 @@
 
     <!-- GUÍAS -->
     <div class="guides-section">
-      <h2 class="guides-title"> <ion-icon name="book-outline"></ion-icon> ACERCA DEL JUEGO</h2>
+      <h2 class="guides-title">ACERCA DEL JUEGO</h2>
 
       <section class="about-section">
         <h2 class="about-title"></h2>
@@ -115,7 +115,7 @@
         </div>
       </section>
 
-      <h2 class="guides-title"> <ion-icon name="desktop-outline"></ion-icon> REQUISITOS DEL SISTEMA</h2>
+      <h2 class="guides-title">REQUISITOS DEL SISTEMA</h2>
       <section class="about-section">
         <h2 class="about-title">
         </h2>
@@ -178,7 +178,7 @@
         </div>
       </div>
 
-      <h2 class="guides-title"> <ion-icon name="game-controller-outline"></ion-icon> GAMEPLAY</h2>
+      <h2 class="guides-title">GAMEPLAY</h2>
       <section class="about-section">
         <h2 class="about-title">
         </h2>
@@ -189,7 +189,7 @@
         </div>
 
         <div class="guides-section">
-          <h2 class="guides-title"> <ion-icon name="link-outline"></ion-icon> LINKS OFICIALES</h2>
+          <h2 class="guides-title">LINKS OFICIALES</h2>
           <div class="guides-grid">
 
             <a href="https://wutheringwaves.kurogames.com/es/" target="_blank" class="guide-link">

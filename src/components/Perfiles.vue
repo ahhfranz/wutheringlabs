@@ -82,149 +82,227 @@
             </div>
         </div>
 
-        <div class="perfil-content-centered" :style="{
-            '--diamond-main': elementColors.main,
-            '--diamond-grad': elementColors.grad,
-            '--diamond-shadow': elementColors.shadow,
-            '--section-title-bar': elementColors.main
+        <!-- Menú de pestañas -->
+        <div class="perfil-tabs-menu" :style="{
+            '--tab-main': elementColors.main,
+            '--tab-grad': elementColors.grad
         }">
-            <div class="perfil-intro-section">
-                <h3 class="perfil-section-title">Introducción</h3>
-                <div class="perfil-intro-box">
-                    <span class="perfil-intro-highlight">{{ personaje.nombre }}</span>
-                    es un personaje de
-                    <span :class="['perfil-intro-rareza-' + personaje.rareza]">{{ personaje.rareza
-                        }}★</span> del
-                    elemento
-                    <span class="perfil-intro-elemento" :class="elementColorClass">
-                        {{ personaje.elemento.charAt(0).toUpperCase() + personaje.elemento.slice(1) }}
-                    </span>
-                    que utiliza
-                    <span class="perfil-intro-arma">{{ personaje.arma.charAt(0).toUpperCase() +
-                        personaje.arma.slice(1)
-                        }}</span>
-                    como arma.<br>
-                    <span class="perfil-intro-desc">
-                        {{ personaje.descripcion || 'Sin descripción disponible.' }}
-                    </span>
-                </div>
-            </div>
-            <h3 class="perfil-section-title">Habilidades</h3>
-            <div class="perfil-skilltree-section">
-                <div
-                    :class="['skilltree-columns', { 'skilltree-columns-shifted': selectedSkill !== null, 'skilltree-columns-centered': selectedSkill === null }]">
-                    <div class="skilltree-vertical skilltree-vertical-extra-izq">
-                        <div v-for="n in 3" :key="'extra-izq-' + n" class="skilltree-node">
-                            <div class="skilltree-diamond"
-                                :class="{ selected: selectedSkill && selectedSkill.col === 0 && selectedSkill.idx === n - 1 }"
-                                @click="selectSkill(0, n - 1)">
-                                <span class="skilltree-icon-placeholder">
-                                    <img v-if="skills[0] && skills[0][n - 1]" :src="skills[0][n - 1].icono"
-                                        alt="Skill Icon" class="skilltree-icon-img" />
-                                </span>
-                            </div>
-                            <div v-if="n < 3" class="skilltree-connector"></div>
-                        </div>
-                    </div>
-                    <div class="skilltree-vertical skilltree-vertical-tercera">
-                        <div v-for="n in 3" :key="'tercera-' + n" class="skilltree-node">
-                            <div class="skilltree-diamond"
-                                :class="{ selected: selectedSkill && selectedSkill.col === 1 && selectedSkill.idx === n - 1 }"
-                                @click="selectSkill(1, n - 1)">
-                                <span class="skilltree-icon-placeholder">
-                                    <img v-if="skills[1] && skills[1][n - 1]" :src="skills[1][n - 1].icono"
-                                        alt="Skill Icon" class="skilltree-icon-img" />
-                                </span>
-                            </div>
-                            <div v-if="n < 3" class="skilltree-connector"></div>
-                        </div>
-                    </div>
-                    <div class="skilltree-vertical">
-                        <div v-for="n in 4" :key="n" class="skilltree-node">
-                            <div class="skilltree-diamond"
-                                :class="{ selected: selectedSkill && selectedSkill.col === 2 && selectedSkill.idx === n - 1 }"
-                                @click="selectSkill(2, n - 1)">
-                                <span class="skilltree-icon-placeholder">
-                                    <img v-if="skills[2] && skills[2][n - 1]" :src="skills[2][n - 1].icono"
-                                        alt="Skill Icon" class="skilltree-icon-img" />
-                                </span>
-                            </div>
-                            <div v-if="n < 3" class="skilltree-connector"></div>
-                        </div>
-                    </div>
-                    <div class="skilltree-vertical skilltree-vertical-sec">
-                        <div v-for="n in 3" :key="'sec-' + n" class="skilltree-node">
-                            <div class="skilltree-diamond"
-                                :class="{ selected: selectedSkill && selectedSkill.col === 3 && selectedSkill.idx === n - 1 }"
-                                @click="selectSkill(3, n - 1)">
-                                <span class="skilltree-icon-placeholder">
-                                    <img v-if="skills[3] && skills[3][n - 1]" :src="skills[3][n - 1].icono"
-                                        alt="Skill Icon" class="skilltree-icon-img" />
-                                </span>
-                            </div>
-                            <div v-if="n < 3" class="skilltree-connector"></div>
-                        </div>
-                    </div>
-                    <div class="skilltree-vertical skilltree-vertical-extra-der">
-                        <div v-for="n in 3" :key="'extra-der-' + n" class="skilltree-node">
-                            <div class="skilltree-diamond"
-                                :class="{ selected: selectedSkill && selectedSkill.col === 4 && selectedSkill.idx === n - 1 }"
-                                @click="selectSkill(4, n - 1)">
-                                <span class="skilltree-icon-placeholder">
-                                    <img v-if="skills[4] && skills[4][n - 1]" :src="skills[4][n - 1].icono"
-                                        alt="Skill Icon" class="skilltree-icon-img" />
-                                </span>
-                            </div>
-                            <div v-if="n < 3" class="skilltree-connector"></div>
-                        </div>
-                    </div>
-                </div>
-                <transition name="fade-slide">
-                    <div v-if="selectedSkillData" class="perfil-skill-info-box">
-                        <button class="perfil-skill-info-close" @click="closeSkillInfo" aria-label="Cerrar">✕</button>
-                        <div class="perfil-skill-info-title">
-                            <img v-if="selectedSkillData.icono" :src="selectedSkillData.icono"
-                                class="perfil-skill-info-icon" />
-                            <span>{{ selectedSkillData.nombre || 'Habilidad seleccionada' }}</span>
-                        </div>
-                        <div v-if="selectedSkillData.subtitulo" class="perfil-skill-info-subtitulo">
-                            {{ selectedSkillData.subtitulo }}
-                        </div>
-                        <div class="perfil-skill-info-desc" v-html="selectedSkillData.descripcion || ''"></div>
-                    </div>
-                </transition>
-            </div>
-            <h3 class="perfil-section-title">Cadena de Resonancia</h3>
-            <div class="perfil-cadena-resonancia-list"
-                :class="{ 'perfil-cadena-resonancia-list-shifted': selectedDupe !== null }"
-                v-if="cadenaResonancia && cadenaResonancia.length">
-                <div class="perfil-cadena-resonancia-item" v-for="(dupe, idx) in cadenaResonancia" :key="idx">
-                    <div class="skilltree-diamond perfil-cadena-resonancia-diamond"
-                        :class="{ selected: selectedDupe === idx }" @click="selectDupe(idx)">
-                        <span class="skilltree-icon-placeholder">
-                            <img :src="dupe.icono" alt="Dupe Icon" class="perfil-cadena-resonancia-icon" />
-                        </span>
-                    </div>
-                    <div class="dupe-label">S{{ idx + 1 }}</div>
-                </div>
-                <transition name="fade-slide">
-                    <div v-if="selectedDupeData" class="perfil-skill-info-box perfil-dupe-info-box">
-                        <button class="perfil-skill-info-close" @click="closeDupeInfo" aria-label="Cerrar">✕</button>
-                        <div class="perfil-skill-info-title">
-                            <img v-if="selectedDupeData.icono" :src="selectedDupeData.icono"
-                                class="perfil-skill-info-icon" />
-                            <span>{{ selectedDupeData.titulo || ('Cadena de Resonancia ' + (selectedDupe + 1)) }}</span>
-                        </div>
-                        <div v-if="selectedDupeData.subtitulo" class="perfil-skill-info-subtitulo">
-                            {{ selectedDupeData.subtitulo }}
-                        </div>
-                        <div class="perfil-skill-info-desc" v-html="selectedDupeData.descripcion"></div>
-                    </div>
-                </transition>
+            <div v-for="tab in tabs" :key="tab.key" :class="['perfil-tab-btn', { active: activeTab === tab.key }]"
+                @click="activeTab = tab.key">
+                <span class="perfil-tab-icon" v-html="tab.icon"></span>
+                <span class="perfil-tab-label">{{ tab.label }}</span>
             </div>
         </div>
+
+
+        <!-- Contenido de pestañas -->
+
+        <div v-if="activeTab === 'perfil'">
+            <div class="perfil-content-centered" :style="{
+                '--diamond-main': elementColors.main,
+                '--diamond-grad': elementColors.grad,
+                '--diamond-shadow': elementColors.shadow,
+                '--section-title-bar': elementColors.main
+            }">
+                <div class="perfil-intro-section">
+                    <h3 class="perfil-section-title">INTRODUCCIÓN</h3>
+                    <div class="perfil-intro-box">
+                        <span class="perfil-intro-highlight">{{ personaje.nombre }}</span>
+                        es un personaje de
+                        <span :class="['perfil-intro-rareza-' + personaje.rareza]">{{ personaje.rareza
+                            }}★</span> del
+                        elemento
+                        <span class="perfil-intro-elemento" :class="elementColorClass">
+                            {{ personaje.elemento.charAt(0).toUpperCase() + personaje.elemento.slice(1) }}
+                        </span>
+                        que utiliza
+                        <span class="perfil-intro-arma">{{ personaje.arma.charAt(0).toUpperCase() +
+                            personaje.arma.slice(1)
+                            }}</span>
+                        como arma.<br>
+                        <span class="perfil-intro-desc">
+                            {{ personaje.descripcion || 'Sin descripción disponible.' }}
+                        </span>
+                    </div>
+                </div>
+                <h3 class="perfil-section-title">HABILIDADES</h3>
+                <div class="perfil-skilltree-section">
+                    <div
+                        :class="['skilltree-columns', { 'skilltree-columns-shifted': selectedSkill !== null, 'skilltree-columns-centered': selectedSkill === null }]">
+                        <div class="skilltree-vertical skilltree-vertical-extra-izq">
+                            <div v-for="n in 3" :key="'extra-izq-' + n" class="skilltree-node">
+                                <div class="skilltree-diamond"
+                                    :class="{ selected: selectedSkill && selectedSkill.col === 0 && selectedSkill.idx === n - 1 }"
+                                    @click="selectSkill(0, n - 1)">
+                                    <span class="skilltree-icon-placeholder">
+                                        <img v-if="skills[0] && skills[0][n - 1]" :src="skills[0][n - 1].icono"
+                                            alt="Skill Icon" class="skilltree-icon-img" />
+                                    </span>
+                                </div>
+                                <div v-if="n < 3" class="skilltree-connector"></div>
+                            </div>
+                        </div>
+                        <div class="skilltree-vertical skilltree-vertical-tercera">
+                            <div v-for="n in 3" :key="'tercera-' + n" class="skilltree-node">
+                                <div class="skilltree-diamond"
+                                    :class="{ selected: selectedSkill && selectedSkill.col === 1 && selectedSkill.idx === n - 1 }"
+                                    @click="selectSkill(1, n - 1)">
+                                    <span class="skilltree-icon-placeholder">
+                                        <img v-if="skills[1] && skills[1][n - 1]" :src="skills[1][n - 1].icono"
+                                            alt="Skill Icon" class="skilltree-icon-img" />
+                                    </span>
+                                </div>
+                                <div v-if="n < 3" class="skilltree-connector"></div>
+                            </div>
+                        </div>
+                        <div class="skilltree-vertical">
+                            <div v-for="n in 4" :key="n" class="skilltree-node">
+                                <div class="skilltree-diamond"
+                                    :class="{ selected: selectedSkill && selectedSkill.col === 2 && selectedSkill.idx === n - 1 }"
+                                    @click="selectSkill(2, n - 1)">
+                                    <span class="skilltree-icon-placeholder">
+                                        <img v-if="skills[2] && skills[2][n - 1]" :src="skills[2][n - 1].icono"
+                                            alt="Skill Icon" class="skilltree-icon-img" />
+                                    </span>
+                                </div>
+                                <div v-if="n < 3" class="skilltree-connector"></div>
+                            </div>
+                        </div>
+                        <div class="skilltree-vertical skilltree-vertical-sec">
+                            <div v-for="n in 3" :key="'sec-' + n" class="skilltree-node">
+                                <div class="skilltree-diamond"
+                                    :class="{ selected: selectedSkill && selectedSkill.col === 3 && selectedSkill.idx === n - 1 }"
+                                    @click="selectSkill(3, n - 1)">
+                                    <span class="skilltree-icon-placeholder">
+                                        <img v-if="skills[3] && skills[3][n - 1]" :src="skills[3][n - 1].icono"
+                                            alt="Skill Icon" class="skilltree-icon-img" />
+                                    </span>
+                                </div>
+                                <div v-if="n < 3" class="skilltree-connector"></div>
+                            </div>
+                        </div>
+                        <div class="skilltree-vertical skilltree-vertical-extra-der">
+                            <div v-for="n in 3" :key="'extra-der-' + n" class="skilltree-node">
+                                <div class="skilltree-diamond"
+                                    :class="{ selected: selectedSkill && selectedSkill.col === 4 && selectedSkill.idx === n - 1 }"
+                                    @click="selectSkill(4, n - 1)">
+                                    <span class="skilltree-icon-placeholder">
+                                        <img v-if="skills[4] && skills[4][n - 1]" :src="skills[4][n - 1].icono"
+                                            alt="Skill Icon" class="skilltree-icon-img" />
+                                    </span>
+                                </div>
+                                <div v-if="n < 3" class="skilltree-connector"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <transition name="fade-slide">
+                        <div v-if="selectedSkillData" class="perfil-skill-info-box">
+                            <button class="perfil-skill-info-close" @click="closeSkillInfo"
+                                aria-label="Cerrar">✕</button>
+                            <div class="perfil-skill-info-title">
+                                <img v-if="selectedSkillData.icono" :src="selectedSkillData.icono"
+                                    class="perfil-skill-info-icon" />
+                                <span>{{ selectedSkillData.nombre || 'Habilidad seleccionada' }}</span>
+                            </div>
+                            <div v-if="selectedSkillData.subtitulo" class="perfil-skill-info-subtitulo">
+                                {{ selectedSkillData.subtitulo }}
+                            </div>
+                            <div class="perfil-skill-info-desc" v-html="selectedSkillData.descripcion || ''"></div>
+                        </div>
+                    </transition>
+                </div>
+                <h3 class="perfil-section-title">CADENA DE RESONANCIA</h3>
+                <div class="perfil-cadena-resonancia-list"
+                    :class="{ 'perfil-cadena-resonancia-list-shifted': selectedDupe !== null }"
+                    v-if="cadenaResonancia && cadenaResonancia.length">
+                    <div class="perfil-cadena-resonancia-item" v-for="(dupe, idx) in cadenaResonancia" :key="idx">
+                        <div class="skilltree-diamond perfil-cadena-resonancia-diamond"
+                            :class="{ selected: selectedDupe === idx }" @click="selectDupe(idx)">
+                            <span class="skilltree-icon-placeholder">
+                                <img :src="dupe.icono" alt="Dupe Icon" class="perfil-cadena-resonancia-icon" />
+                            </span>
+                        </div>
+                        <div class="dupe-label">S{{ idx + 1 }}</div>
+                    </div>
+                    <transition name="fade-slide">
+                        <div v-if="selectedDupeData" class="perfil-skill-info-box perfil-dupe-info-box">
+                            <button class="perfil-skill-info-close" @click="closeDupeInfo"
+                                aria-label="Cerrar">✕</button>
+                            <div class="perfil-skill-info-title">
+                                <img v-if="selectedDupeData.icono" :src="selectedDupeData.icono"
+                                    class="perfil-skill-info-icon" />
+                                <span>{{ selectedDupeData.titulo || ('Cadena de Resonancia ' + (selectedDupe + 1))
+                                    }}</span>
+                            </div>
+                            <div v-if="selectedDupeData.subtitulo" class="perfil-skill-info-subtitulo">
+                                {{ selectedDupeData.subtitulo }}
+                            </div>
+                            <div class="perfil-skill-info-desc" v-html="selectedDupeData.descripcion"></div>
+                        </div>
+                    </transition>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div v-else-if="activeTab === 'build'">
+            <div class="build-section" :style="{ '--section-title-bar': elementColors.main }">
+                <h3 class="perfil-section-title">MEJORES ARMAS</h3>
+                <div v-for="(weapon, idx) in personaje.bestWeapons" :key="weapon.name + idx" class="weapon-card">
+                    <div class="weapon-card-header">
+                        <div class="weapon-card-percent">{{ weapon.percent }}%</div>
+                        <img class="weapon-card-img" :src="weapon.img" :alt="weapon.name" />
+                        <div class="weapon-card-title" :class="{
+                            'weapon-card-title-4': weapon.rarity === 4,
+                            'weapon-card-title-5': weapon.rarity === 5
+                        }">
+                            <b>{{ weapon.name }}</b>
+                            <span class="weapon-card-refine" :class="{
+                                'weapon-card-refine-4': weapon.rarity === 4,
+                                'weapon-card-refine-5': weapon.rarity === 5
+                            }">
+                                ({{ weapon.refinement }})
+                            </span>
+                        </div>
+                        <button class="weapon-card-toggle" @click="weapon.open = !weapon.open">
+                            <span v-if="weapon.open">▲</span>
+                            <span v-else>▼</span>
+                        </button>
+                    </div>
+                    <transition name="accordion-fade" @enter="accordionEnter" @after-enter="accordionAfterEnter"
+                        @leave="accordionLeave" @after-leave="accordionAfterLeave">
+                        <div v-if="weapon.open !== false" class="weapon-card-effect" v-html="weapon.infoHtml"></div>
+                    </transition>
+                    <div class="weapon-card-desc">
+                        {{ weapon.desc }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-else-if="activeTab === 'equipos'">
+            <div class="perfil-tab-content-placeholder">Sección de Gameplay y Equipos (en desarrollo)</div>
+        </div>
+
+
+
+        <div v-else-if="activeTab === 'calculos'">
+            <div class="perfil-tab-content-placeholder">Sección de Cálculos (en desarrollo)</div>
+        </div>
+
+
     </div>
 </template>
+
+
+
+
+
+
+
+
 
 <script>
 import resonadores from '@/utils/resonadores.js';
@@ -236,6 +314,7 @@ const ELEMENT_COLORS = {
     electro: { main: '#B86FFF', grad: '#8e44ad', shadow: '#B86FFFcc' },
     espectro: { main: '#FFF180', grad: '#ffe066', shadow: '#FFF180cc' },
     destrucción: { main: '#ED41A3', grad: '#ff5fa2', shadow: '#ED41A3cc' },
+
 };
 
 export default {
@@ -246,6 +325,30 @@ export default {
             selectedDupe: null,
             nivel: 90,
             draggingNivel: false,
+            activeTab: 'perfil',
+            open: true,
+            tabs: [
+                {
+                    key: 'perfil',
+                    label: 'PERFIL',
+                    icon: `<svg width="24" height="24" fill="none"><circle cx="12" cy="8" r="4" fill="#222"/><rect x="4" y="16" width="16" height="4" rx="2" fill="#222"/></svg>`
+                },
+                {
+                    key: 'build',
+                    label: 'BUILD',
+                    icon: `<svg width="24" height="24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" fill="#222"/><path d="M8 8h8v8H8z" fill="#222"/></svg>`
+                },
+                {
+                    key: 'equipos',
+                    label: 'EQUIPOS',
+                    icon: `<svg width="24" height="24" fill="none"><circle cx="8" cy="12" r="4" fill="#222"/><circle cx="16" cy="12" r="4" fill="#222"/></svg>`
+                },
+                {
+                    key: 'calculos',
+                    label: 'CÁLCULOS',
+                    icon: `<svg width="24" height="24" fill="none"><path d="M4 20L20 4" stroke="#222" stroke-width="2"/><rect x="4" y="16" width="4" height="4" fill="#222"/><rect x="16" y="4" width="4" height="4" fill="#222"/></svg>`
+                }
+            ]
         };
     },
     computed: {
@@ -321,6 +424,9 @@ export default {
     created() {
         const nombre = this.$route.params.nombre;
         this.personaje = resonadores.find(p => p.nombre === nombre);
+        if (this.personaje && this.personaje.bestWeapons) {
+            this.personaje.bestWeapons.forEach(w => w.open = true);
+        }
     },
     methods: {
         selectSkill(col, idx) {
@@ -366,6 +472,24 @@ export default {
             document.removeEventListener('mousemove', this.onDragNivel);
             document.removeEventListener('mouseup', this.stopDragNivel);
         },
+        accordionEnter(el) {
+            el.style.height = 'auto';
+            el.style.opacity = '1';
+            el.style.transition = 'none';
+        },
+        accordionAfterEnter(el) {
+            el.style.height = 'auto';
+            el.style.transition = '';
+        },
+        accordionLeave(el) {
+            el.style.height = '0px';
+            el.style.opacity = '0';
+            el.style.transition = 'none';
+        },
+        accordionAfterLeave(el) {
+            el.style.transition = '';
+            el.style.height = '';
+        }
     }
 };
 </script>
@@ -379,7 +503,7 @@ export default {
 
 <style scoped>
 .perfil-main {
-    width: fit-content;
+    width: 100%;
     max-width: 100%;
     margin: 0 auto;
     color: #fff;
@@ -388,7 +512,6 @@ export default {
     padding: 0 20px;
     flex-direction: column;
     align-items: stretch;
-    margin-left: -30px;
 }
 
 .perfil-header {
@@ -515,7 +638,7 @@ export default {
 }
 
 .perfil-section-title {
-    font-size: 1.6em;
+    font-size: 1.17em;
     font-weight: 700;
     color: #fff;
     margin-top: 40px;
@@ -538,7 +661,7 @@ export default {
     bottom: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--section-title-bar, #a44ce7) 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--section-title-bar) 0%, transparent 100%);
     border-radius: 1px;
     opacity: 0.85;
     transform: scaleX(0);
@@ -558,7 +681,7 @@ export default {
 }
 
 .perfil-nombre-bloque {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -585,7 +708,7 @@ export default {
 }
 
 .tag-iconos {
-    width: 22px;
+    width: 100%;
     height: 22px;
     margin-right: 6px;
 }
@@ -595,7 +718,7 @@ export default {
     align-items: center;
     gap: 12px;
     margin-bottom: 8px;
-    max-width: 90%;
+    width: 100%;
 }
 
 .perfil-nivel-bar {
@@ -648,7 +771,8 @@ export default {
 .perfil-mats-row {
     display: flex;
     gap: 18px;
-    max-width: 92%;
+    max-width: 100%;
+    width: 100%;
 }
 
 .perfil-mat {
@@ -657,13 +781,13 @@ export default {
     text-align: center;
     min-width: 90px;
     box-shadow: 0 2px 8px #0002;
-    width: 190px;
     height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     white-space: nowrap;
+    flex: 1 1 0;
     ;
 }
 
@@ -699,7 +823,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 0;
-    width: 92%;
+    width: 100%;
 
 }
 
@@ -1162,7 +1286,7 @@ export default {
     flex-direction: row;
     gap: 50px;
     margin-top: 50px;
-    margin-bottom: 32px;
+    margin-bottom: 200px;
     justify-content: center;
     position: relative;
     transition: opacity 0.5s cubic-bezier(0.77, 0, 0.175, 1), transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
@@ -1314,5 +1438,248 @@ export default {
 
 .perfil-nivel-thumb.dragging {
     cursor: grabbing;
+}
+
+.perfil-tabs-menu {
+    display: flex;
+    gap: 36px;
+    margin: 100px 0 32px 0;
+    justify-content: center;
+    align-items: flex-end;
+    background: none;
+    position: relative;
+    z-index: 2;
+}
+
+.perfil-tab-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #23242b;
+    border: 1.5px solid #35363f;
+    border-radius: 0;
+    min-width: 300px;
+    min-height: 90px;
+    padding: 0 0 10px 0;
+    cursor: pointer;
+    box-shadow: none;
+    transition:
+        border-color 0.2s,
+        background 0.2s,
+        color 0.2s;
+    outline: none;
+    font-family: inherit;
+    overflow: visible;
+}
+
+.perfil-tab-btn:not(.active):hover {
+    border-color: var(--tab-main, #41FFC2);
+    background: #23243a;
+}
+
+.perfil-tab-btn.active {
+    background: #23243a;
+    border-color: var(--tab-main, #41FFC2);
+}
+
+.perfil-tab-btn .perfil-tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    background: var(--tab-main, #41FFC2);
+    margin: -24px auto 10px auto;
+    box-shadow: 0 2px 8px #41ffc24d;
+    font-size: 1.5em;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.perfil-tab-btn:not(.active) .perfil-tab-icon {
+    background: #2e2f3a;
+    box-shadow: 0 2px 8px #0002;
+}
+
+.perfil-tab-btn.active .perfil-tab-icon {
+    background: var(--tab-main, #41FFC2);
+    box-shadow: 0 4px 16px var(--tab-main, #41ffc277);
+}
+
+.perfil-tab-btn .perfil-tab-label {
+    font-size: 1.08em;
+    font-weight: 800;
+    color: #b0b3c1;
+    letter-spacing: 1px;
+    text-shadow: none;
+    margin-top: 8px;
+    transition: color 0.2s;
+    text-align: center;
+}
+
+.perfil-tab-btn.active .perfil-tab-label {
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.perfil-tab-btn::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tab-main, #41FFC2) 0%, var(--tab-grad, #41AEFB) 100%);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 1;
+}
+
+.perfil-tab-btn.active::after {
+    opacity: 1;
+}
+
+.perfil-tab-btn:not(.active)::after {
+    opacity: 0;
+}
+
+
+/* --- Modern Weapon Card Redesign --- */
+
+.weapon-card {
+    background: #23243a;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px #0004;
+    color: #fff;
+    margin: 18px 0;
+    padding: 0;
+    font-family: inherit;
+    min-width: 100%;
+    border-left: 8px solid #9c57f7;
+}
+
+.weapon-card-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    background: #35364a;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+}
+
+.weapon-card-percent {
+    background: #9c57f7;
+    color: #222;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-right: 18px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.weapon-card-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-right: 18px;
+    border-radius: 4px;
+    background: #fff2;
+    border: 1px solid #fff3;
+}
+
+.weapon-card-title-4 {
+    color: #a44ce7;
+}
+
+.weapon-card-title-5 {
+    color: #facc15;
+}
+
+.weapon-card-title-4,
+.weapon-card-title-5 {
+    font-size: 1.17em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.weapon-card-refine-4 {
+    color: #a44ce7;
+}
+
+.weapon-card-refine-5 {
+    color: #facc15;
+}
+
+.weapon-card-refine-4,
+.weapon-card-refine-5 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-left: 6px;
+}
+
+.weapon-card-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.3em;
+    margin-left: auto;
+    cursor: pointer;
+    outline: none;
+    padding: 0 8px;
+    transition: color 0.2s;
+}
+
+.weapon-card-toggle:hover {
+    color: #ffe066;
+}
+
+.weapon-card-effect {
+    background: #2e2f3a;
+    padding: 16px 24px 10px 24px;
+    border-radius: 0 0 8px 8px;
+    color: #fff;
+    font-size: 1.08em;
+    border-bottom: 1px solid #35364a;
+}
+
+.weapon-card-effect-main {
+    color: #ffe066;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.weapon-card-stats {
+    color: #b0b3c1;
+    font-size: 0.98em;
+    margin-bottom: 0;
+}
+
+.weapon-card-desc {
+    padding: 18px 24px 18px 24px;
+    color: #b0b3c1;
+    font-size: 1.08em;
+    border-radius: 0 0 8px 8px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.accordion-fade-enter-active,
+.accordion-fade-leave-active {
+    overflow: hidden;
 }
 </style>

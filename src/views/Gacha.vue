@@ -81,7 +81,7 @@
     <!-- GUÍAS -->
 
     <div class="guides-section">
-      <h2 class="guides-title"> <ion-icon name="dice-outline"></ion-icon> SISTEMA GACHA</h2>
+      <h2 class="guides-title">SISTEMA GACHA</h2>
 
       <section class="about-section">
         <p>
@@ -169,7 +169,7 @@
         </details>
 
         <div class="guides-section">
-          <h2 class="guides-title"> <ion-icon name="medical-outline"></ion-icon> CORALES</h2>
+          <h2 class="guides-title">CORALES</h2>
 
           <section class="about-section">
             <p>
@@ -265,7 +265,7 @@
             </details>
 
             <div class="guides-section">
-              <h2 class="guides-title"> <ion-icon name="person-circle-outline"></ion-icon>BANDAS DE ONDA</h2>
+              <h2 class="guides-title">BANDAS DE ONDA</h2>
 
               <section class="about-section">
                 <p>
@@ -314,7 +314,7 @@
                 </details>
 
                 <div class="guides-section">
-                  <h2 class="guides-title"> <ion-icon name="contract-outline"></ion-icon>BANNERS DE INVOCACIÓN</h2>
+                  <h2 class="guides-title">BANNERS DE INVOCACIÓN</h2>
 
                   <section class="about-section">
                     <p>

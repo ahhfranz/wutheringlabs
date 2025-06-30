@@ -79,7 +79,7 @@
     <!-- GUÍAS -->
 
     <div class="guides-section">
-      <h2 class="guides-title"> <ion-icon name="map-outline"></ion-icon> EXPLORACIÓN</h2>
+      <h2 class="guides-title">EXPLORACIÓN</h2>
 
       <section class="about-section">
         <h2 class="about-title">
@@ -112,7 +112,7 @@
 
       </section>
 
-      <h2 class="guides-title"> <ion-icon name="shield-outline"></ion-icon> COMBATE</h2>
+      <h2 class="guides-title">COMBATE</h2>
       <section class="about-section">
         <h2 class="about-title">
         </h2>
@@ -145,7 +145,7 @@
 
       </section>
 
-      <h2 class="guides-title"> <ion-icon name="man-outline"></ion-icon> RESONADORES</h2>
+      <h2 class="guides-title">RESONADORES</h2>
       <section class="about-section">
         <h2 class="about-title">
         </h2>
@@ -487,7 +487,7 @@
 
     </div>
 
-    <h2 class="guides-title"> <ion-icon name="stats-chart-outline"></ion-icon> ESTADÍSTICAS</h2>
+    <h2 class="guides-title">ESTADÍSTICAS</h2>
     <section class="about-section">
 
       <h2 class="about-title"></h2>
@@ -765,7 +765,7 @@
     </section>
 
 
-    <h2 class="guides-title"> <ion-icon name="color-filter-outline"></ion-icon> ELEMENTOS</h2>
+    <h2 class="guides-title">ELEMENTOS</h2>
     <section class="about-section">
       <h2 class="about-title"></h2>
       <p>
@@ -809,7 +809,7 @@
       </div>
     </section>
 
-    <h2 class="guides-title"> <ion-icon name="eyedrop-outline"></ion-icon> ARMAS</h2>
+    <h2 class="guides-title">ARMAS</h2>
 
     <section class="about-section">
       <h2 class="about-title"></h2>
@@ -851,9 +851,7 @@
       </div>
     </section>
 
-    <h2 class="guides-title">
-      <ion-icon name="stats-chart-outline"></ion-icon> HABILIDADES DE LOS RESONADORES
-    </h2>
+    <h2 class="guides-title">HABILIDADES DE LOS RESONADORES</h2>
     <section class="about-section">
       <h2 class="about-title"></h2>
 
@@ -1016,10 +1014,7 @@
       </div>
     </section>
 
-    <h2 class="guides-title">
-      <ion-icon name="chevron-up-circle-outline"></ion-icon> MEJORAR A LOS
-      RESONADORES
-    </h2>
+    <h2 class="guides-title">MEJORAR A LOS RESONADORES</h2>
 
     <section class="about-section">
       <h2 class="about-title"></h2>
