@@ -1540,8 +1540,8 @@ export default {
     content: "";
     display: block;
     position: absolute;
-    left: 12px;
-    right: 12px;
+    left: 0px;
+    right: 0;
     bottom: 0;
     height: 4px;
     background: linear-gradient(90deg, var(--tab-main, #41FFC2) 0%, var(--tab-grad, #41AEFB) 100%);
