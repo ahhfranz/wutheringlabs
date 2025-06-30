@@ -12,7 +12,7 @@
                 <div class="perfil-mini-icon" v-if="personaje">
                     <img :src="personaje.imagenPerfil || personaje.imagen" :alt="personaje.nombre" />
                 </div>
-                Última actualización: <b>28/06/2025</b>
+                Última actualización: <b>30/06/2025</b>
             </div>
         </div>
     </div>
@@ -29,9 +29,11 @@
                 <div class="perfil-nombre-bloque">
                     <div style="display: flex; align-items: center; width: 100%; justify-content: space-between;">
                         <div style="display: flex; flex-direction: column;">
-                            <h1 class="perfil-nombre">
+                            <h1 class="perfil-nombre" :style="{ color: elementColors.main }">
                                 {{ personaje.nombre }}
-                                <span class="perfil-rareza">{{ personaje.rareza }}★</span>
+                                <span class="perfil-rareza" :style="rarezaStyle(personaje.rareza)">
+                                    {{ personaje.rareza }}★
+                                </span>
                             </h1>
                             <div class="perfil-subtitulo">{{ personaje.nombre }}</div>
                         </div>
@@ -110,7 +112,7 @@
                         <span class="perfil-intro-highlight">{{ personaje.nombre }}</span>
                         es un personaje de
                         <span :class="['perfil-intro-rareza-' + personaje.rareza]">{{ personaje.rareza
-                            }}★</span> del
+                        }}★</span> del
                         elemento
                         <span class="perfil-intro-elemento" :class="elementColorClass">
                             {{ personaje.elemento.charAt(0).toUpperCase() + personaje.elemento.slice(1) }}
@@ -118,7 +120,7 @@
                         que utiliza
                         <span class="perfil-intro-arma">{{ personaje.arma.charAt(0).toUpperCase() +
                             personaje.arma.slice(1)
-                            }}</span>
+                        }}</span>
                         como arma.<br>
                         <span class="perfil-intro-desc">
                             {{ personaje.descripcion || 'Sin descripción disponible.' }}
@@ -208,6 +210,40 @@
                                 {{ selectedSkillData.subtitulo }}
                             </div>
                             <div class="perfil-skill-info-desc" v-html="selectedSkillData.descripcion || ''"></div>
+                            <div v-if="selectedSkill && selectedSkill.col === 0 && selectedSkill.idx === 2"
+                                style="width:100%;margin-top:10px;">
+                                <div class="skill-slider-header">
+                                    <span class="skill-slider-label">NIVEL DE HABILIDAD</span>
+                                    <span class="skill-slider-value">{{ skillLevel }}</span>
+                                </div>
+                                <div class="perfil-nivel-bar" :style="{
+                                    '--nivel-bar-main': elementColors.main,
+                                    '--nivel-bar-grad': elementColors.grad
+                                }" @mousedown="onSkillBarClick" ref="skillBar">
+                                    <div class="perfil-nivel-bar-fill"
+                                        :style="{ width: ((skillLevel - 1) / 9 * 100) + '%' }"></div>
+                                    <div class="perfil-nivel-thumb" :class="{ dragging: draggingSkill }"
+                                        :style="{ left: ((skillLevel - 1) / 9 * 100) + '%' }"
+                                        @mousedown="startDragSkill"></div>
+                                </div>
+                            </div>
+                            <div v-if="selectedSkillData && selectedSkillData.statsSkill"
+                                class="skill-slider-stats-list">
+                                <div v-for="stat in selectedSkillData.statsSkill" :key="stat.label"
+                                    class="skill-slider-stat-row">
+                                    <span class="skill-slider-stat-label">{{ stat.label }}</span>
+                                    <span class="skill-slider-stat-value">
+                                        <!-- Si es porcentaje, añade % -->
+                                        <template
+                                            v-if="stat.isPercent && typeof stat.values[skillLevel - 1] === 'number'">
+                                            {{ stat.values[skillLevel - 1].toFixed(2) }}%
+                                        </template>
+                                        <template v-else>
+                                            {{ stat.values[skillLevel - 1] }}
+                                        </template>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </transition>
                 </div>
@@ -232,7 +268,7 @@
                                 <img v-if="selectedDupeData.icono" :src="selectedDupeData.icono"
                                     class="perfil-skill-info-icon" />
                                 <span>{{ selectedDupeData.titulo || ('Cadena de Resonancia ' + (selectedDupe + 1))
-                                    }}</span>
+                                }}</span>
                             </div>
                             <div v-if="selectedDupeData.subtitulo" class="perfil-skill-info-subtitulo">
                                 {{ selectedDupeData.subtitulo }}
@@ -253,7 +289,8 @@
                 <div v-for="(weapon, idx) in personaje.bestWeapons" :key="weapon.name + idx" class="weapon-card">
                     <div class="weapon-card-header">
                         <div class="weapon-card-percent">{{ weapon.percent }}%</div>
-                        <img class="weapon-card-img" :src="weapon.img" :alt="weapon.name" />
+                        <img class="weapon-card-img" :src="weapon.img" :alt="weapon.name"
+                            :style="{ background: weaponBgColor(weapon.rarity) }" />
                         <div class="weapon-card-title" :class="{
                             'weapon-card-title-4': weapon.rarity === 4,
                             'weapon-card-title-5': weapon.rarity === 5
@@ -291,7 +328,7 @@
                     </div>
                 </div>
             </div>
-            <h3 class="perfil-section-title">MEJORES SETS DE ECO</h3>
+            <h3 class="perfil-section-title">MEJORES ECOS</h3>
         </div>
 
         <div v-else-if="activeTab === 'equipos'">
@@ -334,9 +371,11 @@ export default {
         return {
             personaje: null,
             selectedSkill: null,
+            skillLevel: 1,
             selectedDupe: null,
             nivel: 90,
             draggingNivel: false,
+            draggingSkill: false,
             activeTab: 'perfil',
             open: true,
             tabs: [
@@ -441,6 +480,24 @@ export default {
         }
     },
     methods: {
+        rarezaStyle(rareza) {
+            if (rareza === 5) {
+                return {
+                    background: '#b89c3a',
+                    color: '#fff'
+                };
+            }
+            if (rareza === 4) {
+                return {
+                    background: '#6d3e99',
+                    color: '#fff'
+                };
+            }
+            return {
+                background: '#23243a',
+                color: '#fff'
+            };
+        },
         selectSkill(col, idx) {
             this.selectedSkill = { col, idx };
         },
@@ -484,6 +541,37 @@ export default {
             document.removeEventListener('mousemove', this.onDragNivel);
             document.removeEventListener('mouseup', this.stopDragNivel);
         },
+        startDragSkill(e) {
+            this.draggingSkill = true;
+            document.body.classList.add('grabbing-cursor');
+            document.addEventListener('mousemove', this.onDragSkill);
+            document.addEventListener('mouseup', this.stopDragSkill);
+        },
+        onDragSkill(e) {
+            if (!this.draggingSkill) return;
+            e.preventDefault();
+            const bar = this.$refs.skillBar;
+            const rect = bar.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            x = Math.max(0, Math.min(x, rect.width));
+            const skillLevel = Math.round((x / rect.width) * 9) + 1; // Niveles 1-10
+            this.skillLevel = skillLevel;
+        },
+        onSkillBarClick(e) {
+            if (e.target.classList.contains('perfil-nivel-thumb')) return;
+            const bar = this.$refs.skillBar;
+            const rect = bar.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            x = Math.max(0, Math.min(x, rect.width));
+            const skillLevel = Math.round((x / rect.width) * 9) + 1;
+            this.skillLevel = skillLevel;
+        },
+        stopDragSkill() {
+            this.draggingSkill = false;
+            document.body.classList.remove('grabbing-cursor');
+            document.removeEventListener('mousemove', this.onDragSkill);
+            document.removeEventListener('mouseup', this.stopDragSkill);
+        },
         accordionEnter(el) {
             el.style.height = 'auto';
             el.style.opacity = '1';
@@ -501,7 +589,13 @@ export default {
         accordionAfterLeave(el) {
             el.style.transition = '';
             el.style.height = '';
-        }
+        },
+        weaponBgColor(rarity) {
+            if (rarity === 5) return 'linear-gradient(135deg, #b89c3a 60%, #e5d9a3 100%)';
+            if (rarity === 4) return 'linear-gradient(135deg, #6d3e99 60%, #b9a3d1 100%)';
+            return '#23243a';
+            return '#23243a';
+        },
     }
 };
 </script>
@@ -529,11 +623,11 @@ export default {
 .perfil-header {
     display: grid;
     grid-template-columns: 1fr 1.4fr;
-    gap: 40px;
     align-items: flex-start;
     border-radius: 32px;
     width: 100%;
     box-sizing: border-box;
+    margin-left: -100px;
 }
 
 .perfil-content-centered {
@@ -578,22 +672,24 @@ export default {
     flex-direction: row;
     align-items: flex-start;
     min-height: 380px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .perfil-img-col {
-    flex: 1 1 340px;
+    flex: 1 1;
     display: flex;
     justify-content: center;
 }
 
 .perfil-img-bg {
-    padding: 32px 32px 0 32px;
+    padding: 0;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     min-width: unset;
     min-height: unset;
-    width: 100%;
+    width: 90%;
     max-width: 400px;
     overflow: hidden;
 
@@ -624,7 +720,6 @@ export default {
 .perfil-nombre {
     font-size: 2.2rem;
     font-weight: 800;
-    color: #a44ce7;
     margin-bottom: 0;
     letter-spacing: 1px;
     text-shadow: 0 2px 8px #000a;
@@ -653,8 +748,8 @@ export default {
     font-size: 1.17em;
     font-weight: 700;
     color: #fff;
-    margin-top: 40px;
-    margin-bottom: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     letter-spacing: 2px;
     background: none;
     border: none;
@@ -791,7 +886,6 @@ export default {
     background: #23243a;
     border-radius: 5px;
     text-align: center;
-    min-width: 90px;
     box-shadow: 0 2px 8px #0002;
     height: 120px;
     display: flex;
@@ -891,7 +985,7 @@ export default {
 }
 
 .perfil-intro-box {
-    width: 96%;
+    width: 100%;
     background: #23243a;
     border-radius: 5px;
     padding: 18px 18px 14px 18px;
@@ -999,8 +1093,8 @@ export default {
     right: 40px;
     top: 50%;
     transform: translateY(-50%);
-    width: 700px;
-    min-height: 600px;
+    width: 800px;
+    min-height: 0;
     z-index: 10;
     margin-left: 40px;
     box-shadow: 0 2px 24px #0007;
@@ -1010,7 +1104,7 @@ export default {
     align-items: flex-start;
     background: #18192a;
     border-radius: 18px;
-    padding: 32px 38px 32px 38px;
+    padding: 16px 16px 16px 16px;
     font-size: 1.18em;
 }
 
@@ -1036,32 +1130,31 @@ export default {
     display: flex;
     align-items: center;
     gap: 18px;
-    font-size: 1.20em;
+    font-size: 1em;
     font-weight: bold;
     margin-bottom: 0;
-    margin-top: 8px;
 }
 
 .perfil-skill-info-subtitulo {
-    font-size: 1em;
+    font-size: 0.8em;
     color: #b0b3c1;
-    margin-top: -10px;
+    margin-top: -16px;
     font-weight: 600;
-    margin-left: 78px;
+    margin-left: 68px;
 }
 
 .perfil-skill-info-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
 }
 
 .perfil-skill-info-desc {
     color: #b0b3c1;
     margin-top: 10px;
-    font-size: 0.9em;
+    font-size: 0.8em;
     line-height: 1.7;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .skilltree-columns {
@@ -1271,7 +1364,13 @@ export default {
     display: block;
 }
 
+:deep(.desc-info) {
+    font-size: 0.9em;
+    display: block;
+}
+
 :deep(.desc-list) {
+    font-size: 0.9em;
     list-style: none;
     padding-left: 0;
     margin: 0;
@@ -1563,7 +1662,7 @@ export default {
 /* --- Modern Weapon Card Redesign --- */
 
 .weapon-card {
-    background: #23243a;
+    background: #373a54;
     border-radius: 8px;
     box-shadow: 0 2px 12px #0004;
     color: #fff;
@@ -1578,7 +1677,7 @@ export default {
     display: flex;
     align-items: center;
     padding: 12px 18px;
-    background: #35364a;
+    background: #23243a;
     border-radius: 8px 8px 0 0;
     position: relative;
 }
@@ -1601,7 +1700,6 @@ export default {
     object-fit: contain;
     margin-right: 18px;
     border-radius: 4px;
-    background: #fff2;
     border: 1px solid #fff3;
 }
 
@@ -1653,7 +1751,7 @@ export default {
 }
 
 .weapon-card-effect {
-    background: #2e2f3a;
+    background: #1c1d2e;
     padding: 16px 24px 10px 24px;
     border-radius: 0 0 8px 8px;
     color: #fff;
@@ -1702,5 +1800,61 @@ export default {
 .accordion-fade-enter-active,
 .accordion-fade-leave-active {
     overflow: hidden;
+}
+
+.skill-slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.skill-slider-label {
+    font-weight: 800;
+    font-size: 0.8em;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.skill-slider-value {
+    font-size: 0.8em;
+    color: #fff;
+    text-shadow: 0 2px 8px #000a;
+    margin-left: 16px;
+}
+
+.skill-slider-stats-list {
+    margin-top: 18px;
+    width: 100%;
+    background: none;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.skill-slider-stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    padding: 6px 0;
+    border-bottom: 1px solid #23243a;
+    background: #23243a;
+}
+
+.skill-slider-stat-label {
+    color: #b0b3c1;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+.skill-slider-stat-value {
+    color: #fff;
+    font-weight: 300;
+    font-size: 0.9em;
+    text-align: right;
+    min-width: 60px;
+    margin-right: 10px;
 }
 </style>

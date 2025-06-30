@@ -86,8 +86,20 @@ export default [
     </li>
 </ul>
 `,
-                    icono: require('@/assets/images/habilidades/Aalto/SP_IconNorGun.webp')
-                }
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconNorGun.webp'),
+                    statsSkill: [
+                        { label: "Daño de 1.ª etapa", values: [16, 17.32, 18.63, 20.47, 21.78, 23.29, 25.39, 27.48, 29.58, 31.81], isPercent: true },
+                        { label: "Daño de 2.ª etapa", values: [26.67, 28.86, 31.04, 34.11, 36.29, 38.81, 42.31, 45.8, 49.3, 53.02], isPercent: true },
+                        { label: "Daño de 3.ª etapa", values: ["24%*2", "25.97%*2", "27.94%*2", "30.07%*2", "32.66%*2", "34.93%*2", "38.08%*2", "41.22%*2", "44.37%*2", "47.72%*2"] },
+                        { label: "Daño de 4.ª etapa", values: ["25.34%*2", "27.42%*2", "29.49%*2", "32.4%*2", "34.48%*2", "36.87%*2", "40.19%*2", "43.51%*2", "46.84%*2", "50.37%*2"] },
+                        { label: "Daño de 5.ª etapa", values: [90.4, 97.82, 105.23, 115.61, 123.02, 131.55, 143.41, 155.27, 167.13, 179.73], isPercent: true },
+                        { label: "ATQ aéreo", values: [30, 32.46, 34.92, 38.37, 40.83, 43.66, 47.59, 51.53, 55.47, 59.65], isPercent: true },
+                        { label: "Coste de resistencia ATQ aéreo", values: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5] },
+                        { label: "Daño apuntado", values: [18, 19.48, 20.96, 23.02, 24.50, 26.20, 28.56, 30.92, 33.28, 35.79], isPercent: true },
+                        { label: "Daño apuntado a máxima carga", values: [40.50, 43.83, 47.15, 51.80, 55.12, 58.94, 64.25, 69.56, 74.88, 80.52], isPercent: true },
+                        { label: "Daño de Contraataque evasivo", values: [107.7, 116.54, 125.37, 137.73, 146.56, 156.72, 170.85, 184.98, 199.11, 214.12], isPercent: true },
+                    ]
+                },
             ],
             [
                 {
@@ -122,19 +134,19 @@ Lanza "Niebla" y 1 "Avatar de Niebla" para provocar a los objetivos circundantes
                 {
                     nombre: "Descanso a mitad del juego",
                     subtitulo: "Ataque normal",
-                    descripcion: `Aalto continuará recuperando Resistencia cuando se encuentre en el estado de <span class="desc-importante">Carrera en niebla</span> en el Circuito del Forte.`,
+                    descripcion: `<span class="desc-info">Aalto continuará recuperando Resistencia cuando se encuentre en el estado de <span class="desc-importante">Carrera en niebla</span> en el Circuito del Forte.</span>`,
                     icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiD2.webp')
                 },
                 {
                     nombre: "Rendimiento perfecto",
                     subtitulo: "Ataque normal",
-                    descripcion: `El <span class="desc-importante">Ataque cargado</span> de Aalto siempre dará un golpe crítico, activado una vez cada 30 s.`,
+                    descripcion: `<span class="desc-info">El <span class="desc-importante">Ataque cargado</span> de Aalto siempre dará un golpe crítico, activado una vez cada 30 s.</span>`,
                     icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiD1.webp')
                 },
                 {
                     nombre: "Cubierta brumosa",
                     subtitulo: "Circuito del Forte",
-                    descripcion: `Cuando Aalto pasa a través de "Niebla" o "Puerta del dilema", entra en <span class="desc-importante">Carrera en niebla</span>.
+                    descripcion: `<span class="desc-info">Cuando Aalto pasa a través de "Niebla" o "Puerta del dilema", entra en <b>Carrera en niebla</b>.</span>
 <ul class="desc-list">
     <li>
         <span class="desc-title">Carrera en niebla</span>
@@ -152,7 +164,7 @@ Durante este periodo, las "Gotas de niebla" se consumen continuamente, y por cad
                 {
                     nombre: "Niebla desvanecida",
                     subtitulo: "Habilidad Outro",
-                    descripcion: "El personaje entrante tiene su Daño Aero amplificado en un 23% durante 14 s o hasta que se cambie.",
+                    descripcion: `<span class="desc-info">El personaje entrante tiene su Daño Aero amplificado en un 23% durante 14 s o hasta que se cambie.</span>`,
                     icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiT.webp')
                 },
             ],
@@ -170,9 +182,7 @@ Durante este periodo, las "Gotas de niebla" se consumen continuamente, y por cad
                 {
                     nombre: "Flor en la niebla",
                     subtitulo: "Liberación de resonancia",
-                    descripcion: `Genera una "Puerta del dilema" al frente, infligiendo <span class="desc-aero">Daño Aero</span>. Cuando las balas pasan a través de la "Puerta del dilema", el ATQ aumenta. "Puerta del dilema" dura 10 s.
-
-Nivel`,
+                    descripcion: `<span class="desc-info">Genera una "Puerta del dilema" al frente, infligiendo <span class="desc-aero">Daño Aero</span>. Cuando las balas pasan a través de la "Puerta del dilema", el ATQ aumenta. "Puerta del dilema" dura 10 s.</span>`,
                     icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiC1.webp')
                 },
             ],
@@ -190,7 +200,7 @@ Nivel`,
                 {
                     nombre: "Disparo finta",
                     subtitulo: "Habilidad Intro",
-                    descripcion: `Aalto aparece de la nada para realizar disparos continuos rápidos, infligiendo <span class="desc-aero">Daño Aero</span>.`,
+                    descripcion: `<span class="desc-info">Aalto aparece de la nada para realizar disparos continuos rápidos, infligiendo <span class="desc-aero">Daño Aero</span>.</span>`,
                     icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiB1.webp')
                 },
             ],
