@@ -273,13 +273,25 @@
                     </div>
                     <transition name="accordion-fade" @enter="accordionEnter" @after-enter="accordionAfterEnter"
                         @leave="accordionLeave" @after-leave="accordionAfterLeave">
-                        <div v-if="weapon.open !== false" class="weapon-card-effect" v-html="weapon.infoHtml"></div>
+                        <div v-if="weapon.open !== false">
+                            <div class="weapon-card-effect">
+                                <div v-html="weapon.efectoArma"></div>
+                                <div v-if="weapon.statsArma && weapon.statsArma.length" class="weapon-card-stats"
+                                    style="padding-left:0;padding-right:0;padding-bottom:0;margin-top:8px;">
+                                    <span v-for="(stat, sidx) in weapon.statsArma" :key="stat.label + sidx"
+                                        style="margin-right: 18px;">
+                                        <b>{{ stat.label }}:</b> <span>{{ stat.value }}</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </transition>
                     <div class="weapon-card-desc">
                         {{ weapon.desc }}
                     </div>
                 </div>
             </div>
+            <h3 class="perfil-section-title">MEJORES SETS DE ECO</h3>
         </div>
 
         <div v-else-if="activeTab === 'equipos'">
@@ -425,7 +437,7 @@ export default {
         const nombre = this.$route.params.nombre;
         this.personaje = resonadores.find(p => p.nombre === nombre);
         if (this.personaje && this.personaje.bestWeapons) {
-            this.personaje.bestWeapons.forEach(w => w.open = true);
+            this.personaje.bestWeapons.forEach(w => w.open = false);
         }
     },
     methods: {
@@ -1657,13 +1669,22 @@ export default {
 
 .weapon-card-stats {
     color: #b0b3c1;
-    font-size: 0.98em;
+    font-size: 1.08em;
+    padding: 0 24px 10px 24px;
     margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+}
+
+.weapon-card-stats b {
+    color: #fff;
+    font-weight: 700;
 }
 
 .weapon-card-desc {
     padding: 18px 24px 18px 24px;
-    color: #b0b3c1;
+    color: #fff;
     font-size: 1.08em;
     border-radius: 0 0 8px 8px;
 }

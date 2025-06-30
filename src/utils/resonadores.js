@@ -248,11 +248,13 @@ Nivel`,
                 refinement: "R1",
                 percent: 100,
                 img: require('@/assets/images/armas/nieblaestatica.webp'),
-                desc: "Opción más viable que ofrece Prob. CRIT como stat principal, buen ATQ base y Regen. de energía.",
-                infoHtml: `
-            <b>Efecto:</b> Aumenta la Regen. de energía un <b>12.8%</b>. Cuando se libera la Habilidad Outro, aumenta el ATQ del Resonador entrante un <b>10%</b>, acumulándose hasta <b>1</b> veces. Este efecto dura <b>14</b> s</b>.<br>
-            <span style="color:#b0b3c1;">Nivel 90: ATQ: <b>587.5</b> | Prob. CRIT: <b>24.3%</b></span>
-        `
+                desc: "La opción más viable que ofrece Prob. CRIT como stat principal, buen ATQ base y Regen. de energía.",
+                efectoArma: `
+            <b>Efecto:</b> Aumenta la Regen. de energía un <b>12.8%</b>. Cuando se libera la Habilidad Outro, aumenta el ATQ del Resonador entrante un <b>10%</b>, acumulándose hasta <b>1</b> veces. Este efecto dura <b>14</b> s.`,
+                statsArma: [
+                    { label: "ATQ", value: 587.5 },
+                    { label: "Prob. CRIT", value: "24.3%" }
+                ]
             },
             {
                 name: "Novestallido",
@@ -261,22 +263,26 @@ Nivel`,
                 percent: 83.54,
                 img: require('@/assets/images/armas/novaburst.webp'),
                 desc: "Opción viable para todos los resonadores, ofrece un buen bonus de ATQ pero es dependiente de mantener los 3 stacks acumulados de esquivar, (Y luego mantenerlos continuamente). El cálculo asume que mantienes el buff perfectamente durante todo el encuentro.",
-                infoHtml: `
-            <b>Efecto:</b> Cuando el personaje esprinta o esquiva, aumenta el ATQ un <b>8%</b>, acumulándose hasta <b>3</b> veces. Este efecto dura <b>8</b></b>.<br>
-            <span style="color:#b0b3c1;">Nivel 90: ATQ: <b>412.5</b> | ATQ%: <b>30.38%</b></span>
-        `
+                efectoArma: `
+            <b>Efecto:</b> Cuando el personaje esprinta o esquiva, aumenta el ATQ un <b>8%</b>, acumulándose hasta <b>3</b> veces. Este efecto dura <b>8</b>.`,
+                statsArma: [
+                    { label: "ATQ", value: 412.5 },
+                    { label: "ATQ%", value: "30.38%" }
+                ]
             },
             {
-                name: "Novestallido",
+                name: "Chorro relativista",
                 rarity: 4,
                 refinement: "R5",
-                percent: 83.54,
+                percent: 83.51,
                 img: require('@/assets/images/armas/novaburst.webp'),
-                desc: "Arma utilizable por todos los resonadores, ofrece buenas bonificaciones de ATQ pero depende de esquivar.",
-                infoHtml: `
-            <b>Efecto:</b> Cuando el personaje esprinta o esquiva, aumenta el ATQ un <b>8%</b>, acumulándose hasta <b>3</b> veces. Este efecto dura <b>8</b></b>.<br>
-            <span style="color:#b0b3c1;">Nivel 90: ATQ: <b>412.5</b> | ATQ%: <b>30.38%</b></span>
-        `
+                desc: "La duración del buff en esta arma es una de las más consistentes y fiables para personajes DPS con pistola que escalan con ATQ. El aumento de ATQ% que otorga al lanzar tu Habilidad de Resonancia es excelente para la mayoría de los personajes, también ofrece una pequeña bonificación de Regen. de energía.",
+                efectoArma: `
+            <b>Efecto:</b> Al lanzar la Habilidad de resonancia, se obtienen <b>10</b> de energía de resonancia y se aumenta el ATQ en un <b>20%</b>, durante <b>16</b> s. Este efecto se puede activar cada <b>20</b> s.`,
+                statsArma: [
+                    { label: "ATQ", value: 462.5 },
+                    { label: "ATQ%", value: "18.23%" }
+                ]
             },
         ],
         tags: [
