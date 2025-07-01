@@ -329,8 +329,8 @@
                         {{ weapon.desc }}
                     </div>
                 </div>
+                <h3 class="perfil-section-title">MEJORES ECOS</h3>
             </div>
-            <h3 class="perfil-section-title">MEJORES ECOS</h3>
         </div>
 
         <div v-else-if="activeTab === 'equipos'">
@@ -406,12 +406,12 @@ export default {
     },
     computed: {
         matsTitle() {
-            if (this.nivel <= 40) return 'Materiales de ascensión - Nivel máximo: 40';
-            if (this.nivel <= 50) return 'Materiales de ascensión - Nivel máximo: 50';
-            if (this.nivel <= 60) return 'Materiales de ascensión - Nivel máximo: 60';
-            if (this.nivel <= 70) return 'Materiales de ascensión - Nivel máximo: 70';
-            if (this.nivel <= 80) return 'Materiales de ascensión - Nivel máximo: 80';
-            return 'Materiales de ascensión - Nivel máximo: 90';
+            if (this.nivel <= 40) return 'Materiales de ascensión - Nivel: 40';
+            if (this.nivel <= 50) return 'Materiales de ascensión - Nivel: 50';
+            if (this.nivel <= 60) return 'Materiales de ascensión - Nivel: 60';
+            if (this.nivel <= 70) return 'Materiales de ascensión - Nivel: 70';
+            if (this.nivel <= 80) return 'Materiales de ascensión - Nivel: 80';
+            return 'Materiales de ascensión - Nivel: 90';
         },
         mats() {
             if (this.personaje?.matsAscension) {
@@ -611,8 +611,8 @@ export default {
 
 <style scoped>
 .perfil-main {
+    max-width: 1100px;
     width: 100%;
-    max-width: 100%;
     margin: 0 auto;
     color: #fff;
     box-sizing: border-box;
@@ -624,12 +624,12 @@ export default {
 
 .perfil-header {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns: auto 0.5fr;
+    column-gap: 40px;
     align-items: flex-start;
     border-radius: 32px;
     width: 100%;
     box-sizing: border-box;
-    margin-left: -100px;
 }
 
 .perfil-content-centered {
@@ -679,36 +679,25 @@ export default {
 }
 
 .perfil-img-col {
-    flex: 1 1;
     display: flex;
     justify-content: center;
+    margin-right: 20px;
+    margin-left: -50px;
 }
 
 .perfil-img-bg {
-    padding: 0;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
     min-width: unset;
     min-height: unset;
-    width: 90%;
-    max-width: 400px;
     overflow: hidden;
+    margin-top: 25px;
 
-}
-
-.perfil-imagen {
-    max-width: 600px;
-    width: 400px;
-    height: 552px;
-    border-radius: 14px;
-    box-shadow: none;
 }
 
 .perfil-info-col {
-    flex: 2 1 500px;
     width: 100%;
-    max-width: 100%;
+    min-width: 700px;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -871,22 +860,22 @@ export default {
 .perfil-mats-title {
     font-size: 1em;
     color: #fff;
-    margin-bottom: 15px;
-    max-width: fit-content;
+    margin-bottom: 20px;
     width: auto;
     margin-left: 0;
 }
 
 .perfil-mats-row {
     display: flex;
-    gap: 18px;
+    gap: 1rem 10px;
     max-width: 100%;
     width: 100%;
+    white-space: nowrap;
 }
 
 .perfil-mat {
-    background: #23243a;
-    border-radius: 5px;
+    background: #18192a;
+    border-radius: 15px;
     text-align: center;
     box-shadow: 0 2px 8px #0002;
     height: 120px;
@@ -894,7 +883,6 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    white-space: nowrap;
     flex: 1 1 0;
     ;
 }
@@ -917,15 +905,18 @@ export default {
 }
 
 .perfil-mat-name {
+    background-color: #1d212b;
+    border-radius: 5px;
     font-size: 13px;
     font-weight: 600;
+    padding: 5px 5px 5px 5px;
     width: 100%;
 }
 
 .perfil-stats-box {
-    background: #23233a;
-    border-radius: 5px;
-    padding: 12px 10px;
+    background: #18192a;
+    border-radius: 15px;
+    padding: 15px 15px 15px 15px;
     margin-top: 18px;
     box-shadow: 0 2px 8px #0002;
     display: flex;
@@ -988,7 +979,7 @@ export default {
 
 .perfil-intro-box {
     width: 100%;
-    background: #23243a;
+    background: #18192a;
     border-radius: 5px;
     padding: 18px 18px 14px 18px;
     color: #fff;
@@ -1092,7 +1083,7 @@ export default {
 
 .perfil-skill-info-box {
     position: absolute;
-    right: 40px;
+    right: -300px;
     top: 50%;
     transform: translateY(-50%);
     width: 800px;
@@ -1469,7 +1460,7 @@ export default {
 
 .perfil-dupe-info-box {
     position: absolute;
-    right: -360px;
+    right: -600px;
     top: 50%;
     transform: translateY(-50%);
     width: 700px;
@@ -1522,7 +1513,7 @@ export default {
     transform: translate(-50%, -50%);
     width: 28px;
     height: 28px;
-    background: #fff;
+    background: var(--nivel-bar-main);
     border: 4px solid var(--nivel-bar-main, #a44ce7);
     box-shadow: 0 2px 8px #0006;
     border-radius: 50%;
@@ -1555,8 +1546,9 @@ export default {
 
 .perfil-tabs-menu {
     display: flex;
-    gap: 36px;
-    margin: 100px 0 32px 0;
+    gap: 20px;
+    margin-top: 75px;
+    margin-bottom: 20px;
     justify-content: center;
     align-items: flex-end;
     background: none;
@@ -1592,7 +1584,7 @@ export default {
 }
 
 .perfil-tab-btn.active {
-    background: #23243a;
+    background: #18192a;
     border-color: var(--tab-main, #41FFC2);
 }
 
@@ -1679,7 +1671,7 @@ export default {
     display: flex;
     align-items: center;
     padding: 12px 18px;
-    background: #23243a;
+    background: #18192a;
     border-radius: 8px 8px 0 0;
     position: relative;
 }

@@ -978,7 +978,7 @@ main p {
 /* Introducción */
 
 .guide-header {
-  margin: 32px 0 24px 0;
+  margin: 0px 24px;
 }
 
 .guide-breadcrumbs {

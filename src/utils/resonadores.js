@@ -159,7 +159,7 @@ Durante este periodo, las "Gotas de niebla" se consumen continuamente, y por cad
     </li>
 </ul>
 `,
-                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiB1.webp')
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiY.webp')
                 },
                 {
                     nombre: "Niebla desvanecida",
@@ -201,7 +201,7 @@ Durante este periodo, las "Gotas de niebla" se consumen continuamente, y por cad
                     nombre: "Disparo finta",
                     subtitulo: "Habilidad Intro",
                     descripcion: `<span class="desc-info">Aalto aparece de la nada para realizar disparos continuos rápidos, infligiendo <span class="desc-aero">Daño Aero</span>.</span>`,
-                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiB1.webp')
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiQTE.webp')
                 },
             ],
         ],
