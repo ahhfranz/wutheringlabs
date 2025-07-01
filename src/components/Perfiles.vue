@@ -84,7 +84,6 @@
             </div>
         </div>
 
-        <!-- Menú de pestañas -->
         <div class="perfil-tabs-menu" :style="{
             '--tab-main': elementColors.main,
             '--tab-grad': elementColors.grad
@@ -96,9 +95,6 @@
             </div>
         </div>
 
-
-        <!-- Contenido de pestañas -->
-
         <div v-if="activeTab === 'perfil'">
             <div class="perfil-content-centered" :style="{
                 '--diamond-main': elementColors.main,
@@ -108,13 +104,13 @@
             }">
                 <div class="perfil-intro-section">
                     <h3 class="perfil-section-title">INTRODUCCIÓN</h3>
-                    <div class="perfil-intro-box">
+                    <div class="perfil-box">
                         <span class="perfil-intro-highlight" :style="{ color: elementColors.main }">
                             {{ personaje.nombre }}
                         </span>
                         es un personaje de
                         <span :class="['perfil-intro-rareza-' + personaje.rareza]">{{ personaje.rareza
-                            }}★</span> del
+                        }}★</span> del
                         elemento
                         <span class="perfil-intro-elemento" :class="elementColorClass">
                             {{ personaje.elemento.charAt(0).toUpperCase() + personaje.elemento.slice(1) }}
@@ -122,7 +118,7 @@
                         que utiliza
                         <span class="perfil-intro-arma">{{ personaje.arma.charAt(0).toUpperCase() +
                             personaje.arma.slice(1)
-                            }}</span>
+                        }}</span>
                         como arma.<br>
                         <span class="perfil-intro-desc">
                             {{ personaje.descripcion || 'Sin descripción disponible.' }}
@@ -235,7 +231,6 @@
                                     class="skill-slider-stat-row">
                                     <span class="skill-slider-stat-label">{{ stat.label }}</span>
                                     <span class="skill-slider-stat-value">
-                                        <!-- Si es porcentaje, añade % -->
                                         <template
                                             v-if="stat.isPercent && typeof stat.values[skillLevel - 1] === 'number'">
                                             {{ stat.values[skillLevel - 1].toFixed(2) }}%
@@ -270,7 +265,7 @@
                                 <img v-if="selectedDupeData.icono" :src="selectedDupeData.icono"
                                     class="perfil-skill-info-icon" />
                                 <span>{{ selectedDupeData.titulo || ('Cadena de Resonancia ' + (selectedDupe + 1))
-                                    }}</span>
+                                }}</span>
                             </div>
                             <div v-if="selectedDupeData.subtitulo" class="perfil-skill-info-subtitulo">
                                 {{ selectedDupeData.subtitulo }}
@@ -298,11 +293,11 @@
                             'weapon-card-title-5': weapon.rarity === 5
                         }">
                             <b>{{ weapon.name }}</b>
-                            <span class="weapon-card-refine" :class="{
+                            <span class="weapon-card-refine-badge" :class="{
                                 'weapon-card-refine-4': weapon.rarity === 4,
                                 'weapon-card-refine-5': weapon.rarity === 5
                             }">
-                                ({{ weapon.refinement }})
+                                {{ weapon.refinement }}
                             </span>
                         </div>
                         <button class="weapon-card-toggle" @click="weapon.open = !weapon.open">
@@ -330,7 +325,28 @@
                     </div>
                 </div>
                 <h3 class="perfil-section-title">MEJORES ECOS</h3>
+                <div class="perfil-box perfil-ecos-info">
+                    <div class="ecos-info-title">¿Cómo se clasifican los ecos?</div>
+                    <div class="ecos-info-main">
+                        <span class="ecos-info-label">Conjunto principal:</span>
+                        El mejor conjunto general para el personaje, que apoya su estilo de juego principal y funciona
+                        directamente sin necesidad de ajustes.
+                    </div>
+                    <div class="ecos-info-main">
+                        <span class="ecos-info-label">Conjuntos situacionales:</span>
+                        Alternativas que buscan crear un estilo de juego diferente o están orientadas a optimizar y
+                        maximizar el
+                        daño de otro personaje del equipo.
+                    </div>
+                </div>
+                <div class="perfil-ecos-list">
+                    <PerfilesEcos :personaje="personaje" />
+                </div>
             </div>
+        </div>
+
+        <div v-else-if="activeTab === 'stats'">
+            <div class="perfil-tab-content-placeholder">Sección de Stats (en desarrollo)</div>
         </div>
 
         <div v-else-if="activeTab === 'equipos'">
@@ -356,6 +372,7 @@
 
 
 <script>
+import PerfilesEcos from './Perfiles-ecos.vue';
 import resonadores from '@/utils/resonadores.js';
 
 const ELEMENT_COLORS = {
@@ -369,6 +386,9 @@ const ELEMENT_COLORS = {
 };
 
 export default {
+    components: {
+        PerfilesEcos
+    },
     data() {
         return {
             personaje: null,
@@ -390,6 +410,11 @@ export default {
                     key: 'build',
                     label: 'BUILD',
                     icon: `<svg width="24" height="24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" fill="#222"/><path d="M8 8h8v8H8z" fill="#222"/></svg>`
+                },
+                {
+                    key: 'stats',
+                    label: 'STATS',
+                    icon: `<svg width="24" height="24" fill="none"><rect x="4" y="14" width="3" height="6" rx="1.5" fill="#222"/><rect x="10.5" y="9" width="3" height="11" rx="1.5" fill="#222"/><rect x="17" y="5" width="3" height="15" rx="1.5" fill="#222"/></svg>`
                 },
                 {
                     key: 'equipos',
@@ -556,7 +581,7 @@ export default {
             const rect = bar.getBoundingClientRect();
             let x = e.clientX - rect.left;
             x = Math.max(0, Math.min(x, rect.width));
-            const skillLevel = Math.round((x / rect.width) * 9) + 1; // Niveles 1-10
+            const skillLevel = Math.round((x / rect.width) * 9) + 1;
             this.skillLevel = skillLevel;
         },
         onSkillBarClick(e) {
@@ -593,9 +618,8 @@ export default {
             el.style.height = '';
         },
         weaponBgColor(rarity) {
-            if (rarity === 5) return 'linear-gradient(135deg, #b89c3a 60%, #e5d9a3 100%)';
-            if (rarity === 4) return 'linear-gradient(135deg, #6d3e99 60%, #b9a3d1 100%)';
-            return '#23243a';
+            if (rarity === 5) return '#facc15';
+            if (rarity === 4) return '#a44ce7';
             return '#23243a';
         },
     }
@@ -650,19 +674,6 @@ export default {
     margin-left: 0;
     align-items: flex-start;
     box-sizing: border-box;
-}
-
-.perfil-intro-section {
-    margin-top: 36px;
-}
-
-.perfil-intro-box {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding-left: 0;
-    padding-right: 0;
-
 }
 
 .perfil-skilltree-section {
@@ -973,11 +984,7 @@ export default {
     font-weight: 700;
 }
 
-.perfil-intro-section {
-    margin-top: 36px;
-}
-
-.perfil-intro-box {
+.perfil-box {
     width: 100%;
     background: #18192a;
     border-radius: 5px;
@@ -1613,10 +1620,10 @@ export default {
 }
 
 .perfil-tab-btn .perfil-tab-label {
-    font-size: 1.08em;
-    font-weight: 800;
+    font-size: 1.17em;
+    font-weight: 700;
     color: #b0b3c1;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-shadow: none;
     margin-top: 8px;
     transition: color 0.2s;
@@ -1625,8 +1632,8 @@ export default {
 
 .perfil-tab-btn.active .perfil-tab-label {
     color: #fff;
-    font-weight: 900;
-    letter-spacing: 1.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .perfil-tab-btn::after {
@@ -1652,8 +1659,34 @@ export default {
     opacity: 0;
 }
 
+.perfil-ecos-info {
+    background: #23243a;
+    border-left: 8px solid #a44ce7;
+    padding: 22px 26px 18px 26px;
+    margin-bottom: 18px;
+    font-size: 1.08em;
+    box-shadow: 0 4px 24px #0002;
+    border-radius: 8px;
+    color: #b0b3c1;
+}
 
-/* --- Modern Weapon Card Redesign --- */
+.ecos-info-title {
+    font-size: 1.13em;
+    font-weight: 700;
+    color: #a44ce7;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.ecos-info-main {
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.ecos-info-label {
+    color: #ffffff;
+    margin-right: 6px;
+}
 
 .weapon-card {
     background: #373a54;
@@ -1713,19 +1746,34 @@ export default {
     gap: 8px;
 }
 
-.weapon-card-refine-4 {
-    color: #a44ce7;
+.weapon-card-refine-badge {
+    display: inline-block;
+    min-width: 36px;
+    padding: 2px 10px;
+    margin-left: 10px;
+    font-size: 1.1em;
+    font-weight: 700;
+    border-radius: 8px;
+    background: #23243a;
+    color: #fff;
+    border: 2px solid #fff3;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px #0002;
+    vertical-align: middle;
+    text-align: center;
+    transition: background 0.2s, border-color 0.2s;
 }
 
-.weapon-card-refine-5 {
-    color: #facc15;
+.weapon-card-refine-4.weapon-card-refine-badge {
+    background: #a44ce7;
+    color: #fff;
+    border-color: #fff3;
 }
 
-.weapon-card-refine-4,
-.weapon-card-refine-5 {
-    font-size: 1.2em;
-    font-weight: 600;
-    margin-left: 6px;
+.weapon-card-refine-5.weapon-card-refine-badge {
+    background: #facc15;
+    color: #222;
+    border-color: #fff3;
 }
 
 .weapon-card-toggle {

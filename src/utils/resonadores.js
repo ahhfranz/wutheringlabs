@@ -286,7 +286,7 @@ Durante este periodo, las "Gotas de niebla" se consumen continuamente, y por cad
                 refinement: "R5",
                 percent: 83.51,
                 img: require('@/assets/images/armas/novaburst.webp'),
-                desc: "La duración del buff en esta arma es una de las más consistentes y fiables para personajes DPS con pistola que escalan con ATQ. El aumento de ATQ% que otorga al lanzar tu Habilidad de Resonancia es excelente para la mayoría de los personajes, también ofrece una pequeña bonificación de Regen. de energía.",
+                desc: "La duración del buff en esta arma es una de las más consistentes y fiables para los DPS que utilizan pistola y escalan con ATQ. El aumento de ATQ% que otorga al lanzar tu Habilidad de Resonancia es excelente para la mayoría de los personajes, también ofrece una pequeña bonificación de Regen. de energía.",
                 efectoArma: `
             <b>Efecto:</b> Al lanzar la Habilidad de resonancia, se obtienen <b>10</b> de energía de resonancia y se aumenta el ATQ en un <b>20%</b>, durante <b>16</b> s. Este efecto se puede activar cada <b>20</b> s.`,
                 statsArma: [
