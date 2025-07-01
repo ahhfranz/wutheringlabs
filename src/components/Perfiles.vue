@@ -105,7 +105,7 @@
                 <div class="perfil-intro-section">
                     <h3 class="perfil-section-title">INTRODUCCIÓN</h3>
                     <div class="perfil-box">
-                        <span class="perfil-intro-highlight" :style="{ color: elementColors.main }">
+                        <span class="perfil-intro-highlight" :class="elementColorClass">
                             {{ personaje.nombre }}
                         </span>
                         es un personaje de
@@ -265,7 +265,7 @@
                                 <img v-if="selectedDupeData.icono" :src="selectedDupeData.icono"
                                     class="perfil-skill-info-icon" />
                                 <span>{{ selectedDupeData.titulo || ('Cadena de Resonancia ' + (selectedDupe + 1))
-                                }}</span>
+                                    }}</span>
                             </div>
                             <div v-if="selectedDupeData.subtitulo" class="perfil-skill-info-subtitulo">
                                 {{ selectedDupeData.subtitulo }}
