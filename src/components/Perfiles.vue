@@ -208,8 +208,13 @@
                                 {{ selectedSkillData.subtitulo }}
                             </div>
                             <div class="perfil-skill-info-desc" v-html="selectedSkillData.descripcion || ''"></div>
-                            <div v-if="selectedSkill && selectedSkill.col === 0 && selectedSkill.idx === 2"
-                                style="width:100%;margin-top:10px;">
+                            <div v-if="selectedSkill && (
+                                (selectedSkill.col === 0 && selectedSkill.idx === 2) ||
+                                (selectedSkill.col === 1 && selectedSkill.idx === 2) ||
+                                (selectedSkill.col === 2 && selectedSkill.idx === 2) ||
+                                (selectedSkill.col === 3 && selectedSkill.idx === 2) ||
+                                (selectedSkill.col === 4 && selectedSkill.idx === 2)
+                            )" style="width:100%;margin-top:10px;">
                                 <div class="skill-slider-header">
                                     <span class="skill-slider-label">NIVEL DE HABILIDAD</span>
                                     <span class="skill-slider-value">{{ skillLevel }}</span>
@@ -300,7 +305,10 @@
                                 {{ weapon.refinement }}
                             </span>
                         </div>
-                        <button class="weapon-card-toggle" @click="weapon.open = !weapon.open">
+                        <button class="weapon-card-toggle" :class="{
+                            'weapon-card-toggle-4': weapon.rarity === 4,
+                            'weapon-card-toggle-5': weapon.rarity === 5
+                        }" @click="weapon.open = !weapon.open">
                             <span v-if="weapon.open">▲</span>
                             <span v-else>▼</span>
                         </button>
@@ -1788,8 +1796,12 @@ export default {
     transition: color 0.2s;
 }
 
-.weapon-card-toggle:hover {
-    color: #ffe066;
+.weapon-card-toggle-4:hover {
+    color: #a44ce7;
+}
+
+.weapon-card-toggle-5:hover {
+    color: #facc15;
 }
 
 .weapon-card-effect {

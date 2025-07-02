@@ -1,154 +1,84 @@
 <template>
-    <div class="ecos-set-card-verde">
+    <div v-for="(eco, idx) in ecosSets" :key="eco.id" :class="[
+        'ecos-set-card',
+        eco.tipo === 'principal' ? 'ecos-set-card-verde' : 'ecos-set-card-gris'
+    ]">
         <div class="ecos-set-header">
-            <div class="ecos-set-verde">PRINCIPAL</div>
-            <img class="ecos-set-icon" src="@/assets/images/ecos/T_IconElementAttriWind.webp" alt="Sierra Gale" />
-            <div class="ecos-set-title"><b>Ventisca de sierra</b></div>
-            <button class="ecos-set-toggle" @click="openVerde = !openVerde">
-                <span v-if="openVerde">▲</span>
+            <div :class="eco.tipo === 'principal' ? 'ecos-set-verde' : 'ecos-set-naranja'">
+                {{ eco.tipo === 'principal' ? 'PRINCIPAL' : 'SITUACIONAL' }}
+            </div>
+            <img class="ecos-set-icon" :src="eco.icon" :alt="eco.nombre" />
+            <div class="ecos-set-title"><b>{{ eco.nombre }}</b></div>
+            <button class="ecos-set-toggle" @click="toggle(idx)">
+                <span v-if="open[idx]">▲</span>
                 <span v-else>▼</span>
             </button>
         </div>
         <transition name="accordion-fade">
-            <div v-if="openVerde" class="ecos-set-bonus">
-                <div>
-                    <b>2 Set:</b> <span class="ecos-highlight">Daño Aero</span> +<b>10%</b>.
-                </div>
-                <div>
-                    <b>5 Set:</b> <span class="ecos-highlight">Daño Aero</span> +<b>30%</b> durante <b>15s</b>
-                    cuando
-                    se utiliza la habilidad intro.
+            <div v-if="open[idx]" class="ecos-set-bonus">
+                <div v-for="bonus in eco.bonus" :key="bonus.set">
+                    <b>{{ bonus.set }} Set:</b>
+                    <span v-html="bonus.desc"></span>
                 </div>
             </div>
-
         </transition>
         <div class="ecos-set-content">
-            <div class="ecos-set-desc">
-                Ofrece un aumento del 10% al Daño Aero y un 30% adicional después de usar la habilidad intro, para
-                un
-                total de un 40% de Daño Aero adicional durante 15 segundos.
-            </div>
-            <div class="ecos-set-options-title">
-                <b>Mejores opciones:</b>
-            </div>
+            <div class="ecos-set-desc">{{ eco.descripcion }}</div>
+            <div class="ecos-set-options-title"><b>MEJORES OPCIONES</b></div>
             <ul class="ecos-set-options-list">
-                <li>
-                    <img class="ecos-echo-img" src="@/assets/images/ecos/T_IconMonsterHead_YZ_33014_UI.webp"
-                        alt="Nightmare: Feilian Beringal" />
+                <li v-for="op in eco.opciones" :key="op.nombre">
+                    <img class="ecos-echo-img" :src="op.img" :alt="op.nombre" />
                     <span>
-                        <b class="ecos-echo-name ecos-echo-name">Pesadilla: Beringal del Bosque</b>
-                        <span class="ecos-echo-desc">
-                            Ofrece un aumento del 12% al Daño Aero y al Ataque cargado cuando se utiliza como Eco
-                            principal, además, es un Eco de tipo invocación, lo que lo hace fácil de usar en la
-                            rotación
-                            de cualquier personaje.
-                        </span>
-                    </span>
-                </li>
-                <li>
-                    <img class="ecos-echo-img" src="@/assets/images/ecos/T_IconMonsterGoods_996_UI.webp"
-                        alt="Feilian Beringal" />
-                    <span>
-                        <b class="ecos-echo-name">Beringal del Bosque</b>
-                        <span class="ecos-echo-desc">
-                            Otorga los mismos beneficios que su variante Pesadilla, pero únicamente después de
-                            transformarse, durante una duración de 15 segundos. Esto se compensa haciendo casi el
-                            doble
-                            de daño que el Pesadilla y otorgando más energía al personaje que lo usa, pero es más
-                            difícil de incorporar en las rotaciones, ya que es necesario cancelar la animación
-                            mediante
-                            un intercambio de personaje después del primer golpe para usarse óptimamente,
-                            asegurándose
-                            de que tu personaje reciba sus mejoras.
-                        </span>
+                        <b class="ecos-echo-name">{{ op.nombre }}</b>
+                        <span class="ecos-echo-desc">{{ op.desc }}</span>
                     </span>
                 </li>
             </ul>
         </div>
     </div>
-
-    <div class="ecos-set-card-gris">
-        <div class="ecos-set-header">
-            <div class="ecos-set-naranja">SITUACIONAL</div>
-            <img class="ecos-set-icon" src="@/assets/images/ecos/T_IconElementAttriCloud.webp" alt="Nubes iluminadas" />
-            <div class="ecos-set-title"><b>Nubes iluminadas</b></div>
-            <button class="ecos-set-toggle" @click="openGris = !openGris">
-                <span v-if="openGris">▲</span>
-                <span v-else>▼</span>
-            </button>
-        </div>
-        <transition name="accordion-fade">
-            <div v-if="openGris" class="ecos-set-bonus">
-                <div>
-                    <b>2 Set:</b> Regen. de energía +<b>10%</b>.
-                </div>
-                <div>
-                    <b>5 Set:</b> Tras usar la Habilidad Outro, el <b>ATQ</b> del siguiente personaje +<b>22.5%</b>
-                    durante <b>15</b> s.
-
-                </div>
-            </div>
-        </transition>
-        <div class="ecos-set-content">
-            <div class="ecos-set-desc">
-                Ofrece un aumento del 10% a la Regen. de Energía, haciéndote mas fácil que logres alcanzar el cap de
-                Regen. de energía de ciertos personajes. Además, al usar la habilidad Outro, otorga
-                al siguiente personaje al que hayas intercambiado un aumento del 22.5% en el ATQ, normalmente
-                intentarás
-                hacerlo en el DPS principal de tu equipo.
-            </div>
-            <div class="ecos-set-options-title">
-                <b>Mejores opciones:</b>
-            </div>
-            <ul class="ecos-set-options-list">
-                <li>
-                    <img class="ecos-echo-img" src="@/assets/images/ecos/T_IconMonsterHead_995_UI.webp"
-                        alt="Garza Impermanencia" />
-                    <span>
-                        <b class="ecos-echo-name ecos-echo-name">Garza Impermanencia</b>
-                        <span class="ecos-echo-desc">
-                            Eco de apoyo que se puede usar a costa de una pérdida considerable de daño para el
-                            personaje
-                            que lo equipa, resumidamente, intercambias daño personal por daño-rendimiento general
-                            del
-                            equipo. Siempre debe
-                            usarse y cancelarse inmediatamente con un cambio de personaje justo antes de realizar la
-                            habilidad Outro, dando
-                            paso a otro DPS. Al hacerlo, se le otorga al siguiente personaje que entra un aumento
-                            del
-                            12%
-                            en el Daño%, lo que, combinado con el conjunto de 5 piezas de Nubes iluminadas, (Que
-                            también
-                            otorga un
-                            22.5% de ATK% bajo las mismas condiciones), representa una mejora considerable. Si bien
-                            el
-                            eco reduce el daño del portador, otorga una gran cantidad de energía al usarse, lo que
-                            generalmente permite prescindir de 1 o incluso 2 subestadísticas de Regen. de Energía
-                            que de otro modo serían necesarias, permitiendo así recuperar parte de ese daño que
-                            estarías
-                            perdiendo.
-                        </span>
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
-
 </template>
 
 <script>
+import ecosData from '@/utils/ecosData.js';
+
 export default {
     props: {
         personaje: Object
     },
+    computed: {
+        ecosSets() {
+            if (!this.personaje?.ecos) return [];
+            return this.personaje.ecos.map(id => ecosData[id]).filter(Boolean);
+        }
+    },
     data() {
         return {
-            openVerde: false,
-            openGris: false,
+            open: []
+        }
+    },
+    watch: {
+        ecosSets: {
+            immediate: true,
+            handler(val) {
+                this.open = val.map(() => false);
+            }
+        }
+    },
+    methods: {
+        toggle(idx) {
+            this.open[idx] = !this.open[idx];
         }
     }
 }
 </script>
+
+
+<style>
+.ecos-highlight {
+    color: #4ade80;
+    font-weight: 700;
+}
+</style>
 
 <style scoped>
 .ecos-set-card-verde {
@@ -241,8 +171,12 @@ export default {
     line-height: 1;
 }
 
-.ecos-set-toggle:hover {
+.ecos-set-toggle-verde:hover {
     color: #4ade80;
+}
+
+.ecos-set-toggle-gris:hover {
+    color: #cecece;
 }
 
 .ecos-set-bonus {
@@ -259,11 +193,6 @@ export default {
     font-size: 1.08em;
 }
 
-.ecos-highlight {
-    color: #4ade80;
-    font-weight: 700;
-}
-
 .ecos-set-content {
     padding: 18px 32px 0 32px;
 }
@@ -276,10 +205,10 @@ export default {
 
 .ecos-set-options-title {
     color: #fff;
-    font-weight: 800;
+    font-weight: 700;
     margin: 10px 0 20px 0;
-    font-size: 1.13em;
-    letter-spacing: 0.1px;
+    font-size: 1em;
+    letter-spacing: 2px;
 }
 
 .ecos-set-options-list {

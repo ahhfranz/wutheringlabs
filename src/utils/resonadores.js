@@ -9,6 +9,7 @@ export default [
         imagenPerfil: require("@/assets/images/perfiles-personajes/Aalto.webp"),
         avatar: require("@/assets/images/personajes/icon_aalto.webp"),
         descripcion: "Es un enigmático Corredor de Información, conocido por su naturaleza esquiva y su sonrisa acogedora. Se rumorea que proporcionará cualquier información al precio correcto.",
+        ecos: ['ventisca', 'nubes'],
         matsAscension: [
             // 1-40
             [
@@ -127,7 +128,14 @@ Lanza "Niebla" y 1 "Avatar de Niebla" para provocar a los objetivos circundantes
     </li>
 </ul>
 `,
-                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiB1.webp')
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiB1.webp'),
+                    statsSkill: [
+                        { label: "Daño de Misil de niebla", values: [30, 32.46, 34.92, 38.37, 40.83, 43.66, 47.59, 51.53, 55.47, 59.65], isPercent: true },
+                        { label: "REU", values: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], isPercent: false },
+                        { label: "PS del Avatar de niebla", values: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100], isPercent: true },
+                        { label: "Duración del Avatar de niebla", values: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8], isPercent: false },
+                        { label: "Regen. de concierto", values: [15, 15, 15, 15, 15, 15, 15, 15, 15, 15], isPercent: false },
+                    ]
                 },
             ],
             [
@@ -159,7 +167,11 @@ Durante este periodo, las "Gotas de niebla" se consumen continuamente, y por cad
     </li>
 </ul>
 `,
-                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiY.webp')
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiY.webp'),
+                    statsSkill: [
+                        { label: "Vel. de movimiento +", values: [40, 40, 40, 40, 40, 40, 40, 40, 40, 40], isPercent: true },
+                        { label: "Daño de Bala de niebla", values: [30, 32.46, 34.92, 38.37, 40.83, 43.66, 47.59, 51.53, 55.47, 59.65], isPercent: true },
+                    ]
                 },
                 {
                     nombre: "Niebla desvanecida",
@@ -183,7 +195,14 @@ Durante este periodo, las "Gotas de niebla" se consumen continuamente, y por cad
                     nombre: "Flor en la niebla",
                     subtitulo: "Liberación de resonancia",
                     descripcion: `<span class="desc-info">Genera una "Puerta del dilema" al frente, infligiendo <span class="desc-aero">Daño Aero</span>. Cuando las balas pasan a través de la "Puerta del dilema", el ATQ aumenta. "Puerta del dilema" dura 10 s.</span>`,
-                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiC1.webp')
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiC1.webp'),
+                    statsSkill: [
+                        { label: "Daño de habilidad", values: [200, 216.4, 232.8, 255.76, 272.16, 291.02, 317.26, 343.5, 369.74, 397.62], isPercent: true },
+                        { label: "ATQ de Puerta del dilema +", values: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10], isPercent: true },
+                        { label: "Coste de resonancia", values: [150, 150, 150, 150, 150, 150, 150, 150, 150, 150] },
+                        { label: "REU", values: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20] },
+                        { label: "Regen. de concierto", values: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20], },
+                    ]
                 },
             ],
             [
@@ -201,7 +220,11 @@ Durante este periodo, las "Gotas de niebla" se consumen continuamente, y por cad
                     nombre: "Disparo finta",
                     subtitulo: "Habilidad Intro",
                     descripcion: `<span class="desc-info">Aalto aparece de la nada para realizar disparos continuos rápidos, infligiendo <span class="desc-aero">Daño Aero</span>.</span>`,
-                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiQTE.webp')
+                    icono: require('@/assets/images/habilidades/Aalto/SP_IconQiushuiQTE.webp'),
+                    statsSkill: [
+                        { label: "Daño de 1.ª etapa", values: ["33.34%*3", "36.07%*3", "38.8%*3", "42.63%*3", "45.36%*3", "48.51%*3", "52.88%*3", "57.25%*3", "61.63%*3", "66.27%*3"], },
+                        { label: "Daño de 2.ª etapa", values: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10] },
+                    ]
                 },
             ],
         ],
