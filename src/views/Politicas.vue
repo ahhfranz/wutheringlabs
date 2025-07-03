@@ -438,26 +438,12 @@
 <script>
 export default {
   mounted() {
-    this.scrollToSection();
-  },
-  watch: {
-    '$route.query.seccion': function () {
-      this.scrollToSection();
-    }
-  },
-  methods: {
-    scrollToSection(retries = 10) {
-      const seccion = this.$route.query.seccion;
-      if (seccion) {
-        this.$nextTick(() => {
-          const el = document.getElementById(seccion);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-          } else if (retries > 0) {
-            setTimeout(() => this.scrollToSection(retries - 1), 150);
-          }
-        });
-      }
+    const seccion = this.$route.query.seccion;
+    if (seccion) {
+      this.$nextTick(() => {
+        const el = document.getElementById(seccion);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      });
     }
   }
 }
