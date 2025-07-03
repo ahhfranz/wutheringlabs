@@ -6,10 +6,10 @@
         <source src="@/assets/images/videos/fondo.mp4" type="video/mp4" />
         Tu navegador no soporta video HTML5.
       </video>
-      <img v-if="isHome && isMobile" id="bg-image" src="@/assets/images/fondo.webp" alt="Fondo" />
-      <div v-if="isHome" class="bg-darken-video"></div>
-      <img v-else id="bg-image" src="@/assets/images/fondo.webp" alt="Fondo" />
-      <div v-if="!isHome" class="bg-darken-image"></div>
+      <img id="bg-image" src="@/assets/images/fondo.webp" alt="Fondo"
+        :class="{ 'is-home': isHome, 'is-mobile': isMobile }" v-show="!isHome || isMobile" />
+      <div v-show="isHome" class="bg-darken-video"></div>
+      <div v-show="!isHome" class="bg-darken-image"></div>
       <div class="bg-overlay"></div>
       <div class="sidebar-overlay"></div>
       <main>
@@ -97,6 +97,18 @@ onBeforeUnmount(() => {
   height: 100vh;
   object-fit: cover;
   z-index: -2;
+  pointer-events: none;
+  user-select: none;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -3;
   pointer-events: none;
   user-select: none;
 }
