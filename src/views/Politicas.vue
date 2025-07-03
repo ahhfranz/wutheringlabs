@@ -438,12 +438,22 @@
 <script>
 export default {
   mounted() {
-    const seccion = this.$route.query.seccion;
-    if (seccion) {
-      this.$nextTick(() => {
-        const el = document.getElementById(seccion);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      });
+    this.scrollToSection();
+  },
+  watch: {
+    '$route.query.seccion': function () {
+      this.scrollToSection();
+    }
+  },
+  methods: {
+    scrollToSection() {
+      const seccion = this.$route.query.seccion;
+      if (seccion) {
+        this.$nextTick(() => {
+          const el = document.getElementById(seccion);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
     }
   }
 }
