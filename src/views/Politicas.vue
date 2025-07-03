@@ -386,6 +386,50 @@
               rel="external nofollow noopener" target="_blank">https://discord.com/invite/3U7bmCyET5</a></p>
         </li>
       </ul>
+      <h2 id="terminos-bot-discord">Términos y Condiciones del Bot de Discord</h2>
+      <p>Al utilizar el bot de Discord de Wuthering Labs ("el Bot"), aceptas los siguientes términos y condiciones. Si
+        no estás de acuerdo con estos términos, por favor, no utilices el Bot.</p>
+      <ul>
+        <li>
+          <strong>Licencia de uso:</strong> Se concede una licencia limitada, no exclusiva e intransferible para
+          utilizar el Bot únicamente con fines personales o no comerciales.
+        </li>
+        <li>
+          <strong>Uso prohibido:</strong> No puedes utilizar el Bot de manera que viole leyes, normativas o derechos de
+          terceros. El uso comercial del Bot requiere consentimiento expreso y por escrito de los propietarios de
+          Wuthering Labs.
+        </li>
+        <li>
+          <strong>Limitación de responsabilidad:</strong> Wuthering Labs no se hace responsable de daños derivados del
+          uso o la imposibilidad de uso del Bot, incluyendo pérdida de datos o beneficios.
+        </li>
+        <li>
+          <strong>Modificaciones:</strong> El Bot puede ser modificado, suspendido o discontinuado en cualquier momento
+          sin previo aviso. Wuthering Labs no será responsable ante los usuarios o terceros por estos cambios.
+        </li>
+        <li>
+          <strong>Propiedad intelectual:</strong> El Bot y todos sus derechos de propiedad intelectual pertenecen a
+          Wuthering Labs. No está permitido copiar, modificar o distribuir el Bot sin autorización expresa y por
+          escrito.
+        </li>
+        <li>
+          <strong>Indemnización:</strong> El usuario acepta indemnizar y eximir de responsabilidad a Wuthering Labs y
+          sus colaboradores ante cualquier reclamación derivada del uso del Bot.
+        </li>
+        <li>
+          <strong>Terminación:</strong> Estos términos pueden ser terminados por cualquiera de las partes en cualquier
+          momento. Al finalizar, el usuario debe dejar de utilizar el Bot inmediatamente.
+        </li>
+        <li>
+          <strong>Ley aplicable:</strong> Estos términos se rigen por las leyes de Argentina. Cualquier disputa será
+          resuelta conforme a la jurisdicción de los tribunales competentes de Buenos Aires.
+        </li>
+        <li>
+          <strong>Acuerdo completo:</strong> Estos términos constituyen el acuerdo completo entre las partes respecto al
+          uso del Bot.
+        </li>
+      </ul>
+      <p>Al utilizar el Bot, reconoces que has leído, entendido y aceptas estos términos y condiciones.</p>
     </section>
 
   </div>
