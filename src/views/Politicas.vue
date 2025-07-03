@@ -446,12 +446,16 @@ export default {
     }
   },
   methods: {
-    scrollToSection() {
+    scrollToSection(retries = 10) {
       const seccion = this.$route.query.seccion;
       if (seccion) {
         this.$nextTick(() => {
           const el = document.getElementById(seccion);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          } else if (retries > 0) {
+            setTimeout(() => this.scrollToSection(retries - 1), 150);
+          }
         });
       }
     }
