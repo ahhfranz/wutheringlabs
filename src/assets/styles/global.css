@@ -27,6 +27,7 @@ html {
 
 body {
   min-height: 100vh;
+  background: #191922 !important;
   color: var(--text-clr);
   overflow-x: hidden;
 }

@@ -2,7 +2,7 @@
   <div id="app" class="app-grid">
     <Sidebar />
     <div class="main-content">
-      <video v-if="isHome && !isMobile" id="bg-video" autoplay loop muted playsinline>
+      <video v-show="isHome && !isMobile" id="bg-video" autoplay loop muted playsinline>
         <source src="@/assets/images/videos/fondo.mp4" type="video/mp4" />
         Tu navegador no soporta video HTML5.
       </video>

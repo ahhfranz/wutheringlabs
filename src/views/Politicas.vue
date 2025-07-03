@@ -386,9 +386,9 @@
               rel="external nofollow noopener" target="_blank">https://discord.com/invite/3U7bmCyET5</a></p>
         </li>
       </ul>
-      <h2 id="terminos-bot-discord">Términos y Condiciones del Bot de Discord</h2>
-      <p>Al utilizar el bot de Discord de Wuthering Labs ("el Bot"), aceptas los siguientes términos y condiciones. Si
-        no estás de acuerdo con estos términos, por favor, no utilices el Bot.</p>
+      <h2 id="terminos-bot-discord">Términos y Condiciones del Bot de Discord (Wuthering Labs)</h2>
+      <p>Al utilizar el bot de Discord de Wuthering Labs, aceptas los siguientes términos y condiciones. Si
+        no estás de acuerdo con estos términos, por favor, NO utilices el Bot.</p>
       <ul>
         <li>
           <strong>Licencia de uso:</strong> Se concede una licencia limitada, no exclusiva e intransferible para
